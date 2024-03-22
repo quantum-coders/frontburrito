@@ -59,6 +59,7 @@
 							<div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
 									class="mb-4 btn-terms"
+									target="_blank"
 									to="https://traderjoexyz.com/avalanche/trade"
 									style="color:#3E3C3E;"
 								>

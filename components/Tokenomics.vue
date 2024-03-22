@@ -7,7 +7,8 @@
           <!-- Inicio de la visualización de Tokenomics -->
           <div class="col-12 col-md-6 col-lg-4" v-for="element in tokenomicsData" :key="element.title">
             <div class="card-footer text-muted">
-                {{ element.footer }}
+                <h3 class="subtitle" style="color: #3E3C3E;">{{ element.footer }}
+              </h3>
               </div>
             <div class="card">
               <img :src="element.image" class="card-img-top" :alt="element.title">

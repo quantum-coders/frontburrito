@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row flex-column-reverse flex-sm-row">
 				<div class="col-12 col-sm-6">
-					<h1 class="title text-center text-sm-start" style="color:#E3CBA6;">Transparent cryptoAI <br>best practices <br>for digital finances.</h1>
+					<h1 class="title text-center text-sm-start mt-5" style="color:#E3CBA6;">Transparent cryptoAI <br>best practices <br>for digital finances.</h1>
 					<h2 class="subtitle purple mb-5 text-center text-sm-start">
 						We want a community that not only<br> invests in crypto, but also contributes<br>to the development<br> of important technologies.
 					</h2>
@@ -46,7 +46,7 @@
 					<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDI4ZXFwcnZkcGVzejc0Mndzdm9paWhxaWFhbXBja3B6NGs3cW9kMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VOZNczxe2yDGE/giphy.gif" alt="">
 					<div class="d-flex justify-content-center">
 					<bpay-button-v2
-									href="https://ag1.tech"
+									href="/staking-ia-crypto-finance"
 									target="_blank"
 									class="mt-5 ms-5"
 									style="color:#3E3C3E;"
