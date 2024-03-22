@@ -1,5 +1,5 @@
 <template>
     <div>
-        hello2
+        <background-cards />
     </div>
 </template>

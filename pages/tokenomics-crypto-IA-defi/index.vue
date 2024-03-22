@@ -1,6 +1,7 @@
 <template>
     <div>
-        <avalanche-block />
         <subnet-block />
+        <avalanche-block />
+        <tokenomics />
     </div>
 </template>

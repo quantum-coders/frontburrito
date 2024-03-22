@@ -59,7 +59,7 @@
 							<div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
 									class="mb-4 btn-terms"
-									to="/terms-and-conditions"
+									to="https://traderjoexyz.com/avalanche/trade"
 									style="color:#3E3C3E;"
 								>
 									<img src="/icon-terms.png" :alt="$t('footer.button.terms')">
@@ -68,7 +68,7 @@
 							</div>
 							<div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
-									href="https://ag1.tech"
+									href="/markets"
 									target="_blank"
 									style="color:#3E3C3E;"
 								>

@@ -3,13 +3,10 @@
 		<div class="container">
 			<div class="row align-items-center flex-row-reverse">
 				<div class="col col-12 col-sm-6">
-					<div class="animation">
-						<iframe
-							src="https://player.vimeo.com/video/850725489?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&background=1"
-							frameborder="0"
-							allow="autoplay; fullscreen; picture-in-picture"
-							allowfullscreen
-						></iframe>
+					<div>
+						<img
+							src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWQzdDhidm8wbzBhbWc2OHkwYzBlemI5eDZiNjd3dWI3bGxtYTFyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z8lJWgEqMlvoVS9lzr/giphy.gif"
+						/>
 					</div>
 				</div>
 				<div class="col col-12 col-sm-6">
@@ -24,7 +21,7 @@
 
 							<nuxt-link
 								class="purple"
-								to="https://avascan.info/blockchain/c/token/0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf"
+								to="https://traderjoexyz.com/avalanche/trade"
 								target="_blank"
 							>See
 								<strong><u>BurritoIA</u></strong> contract on-chain

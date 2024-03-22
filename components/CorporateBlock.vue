@@ -43,7 +43,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img src="/photo_5.png" alt="">
+					<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDI4ZXFwcnZkcGVzejc0Mndzdm9paWhxaWFhbXBja3B6NGs3cW9kMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VOZNczxe2yDGE/giphy.gif" alt="">
 					<div class="d-flex justify-content-center">
 					<bpay-button-v2
 									href="https://ag1.tech"

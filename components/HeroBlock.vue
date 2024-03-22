@@ -6,8 +6,8 @@
 					<img class="image" src="/photo_7_w_prev_ui.png" alt="">
 				</div>
 				<div class="col-12 col-sm-6 text-center" style="margin-left: 0px;"> <!-- Añade text-center aquí -->
-					<img class="logo" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDI4ZXFwcnZkcGVzejc0Mndzdm9paWhxaWFhbXBja3B6NGs3cW9kMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VOZNczxe2yDGE/giphy.gif" alt="Blockpay Advisory">
-					<h2 class="title mb-5 glow" style="color: #E3CBA6;"><strong>Because it is important to democratize<br> the combination of AI+Crypto</strong></h2>
+					<img class="logo" src="/photo_5.png" alt="Blockpay Advisory">
+					<h2 class="title mb-5" style="color: #E3CBA6;"><strong>Because it is important to democratize<br> the combination of AI+Crypto</strong></h2>
 					<div class="button-group d-flex justify-content-center gap-4"> <!-- Ajusta este div para centrar los botones -->
 						<!-- <bpay-button-v2 tag="button" class="px-5 btn-send">How to buy</bpay-button-v2>
 						<bpay-button-v2 tag="button" class="px-5 btn-send">Tokenomics</bpay-button-v2> -->

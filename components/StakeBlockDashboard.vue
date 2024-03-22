@@ -8,8 +8,8 @@
 		<div class="container">
 			<div class="title d-flex flex-column flex-sm-row justify-content-between gap-2 gap-sm-4 align-items-center align-items-center">
 				<h1 class="purple m-0 fw-bold text-center text-start text-balance">Stake your NFTs to buy $BurritoIA</h1>
-				<p class="purple m-0 text-center text-sm-end text-balance">Select your NFT to be STAKED
-					<small>(Stake as many as you wish)</small>
+				<p class="purple m-0 text-center text-sm-end text-balance">AI-powerd YIELD maximizer
+					<small>Deposit tokens for the smartest yield</small>
 				</p>
 			</div>
 
@@ -23,7 +23,7 @@
 			<div
 				class="cards d-flex gap-4 align-items-center flex-column flex-sm-row mb-2"
 			>
-				nfcarouselle
+				carouselle
 			</div>
 
 			<div class="legends-wrapper">

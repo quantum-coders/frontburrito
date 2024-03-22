@@ -2,10 +2,11 @@
 	<div class="block block-avalanche bg-white">
 		<div class="container">
 			<div class="block-wrapper">
+
 				<h2 class="purple title mb-5 text-center text-sm-start">Democratizing IA will increase transparency and efficency</h2>
 				<div class="avalanche text-center d-flex align-items-center flex-column flex-sm-row">
-					<img class="mb-3 me-sm-5" src="/AVAX.png" alt="Avalanche">
-					<p>The human florishing will follow</p>
+					<img class="mb-3 me-sm-5" src="/Finance-Defi-IA-crypto-website.png" alt="Avalanche">
+					<p class="subtitle">The human florishing will follow.............</p>
 				</div>
 				<img src="/photo_7_w_prev_ui.png" alt="Avalanche">
 			</div>
