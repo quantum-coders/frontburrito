@@ -48,6 +48,7 @@
 					<bpay-button-v2
 									href="https://ag1.tech"
 									target="_blank"
+									class="mt-5 ms-5"
 									style="color:#3E3C3E;"
 								>
 									<img src="/icon-terms.png">

@@ -17,7 +17,7 @@
 									class="text-decoration-none"
 									style="color:#3E3C3E;"
 								:to="'#'"
-								>Tokenomics
+								><strong>Tokenomics</strong>
 								</nuxt-link>
 							</li>
 							<li class="p-3">
@@ -25,7 +25,7 @@
 									class="text-decoration-none"
 									style="color:#3E3C3E;"
 								:to="'#'"
-								>Staking-IA
+								><strong>Staking-IA</strong>
 								</nuxt-link>
 							</li>
 							<li class="p-3">
@@ -33,7 +33,7 @@
 									class="text-decoration-none"
 									style="color:#3E3C3E;"
 								:to="'#'"
-								>Markets
+								><strong>Markets</strong>
 								</nuxt-link>
 							</li>
 						</ul>
@@ -70,6 +70,7 @@
 								<bpay-button-v2
 									href="/markets"
 									target="_blank"
+									class="text"
 									style="color:#3E3C3E;"
 								>
 									<img src="/icon-terms.png">
