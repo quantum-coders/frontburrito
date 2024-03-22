@@ -1,0 +1,239 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/HeroBlock.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<div class=\"block block-hero bg-white d-flex align-items-center\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row align-items-center\">\n\t\t\t\t<div class=\"col-12 col-sm-6\">\n\t\t\t\t\t<img class=\"image\" src=\"/splash.png\" alt=\"\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12 col-sm-6 text-center\" style=\"margin-left: 0px;\"> <!-- Añade text-center aquí -->\n\t\t\t\t\t<img class=\"logo\" src=\"/274383.png\" alt=\"Blockpay Advisory\">\n\t\t\t\t\t<h2 class=\"subtitle purple mb-5\">Starting your new project is easy <br>for the AI to reach and follow new customers</h2>\n\t\t\t\t\t<div class=\"button-group d-flex justify-content-center gap-4\"> <!-- Ajusta este div para centrar los botones -->\n\t\t\t\t\t\t<bpay-button-v2 tag=\"button\" class=\"px-5 btn-send\">AI Leads</bpay-button-v2>\n\t\t\t\t\t\t<bpay-button-v2 tag=\"button\" class=\"px-5 btn-send\">AI emails</bpay-button-v2>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n\n<script setup>\n</script>\n\n<style lang=\"sass\" scoped>\n\n\t.block\n\t\theight: 80vh\n\t\toverflow-x: clip\n\n\t\t.logo\n\t\t\tmax-width: 90%\n\t\t\tmargin: 0 auto 2rem\n\t\t\tdisplay: block\n\n\t\t\t@media (min-width: $sm)\n\t\t\t\tmax-width: 100%\n\t\t\t\tmargin: auto\n\n\t\t.image\n\t\t\twidth: 150%\n\t\t\tmax-width: 150%\n\t\t\tleft: 55%\n\t\t\ttransform: translateX(-45%)\n\t\t\tmargin-top: 4rem\n\t\t\tmargin-bottom: -6rem\n\n\t\t\t@media (min-width: $sm)\n\t\t\t\tmax-width: 100vw\n\t\t\t\twidth: 60vw\n\t\t\t\tposition: absolute\n\t\t\t\tleft: 50%\n\t\t\t\ttop: 50%\n\t\t\t\tmargin: auto\n\t\t\t\ttransform: translate(-50%, -40%)\n\n</style>",
+      "start": 1709336683273,
+      "end": 1709336713085,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709336713086,
+      "end": 1709336713086,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709336713086,
+      "end": 1709336713086,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709336713087,
+      "end": 1709336713087,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709336713087,
+      "end": 1709336713087,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709336713087,
+      "end": 1709336713087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709336713087,
+      "end": 1709336713087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709336713087,
+      "end": 1709336713087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709336713088,
+      "end": 1709336713088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\nimport _imports_0 from '/splash.png'\nimport _imports_1 from '/274383.png'\n\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-ae4481c1\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"block block-hero bg-white d-flex align-items-center\" }\nconst _hoisted_2 = { class: \"container\" }\nconst _hoisted_3 = { class: \"row align-items-center\" }\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { class: \"col-12 col-sm-6\" }, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    class: \"image\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1))\nconst _hoisted_5 = {\n  class: \"col-12 col-sm-6 text-center\",\n  style: {\"margin-left\":\"0px\"}\n}\nconst _hoisted_6 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"img\", {\n  class: \"logo\",\n  src: _imports_1,\n  alt: \"Blockpay Advisory\"\n}, null, -1))\nconst _hoisted_7 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"h2\", { class: \"subtitle purple mb-5\" }, [\n  /*#__PURE__*/_createTextVNode(\"Starting your new project is easy \"),\n  /*#__PURE__*/_createElementVNode(\"br\"),\n  /*#__PURE__*/_createTextVNode(\"for the AI to reach and follow new customers\")\n], -1))\nconst _hoisted_8 = { class: \"button-group d-flex justify-content-center gap-4\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_bpay_button_v2 = _resolveComponent(\"bpay-button-v2\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _hoisted_4,\n        _createElementVNode(\"div\", _hoisted_5, [\n          _hoisted_6,\n          _hoisted_7,\n          _createElementVNode(\"div\", _hoisted_8, [\n            _createVNode(_component_bpay_button_v2, {\n              tag: \"button\",\n              class: \"px-5 btn-send\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\"AI Leads\")\n              ]),\n              _: 1\n            }),\n            _createVNode(_component_bpay_button_v2, {\n              tag: \"button\",\n              class: \"px-5 btn-send\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\"AI emails\")\n              ]),\n              _: 1\n            })\n          ])\n        ])\n      ])\n    ])\n  ]))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/leadslanding/components/HeroBlock.vue?vue&type=style&index=0&scoped=ae4481c1&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-ae4481c1\"]])",
+      "start": 1709336713088,
+      "end": 1709336713114,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709336713114,
+      "end": 1709336713115,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336713115,
+      "end": 1709336713115,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709336713115,
+      "end": 1709336713115,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709336713115,
+      "end": 1709336713115,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709336713115,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336713116,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709336713116,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709336713116,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709336713116,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709336713116,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709336713116,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709336713116,
+      "end": 1709336713116,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709336713116,
+      "end": 1709336713117,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709336713117,
+      "end": 1709336713117,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709336713117,
+      "end": 1709336713117,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709336713117,
+      "end": 1709336713117,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709336713117,
+      "end": 1709336713118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709336713118,
+      "end": 1709336713118,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709336713118,
+      "end": 1709336713118,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709336713118,
+      "end": 1709336713126,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709336713126,
+      "end": 1709336713126,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709336713126,
+      "end": 1709336713126,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709336713126,
+      "end": 1709336713126,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709336713127,
+      "end": 1709336713127,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/syn4ps3/Documents/gitworkspace/leadslanding/components/BpayButtonV2.vue\";\nconst _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\nimport _imports_0 from '/splash.png'\nimport _imports_1 from '/274383.png'\n\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-ae4481c1\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"block block-hero bg-white d-flex align-items-center\" }\nconst _hoisted_2 = { class: \"container\" }\nconst _hoisted_3 = { class: \"row align-items-center\" }\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { class: \"col-12 col-sm-6\" }, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    class: \"image\",\n    src: _imports_0,\n    alt: \"\"\n  })\n], -1))\nconst _hoisted_5 = {\n  class: \"col-12 col-sm-6 text-center\",\n  style: {\"margin-left\":\"0px\"}\n}\nconst _hoisted_6 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"img\", {\n  class: \"logo\",\n  src: _imports_1,\n  alt: \"Blockpay Advisory\"\n}, null, -1))\nconst _hoisted_7 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"h2\", { class: \"subtitle purple mb-5\" }, [\n  /*#__PURE__*/_createTextVNode(\"Starting your new project is easy \"),\n  /*#__PURE__*/_createElementVNode(\"br\"),\n  /*#__PURE__*/_createTextVNode(\"for the AI to reach and follow new customers\")\n], -1))\nconst _hoisted_8 = { class: \"button-group d-flex justify-content-center gap-4\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_bpay_button_v2 = __nuxt_component_0\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _hoisted_4,\n        _createElementVNode(\"div\", _hoisted_5, [\n          _hoisted_6,\n          _hoisted_7,\n          _createElementVNode(\"div\", _hoisted_8, [\n            _createVNode(_component_bpay_button_v2, {\n              tag: \"button\",\n              class: \"px-5 btn-send\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\"AI Leads\")\n              ]),\n              _: 1\n            }),\n            _createVNode(_component_bpay_button_v2, {\n              tag: \"button\",\n              class: \"px-5 btn-send\"\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\"AI emails\")\n              ]),\n              _: 1\n            })\n          ])\n        ])\n      ])\n    ])\n  ]))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/leadslanding/components/HeroBlock.vue?vue&type=style&index=0&scoped=ae4481c1&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-ae4481c1\"]])",
+      "start": 1709336713127,
+      "end": 1709336713127,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709336713127,
+      "end": 1709336713128,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709336713128,
+      "end": 1709336713128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709336713128,
+      "end": 1709336713128,
+      "order": "normal"
+    }
+  ]
+}

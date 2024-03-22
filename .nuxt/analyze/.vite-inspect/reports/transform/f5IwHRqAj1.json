@@ -1,0 +1,236 @@
+{
+  "resolvedId": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/routes.mjs",
+  "transforms": [
+    {
+      "name": "virtual",
+      "result": "import { default as indexC1W9GobE68Meta } from \"/home/syn4ps3/Documents/gitworkspace/leadslanding/pages/index.vue?macro=true\";\nexport default [\n  {\n    name: indexC1W9GobE68Meta?.name ?? \"index\",\n    path: indexC1W9GobE68Meta?.path ?? \"/\",\n    meta: indexC1W9GobE68Meta || {},\n    alias: indexC1W9GobE68Meta?.alias || [],\n    redirect: indexC1W9GobE68Meta?.redirect,\n    component: () => import(\"/home/syn4ps3/Documents/gitworkspace/leadslanding/pages/index.vue\").then(m => m.default || m)\n  }\n]",
+      "start": 1709336640875,
+      "end": 1709336640875,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709336640876,
+      "end": 1709336640876,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709336640876,
+      "end": 1709336640877,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709336640877,
+      "end": 1709336640877,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709336640878,
+      "end": 1709336640878,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709336640878,
+      "end": 1709336640878,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709336640879,
+      "end": 1709336640879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709336640879,
+      "end": 1709336640879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709336640879,
+      "end": 1709336640898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709336640898,
+      "end": 1709336640898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709336640898,
+      "end": 1709336640898,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336640899,
+      "end": 1709336640899,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709336640899,
+      "end": 1709336640900,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709336640900,
+      "end": 1709336640900,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709336640900,
+      "end": 1709336640900,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336640901,
+      "end": 1709336640901,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709336640901,
+      "end": 1709336640901,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709336640902,
+      "end": 1709336640902,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709336640902,
+      "end": 1709336640902,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709336640902,
+      "end": 1709336640902,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709336640902,
+      "end": 1709336640902,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709336640902,
+      "end": 1709336640902,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709336640902,
+      "end": 1709336640902,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709336640903,
+      "end": 1709336640904,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709336640905,
+      "end": 1709336640905,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709336640907,
+      "end": 1709336640907,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709336640908,
+      "end": 1709336640908,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709336640909,
+      "end": 1709336640910,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709336640911,
+      "end": 1709336640911,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709336640913,
+      "end": 1709336640919,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709336640921,
+      "end": 1709336640921,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709336640922,
+      "end": 1709336640922,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709336640922,
+      "end": 1709336640923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709336640923,
+      "end": 1709336640923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709336640924,
+      "end": 1709336640924,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709336640925,
+      "end": 1709336640925,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";import { default as indexC1W9GobE68Meta } from \"/home/syn4ps3/Documents/gitworkspace/leadslanding/pages/index.vue?macro=true\";\nexport default [\n  {\n    name: indexC1W9GobE68Meta?.name ?? \"index\",\n    path: indexC1W9GobE68Meta?.path ?? \"/\",\n    meta: indexC1W9GobE68Meta || {},\n    alias: indexC1W9GobE68Meta?.alias || [],\n    redirect: indexC1W9GobE68Meta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/syn4ps3/Documents/gitworkspace/leadslanding/pages/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  }\n]",
+      "start": 1709336640926,
+      "end": 1709336640928,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709336640928,
+      "end": 1709336640928,
+      "order": "normal"
+    }
+  ]
+}

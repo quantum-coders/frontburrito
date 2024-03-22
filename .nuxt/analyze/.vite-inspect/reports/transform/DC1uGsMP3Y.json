@@ -1,0 +1,238 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/InfoBullet.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<div class=\"block block-nodes bg-white\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"block-wrapper d-flex align-items-center flex-column flex-sm-row\">\n\t\t\t\t<img src=\"/nodes.png\" class=\"d-none d-sm-block nodes\" alt=\"\">\n\t\t\t\t<img src=\"/nodes-mobile.png\" class=\"nodes d-block d-sm-none mb-4\" alt=\"\">\n\t\t\t\t<div class=\"content\">\n\t\t\t\t\t<div class=\"feature mb-5\" v-for=\"(feature, index) in features\" :key=\"index\">\n\t\t\t\t\t\t<h3 class=\"subtitle purple\">{{ feature.title }}</h3>\n\t\t\t\t\t\t<div v-html=\"feature.copy\" />\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n<script setup>\nconst features = [\n  {\n    title: \"Revolutionize Your Sales with AI Technology\",\n    copy: \"Leverage cutting-edge AI tools to enhance your sales strategy. Our AI-driven solutions analyze customer data to predict buying patterns, enabling personalized sales approaches that dramatically increase conversion rates.\"\n  },\n  {\n    title: \"Automate Your Email Responses with AI\",\n    copy: \"Say goodbye to manual email responses. Our AI-powered email tool understands and responds to customer queries in real-time, ensuring they receive the right information at the right time. Enhance customer satisfaction and free up your team to focus on what they do best.\"\n  },\n  {\n    title: \"Maximize Efficiency with AI-Enabled Sales Platforms\",\n    copy: \"Our AI sales platforms provide you with the insights and automation needed to streamline your sales process. From lead generation to closing deals, AI assists you every step of the way, ensuring that your sales team can focus on building relationships and closing more deals efficiently.\"\n  }\n];\n</script>\n<style lang=\"sass\" scoped>\n\t.block\n\t\tpadding: 5rem 0\n\n\t\t@media (min-width: $sm)\n\t\t\tpadding: 0 0 10rem\n\n\t\t.block-wrapper\n\t\t\tmax-width: 1000px\n\t\t\tmargin: 0 auto\n\n\t\t\t.nodes\n\t\t\t\twidth: 90%\n\n\t\t\t\t@media (min-width: $sm)\n\t\t\t\t\twidth: 180px\n\t\t\t\t\tmargin-right: 5rem\n</style>\n",
+      "start": 1709336683307,
+      "end": 1709336713237,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709336713238,
+      "end": 1709336713238,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709336713238,
+      "end": 1709336713238,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709336713238,
+      "end": 1709336713238,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709336713238,
+      "end": 1709336713239,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709336713239,
+      "end": 1709336713239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709336713239,
+      "end": 1709336713239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709336713239,
+      "end": 1709336713239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709336713239,
+      "end": 1709336713239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\nimport _imports_0 from '/nodes.png'\nimport _imports_1 from '/nodes-mobile.png'\n\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-6077cb9a\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"block block-nodes bg-white\" }\nconst _hoisted_2 = { class: \"container\" }\nconst _hoisted_3 = { class: \"block-wrapper d-flex align-items-center flex-column flex-sm-row\" }\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"img\", {\n  src: _imports_0,\n  class: \"d-none d-sm-block nodes\",\n  alt: \"\"\n}, null, -1))\nconst _hoisted_5 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"img\", {\n  src: _imports_1,\n  class: \"nodes d-block d-sm-none mb-4\",\n  alt: \"\"\n}, null, -1))\nconst _hoisted_6 = { class: \"content\" }\nconst _hoisted_7 = { class: \"subtitle purple\" }\nconst _hoisted_8 = [\"innerHTML\"]\n\n\nconst _sfc_main = {\n  __name: 'InfoBullet',\n  setup(__props) {\n\nconst features = [\n  {\n    title: \"Revolutionize Your Sales with AI Technology\",\n    copy: \"Leverage cutting-edge AI tools to enhance your sales strategy. Our AI-driven solutions analyze customer data to predict buying patterns, enabling personalized sales approaches that dramatically increase conversion rates.\"\n  },\n  {\n    title: \"Automate Your Email Responses with AI\",\n    copy: \"Say goodbye to manual email responses. Our AI-powered email tool understands and responds to customer queries in real-time, ensuring they receive the right information at the right time. Enhance customer satisfaction and free up your team to focus on what they do best.\"\n  },\n  {\n    title: \"Maximize Efficiency with AI-Enabled Sales Platforms\",\n    copy: \"Our AI sales platforms provide you with the insights and automation needed to streamline your sales process. From lead generation to closing deals, AI assists you every step of the way, ensuring that your sales team can focus on building relationships and closing more deals efficiently.\"\n  }\n];\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _hoisted_4,\n        _hoisted_5,\n        _createElementVNode(\"div\", _hoisted_6, [\n          (_openBlock(), _createElementBlock(_Fragment, null, _renderList(features, (feature, index) => {\n            return _createElementVNode(\"div\", {\n              class: \"feature mb-5\",\n              key: index\n            }, [\n              _createElementVNode(\"h3\", _hoisted_7, _toDisplayString(feature.title), 1),\n              _createElementVNode(\"div\", {\n                innerHTML: feature.copy\n              }, null, 8, _hoisted_8)\n            ])\n          }), 64))\n        ])\n      ])\n    ])\n  ]))\n}\n}\n\n}\n\n\nimport \"/home/syn4ps3/Documents/gitworkspace/leadslanding/components/InfoBullet.vue?vue&type=style&index=0&scoped=6077cb9a&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-6077cb9a\"]])",
+      "start": 1709336713239,
+      "end": 1709336713261,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709336713261,
+      "end": 1709336713261,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336713261,
+      "end": 1709336713261,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709336713261,
+      "end": 1709336713261,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709336713262,
+      "end": 1709336713262,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709336713262,
+      "end": 1709336713262,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336713262,
+      "end": 1709336713262,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709336713262,
+      "end": 1709336713262,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709336713263,
+      "end": 1709336713263,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709336713263,
+      "end": 1709336713264,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709336713264,
+      "end": 1709336713264,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709336713265,
+      "end": 1709336713265,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709336713265,
+      "end": 1709336713265,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709336713265,
+      "end": 1709336713275,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709336713275,
+      "end": 1709336713276,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709336713276,
+      "end": 1709336713276,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709336713276,
+      "end": 1709336713276,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709336713276,
+      "end": 1709336713276,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709336713276,
+      "end": 1709336713277,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709336713277,
+      "end": 1709336713277,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709336713277,
+      "end": 1709336713278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709336713278,
+      "end": 1709336713278,
+      "order": "normal"
+    }
+  ]
+}

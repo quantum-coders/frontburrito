@@ -1,0 +1,5490 @@
+{
+  "root": "/home/syn4ps3/Documents/gitworkspace/leadslanding",
+  "modules": [
+    {
+      "id": "\u0000vite:asset:public/274383.png",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "\u0000vite:asset:public/advisory.png",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "\u0000vite:asset:public/icon-envelope.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "\u0000vite:asset:public/icon-terms.png",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "\u0000vite:asset:public/logo.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "\u0000vite:asset:public/nodes-mobile.png",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "\u0000vite:asset:public/nodes.png",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "\u0000vite:asset:public/splash.png",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:asset",
+          "resolveId": 1
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/app.config.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 960
+        },
+        {
+          "name": "vite:define",
+          "transform": 1173
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2133,
+      "invokeCount": 1,
+      "sourceSize": 391,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/i18n.options.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38479
+        },
+        {
+          "name": "alias",
+          "resolveId": 14
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38479,
+      "invokeCount": 1,
+      "sourceSize": 3193,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/app.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38313
+        },
+        {
+          "name": "vite:vue",
+          "transform": 7
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38320,
+      "invokeCount": 1,
+      "sourceSize": 52,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-capital.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 1960
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 7
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 1967,
+      "invokeCount": 1,
+      "sourceSize": 1531,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-corporate.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 14506
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 9
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 14515,
+      "invokeCount": 1,
+      "sourceSize": 1555,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-due.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 14532
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 14536,
+      "invokeCount": 1,
+      "sourceSize": 1653,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-financial.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 1965
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 7
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 1972,
+      "invokeCount": 1,
+      "sourceSize": 1204,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-fund.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 1844
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 18
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 1862,
+      "invokeCount": 1,
+      "sourceSize": 2924,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-modeling.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 14313
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 12
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 14325,
+      "invokeCount": 1,
+      "sourceSize": 3436,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-project.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 1528
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 9
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 1537,
+      "invokeCount": 1,
+      "sourceSize": 1872,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/images/icon-strategic.svg",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "svg-loader",
+          "transform": 14424
+        },
+        {
+          "name": "nuxt:components:imports",
+          "transform": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 14432,
+      "invokeCount": 1,
+      "sourceSize": 2120,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/styles/main.scss",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 342
+        },
+        {
+          "name": "vite:css",
+          "transform": 92845
+        },
+        {
+          "name": "alias",
+          "resolveId": 25
+        }
+      ],
+      "virtual": false,
+      "totalTime": 93187,
+      "invokeCount": 1,
+      "sourceSize": 2047,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/assets/styles/variables.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 4
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 10
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/BpayButtonV2.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1370
+        },
+        {
+          "name": "vite:vue",
+          "transform": 12
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1383,
+      "invokeCount": 1,
+      "sourceSize": 1807,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/BpayButtonV2.vue?vue&type=style&index=0&scoped=09ce848a&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 11730
+        },
+        {
+          "name": "vite:vue",
+          "transform": 93
+        }
+      ],
+      "virtual": true,
+      "totalTime": 11823,
+      "invokeCount": 1,
+      "sourceSize": 1368,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/CorporateBlock.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29838
+        },
+        {
+          "name": "vite:vue",
+          "transform": 66
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 22
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29928,
+      "invokeCount": 1,
+      "sourceSize": 5257,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/CorporateBlock.vue?vue&type=style&index=0&scoped=151e64c0&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 20502
+        },
+        {
+          "name": "vite:vue",
+          "transform": 39
+        }
+      ],
+      "virtual": true,
+      "totalTime": 20541,
+      "invokeCount": 1,
+      "sourceSize": 794,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/Hamburger.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 15378
+        },
+        {
+          "name": "vite:vue",
+          "transform": 27
+        }
+      ],
+      "virtual": false,
+      "totalTime": 15405,
+      "invokeCount": 1,
+      "sourceSize": 1901,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/Hamburger.vue?vue&type=style&index=0&scoped=9795e3f6&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 11750
+        },
+        {
+          "name": "vite:vue",
+          "transform": 110
+        }
+      ],
+      "virtual": true,
+      "totalTime": 11860,
+      "invokeCount": 1,
+      "sourceSize": 1462,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/HeroBlock.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29812
+        },
+        {
+          "name": "vite:vue",
+          "transform": 26
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29838,
+      "invokeCount": 1,
+      "sourceSize": 1424,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/HeroBlock.vue?vue&type=style&index=0&scoped=ae4481c1&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 20610
+        },
+        {
+          "name": "vite:vue",
+          "transform": 65
+        }
+      ],
+      "virtual": true,
+      "totalTime": 20675,
+      "invokeCount": 1,
+      "sourceSize": 479,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/InfoBullet.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29930
+        },
+        {
+          "name": "vite:vue",
+          "transform": 22
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29952,
+      "invokeCount": 1,
+      "sourceSize": 1898,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/InfoBullet.vue?vue&type=style&index=0&scoped=6077cb9a&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 22427
+        },
+        {
+          "name": "vite:vue",
+          "transform": 83
+        }
+      ],
+      "virtual": true,
+      "totalTime": 22510,
+      "invokeCount": 1,
+      "sourceSize": 230,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/SiteFooter.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29566
+        },
+        {
+          "name": "vite:vue",
+          "transform": 28
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29595,
+      "invokeCount": 1,
+      "sourceSize": 3483,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/SiteFooter.vue?vue&type=style&index=0&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 22047
+        },
+        {
+          "name": "vite:vue",
+          "transform": 59
+        }
+      ],
+      "virtual": true,
+      "totalTime": 22106,
+      "invokeCount": 1,
+      "sourceSize": 771,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/SiteHeader.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29483
+        },
+        {
+          "name": "vite:vue",
+          "transform": 36
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 22
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29543,
+      "invokeCount": 1,
+      "sourceSize": 3090,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/SiteHeader.vue?vue&type=style&index=0&scoped=7d2fd2ea&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 22135
+        },
+        {
+          "name": "vite:vue",
+          "transform": 54
+        }
+      ],
+      "virtual": true,
+      "totalTime": 22189,
+      "invokeCount": 1,
+      "sourceSize": 1399,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/Transition/Slide.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1302
+        },
+        {
+          "name": "vite:vue",
+          "transform": 29
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1331,
+      "invokeCount": 1,
+      "sourceSize": 1075,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/layouts/default.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38143
+        },
+        {
+          "name": "vite:vue",
+          "transform": 21
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 9
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38174,
+      "invokeCount": 1,
+      "sourceSize": 839,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/layouts/default.vue?vue&type=style&index=0&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 0
+        },
+        {
+          "name": "vite:css",
+          "transform": 47008
+        },
+        {
+          "name": "vite:vue",
+          "transform": 6
+        }
+      ],
+      "virtual": true,
+      "totalTime": 47014,
+      "invokeCount": 1,
+      "sourceSize": 363,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@intlify/core-base/dist/core-base.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14134
+        },
+        {
+          "name": "vite:define",
+          "transform": 2226
+        },
+        {
+          "name": "alias",
+          "resolveId": 3
+        }
+      ],
+      "virtual": false,
+      "totalTime": 16360,
+      "invokeCount": 1,
+      "sourceSize": 63574,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@intlify/message-compiler/dist/message-compiler.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1539
+        },
+        {
+          "name": "vite:define",
+          "transform": 2160
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3699,
+      "invokeCount": 1,
+      "sourceSize": 56713,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@intlify/shared/dist/shared.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29464
+        },
+        {
+          "name": "vite:define",
+          "transform": 309
+        },
+        {
+          "name": "alias",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 3
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 18
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29773,
+      "invokeCount": 1,
+      "sourceSize": 8491,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29544
+        },
+        {
+          "name": "vite:vue",
+          "transform": 22
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 13
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 8
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29580,
+      "invokeCount": 1,
+      "sourceSize": 5283,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxt/ui-templates/dist/templates/error-404.vue?vue&type=style&index=0&scoped=ccd3db62&lang.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 1
+        },
+        {
+          "name": "vite:css",
+          "transform": 127
+        },
+        {
+          "name": "vite:vue",
+          "transform": 115
+        }
+      ],
+      "virtual": true,
+      "totalTime": 243,
+      "invokeCount": 1,
+      "sourceSize": 3195,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29659
+        },
+        {
+          "name": "vite:vue",
+          "transform": 16
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 9
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29684,
+      "invokeCount": 1,
+      "sourceSize": 3283,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxt/ui-templates/dist/templates/error-500.vue?vue&type=style&index=0&scoped=df79c84d&lang.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 26
+        },
+        {
+          "name": "vite:css",
+          "transform": 100
+        },
+        {
+          "name": "vite:vue",
+          "transform": 28
+        }
+      ],
+      "virtual": true,
+      "totalTime": 154,
+      "invokeCount": 1,
+      "sourceSize": 1494,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxt/ui-templates/dist/templates/error-dev.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29610
+        },
+        {
+          "name": "vite:vue",
+          "transform": 24
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 10
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29644,
+      "invokeCount": 1,
+      "sourceSize": 4089,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxt/ui-templates/dist/templates/error-dev.vue?vue&type=style&index=0&scoped=51ccc917&lang.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 16
+        },
+        {
+          "name": "vite:css",
+          "transform": 188
+        },
+        {
+          "name": "vite:vue",
+          "transform": 52
+        }
+      ],
+      "virtual": true,
+      "totalTime": 256,
+      "invokeCount": 1,
+      "sourceSize": 1946,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/internal.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38386
+        },
+        {
+          "name": "vite:define",
+          "transform": 178
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 111
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38675,
+      "invokeCount": 1,
+      "sourceSize": 9314,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/messages.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38372
+        },
+        {
+          "name": "vite:define",
+          "transform": 203
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38575,
+      "invokeCount": 1,
+      "sourceSize": 3483,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/plugins/i18n.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4788
+        },
+        {
+          "name": "vite:define",
+          "transform": 1204
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 112
+        },
+        {
+          "name": "unctx:transform",
+          "transform": 114
+        }
+      ],
+      "virtual": false,
+      "totalTime": 6218,
+      "invokeCount": 1,
+      "sourceSize": 13508,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/compatibles/head.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14241
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 18
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14259,
+      "invokeCount": 1,
+      "sourceSize": 5417,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/compatibles/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1090
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1090,
+      "invokeCount": 1,
+      "sourceSize": 59,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/compatibles/routing.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14526
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 14
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14540,
+      "invokeCount": 1,
+      "sourceSize": 4891,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/compatibles/utils.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4418
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4418,
+      "invokeCount": 1,
+      "sourceSize": 946,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/extends/i18n.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29446
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 16
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29462,
+      "invokeCount": 1,
+      "sourceSize": 5157,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/extends/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38438
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38438,
+      "invokeCount": 1,
+      "sourceSize": 58,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/extends/router.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29467
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29467,
+      "invokeCount": 1,
+      "sourceSize": 1305,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/routing/utils.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38385
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 36
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38421,
+      "invokeCount": 1,
+      "sourceSize": 4109,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@nuxtjs/i18n/dist/runtime/utils.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38389
+        },
+        {
+          "name": "vite:define",
+          "transform": 197
+        },
+        {
+          "name": "nuxt:imports-transform",
+          "transform": 112
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38698,
+      "invokeCount": 1,
+      "sourceSize": 12531,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@unhead/dom/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4115
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4115,
+      "invokeCount": 1,
+      "sourceSize": 4451,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@unhead/shared/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 39083
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 39083,
+      "invokeCount": 1,
+      "sourceSize": 20287,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@unhead/vue/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4103
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 4
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 6
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4103,
+      "invokeCount": 1,
+      "sourceSize": 3864,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@unhead/vue/dist/shared/vue.cf295fb1.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38845
+        },
+        {
+          "name": "vite:define",
+          "transform": 146
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38991,
+      "invokeCount": 1,
+      "sourceSize": 2633,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@unhead/vue/dist/shared/vue.f36acd1f.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38793
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38793,
+      "invokeCount": 1,
+      "sourceSize": 1035,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/api/api.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2625
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2625,
+      "invokeCount": 1,
+      "sourceSize": 11,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/api/app.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2584
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2584,
+      "invokeCount": 1,
+      "sourceSize": 11,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/api/component.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2594
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2594,
+      "invokeCount": 1,
+      "sourceSize": 11,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/api/context.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2608
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2608,
+      "invokeCount": 1,
+      "sourceSize": 11,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/api/hooks.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2614
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2614,
+      "invokeCount": 1,
+      "sourceSize": 11,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/api/index.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14487
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14487,
+      "invokeCount": 1,
+      "sourceSize": 169,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/api/util.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2619
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2619,
+      "invokeCount": 1,
+      "sourceSize": 11,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/const.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14502
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14502,
+      "invokeCount": 1,
+      "sourceSize": 114,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/env.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14502
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14502,
+      "invokeCount": 1,
+      "sourceSize": 457,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/index.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29878
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29878,
+      "invokeCount": 1,
+      "sourceSize": 1021,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/plugin.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14465
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14465,
+      "invokeCount": 1,
+      "sourceSize": 11,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/proxy.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14497
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14497,
+      "invokeCount": 1,
+      "sourceSize": 3535,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/devtools-api/lib/esm/time.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 15351
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 15351,
+      "invokeCount": 1,
+      "sourceSize": 652,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1062
+        },
+        {
+          "name": "vite:define",
+          "transform": 1194
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2256,
+      "invokeCount": 1,
+      "sourceSize": 34861,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38496
+        },
+        {
+          "name": "vite:define",
+          "transform": 624
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 7
+        }
+      ],
+      "virtual": false,
+      "totalTime": 39120,
+      "invokeCount": 1,
+      "sourceSize": 251094,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3559
+        },
+        {
+          "name": "vite:define",
+          "transform": 313
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 4
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3872,
+      "invokeCount": 1,
+      "sourceSize": 49110,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/@vue/shared/dist/shared.esm-bundler.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38473
+        },
+        {
+          "name": "vite:define",
+          "transform": 603
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 39076,
+      "invokeCount": 1,
+      "sourceSize": 20762,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/bootstrap/scss/_functions.scss",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 14
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 8
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 4
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 632
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 16
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 14
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 10
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/bootstrap/scss/_variables.scss",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 7
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 6
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 4
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 721
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 719
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 30
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/bootstrap/scss/bootstrap.scss",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve (+alias)",
+          "resolveId": 2
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 0,
+      "sourceSize": 0,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/cookie-es/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3454
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 16
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3454,
+      "invokeCount": 1,
+      "sourceSize": 3644,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/defu/dist/defu.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3479
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 10
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3479,
+      "invokeCount": 1,
+      "sourceSize": 2052,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/destr/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3485
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 11
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 9
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3485,
+      "invokeCount": 1,
+      "sourceSize": 2206,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/devalue/index.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38492
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 5
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38492,
+      "invokeCount": 1,
+      "sourceSize": 141,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/devalue/src/constants.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14722
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14722,
+      "invokeCount": 1,
+      "sourceSize": 183,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/devalue/src/parse.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1103
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1103,
+      "invokeCount": 1,
+      "sourceSize": 3053,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/devalue/src/stringify.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1108
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1108,
+      "invokeCount": 1,
+      "sourceSize": 4304,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/devalue/src/uneval.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1090
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1090,
+      "invokeCount": 1,
+      "sourceSize": 6924,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/devalue/src/utils.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14758
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14758,
+      "invokeCount": 1,
+      "sourceSize": 1944,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/h3/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 5173
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 5173,
+      "invokeCount": 1,
+      "sourceSize": 61189,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/hookable/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3529
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 6
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3529,
+      "invokeCount": 1,
+      "sourceSize": 8302,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/iron-webcrypto/dist/index.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3433
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 8
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3433,
+      "invokeCount": 1,
+      "sourceSize": 11782,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/is-https/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 978
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        }
+      ],
+      "virtual": false,
+      "totalTime": 978,
+      "invokeCount": 1,
+      "sourceSize": 610,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/jquery/dist/jquery.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2295
+        },
+        {
+          "name": "commonjs",
+          "transform": 1102
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3397,
+      "invokeCount": 1,
+      "sourceSize": 285314,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/klona/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1023
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1023,
+      "invokeCount": 1,
+      "sourceSize": 1531,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt-svgo/dist/runtime/components/nuxt-icon.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3521
+        },
+        {
+          "name": "vite:vue",
+          "transform": 17
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3538,
+      "invokeCount": 1,
+      "sourceSize": 676,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt-svgo/dist/runtime/components/nuxt-icon.vue?vue&type=style&index=0&lang.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 1
+        },
+        {
+          "name": "vite:css",
+          "transform": 22
+        },
+        {
+          "name": "vite:vue",
+          "transform": 2
+        }
+      ],
+      "virtual": true,
+      "totalTime": 25,
+      "invokeCount": 1,
+      "sourceSize": 160,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/compat/idle-callback.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 39078
+        },
+        {
+          "name": "replace",
+          "transform": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 39078,
+      "invokeCount": 1,
+      "sourceSize": 456,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/injections.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3818
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3818,
+      "invokeCount": 1,
+      "sourceSize": 103,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/island-renderer.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3827
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3827,
+      "invokeCount": 1,
+      "sourceSize": 711,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/nuxt-error-page.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38315
+        },
+        {
+          "name": "vite:vue",
+          "transform": 73
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        },
+        {
+          "name": "vite:build-import-analysis",
+          "transform": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38391,
+      "invokeCount": 1,
+      "sourceSize": 1688,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/nuxt-layout.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29553
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29555,
+      "invokeCount": 1,
+      "sourceSize": 4573,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/nuxt-link.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 15348
+        },
+        {
+          "name": "replace",
+          "transform": 8
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 15356,
+      "invokeCount": 1,
+      "sourceSize": 10679,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/nuxt-root.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4816
+        },
+        {
+          "name": "vite:vue",
+          "transform": 239
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        },
+        {
+          "name": "nuxt:tree-shake-composables:transform",
+          "transform": 25
+        },
+        {
+          "name": "vite:build-import-analysis",
+          "transform": 5
+        }
+      ],
+      "virtual": false,
+      "totalTime": 5087,
+      "invokeCount": 1,
+      "sourceSize": 2456,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/route-provider.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 15349
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 16102
+        }
+      ],
+      "virtual": false,
+      "totalTime": 15351,
+      "invokeCount": 1,
+      "sourceSize": 1419,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/test-component-wrapper.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38377
+        },
+        {
+          "name": "vite:build-import-analysis",
+          "transform": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38378,
+      "invokeCount": 1,
+      "sourceSize": 943,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/utils.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29797
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 68273
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29799,
+      "invokeCount": 1,
+      "sourceSize": 4019,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/chunk.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3836
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3837,
+      "invokeCount": 1,
+      "sourceSize": 889,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/cookie.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 969
+        },
+        {
+          "name": "replace",
+          "transform": 4
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 31027
+        }
+      ],
+      "virtual": false,
+      "totalTime": 973,
+      "invokeCount": 1,
+      "sourceSize": 5238,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/error.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 458
+        },
+        {
+          "name": "replace",
+          "transform": 6
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 5
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 11
+        },
+        {
+          "name": "alias",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 464,
+      "invokeCount": 1,
+      "sourceSize": 1236,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/manifest.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3886
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3886,
+      "invokeCount": 1,
+      "sourceSize": 984,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/payload.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4095
+        },
+        {
+          "name": "replace",
+          "transform": 7
+        },
+        {
+          "name": "vite:build-import-analysis",
+          "transform": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4104,
+      "invokeCount": 1,
+      "sourceSize": 3767,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/preload.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4330
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4331,
+      "invokeCount": 1,
+      "sourceSize": 1600,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/ready.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3865
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3866,
+      "invokeCount": 1,
+      "sourceSize": 412,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/router.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 5095
+        },
+        {
+          "name": "replace",
+          "transform": 10
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 281
+        },
+        {
+          "name": "alias",
+          "resolveId": 159
+        },
+        {
+          "name": "alias",
+          "resolveId": 14
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        }
+      ],
+      "virtual": false,
+      "totalTime": 5105,
+      "invokeCount": 1,
+      "sourceSize": 5939,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/ssr.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1008
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 31020
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1010,
+      "invokeCount": 1,
+      "sourceSize": 1659,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/composables/state.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1079
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 31059
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1079,
+      "invokeCount": 1,
+      "sourceSize": 1434,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/config.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 39045
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        },
+        {
+          "name": "vite:define",
+          "transform": 561
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 39607,
+      "invokeCount": 1,
+      "sourceSize": 1574,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/entry.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 13
+        },
+        {
+          "name": "replace",
+          "transform": 44
+        }
+      ],
+      "virtual": false,
+      "totalTime": 57,
+      "invokeCount": 1,
+      "sourceSize": 2382,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/middleware/manifest-route-rule.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3319
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        },
+        {
+          "name": "unctx:transform",
+          "transform": 4
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3324,
+      "invokeCount": 1,
+      "sourceSize": 356,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/nuxt.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 413
+        },
+        {
+          "name": "replace",
+          "transform": 33
+        },
+        {
+          "name": "vite:define",
+          "transform": 1951
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 9
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 4
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 36
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 11
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 14
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2397,
+      "invokeCount": 1,
+      "sourceSize": 7278,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/plugins/check-outdated-build.client.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2731
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2733,
+      "invokeCount": 1,
+      "sourceSize": 795,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/plugins/chunk-reload.client.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4770
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4770,
+      "invokeCount": 1,
+      "sourceSize": 1042,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/plugins/payload.client.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2723
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2724,
+      "invokeCount": 1,
+      "sourceSize": 1107,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/plugins/revive-payload.client.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2511
+        },
+        {
+          "name": "unctx:transform",
+          "transform": 17
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2528,
+      "invokeCount": 1,
+      "sourceSize": 1661,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/utils.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14166
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14166,
+      "invokeCount": 1,
+      "sourceSize": 84,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/head/runtime/plugins/unhead.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2453
+        },
+        {
+          "name": "replace",
+          "transform": 7
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2460,
+      "invokeCount": 1,
+      "sourceSize": 1315,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/pages/runtime/page.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29496
+        },
+        {
+          "name": "replace",
+          "transform": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 14
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29498,
+      "invokeCount": 1,
+      "sourceSize": 5949,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/pages/runtime/plugins/prefetch.client.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 4761
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4761,
+      "invokeCount": 1,
+      "sourceSize": 1243,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/pages/runtime/plugins/router.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2444
+        },
+        {
+          "name": "replace",
+          "transform": 7
+        },
+        {
+          "name": "unctx:transform",
+          "transform": 109
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2560,
+      "invokeCount": 1,
+      "sourceSize": 7723,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/pages/runtime/router.options.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3228
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3228,
+      "invokeCount": 1,
+      "sourceSize": 1714,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/pages/runtime/utils.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3870
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3871,
+      "invokeCount": 1,
+      "sourceSize": 873,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/pages/runtime/validate.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3280
+        },
+        {
+          "name": "replace",
+          "transform": 1
+        },
+        {
+          "name": "unctx:transform",
+          "transform": 7
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3288,
+      "invokeCount": 1,
+      "sourceSize": 974,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/ofetch/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 285
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 6
+        }
+      ],
+      "virtual": false,
+      "totalTime": 285,
+      "invokeCount": 1,
+      "sourceSize": 891,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/ofetch/dist/shared/ofetch.00501375.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3476
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 4
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3476,
+      "invokeCount": 1,
+      "sourceSize": 8818,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/ohash/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3462
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 14
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3462,
+      "invokeCount": 1,
+      "sourceSize": 20179,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/pathe/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29679
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29679,
+      "invokeCount": 1,
+      "sourceSize": 272,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/pathe/dist/shared/pathe.ff20891b.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 14812
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 14812,
+      "invokeCount": 1,
+      "sourceSize": 6539,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/radix3/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3471
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 12
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3471,
+      "invokeCount": 1,
+      "sourceSize": 7089,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/a11y.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 295
+        },
+        {
+          "name": "vite:css",
+          "transform": 4665
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 12
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4960,
+      "invokeCount": 1,
+      "sourceSize": 143,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/effect-cards.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 300
+        },
+        {
+          "name": "vite:css",
+          "transform": 4660
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 11
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4960,
+      "invokeCount": 1,
+      "sourceSize": 204,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/effect-creative.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 303
+        },
+        {
+          "name": "vite:css",
+          "transform": 4657
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 11
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4960,
+      "invokeCount": 1,
+      "sourceSize": 184,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/effect-cube.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 327
+        },
+        {
+          "name": "vite:css",
+          "transform": 4634
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 9
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4961,
+      "invokeCount": 1,
+      "sourceSize": 1502,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/effect-fade.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 329
+        },
+        {
+          "name": "vite:css",
+          "transform": 4631
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 6
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4960,
+      "invokeCount": 1,
+      "sourceSize": 389,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/effect-flip.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 332
+        },
+        {
+          "name": "vite:css",
+          "transform": 4628
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 5
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4960,
+      "invokeCount": 1,
+      "sourceSize": 789,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/free-mode.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 333
+        },
+        {
+          "name": "vite:css",
+          "transform": 4626
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 4
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4959,
+      "invokeCount": 1,
+      "sourceSize": 98,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/grid.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 335
+        },
+        {
+          "name": "vite:css",
+          "transform": 4625
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 4
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4960,
+      "invokeCount": 1,
+      "sourceSize": 141,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/navigation.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 336
+        },
+        {
+          "name": "vite:css",
+          "transform": 4624
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4960,
+      "invokeCount": 1,
+      "sourceSize": 2170,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/pagination.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 338
+        },
+        {
+          "name": "vite:css",
+          "transform": 4623
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4961,
+      "invokeCount": 1,
+      "sourceSize": 6525,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/scrollbar.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 338
+        },
+        {
+          "name": "vite:css",
+          "transform": 4621
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4959,
+      "invokeCount": 1,
+      "sourceSize": 1775,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/virtual.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 339
+        },
+        {
+          "name": "vite:css",
+          "transform": 4620
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4959,
+      "invokeCount": 1,
+      "sourceSize": 498,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/modules/zoom.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 340
+        },
+        {
+          "name": "vite:css",
+          "transform": 4619
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4959,
+      "invokeCount": 1,
+      "sourceSize": 434,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/swiper/swiper.css",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 268
+        },
+        {
+          "name": "vite:css",
+          "transform": 4695
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 15
+        }
+      ],
+      "virtual": false,
+      "totalTime": 4963,
+      "invokeCount": 1,
+      "sourceSize": 7968,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/ufo/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 308
+        },
+        {
+          "name": "alias",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 7
+        },
+        {
+          "name": "alias",
+          "resolveId": 11
+        },
+        {
+          "name": "alias",
+          "resolveId": 7
+        },
+        {
+          "name": "alias",
+          "resolveId": 7
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "alias",
+          "resolveId": 3
+        },
+        {
+          "name": "alias",
+          "resolveId": 22
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 11
+        },
+        {
+          "name": "alias",
+          "resolveId": 6
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        }
+      ],
+      "virtual": false,
+      "totalTime": 308,
+      "invokeCount": 1,
+      "sourceSize": 18202,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/uncrypto/dist/crypto.web.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3491
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 9
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3491,
+      "invokeCount": 1,
+      "sourceSize": 348,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unctx/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3542
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 4
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3542,
+      "invokeCount": 1,
+      "sourceSize": 3878,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/_internal/utils.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29801
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29801,
+      "invokeCount": 1,
+      "sourceSize": 895,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/events/_events.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 2450
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2450,
+      "invokeCount": 1,
+      "sourceSize": 6481,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/events/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 885
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 885,
+      "invokeCount": 1,
+      "sourceSize": 218,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/http/_request.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3498
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 6
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3498,
+      "invokeCount": 1,
+      "sourceSize": 1129,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/http/_response.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3508
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3508,
+      "invokeCount": 1,
+      "sourceSize": 2193,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/net/socket.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 30053
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        }
+      ],
+      "virtual": false,
+      "totalTime": 30053,
+      "invokeCount": 1,
+      "sourceSize": 1425,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/stream/duplex.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 942
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 942,
+      "invokeCount": 1,
+      "sourceSize": 678,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/stream/readable.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29881
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29881,
+      "invokeCount": 1,
+      "sourceSize": 2697,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unenv/runtime/node/stream/writable.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 29798
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 29798,
+      "invokeCount": 1,
+      "sourceSize": 2357,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/unhead/dist/index.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38852
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 5
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38852,
+      "invokeCount": 1,
+      "sourceSize": 20887,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/vue-i18n/dist/vue-i18n.esm-bundler.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 38480
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "alias",
+          "resolveId": 42024
+        }
+      ],
+      "virtual": false,
+      "totalTime": 38480,
+      "invokeCount": 1,
+      "sourceSize": 36,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/vue-i18n/dist/vue-i18n.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 1104
+        },
+        {
+          "name": "vite:define",
+          "transform": 242
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 1346,
+      "invokeCount": 1,
+      "sourceSize": 107394,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/vue-router/dist/vue-router.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3220
+        },
+        {
+          "name": "vite:define",
+          "transform": 391
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3611,
+      "invokeCount": 1,
+      "sourceSize": 147687,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 312
+        },
+        {
+          "name": "vite:define",
+          "transform": 2088
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 13
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 6
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 5
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 5
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 3
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 0
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 2
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        },
+        {
+          "name": "vite:resolve",
+          "resolveId": 1
+        }
+      ],
+      "virtual": false,
+      "totalTime": 2400,
+      "invokeCount": 1,
+      "sourceSize": 580,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/pages/index.vue",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3264
+        },
+        {
+          "name": "vite:vue",
+          "transform": 17
+        },
+        {
+          "name": "nuxt:components-loader",
+          "transform": 5
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3286,
+      "invokeCount": 1,
+      "sourceSize": 205,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/pages/index.vue?macro=true",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 3158
+        },
+        {
+          "name": "vite:vue",
+          "transform": 17
+        },
+        {
+          "name": "nuxt:pages-macros-transform",
+          "transform": 27
+        }
+      ],
+      "virtual": false,
+      "totalTime": 3202,
+      "invokeCount": 1,
+      "sourceSize": 205,
+      "distSize": 0
+    },
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/pages/index.vue?vue&type=style&index=0&scoped=7e099e0c&lang.sass",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:vue",
+          "transform": 1
+        },
+        {
+          "name": "vite:css",
+          "transform": 46327
+        },
+        {
+          "name": "vite:vue",
+          "transform": 26
+        }
+      ],
+      "virtual": true,
+      "totalTime": 46354,
+      "invokeCount": 1,
+      "sourceSize": 63,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/app-component.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 17
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 84,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/components.islands.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 34,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/components.plugin.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 117,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/css.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 37
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 459,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/error-component.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 17
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 134,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/fetch.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 38
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 168,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/layouts.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "vite:build-import-analysis",
+          "transform": 1
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        }
+      ],
+      "virtual": true,
+      "totalTime": 1,
+      "invokeCount": 1,
+      "sourceSize": 141,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/middleware.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        },
+        {
+          "name": "alias",
+          "resolveId": 7
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 380,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/nitro.client.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 3
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 70,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/nuxt.config.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 1
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 36
+        },
+        {
+          "name": "alias",
+          "resolveId": 7
+        },
+        {
+          "name": "alias",
+          "resolveId": 7
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 8
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 1119,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/pages.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 3
+        },
+        {
+          "name": "alias",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 53,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/paths.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "replace",
+          "transform": 6
+        },
+        {
+          "name": "virtual",
+          "resolveId": 1
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 38
+        },
+        {
+          "name": "alias",
+          "resolveId": 14
+        },
+        {
+          "name": "alias",
+          "resolveId": 5
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 2
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 4
+        },
+        {
+          "name": "alias",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 0
+        }
+      ],
+      "virtual": true,
+      "totalTime": 6,
+      "invokeCount": 1,
+      "sourceSize": 622,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/plugins/client.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 37
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 1597,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/root-component.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 1
+        },
+        {
+          "name": "alias",
+          "resolveId": 36
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 128,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/router.options.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 273,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/routes.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "vite:build-import-analysis",
+          "transform": 2
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        }
+      ],
+      "virtual": true,
+      "totalTime": 2,
+      "invokeCount": 1,
+      "sourceSize": 495,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/test-component-wrapper.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 16
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 137,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/unhead-plugins.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 17,
+      "distSize": 0
+    },
+    {
+      "id": "virtual:nuxt:/home/syn4ps3/Documents/gitworkspace/leadslanding/.nuxt/vue-router-stub.mjs",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "virtual",
+          "transform": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "virtual",
+          "resolveId": 0
+        },
+        {
+          "name": "alias",
+          "resolveId": 13
+        },
+        {
+          "name": "alias",
+          "resolveId": 9
+        }
+      ],
+      "virtual": true,
+      "totalTime": 0,
+      "invokeCount": 1,
+      "sourceSize": 27,
+      "distSize": 0
+    }
+  ],
+  "ssrModules": [
+    {
+      "id": "/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/entry-spa.js",
+      "deps": [],
+      "plugins": [
+        {
+          "name": "vite:load-fallback",
+          "transform": 6
+        }
+      ],
+      "virtual": false,
+      "totalTime": 6,
+      "invokeCount": 1,
+      "sourceSize": 26,
+      "distSize": 0
+    }
+  ]
+}

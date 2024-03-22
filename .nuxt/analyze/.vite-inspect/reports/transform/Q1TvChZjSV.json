@@ -1,0 +1,239 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/leadslanding/components/SiteFooter.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<footer class=\"site-footer\">\n\t\t<div class=\"logo-wrapper d-flex align-items-center mb-2 mb-md-4\">\n\t\t\t<span class=\"divider\"></span>\n\t\t\t<img src=\"/logo.svg\" class=\"footer-logo mx-3\" width=\"150\" alt=\"Blockpay\" />\n\t\t\t<span class=\"divider\"></span>\n\t\t</div>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"p-3\">\n\n\n\t\t\t\t<div class=\"footer-columns row mb-5 align-items-stretch\">\n\t\t\t\t\t<div class=\"col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center\">\n\t\t\t\t\t\t<ul class=\"list-unstyled\">\n\t\t\t\t\t\t\t<li class=\"p-3\">\n\t\t\t\t\t\t\t\t<nuxt-link\n\t\t\t\t\t\t\t\t\tclass=\"text-white text-decoration-none\"\n\t\t\t\t\t\t\t\t:to=\"'#'\"\n\t\t\t\t\t\t\t\t>AI mails\n\t\t\t\t\t\t\t\t</nuxt-link>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"p-3\">\n\t\t\t\t\t\t\t\t<nuxt-link\n\t\t\t\t\t\t\t\t\tclass=\"text-white text-decoration-none\"\n\t\t\t\t\t\t\t\t:to=\"'#'\"\n\t\t\t\t\t\t\t\t>AI development\n\t\t\t\t\t\t\t\t</nuxt-link>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"p-3\">\n\t\t\t\t\t\t\t\t<nuxt-link\n\t\t\t\t\t\t\t\t\tclass=\"text-white text-decoration-none\"\n\t\t\t\t\t\t\t\t:to=\"'#'\"\n\t\t\t\t\t\t\t\t>AGI\n\t\t\t\t\t\t\t\t</nuxt-link>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center\">\n\t\t\t\t\t\t<div class=\"data-chunk px-4 mb-4\">\n\t\t\t\t\t\t\t<p class=\"text-white text-center d-flex flex-column align-items-center\">\n\t\t\t\t\t\t\t\t<img width=\"25px\" class=\"mb-3\" src=\"/icon-envelope.svg\" alt=\"Contáctanos\">\n\t\t\t\t\t\t\t\t<a class=\"text-white\" href=\"mailto:contacto@ag1.tech\">sales@ag1.tech</a>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<!--<div class=\"data-chunk px-4\">\n\t\t\t\t\t\t\t<p class=\"text-white text-center d-flex flex-column align-items-center\">\n\t\t\t\t\t\t\t\t<img width=\"20px\" class=\"mb-3\" src=\"/icon-marker.svg\" alt=\"Dónde estamos\">\n\t\t\t\t\t\t\t\t<span>Centros Comerciales Desarrollo Atlixcáyotl int. 403, Atlixcáyotl 3192, Puebla, México. C.P. 72830</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t</div>-->\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col col-12 col-md-4 d-flex align-items-center\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-12 d-flex justify-content-center\">\n\t\t\t\t\t\t\t\t<bpay-button-v2\n\t\t\t\t\t\t\t\t\tclass=\"mb-4 btn-terms\"\n\t\t\t\t\t\t\t\t\tto=\"/terms-and-conditions\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t<img src=\"/icon-terms.png\" :alt=\"$t('footer.button.terms')\">\n\t\t\t\t\t\t\t\t\tGet in touch\n\t\t\t\t\t\t\t\t</bpay-button-v2>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-12 d-flex justify-content-center\">\n\t\t\t\t\t\t\t\t<bpay-button-v2\n\t\t\t\t\t\t\t\t\thref=\"https://ag1.tech\"\n\t\t\t\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t<img src=\"/icon-terms.png\">\n\t\t\t\t\t\t\t\t\tGet a demo\n\t\t\t\t\t\t\t\t</bpay-button-v2>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<p class=\"text-center text-white footer-copy text-balance\">World class IA agi.tech® {{ new Date().getFullYear() }}.\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</div>\n\t</footer>\n</template>\n\n<script setup>\n</script>\n\n<style lang=\"sass\">\n\t.site-footer\n\t\t.logo-wrapper\n\t\t\t.divider\n\t\t\t\tborder-top: 1px solid rgba(255, 255, 255, 0.5)\n\t\t\t\tflex: 1\n\n\t\t\t\t@media (min-width: $md)\n\t\t\t\t\t&:first-child\n\t\t\t\t\t\tflex: 0\n\t\t\t\t\t\tflex-basis: 15%\n\n\t\t\t\t\t&:last-child\n\t\t\t\t\t\tflex: 1\n\n\t\t.footer-columns\n\t\t\t.col:nth-child(1),\n\t\t\t.col:nth-child(2)\n\t\t\t\tborder-bottom: 1px solid rgba(255, 255, 255, 0.5)\n\t\t\t\tmargin-bottom: 2rem\n\n\t\t\t\t@media (min-width: $md)\n\t\t\t\t\tmargin: 0\n\t\t\t\t\tborder: 0\n\t\t\t\t\tborder-right: 1px solid rgba(255, 255, 255, 0.5)\n\n\t\t.btn-gradient\n\t\t\twidth: 50%\n\n\t\t\t.btn-image\n\t\t\t\tmargin: 0\n\t\t\t\tmin-width: 60px\n\t\t\t\ttext-align: center\n\n\t\t\t\timg\n\t\t\t\t\twidth: 45px\n\n\t\t\t.btn-text\n\t\t\t\tflex: 1\n\n\t\t\t@media (min-width: $sm)\n\t\t\t\twidth: 100px !important\n\n\t.btn-terms\n\t\twhite-space: break-spaces !important\n\n\t.footer-copy a\n\t\tcolor: white\n</style>",
+      "start": 1709336683851,
+      "end": 1709336713417,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709336713418,
+      "end": 1709336713418,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709336713418,
+      "end": 1709336713418,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1709336713418,
+      "end": 1709336713419,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709336713419,
+      "end": 1709336713419,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709336713419,
+      "end": 1709336713419,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709336713419,
+      "end": 1709336713419,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709336713419,
+      "end": 1709336713419,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709336713420,
+      "end": 1709336713420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '/logo.svg'\nimport _imports_1 from '/icon-envelope.svg'\nimport _imports_2 from '/icon-terms.png'\n\n\nconst _hoisted_1 = { class: \"site-footer\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"logo-wrapper d-flex align-items-center mb-2 mb-md-4\" }, [\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"divider\" }),\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    src: _imports_0,\n    class: \"footer-logo mx-3\",\n    width: \"150\",\n    alt: \"Blockpay\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"divider\" })\n], -1)\nconst _hoisted_3 = { class: \"container\" }\nconst _hoisted_4 = { class: \"p-3\" }\nconst _hoisted_5 = { class: \"footer-columns row mb-5 align-items-stretch\" }\nconst _hoisted_6 = { class: \"col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center\" }\nconst _hoisted_7 = { class: \"list-unstyled\" }\nconst _hoisted_8 = { class: \"p-3\" }\nconst _hoisted_9 = { class: \"p-3\" }\nconst _hoisted_10 = { class: \"p-3\" }\nconst _hoisted_11 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center\\\"><div class=\\\"data-chunk px-4 mb-4\\\"><p class=\\\"text-white text-center d-flex flex-column align-items-center\\\"><img width=\\\"25px\\\" class=\\\"mb-3\\\" src=\\\"\" + _imports_1 + \"\\\" alt=\\\"Contáctanos\\\"><a class=\\\"text-white\\\" href=\\\"mailto:contacto@ag1.tech\\\">sales@ag1.tech</a></p></div></div>\", 1)\nconst _hoisted_12 = { class: \"col col-12 col-md-4 d-flex align-items-center\" }\nconst _hoisted_13 = { class: \"row\" }\nconst _hoisted_14 = { class: \"col-12 d-flex justify-content-center\" }\nconst _hoisted_15 = [\"alt\"]\nconst _hoisted_16 = { class: \"col-12 d-flex justify-content-center\" }\nconst _hoisted_17 = /*#__PURE__*/_createElementVNode(\"img\", { src: _imports_2 }, null, -1)\nconst _hoisted_18 = { class: \"text-center text-white footer-copy text-balance\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")\n  const _component_bpay_button_v2 = _resolveComponent(\"bpay-button-v2\")\n\n  return (_openBlock(), _createElementBlock(\"footer\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createElementVNode(\"div\", _hoisted_4, [\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createElementVNode(\"div\", _hoisted_6, [\n            _createElementVNode(\"ul\", _hoisted_7, [\n              _createElementVNode(\"li\", _hoisted_8, [\n                _createVNode(_component_nuxt_link, {\n                  class: \"text-white text-decoration-none\",\n                  to: '#'\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(\"AI mails \")\n                  ]),\n                  _: 1\n                })\n              ]),\n              _createElementVNode(\"li\", _hoisted_9, [\n                _createVNode(_component_nuxt_link, {\n                  class: \"text-white text-decoration-none\",\n                  to: '#'\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(\"AI development \")\n                  ]),\n                  _: 1\n                })\n              ]),\n              _createElementVNode(\"li\", _hoisted_10, [\n                _createVNode(_component_nuxt_link, {\n                  class: \"text-white text-decoration-none\",\n                  to: '#'\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(\"AGI \")\n                  ]),\n                  _: 1\n                })\n              ])\n            ])\n          ]),\n          _hoisted_11,\n          _createElementVNode(\"div\", _hoisted_12, [\n            _createElementVNode(\"div\", _hoisted_13, [\n              _createElementVNode(\"div\", _hoisted_14, [\n                _createVNode(_component_bpay_button_v2, {\n                  class: \"mb-4 btn-terms\",\n                  to: \"/terms-and-conditions\"\n                }, {\n                  default: _withCtx(() => [\n                    _createElementVNode(\"img\", {\n                      src: _imports_2,\n                      alt: _ctx.$t('footer.button.terms')\n                    }, null, 8, _hoisted_15),\n                    _createTextVNode(\" Get in touch \")\n                  ]),\n                  _: 1\n                })\n              ]),\n              _createElementVNode(\"div\", _hoisted_16, [\n                _createVNode(_component_bpay_button_v2, {\n                  href: \"https://ag1.tech\",\n                  target: \"_blank\"\n                }, {\n                  default: _withCtx(() => [\n                    _hoisted_17,\n                    _createTextVNode(\" Get a demo \")\n                  ]),\n                  _: 1\n                })\n              ])\n            ])\n          ])\n        ]),\n        _createElementVNode(\"p\", _hoisted_18, \"World class IA agi.tech® \" + _toDisplayString(new Date().getFullYear()) + \". \", 1)\n      ])\n    ])\n  ]))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/leadslanding/components/SiteFooter.vue?vue&type=style&index=0&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1709336713420,
+      "end": 1709336713448,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709336713448,
+      "end": 1709336713448,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336713448,
+      "end": 1709336713448,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709336713449,
+      "end": 1709336713449,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709336713449,
+      "end": 1709336713449,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709336713449,
+      "end": 1709336713449,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709336713450,
+      "end": 1709336713450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709336713450,
+      "end": 1709336713451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709336713451,
+      "end": 1709336713451,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709336713451,
+      "end": 1709336713451,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1709336713452,
+      "end": 1709336713454,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1709336713454,
+      "end": 1709336713454,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1709336713454,
+      "end": 1709336713455,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709336713455,
+      "end": 1709336713464,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709336713464,
+      "end": 1709336713465,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709336713465,
+      "end": 1709336713465,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709336713465,
+      "end": 1709336713465,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709336713465,
+      "end": 1709336713465,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/syn4ps3/Documents/gitworkspace/leadslanding/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { default as __nuxt_component_1 } from \"/home/syn4ps3/Documents/gitworkspace/leadslanding/components/BpayButtonV2.vue\";\nconst _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '/logo.svg'\nimport _imports_1 from '/icon-envelope.svg'\nimport _imports_2 from '/icon-terms.png'\n\n\nconst _hoisted_1 = { class: \"site-footer\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"logo-wrapper d-flex align-items-center mb-2 mb-md-4\" }, [\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"divider\" }),\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    src: _imports_0,\n    class: \"footer-logo mx-3\",\n    width: \"150\",\n    alt: \"Blockpay\"\n  }),\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"divider\" })\n], -1)\nconst _hoisted_3 = { class: \"container\" }\nconst _hoisted_4 = { class: \"p-3\" }\nconst _hoisted_5 = { class: \"footer-columns row mb-5 align-items-stretch\" }\nconst _hoisted_6 = { class: \"col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center\" }\nconst _hoisted_7 = { class: \"list-unstyled\" }\nconst _hoisted_8 = { class: \"p-3\" }\nconst _hoisted_9 = { class: \"p-3\" }\nconst _hoisted_10 = { class: \"p-3\" }\nconst _hoisted_11 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center\\\"><div class=\\\"data-chunk px-4 mb-4\\\"><p class=\\\"text-white text-center d-flex flex-column align-items-center\\\"><img width=\\\"25px\\\" class=\\\"mb-3\\\" src=\\\"\" + _imports_1 + \"\\\" alt=\\\"Contáctanos\\\"><a class=\\\"text-white\\\" href=\\\"mailto:contacto@ag1.tech\\\">sales@ag1.tech</a></p></div></div>\", 1)\nconst _hoisted_12 = { class: \"col col-12 col-md-4 d-flex align-items-center\" }\nconst _hoisted_13 = { class: \"row\" }\nconst _hoisted_14 = { class: \"col-12 d-flex justify-content-center\" }\nconst _hoisted_15 = [\"alt\"]\nconst _hoisted_16 = { class: \"col-12 d-flex justify-content-center\" }\nconst _hoisted_17 = /*#__PURE__*/_createElementVNode(\"img\", { src: _imports_2 }, null, -1)\nconst _hoisted_18 = { class: \"text-center text-white footer-copy text-balance\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = __nuxt_component_0\n  const _component_bpay_button_v2 = __nuxt_component_1\n\n  return (_openBlock(), _createElementBlock(\"footer\", _hoisted_1, [\n    _hoisted_2,\n    _createElementVNode(\"div\", _hoisted_3, [\n      _createElementVNode(\"div\", _hoisted_4, [\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createElementVNode(\"div\", _hoisted_6, [\n            _createElementVNode(\"ul\", _hoisted_7, [\n              _createElementVNode(\"li\", _hoisted_8, [\n                _createVNode(_component_nuxt_link, {\n                  class: \"text-white text-decoration-none\",\n                  to: '#'\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(\"AI mails \")\n                  ]),\n                  _: 1\n                })\n              ]),\n              _createElementVNode(\"li\", _hoisted_9, [\n                _createVNode(_component_nuxt_link, {\n                  class: \"text-white text-decoration-none\",\n                  to: '#'\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(\"AI development \")\n                  ]),\n                  _: 1\n                })\n              ]),\n              _createElementVNode(\"li\", _hoisted_10, [\n                _createVNode(_component_nuxt_link, {\n                  class: \"text-white text-decoration-none\",\n                  to: '#'\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(\"AGI \")\n                  ]),\n                  _: 1\n                })\n              ])\n            ])\n          ]),\n          _hoisted_11,\n          _createElementVNode(\"div\", _hoisted_12, [\n            _createElementVNode(\"div\", _hoisted_13, [\n              _createElementVNode(\"div\", _hoisted_14, [\n                _createVNode(_component_bpay_button_v2, {\n                  class: \"mb-4 btn-terms\",\n                  to: \"/terms-and-conditions\"\n                }, {\n                  default: _withCtx(() => [\n                    _createElementVNode(\"img\", {\n                      src: _imports_2,\n                      alt: _ctx.$t('footer.button.terms')\n                    }, null, 8, _hoisted_15),\n                    _createTextVNode(\" Get in touch \")\n                  ]),\n                  _: 1\n                })\n              ]),\n              _createElementVNode(\"div\", _hoisted_16, [\n                _createVNode(_component_bpay_button_v2, {\n                  href: \"https://ag1.tech\",\n                  target: \"_blank\"\n                }, {\n                  default: _withCtx(() => [\n                    _hoisted_17,\n                    _createTextVNode(\" Get a demo \")\n                  ]),\n                  _: 1\n                })\n              ])\n            ])\n          ])\n        ]),\n        _createElementVNode(\"p\", _hoisted_18, \"World class IA agi.tech® \" + _toDisplayString(new Date().getFullYear()) + \". \", 1)\n      ])\n    ])\n  ]))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/leadslanding/components/SiteFooter.vue?vue&type=style&index=0&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1709336713465,
+      "end": 1709336713466,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709336713466,
+      "end": 1709336713466,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709336713466,
+      "end": 1709336713468,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709336713468,
+      "end": 1709336713468,
+      "order": "normal"
+    }
+  ]
+}
