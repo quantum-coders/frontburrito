@@ -1,0 +1,238 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/locales/en.json",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "{\n\t\"button.knowMore\": \"Know more\",\n\t\"menu.buyRWAs\": \"Buy RWAs\",\n\t\"menu.defi\": \"DeFi\",\n\t\"menu.advisory\": \"Advisory\",\n\t\"menu.documentation\": \"Documentation\",\n\t\"news.title\": \"Latest news!\",\n\t\"newsletter.title\": \"Don’t miss out!\",\n\t\"newsletter.subtitle\": \"Subscribe to our newsletter:\",\n\t\"newsletter.email\": \"email\",\n\t\"footer.copy\": \"All rights reserved.\",\n\t\"footer.privacy\": \"Read our <a href=\\\"#\\\">privacy policy</a>.\",\n\t\"footer.button.submit\": \"Submit\",\n\t\"footer.button.terms\": \"Terms and Conditions\",\n\t\"footer.button.tokenSale\": \"Token Sale\",\n\t\"contact.title\": \"Want to know more?\",\n\t\"contact.subtitle\": \"Upgrade your finances, easily and securely!\",\n\t\"contact.name.label\": \"Name\",\n\t\"contact.lastname.label\": \"Last Name\",\n\t\"contact.email.label\": \"Email\",\n\t\"contact.phoneNumber.label\": \"Phone Number\",\n\t\"contact.comments.label\": \"How can we help you?\",\n\t\"contact.button.submit\": \"Send\",\n\t\"contact.recaptcha.error\": \"Please verify that you are not a robot.\",\n\t\"contact.success\": \"Your message has been sent successfully.\"\n}",
+      "start": 1711092992049,
+      "end": 1711093003532,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711093003532,
+      "end": 1711093003532,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711093003532,
+      "end": 1711093003532,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711093003532,
+      "end": 1711093003533,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711093003533,
+      "end": 1711093003533,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711093003533,
+      "end": 1711093003533,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711093003533,
+      "end": 1711093003533,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "result": "export default {\n\t\"button.knowMore\": \"Know more\",\n\t\"menu.buyRWAs\": \"Buy RWAs\",\n\t\"menu.defi\": \"DeFi\",\n\t\"menu.advisory\": \"Advisory\",\n\t\"menu.documentation\": \"Documentation\",\n\t\"news.title\": \"Latest news!\",\n\t\"newsletter.title\": \"Don’t miss out!\",\n\t\"newsletter.subtitle\": \"Subscribe to our newsletter:\",\n\t\"newsletter.email\": \"email\",\n\t\"footer.copy\": \"All rights reserved.\",\n\t\"footer.privacy\": \"Read our <a href=\\\"#\\\">privacy policy</a>.\",\n\t\"footer.button.submit\": \"Submit\",\n\t\"footer.button.terms\": \"Terms and Conditions\",\n\t\"footer.button.tokenSale\": \"Token Sale\",\n\t\"contact.title\": \"Want to know more?\",\n\t\"contact.subtitle\": \"Upgrade your finances, easily and securely!\",\n\t\"contact.name.label\": \"Name\",\n\t\"contact.lastname.label\": \"Last Name\",\n\t\"contact.email.label\": \"Email\",\n\t\"contact.phoneNumber.label\": \"Phone Number\",\n\t\"contact.comments.label\": \"How can we help you?\",\n\t\"contact.button.submit\": \"Send\",\n\t\"contact.recaptcha.error\": \"Please verify that you are not a robot.\",\n\t\"contact.success\": \"Your message has been sent successfully.\"\n};\n",
+      "start": 1711093003533,
+      "end": 1711093003540,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711093003541,
+      "end": 1711093003541,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1711093003541,
+      "end": 1711093003541,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711093003541,
+      "end": 1711093003541,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711093003541,
+      "end": 1711093003541,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711093003541,
+      "end": 1711093003541,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711093003541,
+      "end": 1711093003541,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711093003541,
+      "end": 1711093003542,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711093003542,
+      "end": 1711093003542,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711093003542,
+      "end": 1711093003542,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711093003542,
+      "end": 1711093003542,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711093003542,
+      "end": 1711093003542,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711093003542,
+      "end": 1711093003542,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711093003542,
+      "end": 1711093003542,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711093003542,
+      "end": 1711093003543,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711093003543,
+      "end": 1711093003543,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711093003543,
+      "end": 1711093003543,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711093003543,
+      "end": 1711093003543,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711093003543,
+      "end": 1711093003543,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711093003543,
+      "end": 1711093003543,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711093003543,
+      "end": 1711093003543,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711093003543,
+      "end": 1711093003543,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711093003543,
+      "end": 1711093003544,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711093003544,
+      "end": 1711093003544,
+      "order": "normal"
+    }
+  ]
+}

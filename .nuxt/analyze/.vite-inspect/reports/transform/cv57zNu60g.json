@@ -1,0 +1,239 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/pages/staking-ia-crypto-finance/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n    <div>\n        <stake-block-dashboard />\n        <!-- <calculator-block /> -->\n    </div>\n</template>",
+      "start": 1711092915136,
+      "end": 1711092917127,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711092917127,
+      "end": 1711092917127,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711092917127,
+      "end": 1711092917128,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711092917128,
+      "end": 1711092917128,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711092917128,
+      "end": 1711092917128,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711092917128,
+      "end": 1711092917128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711092917128,
+      "end": 1711092917128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711092917128,
+      "end": 1711092917128,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711092917129,
+      "end": 1711092917129,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_stake_block_dashboard = _resolveComponent(\"stake-block-dashboard\")\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_stake_block_dashboard)\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1711092917129,
+      "end": 1711092917133,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711092917133,
+      "end": 1711092917133,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092917133,
+      "end": 1711092917133,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711092917133,
+      "end": 1711092917133,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711092917134,
+      "end": 1711092917134,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711092917134,
+      "end": 1711092917134,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092917135,
+      "end": 1711092917135,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711092917135,
+      "end": 1711092917135,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711092917135,
+      "end": 1711092917135,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711092917136,
+      "end": 1711092917136,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711092917136,
+      "end": 1711092917137,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711092917137,
+      "end": 1711092917137,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711092917137,
+      "end": 1711092917138,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711092917142,
+      "end": 1711092917151,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711092917151,
+      "end": 1711092917151,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711092917151,
+      "end": 1711092917151,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711092917151,
+      "end": 1711092917152,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711092917152,
+      "end": 1711092917152,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/StakeBlockDashboard.vue\";\nconst _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_stake_block_dashboard = __nuxt_component_0\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_stake_block_dashboard)\n  ]))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1711092917152,
+      "end": 1711092917153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711092917153,
+      "end": 1711092917153,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711092917153,
+      "end": 1711092917153,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711092917154,
+      "end": 1711092917154,
+      "order": "normal"
+    }
+  ]
+}

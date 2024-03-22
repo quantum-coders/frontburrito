@@ -1,0 +1,238 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/components/AvalancheBlock.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<div class=\"block block-avalanche bg-white\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"block-wrapper\">\n\t\t\t\t<h2 class=\"purple title mb-5 text-center text-sm-start\">Democratizing IA will increase transparency and efficency</h2>\n\t\t\t\t<div class=\"avalanche text-center d-flex align-items-center flex-column flex-sm-row\">\n\t\t\t\t\t<img class=\"mb-3 me-sm-5\" src=\"/AVAX.png\" alt=\"Avalanche\">\n\t\t\t\t\t<p>The human florishing will follow</p>\n\t\t\t\t</div>\n\t\t\t\t<img src=\"/photo_7_w_prev_ui.png\" alt=\"Avalanche\">\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n\n<script setup>\n</script>\n\n<style lang=\"sass\" scoped>\n\t.block\n\t\tpadding: 5rem 0\n\n\t\t@media (min-width: $sm)\n\t\t\tpadding: 0 0 10rem\n\n\t.block-wrapper\n\t\tmax-width: 800px\n\t\tmargin: 0 auto\n\n\t\t.avalanche\n\t\t\timg\n\t\t\t\twidth: 200px\n</style>\n",
+      "start": 1711092922023,
+      "end": 1711092957913,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711092957913,
+      "end": 1711092957913,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711092957913,
+      "end": 1711092957913,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711092957914,
+      "end": 1711092957914,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711092957914,
+      "end": 1711092957914,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711092957914,
+      "end": 1711092957914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711092957914,
+      "end": 1711092957914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711092957914,
+      "end": 1711092957914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711092957914,
+      "end": 1711092957914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\nimport _imports_0 from '/AVAX.png'\nimport _imports_1 from '/photo_7_w_prev_ui.png'\n\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-9b14a9d0\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"block block-avalanche bg-white\" }\nconst _hoisted_2 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"container\\\" data-v-9b14a9d0><div class=\\\"block-wrapper\\\" data-v-9b14a9d0><h2 class=\\\"purple title mb-5 text-center text-sm-start\\\" data-v-9b14a9d0>Democratizing IA will increase transparency and efficency</h2><div class=\\\"avalanche text-center d-flex align-items-center flex-column flex-sm-row\\\" data-v-9b14a9d0><img class=\\\"mb-3 me-sm-5\\\" src=\\\"\" + _imports_0 + \"\\\" alt=\\\"Avalanche\\\" data-v-9b14a9d0><p data-v-9b14a9d0>The human florishing will follow</p></div><img src=\\\"\" + _imports_1 + \"\\\" alt=\\\"Avalanche\\\" data-v-9b14a9d0></div></div>\", 1)\nconst _hoisted_3 = [\n  _hoisted_2\n]\n\nfunction _sfc_render(_ctx, _cache) {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, _hoisted_3))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/AvalancheBlock.vue?vue&type=style&index=0&scoped=9b14a9d0&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-9b14a9d0\"]])",
+      "start": 1711092957914,
+      "end": 1711092957922,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711092957922,
+      "end": 1711092957923,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092957923,
+      "end": 1711092957923,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711092957925,
+      "end": 1711092957925,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711092957925,
+      "end": 1711092957925,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711092957925,
+      "end": 1711092957925,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092957925,
+      "end": 1711092957926,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711092957933,
+      "end": 1711092957933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711092957934,
+      "end": 1711092957934,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711092957935,
+      "end": 1711092957935,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711092957935,
+      "end": 1711092957935,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711092957935,
+      "end": 1711092957935,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711092957936,
+      "end": 1711092957939,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711092957939,
+      "end": 1711092957939,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711092957939,
+      "end": 1711092957939,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711092957939,
+      "end": 1711092957939,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711092957940,
+      "end": 1711092957940,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1711092957940,
+      "end": 1711092957940,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711092957940,
+      "end": 1711092957940,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711092957940,
+      "end": 1711092957941,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711092957941,
+      "end": 1711092957941,
+      "order": "normal"
+    }
+  ]
+}

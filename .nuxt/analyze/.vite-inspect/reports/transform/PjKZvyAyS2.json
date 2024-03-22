@@ -1,0 +1,238 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/node_modules/nuxt-svgo/dist/runtime/components/nuxt-icon.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <component\n    :is=\"icon\"\n    :class=\"{\n      'nuxt-icon': fontControlled,\n      'nuxt-icon--fill': !filled\n    }\"\n  />\n</template>\n\n<script>\nexport default {\n  props: {\n    filled: {\n      type: Boolean,\n      required: false,\n      default: false\n    },\n    fontControlled: {\n      type: Boolean,\n      required: false,\n      default: true\n    },\n    icon: {\n      type: Object,\n      required: true\n    },\n    name: {\n      type: String,\n      required: false\n    }\n  }\n};\n</script>\n\n<style>\n.nuxt-icon {\n  width: 1em;\n  height: 1em;\n  margin-bottom: 0.125em;\n  vertical-align: middle;\n}\n.nuxt-icon--fill,\n.nuxt-icon--fill * {\n  fill: currentColor;\n}\n</style>\n",
+      "start": 1711092992486,
+      "end": 1711093003753,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711093003753,
+      "end": 1711093003753,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711093003753,
+      "end": 1711093003754,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711093003754,
+      "end": 1711093003754,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711093003754,
+      "end": 1711093003754,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711093003754,
+      "end": 1711093003754,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711093003754,
+      "end": 1711093003754,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711093003754,
+      "end": 1711093003754,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711093003754,
+      "end": 1711093003754,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "\nconst _sfc_main = {\n  props: {\n    filled: {\n      type: Boolean,\n      required: false,\n      default: false\n    },\n    fontControlled: {\n      type: Boolean,\n      required: false,\n      default: true\n    },\n    icon: {\n      type: Object,\n      required: true\n    },\n    name: {\n      type: String,\n      required: false\n    }\n  }\n};\n\nimport { resolveDynamicComponent as _resolveDynamicComponent, normalizeClass as _normalizeClass, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  return (_openBlock(), _createBlock(_resolveDynamicComponent($props.icon), {\n    class: _normalizeClass({\n      'nuxt-icon': $props.fontControlled,\n      'nuxt-icon--fill': !$props.filled\n    })\n  }, null, 8, [\"class\"]))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/node_modules/nuxt-svgo/dist/runtime/components/nuxt-icon.vue?vue&type=style&index=0&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1711093003755,
+      "end": 1711093003766,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711093003766,
+      "end": 1711093003766,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711093003766,
+      "end": 1711093003767,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711093003767,
+      "end": 1711093003767,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711093003767,
+      "end": 1711093003767,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711093003767,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711093003768,
+      "end": 1711093003768,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711093003768,
+      "end": 1711093003769,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711093003769,
+      "end": 1711093003769,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711093003769,
+      "end": 1711093003769,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711093003769,
+      "end": 1711093003769,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711093003769,
+      "end": 1711093003769,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711093003770,
+      "end": 1711093003770,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711093003770,
+      "end": 1711093003772,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711093003773,
+      "end": 1711093003773,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711093003773,
+      "end": 1711093003773,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1711093003773,
+      "end": 1711093003773,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711093003773,
+      "end": 1711093003773,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711093003773,
+      "end": 1711093003773,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711093003773,
+      "end": 1711093003773,
+      "order": "normal"
+    }
+  ]
+}

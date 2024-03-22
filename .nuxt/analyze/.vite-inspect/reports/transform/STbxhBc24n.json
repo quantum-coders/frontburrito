@@ -1,0 +1,239 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/components/BpayButtonV2.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<!-- if we receive to prop, make it nuxt link-->\n\t<component :is=\"tag\" class=\"btn-gradient\" v-if=\"!props.to\">\n\t\t<slot></slot>\n\t</component>\n\t<nuxt-link :to=\"props.to\" class=\"btn-gradient\" v-else>\n\t\t<slot></slot>\n\t</nuxt-link>\n</template>\n\n<script setup>\n\tconst props = defineProps({\n\t\ttag: {\n\t\t\ttype: String,\n\t\t\tdefault: 'a',\n\t\t},\n\t\tto: {\n\t\t\ttype: String,\n\t\t\tdefault: '',\n\t\t},\n\t});\n</script>\n\n<style lang=\"sass\" scoped>\n\t.btn-gradient\n\t\tdisplay: inline-flex\n\t\tgap: 1rem\n\t\tcursor: pointer\n\t\tjustify-content: center\n\t\talign-items: center\n\t\tpadding: 1rem\n\t\tborder-radius: 8px\n\t\tbackground: linear-gradient(90deg, rgba(200,178,85,1) 29%, rgba(227,203,166,1) 100%)\n\t\tfilter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))\n\t\ttransition: all 500ms\n\t\tmax-width: 100%\n\t\tfont-size: 1rem\n\t\tcolor: white\n\t\tborder: 0\n\t\twhite-space: nowrap\n\t\tfont-weight: 700\n\t\tmin-width: 200px\n\n\t\t&.btn-sm\n\t\t\tpadding: 0.5rem\n\t\t\tmin-width: 100px\n\n\t\t&:hover\n\t\t\tfilter: drop-shadow(0px 14px 14px rgba(0, 0, 0, 0.5))\n\n\t\t:deep(.btn-image)\n\t\t\tuser-select: none\n\t\t\tpointer-events: none\n\t\t\tmax-height: 30px\n\t\t\twidth: auto\n\n\t\t\t&.btn-image-1\n\t\t\t\tmax-height: 30px\n\n\t\t\t&.btn-image-2\n\t\t\t\tmax-height: 40px\n\n\t\t\t&.btn-image-3\n\t\t\t\tmax-height: 50px\n\n\t\t\t&.btn-image-4\n\t\t\t\tmax-height: 60px\n\n\t\t\t&.btn-image-5\n\t\t\t\tmax-height: 70px\n\n\t\t\t&.btn-image-sm\n\t\t\t\tmax-height: 20px\n\n\t\t\t&.btn-image-lg\n\t\t\t\tmax-height: 40px\n\n\t\t.btn-text\n\t\t\tdisplay: inline-block\n\t\t\twidth: auto\n\t\t\tfont-weight: 600\n\t\t\ttext-align: center\n\n\ta.btn-gradient\n\t\tcolor: white\n\t\ttext-decoration: none\n\t\tuser-select: none\n\n\t.btn-gradient[disabled]\n\t\tbackground: linear-gradient(180deg, #EBEBEB 0%, #FAFAFA 100%), linear-gradient(180deg, #6400AE 0%, #2300AE 100%)\n\t\tpointer-events: none\n\t\tcolor: #B9B9B9\n\n\t\t:deep(.btn-image)\n\t\t\tfilter: invert(1)\n\t\t\topacity: 0.25\n</style>",
+      "start": 1711092958937,
+      "end": 1711092991196,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711092991196,
+      "end": 1711092991196,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711092991197,
+      "end": 1711092991197,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711092991197,
+      "end": 1711092991197,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711092991197,
+      "end": 1711092991197,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711092991197,
+      "end": 1711092991197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711092991197,
+      "end": 1711092991197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711092991197,
+      "end": 1711092991197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711092991197,
+      "end": 1711092991197,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { renderSlot as _renderSlot, resolveDynamicComponent as _resolveDynamicComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'BpayButtonV2',\n  props: {\n\t\ttag: {\n\t\t\ttype: String,\n\t\t\tdefault: 'a',\n\t\t},\n\t\tto: {\n\t\t\ttype: String,\n\t\t\tdefault: '',\n\t\t},\n\t},\n  setup(__props) {\n\n\tconst props = __props;\n\nreturn (_ctx, _cache) => {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")\n\n  return (!props.to)\n    ? (_openBlock(), _createBlock(_resolveDynamicComponent(__props.tag), {\n        key: 0,\n        class: \"btn-gradient\"\n      }, {\n        default: _withCtx(() => [\n          _renderSlot(_ctx.$slots, \"default\", {}, undefined, true)\n        ]),\n        _: 3\n      }))\n    : (_openBlock(), _createBlock(_component_nuxt_link, {\n        key: 1,\n        to: props.to,\n        class: \"btn-gradient\"\n      }, {\n        default: _withCtx(() => [\n          _renderSlot(_ctx.$slots, \"default\", {}, undefined, true)\n        ]),\n        _: 3\n      }, 8, [\"to\"]))\n}\n}\n\n}\n\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/BpayButtonV2.vue?vue&type=style&index=0&scoped=87de3d9d&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-87de3d9d\"]])",
+      "start": 1711092991197,
+      "end": 1711092991210,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711092991210,
+      "end": 1711092991210,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092991210,
+      "end": 1711092991210,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711092991210,
+      "end": 1711092991210,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711092991210,
+      "end": 1711092991210,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711092991210,
+      "end": 1711092991210,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711092991211,
+      "end": 1711092991211,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711092991211,
+      "end": 1711092991212,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711092991212,
+      "end": 1711092991212,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711092991212,
+      "end": 1711092991212,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711092991212,
+      "end": 1711092991212,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711092991212,
+      "end": 1711092991215,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711092991215,
+      "end": 1711092991215,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711092991215,
+      "end": 1711092991216,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711092991216,
+      "end": 1711092991216,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711092991216,
+      "end": 1711092991216,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/syn4ps3/Documents/gitworkspace/frontburrito/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { renderSlot as _renderSlot, resolveDynamicComponent as _resolveDynamicComponent, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'BpayButtonV2',\n  props: {\n\t\ttag: {\n\t\t\ttype: String,\n\t\t\tdefault: 'a',\n\t\t},\n\t\tto: {\n\t\t\ttype: String,\n\t\t\tdefault: '',\n\t\t},\n\t},\n  setup(__props) {\n\n\tconst props = __props;\n\nreturn (_ctx, _cache) => {\n  const _component_nuxt_link = __nuxt_component_0\n\n  return (!props.to)\n    ? (_openBlock(), _createBlock(_resolveDynamicComponent(__props.tag), {\n        key: 0,\n        class: \"btn-gradient\"\n      }, {\n        default: _withCtx(() => [\n          _renderSlot(_ctx.$slots, \"default\", {}, undefined, true)\n        ]),\n        _: 3\n      }))\n    : (_openBlock(), _createBlock(_component_nuxt_link, {\n        key: 1,\n        to: props.to,\n        class: \"btn-gradient\"\n      }, {\n        default: _withCtx(() => [\n          _renderSlot(_ctx.$slots, \"default\", {}, undefined, true)\n        ]),\n        _: 3\n      }, 8, [\"to\"]))\n}\n}\n\n}\n\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/BpayButtonV2.vue?vue&type=style&index=0&scoped=87de3d9d&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-87de3d9d\"]])",
+      "start": 1711092991216,
+      "end": 1711092991216,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711092991216,
+      "end": 1711092991216,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711092991216,
+      "end": 1711092991217,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711092991217,
+      "end": 1711092991217,
+      "order": "normal"
+    }
+  ]
+}

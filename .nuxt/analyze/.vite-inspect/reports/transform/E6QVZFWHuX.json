@@ -1,0 +1,238 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/components/Hamburger.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<div id=\"nav-icon\" :class=\"{ open: props.open }\" @click=\"toggle\">\n\t\t<span></span>\n\t\t<span></span>\n\t\t<span></span>\n\t\t<span></span>\n\t\t<span></span>\n\t\t<span></span>\n\t</div>\n</template>\n\n<script setup>\n\n\t// Receive open prop from parent\n\tconst props = defineProps([ 'open' ]);\n\n\tconst emit = defineEmits([ 'toggle' ]);\n\n\tconst toggle = () => {\n\t\temit('toggle', !props.open.value);\n\t};\n\n</script>\n\n<style lang=\"sass\" scoped>\n\t#nav-icon\n\t\twidth: 30px\n\t\theight: 20px\n\t\tposition: relative\n\t\tmargin: 0\n\t\ttransform: rotate(0deg)\n\t\t-webkit-transition: .5s ease-in-out\n\t\t-moz-transition: .5s ease-in-out\n\t\t-o-transition: .5s ease-in-out\n\t\ttransition: .5s ease-in-out\n\t\tcursor: pointer\n\n\t#nav-icon span\n\t\tdisplay: block\n\t\tposition: absolute\n\t\theight: 20%\n\t\twidth: 50%\n\t\tbackground: white\n\t\topacity: 1\n\t\ttransform: rotate(0deg)\n\t\t-webkit-transition: .25s ease-in-out\n\t\t-moz-transition: .25s ease-in-out\n\t\t-o-transition: .25s ease-in-out\n\t\ttransition: .25s ease-in-out\n\n\t#nav-icon span:nth-child(even)\n\t\tleft: 50%\n\t\tborder-radius: 0 9px 9px 0\n\n\t#nav-icon span:nth-child(odd)\n\t\tleft: 0\n\t\tborder-radius: 9px 0 0 9px\n\n\t#nav-icon span:nth-child(1), #nav-icon span:nth-child(2)\n\t\ttop: 0\n\n\t#nav-icon span:nth-child(3), #nav-icon span:nth-child(4)\n\t\ttop: 50%\n\n\t#nav-icon span:nth-child(5), #nav-icon span:nth-child(6)\n\t\ttop: 100%\n\n\t#nav-icon.open span:nth-child(1), #nav-icon.open span:nth-child(6)\n\t\ttransform: rotate(45deg)\n\n\t#nav-icon.open span:nth-child(2), #nav-icon.open span:nth-child(5)\n\t\ttransform: rotate(-45deg)\n\n\t#nav-icon.open span:nth-child(1)\n\t\tleft: 3px\n\t\ttop: 7px\n\n\t#nav-icon.open span:nth-child(2)\n\t\tleft: calc(50% - 2px)\n\t\ttop: 7px\n\n\t#nav-icon.open span:nth-child(3)\n\t\tleft: -50%\n\t\topacity: 0\n\n\t#nav-icon.open span:nth-child(4)\n\t\tleft: 100%\n\t\topacity: 0\n\n\t#nav-icon.open span:nth-child(5)\n\t\tleft: 3px\n\t\ttop: 17px\n\n\t#nav-icon.open span:nth-child(6)\n\t\tleft: calc(50% - 2px)\n\t\ttop: 17px\n</style>",
+      "start": 1711092991972,
+      "end": 1711093003489,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711093003490,
+      "end": 1711093003490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-9795e3f6\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", null, null, -1))\nconst _hoisted_2 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", null, null, -1))\nconst _hoisted_3 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", null, null, -1))\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", null, null, -1))\nconst _hoisted_5 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", null, null, -1))\nconst _hoisted_6 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"span\", null, null, -1))\nconst _hoisted_7 = [\n  _hoisted_1,\n  _hoisted_2,\n  _hoisted_3,\n  _hoisted_4,\n  _hoisted_5,\n  _hoisted_6\n]\n\n\nconst _sfc_main = {\n  __name: 'Hamburger',\n  props: [ 'open' ],\n  emits: [ 'toggle' ],\n  setup(__props, { emit: __emit }) {\n\n\n\t// Receive open prop from parent\n\tconst props = __props;\n\n\tconst emit = __emit;\n\n\tconst toggle = () => {\n\t\temit('toggle', !props.open.value);\n\t};\n\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", {\n    id: \"nav-icon\",\n    class: _normalizeClass({ open: props.open }),\n    onClick: toggle\n  }, _hoisted_7, 2))\n}\n}\n\n}\n\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/Hamburger.vue?vue&type=style&index=0&scoped=9795e3f6&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-9795e3f6\"]])",
+      "start": 1711093003490,
+      "end": 1711093003503,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711093003503,
+      "end": 1711093003503,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711093003503,
+      "end": 1711093003504,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711093003504,
+      "end": 1711093003504,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711093003504,
+      "end": 1711093003504,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711093003504,
+      "end": 1711093003504,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711093003504,
+      "end": 1711093003504,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711093003504,
+      "end": 1711093003504,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711093003504,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711093003505,
+      "end": 1711093003505,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711093003506,
+      "end": 1711093003506,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711093003506,
+      "end": 1711093003506,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711093003506,
+      "end": 1711093003510,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711093003510,
+      "end": 1711093003511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711093003511,
+      "end": 1711093003511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711093003511,
+      "end": 1711093003511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711093003511,
+      "end": 1711093003511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1711093003511,
+      "end": 1711093003511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711093003511,
+      "end": 1711093003511,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711093003512,
+      "end": 1711093003512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711093003512,
+      "end": 1711093003512,
+      "order": "normal"
+    }
+  ]
+}

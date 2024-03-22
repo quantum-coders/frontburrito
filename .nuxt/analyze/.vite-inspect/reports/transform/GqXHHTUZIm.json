@@ -1,0 +1,238 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/components/HeroBlock.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<div class=\"block block-hero bg-white d-flex align-items-center\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row align-items-center\">\n\t\t\t\t<div class=\"col-12 col-sm-6\">\n\t\t\t\t\t<img class=\"image\" src=\"/photo_7_w_prev_ui.png\" alt=\"\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-12 col-sm-6 text-center\" style=\"margin-left: 0px;\"> <!-- Añade text-center aquí -->\n\t\t\t\t\t<img class=\"logo\" src=\"https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDI4ZXFwcnZkcGVzejc0Mndzdm9paWhxaWFhbXBja3B6NGs3cW9kMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VOZNczxe2yDGE/giphy.gif\" alt=\"Blockpay Advisory\">\n\t\t\t\t\t<h2 class=\"title mb-5 glow\" style=\"color: #E3CBA6;\"><strong>Because it is important to democratize<br> the combination of AI+Crypto</strong></h2>\n\t\t\t\t\t<div class=\"button-group d-flex justify-content-center gap-4\"> <!-- Ajusta este div para centrar los botones -->\n\t\t\t\t\t\t<!-- <bpay-button-v2 tag=\"button\" class=\"px-5 btn-send\">How to buy</bpay-button-v2>\n\t\t\t\t\t\t<bpay-button-v2 tag=\"button\" class=\"px-5 btn-send\">Tokenomics</bpay-button-v2> -->\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n\n<script setup>\n</script>\n\n<style lang=\"sass\" scoped>\n\n\t.block\n\t\theight: 80vh\n\t\toverflow-x: clip\n\n\t\t.logo\n\t\t\tmax-width: 90%\n\t\t\tmargin: 0 auto 0rem\n\t\t\tdisplay: block\n\n\t\t\t@media (min-width: $sm)\n\t\t\t\tmax-width: 100%\n\t\t\t\tmargin: auto\n\n\t\t.image\n\t\t\twidth: 150%\n\t\t\tmax-width: 150%\n\t\t\tleft: 55%\n\t\t\ttransform: translateX(-45%)\n\t\t\tmargin-top: 4rem\n\t\t\tmargin-bottom: -6rem\n\n\t\t\t@media (min-width: $sm)\n\t\t\t\tmax-width: 100vw\n\t\t\t\twidth: 60vw\n\t\t\t\tposition: absolute\n\t\t\t\tleft: 50%\n\t\t\t\ttop: 50%\n\t\t\t\tmargin: auto\n\t\t\t\ttransform: translate(-50%, -40%)\n\t\t.glow\n\t\t\tanimation: glow 7s infinite\n\t\t\t@keyframes glow\n\t\t\t\t0%, 100%\n\t\t\t\t\ttext-shadow: 0 0 5px #E3CBA6, 0 0 10px #CFCCBB, 0 0 15px #3E3C3E\n\t\t\t\t30%\n\t\t\t\t\ttext-shadow: 0 0 5px #CFCCBB, 0 0 10px #3E3C3E, 0 0 15px #C8B255\n\t\t\t\t70%\n\t\t\t\t\ttext-shadow: 0 0 15px #3E3C3E, 0 0 20px #E3CBA6, 0 0 23px #C8B255, 0 0 27px #3E3C3E\n</style>",
+      "start": 1711092921861,
+      "end": 1711092957692,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711092957692,
+      "end": 1711092957692,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\nimport _imports_0 from '/photo_7_w_prev_ui.png'\n\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-132648da\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"block block-hero bg-white d-flex align-items-center\" }\nconst _hoisted_2 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"container\\\" data-v-132648da><div class=\\\"row align-items-center\\\" data-v-132648da><div class=\\\"col-12 col-sm-6\\\" data-v-132648da><img class=\\\"image\\\" src=\\\"\" + _imports_0 + \"\\\" alt=\\\"\\\" data-v-132648da></div><div class=\\\"col-12 col-sm-6 text-center\\\" style=\\\"margin-left:0px;\\\" data-v-132648da><img class=\\\"logo\\\" src=\\\"https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDI4ZXFwcnZkcGVzejc0Mndzdm9paWhxaWFhbXBja3B6NGs3cW9kMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VOZNczxe2yDGE/giphy.gif\\\" alt=\\\"Blockpay Advisory\\\" data-v-132648da><h2 class=\\\"title mb-5 glow\\\" style=\\\"color:#E3CBA6;\\\" data-v-132648da><strong data-v-132648da>Because it is important to democratize<br data-v-132648da> the combination of AI+Crypto</strong></h2><div class=\\\"button-group d-flex justify-content-center gap-4\\\" data-v-132648da></div></div></div></div>\", 1)\nconst _hoisted_3 = [\n  _hoisted_2\n]\n\nfunction _sfc_render(_ctx, _cache) {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, _hoisted_3))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/HeroBlock.vue?vue&type=style&index=0&scoped=132648da&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-132648da\"]])",
+      "start": 1711092957693,
+      "end": 1711092957712,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711092957712,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711092957713,
+      "end": 1711092957713,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711092957714,
+      "end": 1711092957714,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711092957714,
+      "end": 1711092957714,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711092957714,
+      "end": 1711092957714,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711092957714,
+      "end": 1711092957714,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711092957714,
+      "end": 1711092957714,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711092957714,
+      "end": 1711092957714,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711092957714,
+      "end": 1711092957714,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711092957714,
+      "end": 1711092957718,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711092957718,
+      "end": 1711092957718,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711092957719,
+      "end": 1711092957719,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711092957719,
+      "end": 1711092957719,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711092957719,
+      "end": 1711092957719,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1711092957719,
+      "end": 1711092957719,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711092957719,
+      "end": 1711092957719,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711092957720,
+      "end": 1711092957720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711092957720,
+      "end": 1711092957720,
+      "order": "normal"
+    }
+  ]
+}

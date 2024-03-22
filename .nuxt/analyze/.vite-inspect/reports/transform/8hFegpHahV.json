@@ -1,0 +1,239 @@
+{
+  "resolvedId": "/home/syn4ps3/Documents/gitworkspace/frontburrito/components/SubnetBlock.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n\t<div class=\"block block-subnet bg-white\">\n\t\t<div class=\"container\">\n\t\t\t<div class=\"row align-items-center flex-row-reverse\">\n\t\t\t\t<div class=\"col col-12 col-sm-6\">\n\t\t\t\t\t<div class=\"animation\">\n\t\t\t\t\t\t<iframe\n\t\t\t\t\t\t\tsrc=\"https://player.vimeo.com/video/850725489?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&background=1\"\n\t\t\t\t\t\t\tframeborder=\"0\"\n\t\t\t\t\t\t\tallow=\"autoplay; fullscreen; picture-in-picture\"\n\t\t\t\t\t\t\tallowfullscreen\n\t\t\t\t\t\t></iframe>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col col-12 col-sm-6\">\n\t\t\t\t\t<div class=\"content text-center text-sm-start d-sm-inline-block\">\n\t\t\t\t\t\t<h2 class=\"title purple mb-3\">MemeFun Index</h2>\n\t\t\t\t\t\t<h3 class=\"subtitle purple mb-4\">$BurritoIA is building an\n\t\t\t\t\t\t\t\tMultichain IA index\n\t\t\t\t\t\t\t\tfinancial data and to offer\n\t\t\t\t\t\t\t\ttokenized real-world machine learning.</h3>\n\n\t\t\t\t\t\t<p class=\"text-center\">\n\n\t\t\t\t\t\t\t<nuxt-link\n\t\t\t\t\t\t\t\tclass=\"purple\"\n\t\t\t\t\t\t\t\tto=\"https://avascan.info/blockchain/c/token/0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf\"\n\t\t\t\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\t\t\t>See\n\t\t\t\t\t\t\t\t<strong><u>BurritoIA</u></strong> contract on-chain\n\t\t\t\t\t\t\t</nuxt-link>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</template>\n\n<script setup>\n</script>\n\n<style lang=\"sass\" scoped>\n\t.animation\n\t\tpadding: 87.5% 0 0 0\n\t\tposition: relative\n\n\t\tiframe\n\t\t\tposition: absolute\n\t\t\ttop: 0\n\t\t\tleft: 0\n\t\t\twidth: 100%\n\t\t\theight: 100%\n\n\t.block\n\t\tpadding: 5rem 0\n\n\t\t@media (min-width: $sm)\n\t\t\tpadding: 0 0 10rem\n\n\tul\n\t\tdisplay: inline-block\n\n\t.button-app\n\t\tmax-width: 80%\n\t\tmargin-top: auto\n</style>\n",
+      "start": 1711092922048,
+      "end": 1711092958760,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711092958761,
+      "end": 1711092958761,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711092958761,
+      "end": 1711092958761,
+      "order": "pre"
+    },
+    {
+      "name": "unplugin-vue-i18n",
+      "start": 1711092958761,
+      "end": 1711092958761,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711092958761,
+      "end": 1711092958762,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711092958762,
+      "end": 1711092958762,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711092958762,
+      "end": 1711092958762,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711092958762,
+      "end": 1711092958762,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711092958766,
+      "end": 1711092958766,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-73e4b52f\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"block block-subnet bg-white\" }\nconst _hoisted_2 = { class: \"container\" }\nconst _hoisted_3 = { class: \"row align-items-center flex-row-reverse\" }\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { class: \"col col-12 col-sm-6\" }, [\n  /*#__PURE__*/_createElementVNode(\"div\", { class: \"animation\" }, [\n    /*#__PURE__*/_createElementVNode(\"iframe\", {\n      src: \"https://player.vimeo.com/video/850725489?badge=0&autopause=0&player_id=0&app_id=58479&background=1\",\n      frameborder: \"0\",\n      allow: \"autoplay; fullscreen; picture-in-picture\",\n      allowfullscreen: \"\"\n    })\n  ])\n], -1))\nconst _hoisted_5 = { class: \"col col-12 col-sm-6\" }\nconst _hoisted_6 = { class: \"content text-center text-sm-start d-sm-inline-block\" }\nconst _hoisted_7 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"h2\", { class: \"title purple mb-3\" }, \"MemeFun Index\", -1))\nconst _hoisted_8 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"h3\", { class: \"subtitle purple mb-4\" }, \"$BurritoIA is building an Multichain IA index financial data and to offer tokenized real-world machine learning.\", -1))\nconst _hoisted_9 = { class: \"text-center\" }\nconst _hoisted_10 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"strong\", null, [\n  /*#__PURE__*/_createElementVNode(\"u\", null, \"BurritoIA\")\n], -1))\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _hoisted_4,\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createElementVNode(\"div\", _hoisted_6, [\n            _hoisted_7,\n            _hoisted_8,\n            _createElementVNode(\"p\", _hoisted_9, [\n              _createVNode(_component_nuxt_link, {\n                class: \"purple\",\n                to: \"https://avascan.info/blockchain/c/token/0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf\",\n                target: \"_blank\"\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(\"See \"),\n                  _hoisted_10,\n                  _createTextVNode(\" contract on-chain \")\n                ]),\n                _: 1\n              })\n            ])\n          ])\n        ])\n      ])\n    ])\n  ]))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/SubnetBlock.vue?vue&type=style&index=0&scoped=73e4b52f&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-73e4b52f\"]])",
+      "start": 1711092958766,
+      "end": 1711092958791,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711092958791,
+      "end": 1711092958791,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092958791,
+      "end": 1711092958791,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711092958791,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711092958792,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711092958792,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711092958792,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711092958792,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711092958792,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711092958792,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711092958792,
+      "end": 1711092958792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711092958792,
+      "end": 1711092958793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711092958793,
+      "end": 1711092958793,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711092958793,
+      "end": 1711092958793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711092958793,
+      "end": 1711092958793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711092958793,
+      "end": 1711092958793,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711092958793,
+      "end": 1711092958793,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-macros-transform",
+      "start": 1711092958793,
+      "end": 1711092958794,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-resource",
+      "start": 1711092958794,
+      "end": 1711092958794,
+      "order": "post"
+    },
+    {
+      "name": "nuxtjs:i18n-meta-deprecation",
+      "start": 1711092958794,
+      "end": 1711092958794,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711092958795,
+      "end": 1711092958802,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711092958802,
+      "end": 1711092958803,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711092958803,
+      "end": 1711092958803,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711092958803,
+      "end": 1711092958803,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711092958803,
+      "end": 1711092958803,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/syn4ps3/Documents/gitworkspace/frontburrito/node_modules/nuxt/dist/app/components/nuxt-link\";\nconst _sfc_main = {}\nimport { createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-73e4b52f\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"block block-subnet bg-white\" }\nconst _hoisted_2 = { class: \"container\" }\nconst _hoisted_3 = { class: \"row align-items-center flex-row-reverse\" }\nconst _hoisted_4 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"div\", { class: \"col col-12 col-sm-6\" }, [\n  /*#__PURE__*/_createElementVNode(\"div\", { class: \"animation\" }, [\n    /*#__PURE__*/_createElementVNode(\"iframe\", {\n      src: \"https://player.vimeo.com/video/850725489?badge=0&autopause=0&player_id=0&app_id=58479&background=1\",\n      frameborder: \"0\",\n      allow: \"autoplay; fullscreen; picture-in-picture\",\n      allowfullscreen: \"\"\n    })\n  ])\n], -1))\nconst _hoisted_5 = { class: \"col col-12 col-sm-6\" }\nconst _hoisted_6 = { class: \"content text-center text-sm-start d-sm-inline-block\" }\nconst _hoisted_7 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"h2\", { class: \"title purple mb-3\" }, \"MemeFun Index\", -1))\nconst _hoisted_8 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"h3\", { class: \"subtitle purple mb-4\" }, \"$BurritoIA is building an Multichain IA index financial data and to offer tokenized real-world machine learning.\", -1))\nconst _hoisted_9 = { class: \"text-center\" }\nconst _hoisted_10 = /*#__PURE__*/ _withScopeId(() => /*#__PURE__*/_createElementVNode(\"strong\", null, [\n  /*#__PURE__*/_createElementVNode(\"u\", null, \"BurritoIA\")\n], -1))\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_nuxt_link = __nuxt_component_0\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _hoisted_4,\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createElementVNode(\"div\", _hoisted_6, [\n            _hoisted_7,\n            _hoisted_8,\n            _createElementVNode(\"p\", _hoisted_9, [\n              _createVNode(_component_nuxt_link, {\n                class: \"purple\",\n                to: \"https://avascan.info/blockchain/c/token/0x8CcEE641C3D937dC89D1d94fe4D8051624042Fcf\",\n                target: \"_blank\"\n              }, {\n                default: _withCtx(() => [\n                  _createTextVNode(\"See \"),\n                  _hoisted_10,\n                  _createTextVNode(\" contract on-chain \")\n                ]),\n                _: 1\n              })\n            ])\n          ])\n        ])\n      ])\n    ])\n  ]))\n}\n\nimport \"/home/syn4ps3/Documents/gitworkspace/frontburrito/components/SubnetBlock.vue?vue&type=style&index=0&scoped=73e4b52f&lang.sass\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-73e4b52f\"]])",
+      "start": 1711092958803,
+      "end": 1711092958804,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711092958805,
+      "end": 1711092958805,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711092958805,
+      "end": 1711092958805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711092958805,
+      "end": 1711092958806,
+      "order": "normal"
+    }
+  ]
+}
