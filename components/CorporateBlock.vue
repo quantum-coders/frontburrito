@@ -51,7 +51,7 @@
 									class="mt-5 ms-5"
 									style="color:#3E3C3E;"
 								>
-									<img src="/icon-terms.png">
+									<img src="/burritopng.png">
 									Investing
 								</bpay-button-v2>
 					</div>

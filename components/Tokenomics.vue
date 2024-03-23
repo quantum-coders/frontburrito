@@ -6,17 +6,20 @@
         <div class="row g-4">
           <!-- Inicio de la visualización de Tokenomics -->
           <div class="col-12 col-md-6 col-lg-4" v-for="element in tokenomicsData" :key="element.title">
-            <div class="card-footer text-muted">
+            <!-- <div class="card-footer text-muted">
                 <h3 class="subtitle" style="color: #3E3C3E;">{{ element.footer }}
               </h3>
+            </div> -->
+              <div class="card">
+                <img :src="element.image" class="card-img-top" :alt="element.title">
+                <div class="card-body">
+                  <h5 class="card-title">{{ element.title }}</h5>
+                  <p class="card-text">{{ element.description }}</p>
+                </div>
+                <div class="card-footer text-muted">
+                  <h3 class="subtitle" style="color: #3E3C3E;">{{ element.footer }}</h3>
+                </div>
               </div>
-            <div class="card">
-              <img :src="element.image" class="card-img-top" :alt="element.title">
-              <div class="card-body">
-                <h5 class="card-title">{{ element.title }}</h5>
-                <p class="card-text">{{ element.description }}</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -103,10 +106,22 @@
     padding: 2rem 0;
   }
   
+  .card {
+    transition: transform 0.5s ease;
+    background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 23%);
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
   .card-footer {
     font-size: 0.9rem;
   }
   
-  /* Aquí puedes agregar estilos adicionales según sea necesario */
+  .card-img-top {
+    height: 333px;
+    object-fit: cover;
+  }
   </style>
   

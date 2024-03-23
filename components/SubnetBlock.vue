@@ -1,6 +1,7 @@
 <template>
 	<div class="block block-subnet bg-white">
 		<div class="container">
+			<br><br><br>
 			<div class="row align-items-center flex-row-reverse">
 				<div class="col col-12 col-sm-6">
 					<div>

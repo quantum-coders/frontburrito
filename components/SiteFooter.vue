@@ -63,7 +63,7 @@
 									to="https://traderjoexyz.com/avalanche/trade"
 									style="color:#3E3C3E;"
 								>
-									<img src="/icon-terms.png" :alt="$t('footer.button.terms')">
+									<img src="/burritopng.png" :alt="$t('footer.button.terms')">
 									Buy $burritoIA
 								</bpay-button-v2>
 							</div>
@@ -74,7 +74,7 @@
 									class="text"
 									style="color:#3E3C3E;"
 								>
-									<img src="/icon-terms.png">
+									<img src="/burritopng.png">
 									IA Markets
 								</bpay-button-v2>
 							</div>

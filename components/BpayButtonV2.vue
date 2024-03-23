@@ -30,7 +30,7 @@
 		align-items: center
 		padding: 1rem
 		border-radius: 8px
-		background: linear-gradient(90deg, rgba(200,178,85,1) 29%, rgba(227,203,166,1) 100%)
+		background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 23%)
 		filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))
 		transition: all 500ms
 		max-width: 100%

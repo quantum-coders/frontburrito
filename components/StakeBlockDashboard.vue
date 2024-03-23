@@ -39,13 +39,13 @@
 							<bpay-button-v2
 							>
 								<img class="btn-image btn-image-3" src="/ui3.png" alt="">
-								STAKE
+								Unstake
 							</bpay-button-v2>
 
-							<bpay-button-v2 to="/presale-access-nft#secure">
+							<!-- <bpay-button-v2 to="/presale-access-nft#secure">
 								<img class="btn-image btn-image-3" src="/ui3.png" alt="">
 								BACK TO MINT
-							</bpay-button-v2>
+							</bpay-button-v2> -->
 						</p>
 					</div>
 				</div>
