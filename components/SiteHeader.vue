@@ -90,7 +90,7 @@
 		height: 100dvh
 		pointer-events: none
 		transition: 500ms all
-		background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 23%, rgba(0,0,187,1) 100%)
+		background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 23%, rgba(207,204,187,1) 100%)
 
 		a:not(.button-wallet, .lang-item)
 			position: relative
