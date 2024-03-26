@@ -6,16 +6,16 @@
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h5 class="card-title">Servicios</h5>
+                <h5 class="card-title">AI Services</h5>
                 <div class="list-unstyled">
                   <button class="btn-list-item" aria-label="Servicio 1">
-                    <i class="bi bi-check-circle-fill"></i> Servicio 1
+                    <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
                   </button>
                   <button class="btn-list-item" aria-label="Servicio 2">
-                    <i class="bi bi-check-circle-fill"></i> Servicio 2
+                    <i class="bi bi-check-circle-fill"></i> Airdrops and new gems with meme power narrative
                   </button>
                   <button class="btn-list-item" aria-label="Servicio 3">
-                    <i class="bi bi-check-circle-fill"></i> Servicio 3
+                    <i class="bi bi-check-circle-fill"></i> Deep search cutom data, upload.
                   </button>
                   <!-- Agrega más ítems según sea necesario -->
                 </div>
@@ -26,17 +26,17 @@
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h5 class="card-title">Machine Learning</h5>
+                <h5 class="card-title">Opensource</h5>
                 <div class="list-unstyled">
                   <button class="btn-list-item" aria-label="Servicio 1">
-                    <i class="bi bi-check-circle-fill"></i> Servicio 1
+                    <i class="bi bi-check-circle-fill"></i> GPT
                   </button>
                   <button class="btn-list-item" aria-label="Servicio 2">
-                    <i class="bi bi-check-circle-fill"></i> Servicio 2
+                    <i class="bi bi-check-circle-fill"></i> Stable diffusion
                   </button>
-                  <button class="btn-list-item" aria-label="Servicio 3">
+                  <!-- <button class="btn-list-item" aria-label="Servicio 3">
                     <i class="bi bi-check-circle-fill"></i> Servicio 3
-                  </button>
+                  </button> -->
                   <!-- Agrega más ítems según sea necesario -->
                 </div>
               </div>

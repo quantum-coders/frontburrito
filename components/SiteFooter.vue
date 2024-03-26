@@ -16,7 +16,7 @@
 								<nuxt-link
 									class="text-decoration-none"
 									style="color:#3E3C3E;"
-								:to="'#'"
+								:to="'/tokenomics-crypto-IA-defi'"
 								><strong>Tokenomics</strong>
 								</nuxt-link>
 							</li>
@@ -24,7 +24,7 @@
 								<nuxt-link
 									class="text-decoration-none"
 									style="color:#3E3C3E;"
-								:to="'#'"
+								:to="'/staking-ia-crypto-finance'"
 								><strong>Staking-IA</strong>
 								</nuxt-link>
 							</li>
@@ -32,7 +32,7 @@
 								<nuxt-link
 									class="text-decoration-none"
 									style="color:#3E3C3E;"
-								:to="'#'"
+								:to="'/how-tu-buy-burrito-ia-artificial-cryptocurrency'"
 								><strong>Markets</strong>
 								</nuxt-link>
 							</li>
@@ -64,7 +64,7 @@
 									style="color:#3E3C3E;"
 								>
 									<img src="/burritopng.png" :alt="$t('footer.button.terms')">
-									Buy $burritoIA
+									Buy $burritoAI
 								</bpay-button-v2>
 							</div>
 							<div class="col-12 d-flex justify-content-center">
@@ -75,14 +75,14 @@
 									style="color:#3E3C3E;"
 								>
 									<img src="/burritopng.png">
-									IA Markets
+									AI Markets
 								</bpay-button-v2>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">World class IA for Crypto-Markets® {{ new Date().getFullYear() }}.
+				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">World class AI architecture for Crypto-Markets® {{ new Date().getFullYear() }}.
 				</p>
 			</div>
 		</div>

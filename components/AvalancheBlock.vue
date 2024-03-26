@@ -5,8 +5,11 @@
 				<br><br><br>
 				<h2 class="purple title mb-8 text-center text-sm-start">Democratizing IA will increase transparency and efficency</h2>
 				<div class="avalanche text-center d-flex align-items-center flex-column flex-sm-row">
-					<img class="mb-3 me-sm-5" src="/Finance-Defi-IA-crypto-website.png" alt="Avalanche">
-					<p class="subtitle">Then the human florishing will follow...</p>
+					<!-- <img class="mb-3 me-sm-5" src="/Finance-Defi-IA-crypto-website.png" alt="Avalanche"> -->
+					<p class="subtitle">Because it is invaluable to generate global and efficient crypto+IA finance, 
+						it can accelerate prosperity and accelerate humanity.
+
+					</p>
 				</div>
 				<img class="mt-6" src="/photo_7_w_prev_ui.png" alt="Avalanche">
 			</div>

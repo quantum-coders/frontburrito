@@ -81,12 +81,12 @@ body {
 
 	background-color: white;
 	border-color: white;
-	color: #010101 !important;
+	color: #b1b1b1 !important;
 
 	&:hover, &:focus, &:active {
 		background-color: #b1b1b1;
 		border-color: #807e7e;
-		color: #000000 !important;
+		color: #b1b1b1 !important;
 	}
 }
 
@@ -98,7 +98,7 @@ body {
 
 	&:hover {
 		background-color: #242225;
-		border-color: #3f3d41;
+		border-color: #b1b1b1;
 		color: white !important;
 	}
 }

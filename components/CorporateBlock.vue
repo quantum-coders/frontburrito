@@ -3,9 +3,9 @@
 		<div class="container">
 			<div class="row flex-column-reverse flex-sm-row">
 				<div class="col-12 col-sm-6">
-					<h1 class="title text-center text-sm-start mt-5" style="color:#E3CBA6;">Transparent cryptoAI <br>best practices <br>for digital finances.</h1>
+					<h1 class="title text-center text-sm-start mt-5" style="color:#E3CBA6;">Democratizing & simplifying crypto-AI markets</h1>
 					<h2 class="subtitle purple mb-5 text-center text-sm-start">
-						We want a community that not only<br> invests in crypto, but also contributes<br>to the development<br> of important technologies.
+						Making super enjoyable the use of important technologies such as AI for the crypto-communitty
 					</h2>
 
 					<div class="features">
@@ -43,7 +43,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDI4ZXFwcnZkcGVzejc0Mndzdm9paWhxaWFhbXBja3B6NGs3cW9kMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VOZNczxe2yDGE/giphy.gif" alt="">
+					<img src="/crypto_gem_burritoAI.gif" alt="">
 					<div class="d-flex justify-content-center">
 					<bpay-button-v2
 									href="/staking-ia-crypto-finance"
@@ -52,7 +52,7 @@
 									style="color:#3E3C3E;"
 								>
 									<img src="/burritopng.png">
-									Investing
+									Enjoy AI !
 								</bpay-button-v2>
 					</div>
 				</div>
@@ -67,6 +67,7 @@
 	import IconCapital from '~/assets/images/icon-capital.svg';
 	import IconFinancial from '~/assets/images/icon-financial.svg';
 	import IconModeling from '~/assets/images/icon-modeling.svg';
+	import IconCopy from '~/assets/images/icon-copy.svg';
 	import IconStrategic from '~/assets/images/icon-strategic.svg';
 	import IconCorporate from '~/assets/images/icon-corporate.svg';
 	import IconDue from '~/assets/images/icon-due.svg';
@@ -80,7 +81,7 @@
 		},
 		{
 			index: 1,
-			component: IconFund,
+			component: IconModeling,
 			text: 'Real AI with real crypto users',
 			description: 'To ensure an efficient AI leads, our corporate finance team will assist you in creating an easily distributable text efficient.',
 		},
@@ -92,22 +93,22 @@
 		},
 		{
 			index: 3,
-			component: IconFinancial,
+			component: IconStrategic,
 			text: 'Financial Structuring',
 			description: 'Less work and work smarter with our unique tools with Financial NFTs.',
-		},
-		{
-			index: 4,
-			component: IconModeling,
-			text: 'Financial Modeling',
-			description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
-		},
-		{
-			index: 5,
-			component: IconModeling,
-			text: 'Social media',
-			description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
 		}
+		// {
+		// 	index: 4,
+		// 	component: IconStrategic,
+		// 	text: 'Financial Modeling',
+		// 	description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
+		// },
+		// {
+		// 	index: 5,
+		// 	component: IconModeling,
+		// 	text: 'Social media',
+		// 	description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
+		// }
 	];
 	const selectedFeature = ref(-1);
 

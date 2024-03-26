@@ -8,10 +8,12 @@
 		<div class="container">
 			<div class="title d-flex flex-column flex-sm-row justify-content-between gap-2 gap-sm-4 align-items-center align-items-center">
 				<h1 class="purple m-0 fw-bold text-center text-start text-balance">Stake your NFTs to buy $BurritoIA</h1>
-				<p class="purple m-0 text-center text-sm-end text-balance">AI-powerd YIELD maximizer
-					<small>Deposit tokens for the smartest yield</small>
-				</p>
 			</div>
+			<p class="purple m-0 text-center texttext-sm-end text-balance"><br>AI-powerd YIELD maximizer
+				</p>
+				<p class="purple m-0 text-center texttext-sm-end mb-5 text-balance"><br>
+					Deposit tokens for the smartest yield
+				</p>
 
 			<!--<div v-if="nfts.length < 5" class="d-flex align-items-center justify-content-end gap-2">
 				<h6 class="mb-0">You can still mint {{ 5 - nfts.length }} NFTs</h6>
@@ -20,26 +22,26 @@
 				</nuxt-link>
 			</div>-->
 
-			<div
+			<!-- <div
 				class="cards d-flex gap-4 align-items-center flex-column flex-sm-row mb-2"
 			>
 				carouselle
-			</div>
+			</div> -->
 
 			<div class="legends-wrapper">
-				<div class="row align-items-center">
+				<div class="row align-items-end">
 					<div class="col-12 col-sm-7">
 						<p class="buttons text-end px-3 d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3">
 							<bpay-button-v2
 								disabled
 							>
 								<img class="btn-image btn-image-3" src="/ui3.png" alt="">
-								STAKE
+								UNSTAKE
 							</bpay-button-v2>
 							<bpay-button-v2
 							>
 								<img class="btn-image btn-image-3" src="/ui3.png" alt="">
-								Unstake
+								Stake
 							</bpay-button-v2>
 
 							<!-- <bpay-button-v2 to="/presale-access-nft#secure">

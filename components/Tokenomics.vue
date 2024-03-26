@@ -34,25 +34,25 @@
     title: 'Total Supply',
     description: 'Suministro total de 300,000,000 BurritoIA tokens.',
     footer: 'Suministro total: 300,000,000',
-    image: 'https://source.unsplash.com/featured/?Futuristic' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?Futuristic&city' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Staking Rewards',
     description: '18% dedicado a recompensas por staking para fomentar la participación y seguridad en la red.',
     footer: 'Staking Rewards: 54,000,000 BurritoIA',
-    image: 'https://source.unsplash.com/featured/?DeFi' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?market' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Liquidity Operations',
     description: 'Operaciones de liquidez para asegurar un mercado fluido y accesible.',
     footer: 'Liquidity Operations: 30,000,000 BurritoIA',
-    image: 'https://source.unsplash.com/featured/?Blockchain' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?Investing' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Development and DevOps',
     description: '7% asignado al desarrollo y operaciones de DevOps en ciberseguridad de blockchain.',
     footer: 'Development: 21,000,000 BurritoIA',
-    image: 'https://source.unsplash.com/featured/?pattern' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?pattern&abstract' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Community Incentives',
@@ -70,7 +70,7 @@
     title: 'Founding Team',
     description: 'Equipo fundador con un vesting de 12 meses para asegurar el compromiso a largo plazo.',
     footer: 'Founding Team: 30,000,000 BurritoIA',
-    image: 'https://source.unsplash.com/featured/?abstract' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?abstract&art' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Initial Public Sale',
@@ -82,19 +82,19 @@
     title: 'Inflation Model',
     description: 'Modelo de inflación diseñado para sostener el crecimiento del ecosistema BurritoIA.',
     footer: '1% monthly first year, 0.5% thereafter',
-    image: 'https://source.unsplash.com/featured/?Utopia' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?Economy' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Token Burn Mechanism',
     description: 'Mecanismo de quema para reducir el suministro total y aumentar la escasez del token.',
     footer: '1% per transaction, 50% of fees',
-    image: 'https://source.unsplash.com/featured/?Bitcoin' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?community' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Transaction Fees',
     description: 'Tarifas por transacción diseñadas para recompensar a los holders y soportar el desarrollo.',
     footer: '5% to holders, 3% to development, 2% to liquidity',
-    image: 'https://source.unsplash.com/featured/?Cryptomining' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?cryptomining' // Reemplazar con la imagen correspondiente
   }
 ]);
   

@@ -6,7 +6,7 @@
 				<div class="col col-12 col-sm-6">
 					<div>
 						<img
-							src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWQzdDhidm8wbzBhbWc2OHkwYzBlemI5eDZiNjd3dWI3bGxtYTFyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z8lJWgEqMlvoVS9lzr/giphy.gif"
+							src="/some-2-f5cd2112ed.gif"
 						/>
 					</div>
 				</div>
