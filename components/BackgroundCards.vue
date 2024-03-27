@@ -6,7 +6,7 @@
           <div class="col-md-6">
             <div class="h-100" style="color: transparent;">
               <div class="card-body">
-                <h5 class="card-title text-white">AI Services</h5>
+                <h5 class="card-title text-white mb-5"><strong>Know the Future - Know more</strong></h5>
                 <!-- <div class="list-unstyled">
                   <button class="btn-list-item" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
@@ -18,7 +18,7 @@
                     <i class="bi bi-check-circle-fill"></i> Deep search cutom data, upload.
                   </button>
                 </div> -->
-                <img height="555px" style="background-image: linear-gradient(90deg, rgba(200,178,85,0.2) 0%, rgba(227,203,166,0.4) 23%, rgba(207,204,187,0.2) 100%),  url('https://source.unsplash.com/featured/?Future&Archillect');" alt="Connection" class="mx-auto d-block" />
+                <img src="https://source.unsplash.com/featured/?Futuristic&Archillect&IA" height="555px" alt="Connection" class="mx-auto d-block blockad" style="background-image: linear-gradient(90deg, rgba(200,178,85,0.9) 0%, rgba(227,203,166,0.9) 23%, rgba(207,204,187,0.2) 100%);"/>
               </div>
             </div>
           </div>
@@ -46,16 +46,16 @@
           <div class="col-12">
             <div class="full-width-section" style="color: transparent;">
               <!-- Contenido de la nueva sección -->
-              <h5 class="card-title text-white title">AI Services</h5>
+              <h5 class="card-title text-white title"><u>AI Services</u></h5>
                 <div class="list-unstyled">
                   <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
                   </button>
                   <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 2">
-                    <i class="bi bi-check-circle-fill"></i> Airdrops and new gems with meme power narrative
+                    <i class="bi bi-check-circle-fill"></i> Airdrops and new gems with meme power narrative and NFTs
                   </button>
                   <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 3">
-                    <i class="bi bi-check-circle-fill"></i> Deep search cutom data, upload.
+                    <i class="bi bi-check-circle-fill"></i> Deep search custom data, upload your data.
                   </button>
                 </div>
             </div>
@@ -70,11 +70,14 @@
   </script>
   
  <style scoped>
+ .blockad {
+  background-image: linear-gradient(90deg, rgba(200,178,85,0.9) 0%, rgba(227,203,166,0.9) 23%, rgba(207,204,187,0.2) 100%);
+ }
  .background-image-container img {
   border-radius: 20px; /* Aplica bordes redondeados a todas las imágenes dentro de .background-image-container */
 }
 .background-image-container {
-  background-image: linear-gradient(90deg, rgba(200,178,85,0.33) 0%, rgba(227,203,166,0.68) 23%, rgba(207,204,187,0.43) 100%), url('https://source.unsplash.com/featured/?Futuristic&Archillect&IA');
+  background-image: linear-gradient(90deg, rgba(200,178,85,0.33) 0%, rgba(227,203,166,0.68) 23%, rgba(207,204,187,0.43) 100%),  url('https://source.unsplash.com/featured/?Future&Archillect');
   background-size: cover;
   background-position: center;
   min-height: 100vh;

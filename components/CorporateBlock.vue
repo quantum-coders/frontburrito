@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row flex-column-reverse flex-sm-row">
 				<div class="col-12 col-sm-6">
-					<h1 class="title text-center text-sm-start mt-5" style="color:#E3CBA6;">Democratizing & simplifying crypto-AI markets</h1>
+					<h1 class="title text-center text-sm-start mt-5" style="color:#E3CBA6;">Simplifying crypto-AI markets</h1>
 					<h2 class="subtitle purple mb-5 text-center text-sm-start">
 						Enjoyable blockchain technology with IA, for the crypto-communitty
 					</h2>
@@ -100,7 +100,7 @@
 		{
 			index: 4,
 			component: IconStrategic,
-			text: 'Financial Modeling',
+			text: 'Democratizing AI',
 			description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
 		},
 		{
