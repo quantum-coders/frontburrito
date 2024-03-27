@@ -42,7 +42,7 @@
 						<div class="data-chunk px-4 mb-4">
 							<p class="text-center d-flex flex-column align-items-center">
 								<img width="25px" class="mb-3" style="color:#3E3C3E;" src="/icon-envelope.png" alt="Contáctanos">
-								<a style="color:#3E3C3E;" href="mailto:core@burritoAI.finance">terms & conditions</a>
+								<a style="color:#3E3C3E;" href="/blockchain-terms-and-conditions-artificial-cryptocurrency">terms & conditions</a>
 							</p>
 						</div>
 
@@ -69,7 +69,7 @@
 							</div>
 							<div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
-									href="/markets"
+									href="/how-tu-buy-burrito-ia-artificial-cryptocurrency"
 									target="_blank"
 									class="text"
 									style="color:#3E3C3E;"
@@ -82,7 +82,7 @@
 					</div>
 				</div>
 
-				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">World class AI architecture for Crypto-Markets® {{ new Date().getFullYear() }}.
+				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">AI architecture for Crypto-Markets® {{ new Date().getFullYear() }}.
 				</p>
 			</div>
 		</div>

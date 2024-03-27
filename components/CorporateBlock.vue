@@ -5,7 +5,7 @@
 				<div class="col-12 col-sm-6">
 					<h1 class="title text-center text-sm-start mt-5" style="color:#E3CBA6;">Democratizing & simplifying crypto-AI markets</h1>
 					<h2 class="subtitle purple mb-5 text-center text-sm-start">
-						Making super enjoyable the use of important technologies such as AI for the crypto-communitty
+						Enjoyable blockchain technology with IA, for the crypto-communitty
 					</h2>
 
 					<div class="features">
@@ -43,12 +43,12 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img src="/crypto_gem_burritoAI.gif" alt="">
+					<img src="/giphy.gif" alt="">
 					<div class="d-flex justify-content-center">
 					<bpay-button-v2
-									href="/staking-ia-crypto-finance"
+									href="/giphy.gif"
 									target="_blank"
-									class="mt-5 ms-5"
+									class="mt-5"
 									style="color:#3E3C3E;"
 								>
 									<img src="/burritopng.png">
@@ -93,22 +93,22 @@
 		},
 		{
 			index: 3,
-			component: IconStrategic,
+			component: IconDue,
 			text: 'Financial Structuring',
 			description: 'Less work and work smarter with our unique tools with Financial NFTs.',
+		},
+		{
+			index: 4,
+			component: IconStrategic,
+			text: 'Financial Modeling',
+			description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
+		},
+		{
+			index: 5,
+			component: IconModeling,
+			text: 'Social media',
+			description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
 		}
-		// {
-		// 	index: 4,
-		// 	component: IconStrategic,
-		// 	text: 'Financial Modeling',
-		// 	description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
-		// },
-		// {
-		// 	index: 5,
-		// 	component: IconModeling,
-		// 	text: 'Social media',
-		// 	description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
-		// }
 	];
 	const selectedFeature = ref(-1);
 

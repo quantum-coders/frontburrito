@@ -17,7 +17,6 @@
                   <button class="btn-list-item" aria-label="Servicio 3">
                     <i class="bi bi-check-circle-fill"></i> Deep search cutom data, upload.
                   </button>
-                  <!-- Agrega más ítems según sea necesario -->
                 </div>
               </div>
             </div>
@@ -34,10 +33,7 @@
                   <button class="btn-list-item" aria-label="Servicio 2">
                     <i class="bi bi-check-circle-fill"></i> Stable diffusion
                   </button>
-                  <!-- <button class="btn-list-item" aria-label="Servicio 3">
-                    <i class="bi bi-check-circle-fill"></i> Servicio 3
-                  </button> -->
-                  <!-- Agrega más ítems según sea necesario -->
+
                 </div>
               </div>
             </div>
