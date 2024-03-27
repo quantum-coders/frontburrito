@@ -46,7 +46,7 @@
 					<img src="/giphy.gif" alt="">
 					<div class="d-flex justify-content-center">
 					<bpay-button-v2
-									href="/giphy.gif"
+									href="/staking-ia-crypto-finance"
 									target="_blank"
 									class="mt-5"
 									style="color:#3E3C3E;"

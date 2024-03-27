@@ -4,10 +4,10 @@
         <div class="row g-4">
           <!-- Card de Servicios -->
           <div class="col-md-6">
-            <div class="card h-100">
+            <div class="h-100" style="color: transparent;">
               <div class="card-body">
-                <h5 class="card-title">AI Services</h5>
-                <div class="list-unstyled">
+                <h5 class="card-title text-white">AI Services</h5>
+                <!-- <div class="list-unstyled">
                   <button class="btn-list-item" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
                   </button>
@@ -17,7 +17,8 @@
                   <button class="btn-list-item" aria-label="Servicio 3">
                     <i class="bi bi-check-circle-fill"></i> Deep search cutom data, upload.
                   </button>
-                </div>
+                </div> -->
+                <img height="555px" style="background-image: linear-gradient(90deg, rgba(200,178,85,0.2) 0%, rgba(227,203,166,0.4) 23%, rgba(207,204,187,0.2) 100%),  url('https://source.unsplash.com/featured/?Future&Archillect');" alt="Connection" class="mx-auto d-block" />
               </div>
             </div>
           </div>
@@ -25,17 +26,38 @@
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h5 class="card-title">Opensource</h5>
+                <h5 class="card-title text-white subtitle">Resources</h5>
                 <div class="list-unstyled">
-                  <button class="btn-list-item" aria-label="Servicio 1">
+                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://en.wikipedia.org/wiki/Language_model" target="_blank" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> GPT
-                  </button>
-                  <button class="btn-list-item" aria-label="Servicio 2">
-                    <i class="bi bi-check-circle-fill"></i> Stable diffusion
-                  </button>
-
+                  </a>
+                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/langchain-ai/langchain" target="_blank" aria-label="Servicio 2">
+                    <i class="bi bi-check-circle-fill"></i> LangChain
+                  </a>
+                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" aria-label="Servicio 3">
+                    <i class="bi bi-check-circle-fill"></i> AutoGPT
+                  </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="full-width-section" style="color: transparent;">
+              <!-- Contenido de la nueva sección -->
+              <h5 class="card-title text-white title">AI Services</h5>
+                <div class="list-unstyled">
+                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 1">
+                    <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
+                  </button>
+                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 2">
+                    <i class="bi bi-check-circle-fill"></i> Airdrops and new gems with meme power narrative
+                  </button>
+                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 3">
+                    <i class="bi bi-check-circle-fill"></i> Deep search cutom data, upload.
+                  </button>
+                </div>
             </div>
           </div>
         </div>
@@ -48,37 +70,53 @@
   </script>
   
  <style scoped>
+ .background-image-container img {
+  border-radius: 20px; /* Aplica bordes redondeados a todas las imágenes dentro de .background-image-container */
+}
 .background-image-container {
-  background-image: url('https://source.unsplash.com/featured/?Futuristic&Archillect');
+  background-image: linear-gradient(90deg, rgba(200,178,85,0.33) 0%, rgba(227,203,166,0.68) 23%, rgba(207,204,187,0.43) 100%), url('https://source.unsplash.com/featured/?Futuristic&Archillect&IA');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
 }
 
+.container {
+  max-width: 90%; /* Ajusta el ancho máximo del contenedor para permitir que el contenido ocupe más espacio */
+}
 .card {
   background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 100%);
   border: none;
   border-radius: 20px; /* Bordes redondeados */
+  margin: 0;
 }
 
 .btn-list-item {
-  background-color: #E3CBA6; /* Color de fondo de los botones */
+  display: block;
+  background-color: #E3CBA6;
   border: none;
-  color: #3E3C3E; /* Color del texto */
+  color: #3E3C3E;
   text-align: left;
   width: 100%;
-  padding: 10px 15px; /* Ajusta el padding para más espacio */
-  margin-bottom: 5px; /* Espacio entre botones */
+  padding: 10px 15px;
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
-  gap: 10px; /* Espacio entre el ícono y el texto */
-  border-radius: 10px; /* Bordes redondeados para los botones */
+  gap: 10px;
+  border-radius: 10px;
   transition: background-color 0.3s ease;
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
 }
 
 .btn-list-item:hover {
-  background-color: rgba(227,203,166,0.8); /* Efecto al pasar el mouse */
+  background-color: rgba(227,203,166,0.8);
   cursor: pointer;
+}
+
+.full-width-section {
+  /* background: #fff; Ajusta según tu diseño */
+  padding: 20px;
+  box-shadow: 0 4px 5px #C8B255; /* Sombra opcional para resaltar la sección */
+  border-radius: 20px; /* Consistente con el estilo de las cards */
 }
 </style>
 
