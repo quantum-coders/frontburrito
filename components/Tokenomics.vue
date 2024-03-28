@@ -11,7 +11,9 @@
               </h3>
             </div> -->
               <div class="card">
-                <img :src="element.image" class="card-img-top" :alt="element.title">
+                <div class="image-container">
+                    <img :src="element.image" class="card-img-top image-filter" :alt="element.title" />
+                  </div>
                 <div class="card-body">
                   <h5 class="card-title" style="color: #3E3C3E;">{{ element.title }}</h5>
                   <p class="card-text">{{ element.description }}</p>
@@ -119,9 +121,30 @@
     font-size: 0.9rem;
   }
   
+  .image-container {
+  position: relative;
+  display: inline-block; /* Asegura que el contenedor tenga dimensiones */
+  border-radius: 20px; /* Bordes redondeados */
+  overflow: hidden; /* Importante para respetar los bordes redondeados con el pseudo-elemento */
+  }
+
+  .image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(90deg, rgba(200,178,85,0.6) 0%, rgba(227,203,166,0.6) 23%, rgba(207,204,187,0.2) 100%);
+    z-index: 0; /* Podría necesitar ajuste dependiendo de la estructura de tu HTML */
+  }
+
   .card-img-top {
     height: 333px;
     object-fit: cover;
+    width: 100%; /* Asegura que la imagen cubra completamente el contenedor */
+    position: relative;
+    z-index: 1; /* La imagen debe estar por encima del pseudo-elemento */
   }
   </style>
   

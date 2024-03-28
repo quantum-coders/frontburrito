@@ -39,7 +39,9 @@
                     <i class="bi bi-check-circle-fill"></i> Deep search cutom data, upload.
                   </button>
                 </div> -->
-                <img src="https://source.unsplash.com/featured/?Futuristic&Archillect&IA" height="555px" alt="Connection" class="mx-auto d-block blockad" style="background-image: linear-gradient(90deg, rgba(200,178,85,0.9) 0%, rgba(227,203,166,0.9) 23%, rgba(207,204,187,0.2) 100%);"/>
+                <div class="blockad">
+                  <img src="https://source.unsplash.com/featured/?Futuristic&Archillect&IA" alt="Connection" class="mx-auto d-block image-filter"/>
+                </div>
               </div>
             </div>
           </div>
@@ -47,7 +49,7 @@
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h5 class="card-title text-white subtitle">Resources</h5>
+                <h5 class="card-title text-white subtitle mb-7">Resources</h5>
                 <div class="list-unstyled">
                   <a class="btn-list-item subtitle mt-3 mb-8" href="https://en.wikipedia.org/wiki/Language_model" target="_blank" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> GPT
@@ -73,14 +75,37 @@
   </script>
   
  <style scoped>
- .blockad {
-  background-image: linear-gradient(90deg, rgba(200,178,85,0.9) 0%, rgba(227,203,166,0.9) 23%, rgba(207,204,187,0.2) 100%);
- }
+.blockad {
+  position: relative;
+  display: inline-block; /* O 'block' dependiendo de tus necesidades de layout */
+}
+
+.blockad::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px; /* Asegura que el pseudo-elemento tenga los bordes redondeados */
+  background-image: linear-gradient(90deg, rgba(200,178,85,0.2) 0%, rgba(227,203,166,0.3) 23%, rgba(207,204,187,0.2) 100%);
+  z-index: 1;
+}
+
+.image-filter {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px; /* Bordes redondeados en la imagen */
+  position: relative;
+  z-index: 0;
+}
+
  .background-image-container img {
   border-radius: 20px; /* Aplica bordes redondeados a todas las imágenes dentro de .background-image-container */
 }
 .background-image-container {
-  background-image: linear-gradient(90deg, rgba(200,178,85,0.33) 0%, rgba(227,203,166,0.68) 23%, rgba(207,204,187,0.43) 100%),  url('https://source.unsplash.com/featured/?Future&Archillect');
+  background-image: linear-gradient(90deg, rgba(200,178,85,0.35) 0%, rgba(227,203,166,0.7) 23%, rgba(207,204,187,0.5) 100%),  url('https://source.unsplash.com/featured/?Future&Archillect');
   background-size: cover;
   background-position: center;
   min-height: 100vh;
