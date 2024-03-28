@@ -1,7 +1,7 @@
 <template>
     <div class="tokenomics">
       <div class="container py-5">
-        <h2 class="text-center mb-5" style="color:#E3CBA6;"><u>BurritoIA Tokenomics</u></h2>
+        <h2 class="text-center mb-5" style="color:#E3CBA6;"><u>BurritoAI Cyber-Tokenomics</u></h2>
   
         <div class="row g-4">
           <!-- Inicio de la visualización de Tokenomics -->

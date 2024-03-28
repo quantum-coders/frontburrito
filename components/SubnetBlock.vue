@@ -56,13 +56,9 @@
 		<div class="image-connection">
 		  <img src="/defi_burritodos.png" alt="More Connection" class="mx-auto d-block" />
 		</div>
-		<div class="image-connection">
-		  <img src="/crypto_gem_burritoAI.gif" alt="Connection" class="mx-0 mb-0" />
-		</div>
-  
+
 		<!-- Agrega más secciones según la estructura proporcionada arriba, ajustando el contenido según tus necesidades -->
-  
-	  </div>
+		</div>
 	</div>
   </template>
   
