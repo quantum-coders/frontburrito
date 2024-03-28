@@ -11,12 +11,12 @@
 		  </div>
 		  <div class="col col-12 col-sm-6">
 			<div class="content text-center text-sm-start d-sm-inline-block">
-			  <h2 class="title purple mb-3">Multi-AI Index + Fun!</h2>
+			  <h2 class="title mb-3" style="color:#E3CBA6;">Multi-AI Index + Fun!</h2>
 			  <h3 class="subtitle purple mb-4">$BurritoIA is building an
 				Multichain AI index financial data and to offer
 				tokenized real-world machine learning.</h3>
 			  <p class="text-center">
-				<nuxt-link class="purple" to="https://traderjoexyz.com/avalanche/trade" target="_blank">See
+				<nuxt-link class="text" to="https://traderjoexyz.com/avalanche/trade" target="_blank">See
 				  <strong><u>BurritoIA</u></strong> contract on-chain
 				</nuxt-link>
 			  </p>
@@ -26,19 +26,19 @@
   
 		<!-- Imagen central que conecta hacia abajo -->
 		<div class="image-connection">
-		  <img src="https://source.unsplash.com/featured/?Future&city" alt="Connection" class="mx-auto d-block" />
+		  <img src="/defi_burrito.png" alt="Connection" class="mx-auto d-block" />
 		</div>
   
 		<!-- Sección de Mecanismos de Staking y Recompensas -->
 		<div class="row align-items-center mt-5">
 		  <div class="col col-12 col-sm-6">
 			<div>
-			  <img src="https://source.unsplash.com/featured/?Future&city" class="mx-auto d-block" alt="Staking and Rewards"/>
+			  <img src="/ui3.png" class="mx-auto d-block" alt="Staking and Rewards"/>
 			</div>
 		  </div>
 		  <div class="col col-12 col-sm-6">
 			<div class="content text-center text-sm-start d-sm-inline-block">
-			  <h2 class="title purple mb-3">Staking Mechanisms & Rewards</h2>
+			  <h2 class="subtitle purple mb-4">Staking Mechanisms & Rewards</h2>
 			  <p>
 				Staking Requirements: Users must stake a fixed amount of BurritoIA to access different AI embeds. This structure encourages holding and regulates the use of AI resources to prevent abuse.
 			  </p>
@@ -54,7 +54,7 @@
   
 		<!-- Otra imagen central que conecta hacia abajo -->
 		<div class="image-connection">
-		  <img src="https://source.unsplash.com/featured/?Future&city" alt="More Connection" class="mx-auto d-block" />
+		  <img src="/defi_burritodos.png" alt="More Connection" class="mx-auto d-block" />
 		</div>
 		<div class="image-connection">
 		  <img src="/crypto_gem_burritoAI.gif" alt="Connection" class="mx-auto d-block" />
@@ -109,17 +109,14 @@
 		font-weight: bold
 		margin-bottom: 1rem
 	.subtitle
-		color: #9370DB // Ajusta según tu paleta de colores
 		font-size: 1.5rem
 		margin-bottom: 1.5rem
 	// Estilos para el texto, para mejorar la legibilidad
 	p
 		font-size: 1rem
 		line-height: 1.5
-		color: #333 // Ajusta al color de texto deseado
 	// Asegura que los enlaces dentro del componente tengan un estilo distintivo
 	.nuxt-link
-		color: #8A2BE2 // Ajusta para que coincida con tu tema
 		text-decoration: underline
 </style>
 

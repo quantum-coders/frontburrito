@@ -1,7 +1,7 @@
 <template>
     <div class="tokenomics">
       <div class="container py-5">
-        <h2 class="text-center mb-5">BurritoIA Tokenomics</h2>
+        <h2 class="text-center mb-5" style="color:#E3CBA6;">BurritoIA Tokenomics</h2>
   
         <div class="row g-4">
           <!-- Inicio de la visualización de Tokenomics -->
@@ -13,7 +13,7 @@
               <div class="card">
                 <img :src="element.image" class="card-img-top" :alt="element.title">
                 <div class="card-body">
-                  <h5 class="card-title">{{ element.title }}</h5>
+                  <h5 class="card-title" style="color: #3E3C3E;">{{ element.title }}</h5>
                   <p class="card-text">{{ element.description }}</p>
                 </div>
                 <div class="card-footer text-muted">

@@ -2,8 +2,8 @@
 	<div>
 	<corporate-block />
     <!-- <hero-block class="z-3" /> -->
-	<avalanche-block class="mt-3"/>
 	<info-bullet />
+	<avalanche-block class="mt-3"/>
 	</div>
 </template>
 

@@ -11,7 +11,7 @@
 
 					</p>
 				</div>
-				<img class="mt-6" src="/giphy.gif" alt="Avalanche">
+				<img class="mt-6 centered-image" style="border-radius: 20px;" height="550px" src="https://source.unsplash.com/featured/?beige&grey" alt="Avalanche">
 			</div>
 		</div>
 	</div>
@@ -21,6 +21,11 @@
 </script>
 
 <style lang="sass" scoped>
+	.centered-image
+		display: block
+		margin-left: auto
+		margin-right: auto
+		width: 80%
 	.block
 		padding: 5rem 0
 

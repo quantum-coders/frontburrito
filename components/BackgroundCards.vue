@@ -1,6 +1,27 @@
 <template>
     <div class="background-image-container">
       <div class="container py-5">
+
+        <div class="row mt-4 mb-8">
+          <div class="col-12">
+            <div class="full-width-section" style="color: transparent;">
+              <!-- Contenido de la nueva sección -->
+              <h5 class="card-title text-white title"><u>Know more ∴ Know the Future</u></h5>
+                <div class="list-unstyled">
+                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 1">
+                    <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
+                  </button>
+                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 2">
+                    <i class="bi bi-check-circle-fill"></i> Airdrops and new gems with meme power narrative and NFTs
+                  </button>
+                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 3">
+                    <i class="bi bi-check-circle-fill"></i> Deep search custom data, upload your data.
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+
         <div class="row g-4">
           <!-- Card de Servicios -->
           <div class="col-md-6">
@@ -42,25 +63,7 @@
             </div>
           </div>
         </div>
-        <div class="row mt-4">
-          <div class="col-12">
-            <div class="full-width-section" style="color: transparent;">
-              <!-- Contenido de la nueva sección -->
-              <h5 class="card-title text-white title"><u>AI Services</u></h5>
-                <div class="list-unstyled">
-                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 1">
-                    <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
-                  </button>
-                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 2">
-                    <i class="bi bi-check-circle-fill"></i> Airdrops and new gems with meme power narrative and NFTs
-                  </button>
-                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 3">
-                    <i class="bi bi-check-circle-fill"></i> Deep search custom data, upload your data.
-                  </button>
-                </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </template>
