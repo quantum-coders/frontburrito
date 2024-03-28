@@ -18,15 +18,15 @@
 const features = [
   {
     title: "AI-fine tuning Deep analysis on Trading, NFTs",
-    copy: "Our AI sales platforms provide you with the insights and automation needed to streamline your sales process. From lead generation to closing deals, AI assists you every step of the way, ensuring that your sales team can focus on building relationships and closing more deals efficiently."
+    copy: "Our bots provide you with the insights and automation needed to streamline everyprocess. From lead generation to closing deals, AI assists you every step of the way, ensuring that your productitvity is focus on building more complete analyis years ahead of the curve. Dealing to geting things done efficiently."
   },
   {
     title: "Real AI with real crypto users",
-    copy: "Say goodbye to manual email responses. Our AI-powered email tool understands and responds to customer queries in real-time, ensuring they receive the right information at the right time. Enhance customer satisfaction and free up your team to focus on what they do best."
+    copy: "Say goodbye to manual email, with just some $burritoAI token you are AI-powered tools that understands and responds to your real-time process with the right information at the right time."
   },
   {
-    title: "Multi-Chain liquidity",
-    copy: "Leverage cutting-edge AI tools to enhance your sales strategy. Our AI-driven solutions analyze customer data to predict buying patterns, enabling personalized sales approaches that dramatically increase conversion rates."
+    title: "Institutional-grade Multi-Chain liquidity",
+    copy: "Leverage cutting-edge AI tools to enhance instutiotional investing. Our AI-driven solutions fintech architecture allows for Institutions to manage AI-crypto shares. Thanks to blockchain, customer data is secure, personalized and it increase incentivates log term research and development."
   }
 ];
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<div class="block block-subnet bg-white">
 	  <div class="container">
-		<br><br><br>
+
 		<!-- Sección de introducción -->
 		<div class="row align-items-center flex-row-reverse">
 		  <div class="col col-12 col-sm-6">
@@ -12,10 +12,10 @@
 		  <div class="col col-12 col-sm-6">
 			<div class="content text-center text-sm-start d-sm-inline-block">
 			  <h2 class="title mb-3" style="color:#E3CBA6;">Multi-AI Index + Fun!</h2>
-			  <h3 class="subtitle purple mb-4">$BurritoIA is building an
-				Multichain AI index financial data and to offer
-				tokenized real-world machine learning.</h3>
-			  <p class="text-center">
+			  <h3 class="subtitle purple mb-4"> Market for artificial intelligence, incentivized dApp in which consumers and producers offer valuable commodities
+				can interact in a trustless, open and transparent context.
+				$BurritoIA</h3>
+			  <p class="text-center mt-5">
 				<nuxt-link class="text" to="https://traderjoexyz.com/avalanche/trade" target="_blank">See
 				  <strong><u>BurritoIA</u></strong> contract on-chain
 				</nuxt-link>
@@ -57,7 +57,7 @@
 		  <img src="/defi_burritodos.png" alt="More Connection" class="mx-auto d-block" />
 		</div>
 		<div class="image-connection">
-		  <img src="/crypto_gem_burritoAI.gif" alt="Connection" class="mx-auto d-block" />
+		  <img src="/crypto_gem_burritoAI.gif" alt="Connection" class="mx-0 mb-0" />
 		</div>
   
 		<!-- Agrega más secciones según la estructura proporcionada arriba, ajustando el contenido según tus necesidades -->
@@ -96,7 +96,7 @@
 	.image-connection img
 		max-width: 100%
 		height: auto
-		padding: 50px 0 // Asegura espacio antes y después de la imagen para un flujo visual
+		padding: 20px 0 // Asegura espacio antes y después de la imagen para un flujo visual
 		// Estilos para las imágenes de las secciones, asegurando que se adapten al contenedor
 	.col img
 		max-width: 100%

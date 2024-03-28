@@ -52,7 +52,7 @@
 									style="color:#3E3C3E;"
 								>
 									<img src="/burritopng.png">
-									Enjoy AI !
+									Pre-sale Live!
 								</bpay-button-v2>
 					</div>
 				</div>
@@ -77,37 +77,37 @@
 			index: 0,
 			component: IconProject,
 			text: 'Markets',
-			description: 'We guide you through every step of your planning phase, making sure you stay on budget and meet your financing goals.',
+			description: 'Because it is super-vluable to generate global and efficient crypto+IA finance, prosperity may accelerate humanity, making sure you stay on budget and meet your financing goals.',
 		},
 		{
 			index: 1,
-			component: IconModeling,
+			component: IconCorporate,
 			text: 'Real AI with real crypto users',
-			description: 'To ensure an efficient AI leads, our corporate finance team will assist you in creating an easily distributable text efficient.',
+			description: 'significant appeal to a broader audience that is interested in these technologies but is overwhelmed by AI and Blockchain complexity.',
 		},
 		{
 			index: 2,
 			component: IconCapital,
 			text: 'Custom AI Listings',
-			description: 'We guide you through every step of your planning phase, making sure you stay on budget and meet your financing goals.',
+			description: 'New and innovative AI+crypto services added. This structure not only encourages holding, but also regulates the use of AI resources for all the communitty.',
 		},
 		{
 			index: 3,
 			component: IconDue,
-			text: 'Financial Structuring',
-			description: 'Less work and work smarter with our unique tools with Financial NFTs.',
+			text: 'Sustainable Financial Structuring',
+			description: 'Contribute to the repos. Less work and work smarter with our unique tools with Financial NFTs.',
 		},
 		{
 			index: 4,
 			component: IconStrategic,
 			text: 'Democratizing AI',
-			description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
+			description: 'We help each other to create decision-making tools for your strategic planning for the AI-compute paradigm.',
 		},
 		{
 			index: 5,
-			component: IconModeling,
+			component: IconFinancial,
 			text: 'Social media',
-			description: 'We help you create decision-making tools for your strategic planning and support harnessing the power of AI.',
+			description: 'Reach us in X at: (English) twitter.com/burritoaicrypto & twitter.com/burritoai',
 		}
 	];
 	const selectedFeature = ref(-1);

@@ -27,7 +27,7 @@
           <div class="col-md-6">
             <div class="h-100" style="color: transparent;">
               <div class="card-body">
-                <h5 class="card-title text-white mb-5"><strong>Know the Future - Know more</strong></h5>
+                <h5 class="card-title text-white mb-5"><strong>The begining of the Neural-Internet</strong></h5>
                 <!-- <div class="list-unstyled">
                   <button class="btn-list-item" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
@@ -51,14 +51,17 @@
               <div class="card-body">
                 <h5 class="card-title text-white subtitle mb-7">Resources</h5>
                 <div class="list-unstyled">
-                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://en.wikipedia.org/wiki/Language_model" target="_blank" aria-label="Servicio 1">
-                    <i class="bi bi-check-circle-fill"></i> GPT
+                  <a class="btn-list-item subtitle mt-3 mb-8" href="#" target="_blank" aria-label="Servicio 1">
+                    <i class="bi bi-check-circle-fill"></i> TinyGrad
                   </a>
                   <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/langchain-ai/langchain" target="_blank" aria-label="Servicio 2">
                     <i class="bi bi-check-circle-fill"></i> LangChain
                   </a>
                   <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" aria-label="Servicio 3">
                     <i class="bi bi-check-circle-fill"></i> AutoGPT
+                  </a>
+                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://en.wikipedia.org/wiki/Language_model" target="_blank" aria-label="Servicio 3">
+                    <i class="bi bi-check-circle-fill"></i> GPT info
                   </a>
                 </div>
               </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="tokenomics">
       <div class="container py-5">
-        <h2 class="text-center mb-5" style="color:#E3CBA6;">BurritoIA Tokenomics</h2>
+        <h2 class="text-center mb-5" style="color:#E3CBA6;"><u>BurritoIA Tokenomics</u></h2>
   
         <div class="row g-4">
           <!-- Inicio de la visualización de Tokenomics -->
@@ -54,7 +54,7 @@
     title: 'Development and DevOps',
     description: '7% asignado al desarrollo y operaciones de DevOps en ciberseguridad de blockchain.',
     footer: 'Development: 21,000,000 BurritoIA',
-    image: 'https://source.unsplash.com/featured/?pattern&abstract' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?teamwork' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Community Incentives',
@@ -78,13 +78,13 @@
     title: 'Initial Public Sale',
     description: 'La venta pública inicial representa la principal vía de distribución de tokens.',
     footer: 'Initial Public Sale: 111,000,000 BurritoIA',
-    image: 'https://source.unsplash.com/featured/?crowd' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?pattern&abstract' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Inflation Model',
     description: 'Modelo de inflación diseñado para sostener el crecimiento del ecosistema BurritoIA.',
     footer: '1% monthly first year, 0.5% thereafter',
-    image: 'https://source.unsplash.com/featured/?Chart' // Reemplazar con la imagen correspondiente
+    image: 'https://source.unsplash.com/featured/?Stockmarket' // Reemplazar con la imagen correspondiente
   },
   {
     title: 'Token Burn Mechanism',

@@ -1,54 +1,106 @@
 <template>
-    <div class="container py-5 bg-white">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <!-- Mensaje de carga -->
-              <div v-if="loading" class="text-center">
-                <div class="spinner-border text-primary" role="status">
-                  <span class="visually-hidden">Cargando...</span>
+  <div class="container py-5 bg-white">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="text-center">
+          <h1 class="staking-title">$burritoAI Staking-AI</h1>
+          <p class="staking-description">El índice es calculado con un embebido y es para la longevidad del proyecto AI powered.</p>
+          <button class="btn btn-primary mb-4">Get burritoAI</button>
+        </div>
+
+        <div class="card staking-card">
+          <div class="card-body">
+            <h3 class="text-center mb-4">Lock burritoAI to get vburritoAI</h3>
+            <!-- Mensaje de carga -->
+            <div v-if="loading" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+              </div>
+            </div>
+            <!-- Formulario de staking -->
+            <div v-else>
+              <form @submit.prevent="calculateStaking">
+                <div class="mb-3">
+                  <label for="burritoAmount" class="form-label">Add burritoAI</label>
+                  <div class="input-group">
+                    <span class="input-group-text">
+                      <img src="/burrito-IA-finance-logo.png" width="40" height="40" alt="BurritoAI" />
+                    </span>
+                    <input type="number" class="form-control" id="burritoAmount" v-model="amount" placeholder="0">
+                  </div>
                 </div>
-              </div>
-              <!-- Formulario de calculadora -->
-              <div v-else>
-                <form @submit.prevent="calculateCrypto">
-                  <div class="mb-3">
-                    <label for="cryptoAmount" class="form-label">Cantidad</label>
-                    <input type="number" class="form-control" id="cryptoAmount" v-model="amount" placeholder="Ingresa la cantidad">
+                <div class="mb-3">
+                  <label for="stakingDuration" class="form-label">Add burritoAI</label>
+                  <div class="input-group">
+                    <span class="input-group-text">
+                      <img src="/burrito-IA-finance-logo.png" width="40" height="40" alt="BurritoAI" />
+                    </span>
+                    <input type="number" class="form-control" id="stakingDuration" v-model="duration" placeholder="Weeks">
+                </div>
+                </div>
+                <div class="my-4">
+                  <div class="row">
+                    <div class="col-4">
+                      <div class="text-center">burrito to be locked</div>
+                      <div class="text-center">333</div>
+                    </div>
+                    <div class="col-4">
+                      <div class="text-center">Factor</div>
+                      <div class="text-center">333</div>
+                    </div>
+                    <div class="col-4">
+                      <div class="text-center">Duration</div>
+                      <div class="text-center">333</div>
+                    </div>
                   </div>
-                  <div class="mb-3">
-                    <label for="cryptoCurrency" class="form-label">Criptomoneda</label>
-                    <select class="form-select" id="cryptoCurrency" v-model="currency">
-                      <option value="BTC">Bitcoin (BTC)</option>
-                      <option value="ETH">Ethereum (ETH)</option>
-                      <!-- Agrega más opciones según sea necesario -->
-                    </select>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="text-center">Unlock on</div>
+                      <div class="text-center">333</div>
+                    </div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Calcular</button>
-                </form>
-              </div>
+                </div>
+                <div class="text-center">
+                  <button disabled type="submit" class="btn btn-primary">Lock burritoAI</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue'
-  
-  const loading = ref(false)
-  const amount = ref(0)
-  const currency = ref('BTC')
-  
-  const calculateCrypto = () => {
-    // Aquí iría la lógica para calcular la compra de la criptomoneda
-    console.log(`Calculando ${amount.value} de ${currency.value}`)
-  }
-  </script>
-  
-  <style scoped>
-  /* Aquí podrías añadir estilos personalizados si es necesario */
-  </style>
-  
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const loading = ref(false)
+const amount = ref(0)
+const duration = ref(0)
+
+const calculateStaking = () => {
+  // Aquí iría la lógica para bloquear los fondos y calcular el staking
+  // console.log(`Staking ${amount.value} burritoAI for ${duration.value} weeks`)
+}
+</script>
+
+<style scoped>
+.staking-title {
+  color: #4e4116; /* Color similar al de PancakeSwap */
+  margin-bottom: 0.5rem;
+}
+
+.staking-description {
+  color: #839e16; /* Color similar al de PancakeSwap */
+  margin-bottom: 1rem;
+}
+
+.staking-card {
+  border-radius: 20px; /* Bordes redondeados como en la imagen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Aquí podrías añadir estilos personalizados si es necesario */
+/* Asegúrate de que el path de la imagen y los colores sean correctos */
+</style>

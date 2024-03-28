@@ -7,8 +7,8 @@
 						Empowering businesses and individuals<br class="d-none d-lg-block">
 					</h2>
 					<h3 class="purple mb-4 subtitle text-center text-lg-start">by lowering the barriers to financial inclusion.</h3>
-					<p class="text-center">
-						<bpay-button-v2 to="/token-sale/#buy" image-src="/photo_5.png" >Add Liquidity & Earn</bpay-button-v2>
+					<p class="text-start">
+						<bpay-button-v2 to="/token-sale/#buy" class="mr-8" image-src="/photo_5.png" >Add Liquidity & Earn</bpay-button-v2>
 					</p>
 				</div>
 				<div class="col col-12 col-lg-6 text-center text-lg-end">
