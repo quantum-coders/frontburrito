@@ -22,7 +22,7 @@ const features = [
   },
   {
     title: "Real AI with real crypto users",
-    copy: "Say goodbye to manual email, with just some $burritoAI token you are AI-powered tools that understands and responds to your real-time process with the right information at the right time."
+    copy: "Say goodbye to general weak AI, with just some $burritoAI token you can access AI-powered tools that understands and responds to your real-time processes with the right information at the right time."
   },
   {
     title: "Institutional-grade Multi-Chain liquidity",

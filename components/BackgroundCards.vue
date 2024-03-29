@@ -49,9 +49,9 @@
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h5 class="card-title text-white subtitle mb-7">Resources</h5>
+                <h5 class="card-title text-white subtitle mb-7">Resources Links</h5>
                 <div class="list-unstyled">
-                  <a class="btn-list-item subtitle mt-3 mb-8" href="#" target="_blank" aria-label="Servicio 1">
+                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/tinygrad/tinygrad" target="_blank" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> TinyGrad
                   </a>
                   <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/langchain-ai/langchain" target="_blank" aria-label="Servicio 2">

@@ -1,7 +1,7 @@
 <template>
     <section id="timeline" class="py-5">
       <div class="container">
-        <h2 class="text-center mb-5" style="color:#fcfcfc"><strong><u>How it works</u></strong></h2>
+        <h2 class="text-center mb-5" style="color:#fcfcfc"><strong><u>Roadmap 2024</u></strong></h2>
         <div class="timeline">
           <div v-for="(item, index) in years" :key="index" class="row align-items-center timeline-item">
             <!-- Year text on the left -->

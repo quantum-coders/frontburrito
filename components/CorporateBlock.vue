@@ -43,7 +43,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img src="/giphy.gif" alt="">
+					<img src="/giphy.gif" style="padding: 33px;" alt="">
 					<div class="d-flex justify-content-center">
 					<bpay-button-v2
 									href="/staking-ia-crypto-finance"

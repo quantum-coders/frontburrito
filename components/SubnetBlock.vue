@@ -6,18 +6,17 @@
 		<div class="row align-items-center flex-row-reverse">
 		  <div class="col col-12 col-sm-6">
 			<div>
-			  <img src="/crypto_gem_burritoAI.gif"/>
+			  <img src="/crypto_gem_burritoAI.gif" style="padding: 100px;"/>
 			</div>
 		  </div>
 		  <div class="col col-12 col-sm-6">
-			<div class="content text-center text-sm-start d-sm-inline-block">
+			<div class="content text-center text-sm-start d-sm-inline-block mt-8">
 			  <h2 class="title mb-3" style="color:#E3CBA6;">Multi-AI Index + Fun!</h2>
-			  <h3 class="subtitle purple mb-4"> Market for artificial intelligence, incentivized dApp in which consumers and producers offer valuable commodities
-				can interact in a trustless, open and transparent context.
-				$BurritoIA</h3>
+			  <h5 class="mb-4"> Market for artificial intelligence, incentivized dApp in which consumers and producers offer value.
+				$BurritoIA</h5>
 			  <p class="text-center mt-5">
 				<nuxt-link class="text" to="https://traderjoexyz.com/avalanche/trade" target="_blank">See
-				  <strong><u>BurritoIA</u></strong> contract on-chain
+				  <strong>burritoIA</strong> contract on-chain
 				</nuxt-link>
 			  </p>
 			</div>
@@ -33,20 +32,20 @@
 		<div class="row align-items-center mt-5">
 		  <div class="col col-12 col-sm-6">
 			<div>
-			  <img src="/ui3.png" class="mx-auto d-block" alt="Staking and Rewards"/>
+			  <img src="/giphy.gif" class="mx-auto d-block" alt="Staking and Rewards"/>
 			</div>
 		  </div>
 		  <div class="col col-12 col-sm-6">
 			<div class="content text-center text-sm-start d-sm-inline-block">
 			  <h2 class="subtitle purple mb-4">Staking Mechanisms & Rewards</h2>
 			  <p>
-				Staking Requirements: Users must stake a fixed amount of BurritoIA to access different AI embeds. This structure encourages holding and regulates the use of AI resources to prevent abuse.
+				<strong>Users must stake a fixed amount of BurritoIA to access different AI embeds. This structure encourages holding and regulates the use of AI resources.</strong>
 			  </p>
 			  <p>
-				Reward Structure: For precise answers and tutorials, for example, 1000 BurritoIA is required to access, with rewards ranging from 555 to 900 BurritoIA upon task completion, encouraging active participation and learning.
+				1000 BurritoIA is required to access, with rewards ranging from 555 to 900 BurritoIA upon task completion, encouraging active participation and learning.
 			  </p>
 			  <p>
-				Significant Contributions: For high-impact tasks like contributions to repositories, the staking requirement remains 1000 BurritoIA, but the reward significantly rises to 90,000 BurritoIA, incentivizing quality contributions and commitment to the project.
+				<strong>For high-impact tasks like contributions to repositories, the staking requirement remains 1000 BurritoIA, but the reward significantly rises to 90,000 BurritoIA, incentivizing quality contributions and commitment.</strong>
 			  </p>
 			</div>
 		  </div>
@@ -100,7 +99,6 @@
 		margin-bottom: 2rem // Espacio debajo de las imágenes para separar del texto
 	// Estilos para títulos y subtítulos para mantener coherencia visual
 	.title
-		color: #8A2BE2 // Cambia al color que prefieras
 		font-size: 2rem
 		font-weight: bold
 		margin-bottom: 1rem
@@ -113,6 +111,6 @@
 		line-height: 1.5
 	// Asegura que los enlaces dentro del componente tengan un estilo distintivo
 	.nuxt-link
-		text-decoration: underline
+		text-decoration: none
 </style>
 
