@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="text-center">
-          <h1 class="staking-title">$burritoAI Staking-AI (*under construction*)</h1>
+          <h1 class="staking-title">$burritoAI Staking-AI<br>(*under construction  *)</h1>
           <p class="staking-description">El índice es calculado con un embebido y es para la longevidad del proyecto AI powered.</p>
           <button class="btn btn-primary mb-4">Get burritoAI</button>
         </div>
