@@ -1,39 +1,38 @@
-# AI Email Leads Sales Platform
 
-This project is a cutting-edge landing page designed to automate the sale of AI-generated email leads. Built with Nuxt 3, it integrates various modern web technologies and libraries to provide a seamless and efficient user experience. Explore the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) for a deeper understanding of its capabilities and features.
+## README para burritoAI.finance
 
-## Features
 
-- **Internationalization Support:** Ready-to-use internationalization setup with `@nuxtjs/i18n` for reaching a global audience.
-- **Responsive Design:** Utilizes Bootstrap and AOS for a responsive, mobile-first design and engaging animations.
-- **Email Integration:** Built-in email functionality with `nuxt-mail` for direct communication and marketing.
-- **Validation and Forms:** Robust form validation using `@vuelidate/core` and `@vuelidate/validators` to ensure data integrity.
-- **AOS Animations:** Incorporate AOS (Animate On Scroll) for engaging animations as users scroll through the site. This is included to enhance user experience and engagement. Ensure to initialize AOS in your Nuxt application to activate animations.
+burritoAI.finance es una innovadora plataforma que combina el poder de la criptomoneda y la inteligencia artificial (IA) para revolucionar el mundo de las finanzas globales. Nuestro objetivo es democratizar y simplificar los mercados de cripto e IA, haciendo que sean accesibles para un público más amplio. A través de nuestras herramientas y servicios, buscamos acelerar la prosperidad global y llevar a la humanidad hacia una nueva era de florecimiento financiero.
 
-## Prerequisites
+Por Qué burritoAI.finance
+Creemos que la combinación de criptoactivos e IA tiene el potencial de transformar radicalmente la economía global, haciéndola más eficiente y accesible. burritoAI.finance está en la vanguardia de esta transformación, ofreciendo:
 
-Before proceeding, ensure you have [Node.js](https://nodejs.org/) installed on your machine. This project uses Yarn as the package manager.
+Democratización de la IA y la Criptomoneda: Nuestro enfoque se centra en hacer que las tecnologías de punta sean fáciles de entender y utilizar para todos, independientemente de su nivel de experiencia.
+Simplificación de Mercados Complejos: A través de nuestra plataforma, clarificamos los mercados de cripto+IA, haciéndolos más accesibles y menos intimidantes para los novatos y los expertos por igual.
+Promoción del Florecimiento Humano: Estamos comprometidos a utilizar la tecnología para mejorar la vida de las personas, creyendo firmemente en el potencial de la IA y la criptomoneda para elevar la condición humana.
+Características Principales
+Venta Pública Inicial
+La narrativa principal de burritoAI.finance se centra en nuestra venta pública inicial, diseñada para atraer a instituciones, empresas y fondos grandes, ofreciendo una oportunidad única para invertir en el futuro de la financiación global.
 
-## Setup
+Soporte Multicadena
+Nuestra plataforma admite múltiples cadenas de bloques, permitiendo una mayor flexibilidad y acceso a diferentes criptomonedas y activos digitales.
 
-To get started, clone the repository and install the dependencies using Yarn:
+Análisis de IA del Fondo Memético
+Utilizamos análisis avanzados de IA, alimentados por datos de Cambridge Analytics y tendencias de MemeCoins, para proporcionar insights únicos sobre ASIC y la minería de chips, ayudando a nuestros usuarios a tomar decisiones informadas de inversión.
 
-```bash
-# Clone the repository
-git clone https://github.com/quantum-coders/leadslanding
+Operaciones de Liquidez
+Nuestras operaciones de liquidez están respaldadas por reservas en cadena a través del MEMETIC-hedge fund, asegurando una gestión de activos eficiente y transparente.
 
-# Navigate into the project directory
-cd leadslanding
-
-# Install dependencies with Yarn
-yarn
-
-# Start development server
-yarn dev
-
-## Building for Production
-
-To build your application for production, run:
-
-```bash
-yarn build
+Tokenomics y Mecanismos de Incentivo
+Modelo de Inflación: Implementamos un modelo de inflación controlada para asegurar la estabilidad a largo plazo de nuestro token.
+1% de inflación mensual el primer año.
+0.5% de inflación mensual a partir del segundo año.
+Quema de Tokens: Para promover la deflación y aumentar el valor del token a largo plazo, implementamos un mecanismo de quema de tokens.
+1% de cada transacción se quema permanentemente.
+50% de las tarifas de transacción se queman.
+Tarifas por Transacción: Diseñadas para recompensar a los holders y sostener el desarrollo de la plataforma.
+5% distribuido a todos los holders.
+3% para el equipo de desarrollo y marketing.
+2% agregado al pool de liquidez.
+Staking y Recompensas
+Requisitos de Staking: Los usuarios deben stakear una cantidad fija de BurritoIA para acceder a embebidos de IA, fomentando el holding y regulando el uso de recursos de IA.

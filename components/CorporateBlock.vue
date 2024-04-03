@@ -49,7 +49,7 @@
 									href="/staking-ia-crypto-finance"
 									target="_blank"
 									class="mt-5"
-									style="color:#3E3C3E;"
+									style="color:#ffffff;"
 								>
 									<img src="/burritopng.png">
 									Pre-sale Live!
