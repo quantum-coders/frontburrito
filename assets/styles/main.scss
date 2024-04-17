@@ -1,0 +1,118 @@
+/*Variables
+--------------------------------------------------------------------------------------------------------------------- */
+@import "base.variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "globals";
+
+
+$brand-colors: (
+	"brand1": $brand1,
+	"primary": $primary,
+);
+
+$theme-colors: map-merge($theme-colors, $brand-colors);
+
+$spacers: (
+	0: 0,
+	1: $spacer * .25,
+	2: $spacer * .5,
+	3: $spacer,
+	4: $spacer * 1.5,
+	5: $spacer * 3,
+	6: $spacer * 4,
+	7: $spacer * 5,
+	8: $spacer * 6,
+	9: $spacer * 7,
+);
+
+@import "bootstrap/scss/bootstrap";
+
+// Overwrite bootstrap sass variables
+$enable-negative-margins: true;
+$navbar-light-color: $dark;
+$font-family-sans-serif: 'Poppins', sans-serif;
+$font-family: 'Poppins', sans-serif;
+$font-size-base: .85rem;
+$input-btn-padding-x: 1rem;
+$border-radius: 2px;
+
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1280px
+);
+
+html {
+
+	min-height: 100dvh;
+}
+
+body {
+
+	overflow-x: hidden;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	min-height: 100dvh;
+}
+
+#__nuxt {
+
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+* {
+
+	position: relative;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "bootstrap";
+
+.purple {
+	color: #C8B255;
+}
+
+.btn-brand {
+
+	background-color: #E3CBA6;
+	border-color: #89888a;
+	color: white !important;
+
+	&:hover {
+		background-color: #4D0099;
+		border-color: #4D0099;
+		color: white !important;
+	}
+}
+
+.btn-inverted {
+
+	background-color: white;
+	border-color: white;
+	color: #b1b1b1 !important;
+
+	&:hover, &:focus, &:active {
+		background-color: #b1b1b1;
+		border-color: #807e7e;
+		color: #b1b1b1 !important;
+	}
+}
+
+.btn-blockpay {
+
+	background: linear-gradient(108deg, rgba(62,60,62,1) 0%, rgba(227,203,166,1) 19%, rgba(207,204,187,1) 43%, rgba(0,0,0,1) 100%);
+	border-color: #6400AE;
+	color: white !important;
+
+	&:hover {
+		background-color: #242225;
+		border-color: #b1b1b1;
+		color: white !important;
+	}
+}
