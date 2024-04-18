@@ -1,9 +1,10 @@
 // @ts-ignore
 export default defineNuxtConfig({
-  ssr: false,
+	ssr: false,
 	spaLoadingTemplate: 'spa-loading-template.html',
 	css: [
 		'~/assets/styles/main.scss',
+		'~/assets/fonts/style.css',
 	],
 	modules: [
 		'nuxt-svgo',
@@ -14,7 +15,7 @@ export default defineNuxtConfig({
 		head: {
 			htmlAttrs: {
 				lang: 'en',
-			  },
+			},
 			meta: [
 				{ charset: 'utf-8' },
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -22,17 +23,28 @@ export default defineNuxtConfig({
 				{ name: 'format-detection', content: 'telephone=no' },
 				{ hid: 'og:title', property: 'og:title', content: 'MemeAI index' },
 				{ hid: 'og:description', property: 'og:description', content: 'Accelerating Memetic DeFi' },
-				{ hid: 'og:image', property: 'og:image', content: 'https://burritoai.finance/burrito-IA-finance-logo.png' },
+				{
+					hid: 'og:image',
+					property: 'og:image',
+					content: 'https://burritoai.finance/burrito-IA-finance-logo.png'
+				},
 				{ hid: 'og:url', property: 'og:url', content: 'https://burritoai.finance/' },
 				{ hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
 				{ hid: 'twitter:title', name: 'twitter:title', content: 'Accelerating Memetic DeFi' },
 				{ hid: 'twitter:description', name: 'twitter:description', content: 'Accelerating Memetic DeFi' },
-				{ hid: 'twitter:image', name: 'twitter:image', content: 'https://burritoai.finance/burrito-IA-finance-logo.png' }
+				{
+					hid: 'twitter:image',
+					name: 'twitter:image',
+					content: 'https://burritoai.finance/burrito-IA-finance-logo.png'
+				}
 			],
 			link: [
 				{ rel: 'icon', href: '/favicon.ico' }
-			  ],
-			script: [ { src: '/scripts/font-awesome/all.js', } ],
+			],
+			script: [
+				{ src: '/scripts/font-awesome/all.js', },
+				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js' }
+			],
 		}
 	},
 	vite: {
