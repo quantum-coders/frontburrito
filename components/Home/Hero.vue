@@ -4,7 +4,7 @@
 			<div class="row align-items-center flex-column-reverse flex-sm-row">
 				<div class="col-12 col-sm-8">
 					<div class="copy">
-						<svgo-nothing class="nothing" />
+						<svgo-nothing filled class="nothing" />
 						<svgo-simplifying filled class="simplifying" />
 						<p>Feast on Innovation with the Spiciest Token in Tech. Dive into a delicious blend of blockchain technology and artificial intelligence, where every token packs a punch of flavor and cutting-edge AI. Wrap up your assets in something exciting—taste the future with Burrito AI!</p>
 					</div>
@@ -30,7 +30,7 @@
 		margin-bottom: 10rem
 		padding-bottom: 100px
 
-		.nothing
+		:deep(.nothing)
 			width: 100%
 			height: auto
 			margin-bottom: 0.5rem
