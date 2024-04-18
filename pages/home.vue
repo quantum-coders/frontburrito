@@ -1,6 +1,7 @@
 <template>
 	<home-hero />
 	<home-features />
+	<home-video />
 </template>
 
 <script setup>

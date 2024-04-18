@@ -1,7 +1,7 @@
 <template>
 	<div class="block block-hero d-flex align-items-center">
 		<div class="container">
-			<div class="row align-items-center">
+			<div class="row align-items-center flex-column-reverse flex-sm-row">
 				<div class="col-12 col-sm-8">
 					<div class="copy">
 						<svgo-nothing class="nothing" />
@@ -10,7 +10,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-4">
-					<img class="w-100" src="/home/splash.png" alt="">
+					<img class="robot" src="/home/splash.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -28,6 +28,7 @@
 		background: $brand1
 		color: white
 		margin-bottom: 10rem
+		padding-bottom: 100px
 
 		.nothing
 			width: 100%
@@ -40,8 +41,20 @@
 			margin-bottom: 1rem
 			fill: $brand2 !important
 
-		.feature
-			margin-bottom: 1rem
+		.copy
+			text-align: center
+			z-index: 2
+
+			@media (min-width: $sm)
+				text-align: left
+
+		.robot
+			max-width: 75%
+			display: block
+			margin: 0 auto
+
+			@media (min-width: $sm)
+				max-width: 100%
 
 		.btn-presale
 			position: absolute
@@ -49,18 +62,25 @@
 			left: 50%
 			transform: translateX(-50%)
 			background: $brand2
-			color: white
-			outline: 1.5rem solid white
-			padding: 2rem 5rem
-			border-radius: var(--bs-border-radius-pill)
-			display: inline-block
-			margin-top: 2rem
-			text-decoration: none
 			font-weight: bold
-			font-size: 1.2rem
+			color: white
+			text-decoration: none
 			transition: background 0.3s
+			border-radius: var(--bs-border-radius-pill)
+			outline: 1rem solid white
+			padding: 1rem 3rem
+			margin-top: 2rem
+			font-size: 1rem
 
 			&:hover
-				background: darken(#CC0000, 10%)
+				background: $brand1
+
+			@media (min-width: $sm)
+				outline: 1.5rem solid white
+				padding: 2rem 5rem
+				margin-top: 2rem
+				font-size: 1.2rem
+
+
 
 </style>
