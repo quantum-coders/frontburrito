@@ -54,20 +54,19 @@
 						</div>-->
 					</div>
 
-					<div class="col col-12 col-md-4 d-flex align-items-center">
+					<div class="col col-12 col-md-12 d-flex align-items-center">
 						<div class="row">
 							<div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
 									class="mb-4 btn-terms"
 									target="_blank"
 									to="https://traderjoexyz.com/avalanche/trade"
-									style="color:#3E3C3E;"
+									style="color:white"
 								>
-									<img src="/burritopng.png" :alt="$t('footer.button.terms')">
-									Buy $burritoAI
+									Whitepaper 🌯🤖
 								</bpay-button-v2>
 							</div>
-							<div class="col-12 d-flex justify-content-center">
+							<!-- <div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
 									href="/how-tu-buy-burrito-ia-artificial-cryptocurrency"
 									target="_blank"
@@ -77,7 +76,7 @@
 									<img src="/burritopng.png">
 									AI Markets
 								</bpay-button-v2>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

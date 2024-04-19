@@ -10,12 +10,12 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-4">
-					<img class="robot" src="/home/splash.png" alt="">
+					<img class="robot" src="/home/splash3.png" alt="">
 				</div>
 			</div>
 		</div>
 
-		<a href="#" class="btn btn-presale">Presale live NOW!</a>
+		<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" target="_blank" class="btn btn-presale">Presale live NOW</a>
 	</div>
 </template>
 

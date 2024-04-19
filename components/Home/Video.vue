@@ -31,7 +31,7 @@
 
 <style lang="sass" scoped>
 	.block-video
-		background: #EEE
+		background: white
 		text-align: center
 		padding: 5rem 0
 
