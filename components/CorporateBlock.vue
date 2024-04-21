@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row flex-column-reverse flex-sm-row">
 				<div class="col-12 col-sm-6">
-					<h1 class="title text-center text-sm-start mt-5" style="color:#E3CBA6;">Simplifying crypto-AI markets</h1>
+					<h1 class="title purple text-center text-sm-start mt-5" style="color:$brand1;">Simplifying crypto-AI markets</h1>
 					<h2 class="subtitle purple mb-5 text-center text-sm-start">
 						Enjoyable blockchain technology with IA, for the crypto-communitty
 					</h2>
@@ -20,9 +20,10 @@
 											'is-inactive': selectedFeature !== feature.index && selectedFeature !== -1
 										}"
 									>
-										<component :is="feature.component" />
+										<component style="color: #F09F33;" :is="feature.component" />
 										{{ feature.text }}
 										<span
+											style="color: #F09F33;"
 											v-if="selectedFeature === feature.index"
 											class="ms-auto"
 										><i class="fa-fw fal fa-angle-down" /></span>
@@ -43,17 +44,8 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img src="/giphy.gif" style="padding: 40px;" alt="">
+					<img src="/hero-crypto-ai-blockchain-staking.png" style="padding: 40px;" alt="">
 					<div class="d-flex justify-content-center">
-					<bpay-button-v2
-									href="/staking-ia-crypto-finance"
-									target="_blank"
-									class="mt-5"
-									style="color:#ffffff;"
-								>
-									<img src="/burritopng.png">
-									Pre-sale Live!
-								</bpay-button-v2>
 					</div>
 				</div>
 			</div>
@@ -173,11 +165,12 @@
 				transform: translate(-50%, -50%)
 
 		.text
-			height: 150px
+			height: 200px
 			margin-bottom: 0
+			color: $brand1
 
 			@media (min-width: $sm)
-				height: 100px
+				height: 200px
 
 		.features
 			height: 400px
@@ -201,5 +194,5 @@
 				height: 32px
 
 				path
-					fill: $purple !important
+					fill: $brand2 !important
 </style>
