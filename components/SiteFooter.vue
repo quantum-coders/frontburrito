@@ -54,7 +54,7 @@
 						</div>-->
 					</div>
 
-					<div class="col col-12 col-md-12 d-flex align-items-center">
+					<div class="col col-12 col-md-4 d-flex align-items-center">
 						<div class="row">
 							<div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
@@ -107,15 +107,10 @@
 						flex: 1
 
 		.footer-columns
-			.col:nth-child(1),
-			.col:nth-child(2)
-				border-bottom: 1px solid rgba(255, 255, 255, 0.5)
-				margin-bottom: 2rem
-
-				@media (min-width: $md)
-					margin: 0
-					border: 0
-					border-right: 1px solid rgba(255, 255, 255, 0.5)
+			.col
+				display: flex
+				justify-content: center
+				align-items: center
 
 		.btn-gradient
 			width: 50%

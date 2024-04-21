@@ -33,7 +33,7 @@
 		min-height: 100vh
 
 	body
-		background-color: #e7d2b2
+		background-color: #e2e3d5
 		
 		min-height: 100vh
 		display: flex
