@@ -56,7 +56,7 @@
 			height: auto
 
 			@media (min-width: $sm)
-				width: 140%
+				width: 135%
 
 
 		.btn-presale

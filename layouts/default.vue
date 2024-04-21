@@ -18,7 +18,7 @@
 			{
 				hid: 'description',
 				name: 'description',
-				content: 'Automated mails with AI',
+				content: 'crypto-ai-blockchain-staking',
 			},
 		],
 	});
