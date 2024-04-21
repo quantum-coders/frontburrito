@@ -70,7 +70,7 @@
 	.site-header
 		overflow: hidden
 		z-index: 1000
-		height: 111px
+		height: 100px
 
 	.primary-nav
 		position: fixed

@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img src="/hero-crypto-ai-blockchain-staking.png" style="padding: 40px;" alt="">
+					<img src="/hero-crypto-ai-blockchain-staking.png" alt="new-token-market-money-investing-blockchain">
 					<div class="d-flex justify-content-center">
 					</div>
 				</div>
@@ -62,42 +62,43 @@
 	import IconCopy from '~/assets/images/icon-copy.svg';
 	import IconStrategic from '~/assets/images/icon-strategic.svg';
 	import IconCorporate from '~/assets/images/icon-corporate.svg';
+	import BurritoIcon from '~/assets/images/burrito-icon.svg';
 	import IconDue from '~/assets/images/icon-due.svg';
 
 	const features = [
 		{
 			index: 0,
-			component: IconProject,
+			component: BurritoIcon,
 			text: 'Markets',
 			description: 'Because it is super-vluable to generate global and efficient crypto+IA finance, prosperity may accelerate humanity, making sure you stay on budget and meet your financing goals.',
 		},
 		{
 			index: 1,
-			component: IconCorporate,
-			text: 'Real AI with real crypto users',
+			component: BurritoIcon,
+			text: 'Real crypto users',
 			description: 'significant appeal to a broader audience that is interested in these technologies but is overwhelmed by AI and Blockchain complexity.',
 		},
 		{
 			index: 2,
-			component: IconCapital,
+			component: BurritoIcon,
 			text: 'Custom AI Listings',
 			description: 'New and innovative AI+crypto services added. This structure not only encourages holding, but also regulates the use of AI resources for all the communitty.',
 		},
 		{
 			index: 3,
-			component: IconDue,
-			text: 'Sustainable Financial Structuring',
+			component: BurritoIcon,
+			text: 'Sustainable Structure',
 			description: 'Contribute to the repos. Less work and work smarter with our unique tools with Financial NFTs.',
 		},
 		{
 			index: 4,
-			component: IconStrategic,
+			component: BurritoIcon,
 			text: 'Democratizing AI',
 			description: 'We help each other to create decision-making tools for your strategic planning for the AI-compute paradigm.',
 		},
 		{
 			index: 5,
-			component: IconFinancial,
+			component: BurritoIcon,
 			text: 'Social media',
 			description: 'Reach us in X at: (English) twitter.com/burritoaicrypto & twitter.com/burritoai',
 		}
@@ -173,8 +174,7 @@
 				height: 200px
 
 		.features
-			height: 400px
-
+			height: 350px
 			z-index: 2
 
 		.feature
@@ -195,4 +195,18 @@
 
 				path
 					fill: $brand2 !important
+
+	@media (max-width: $sm)
+		.col-12.col-sm-6
+			img
+				width: 100%
+				max: width 100%
+				top: 50%
+				transform: translateY(-50%)
+				padding:0
+
+		.feature
+			:deep(svg)
+				width: 48px
+				height: 48px
 </style>
