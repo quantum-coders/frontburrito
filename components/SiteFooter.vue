@@ -41,8 +41,8 @@
 					<div class="col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center">
 						<div class="data-chunk px-4 mb-4">
 							<p class="text-center d-flex flex-column align-items-center">
-								<img width="25px" class="mb-3" style="color:#3E3C3E;" src="/icon-envelope.png" alt="Contáctanos">
-								<a style="color:#3E3C3E;" href="/blockchain-terms-and-conditions-artificial-cryptocurrency">terms & conditions</a>
+								<img width="25px" class="mb-3" style="color:#3E3C3E;" src="/burritopng.png" alt="Contáctanos">
+								<a style="color:#3E3C3E;" href="/terms-and-conditions-crypto-ai-platform">terms & conditions</a>
 							</p>
 						</div>
 

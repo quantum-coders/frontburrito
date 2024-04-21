@@ -1,11 +1,11 @@
 <template>
     <div class="tokenomics">
-      <div class="container py-5">
+      <div class="container py-3">
         <h2 class="text-center mb-5 purple"><u>BurritoAI Cyber-Tokenomics</u></h2>
   
-        <div class="row g-4">
+        <div class="row g-8">
           <!-- Inicio de la visualización de Tokenomics -->
-          <div class="col-12 col-md-6 col-lg-4" v-for="element in tokenomicsData" :key="element.title">
+          <div class="col-12 col-md-6 col-lg-6" v-for="element in tokenomicsData" :key="element.title">
             <!-- <div class="card-footer text-muted">
                 <h3 class="subtitle" style="color: #3E3C3E;">{{ element.footer }}
               </h3>
@@ -105,12 +105,13 @@
   <style scoped>
   .tokenomics {
     background-color: #D75D41;
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
   
   .card {
     transition: transform 0.5s ease;
     background: linear-gradient(90deg, #D75D41 0%, #e2e3d5 23%);
+    height:477px;
   }
   
   .card:hover {

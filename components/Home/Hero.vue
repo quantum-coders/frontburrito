@@ -24,7 +24,7 @@
 
 <style lang="sass" scoped>
 	.block-hero
-		min-height: 80dvh
+		min-height: 80vh
 		background: $brand1
 		color: white
 		margin-bottom: 10rem
@@ -49,12 +49,15 @@
 				text-align: left
 
 		.robot
-			max-width: 75%
+			width: 80vw
+			max-width: none
 			display: block
 			margin: 0 auto
+			height: auto
 
 			@media (min-width: $sm)
-				max-width: 100%
+				width: 140%
+
 
 		.btn-presale
 			position: absolute

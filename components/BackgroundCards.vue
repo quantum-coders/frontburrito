@@ -6,17 +6,17 @@
           <div class="col-12">
             <div class="full-width-section" style="color: transparent;">
               <!-- Contenido de la nueva sección -->
-              <h5 class="card-title text-white title"><u>Know more ∴ Know the Future</u></h5>
+              <h5 class="card-title text-white title mb-8"><u>Know more ∴ Know the Future</u></h5>
                 <div class="list-unstyled">
                   <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 1">
-                    <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
+                    <i class="bi bi-check-circle-fill" style="color:#F09F33;"></i> Crypto AI investing portfolio data from 2024. All chains
                   </button>
                   <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 2">
-                    <i class="bi bi-check-circle-fill"></i> Airdrops and new gems with meme power narrative and NFTs
+                    <i class="bi bi-check-circle-fill"></i> Uncensored AI
                   </button>
-                  <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 3">
+                  <!-- <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 3">
                     <i class="bi bi-check-circle-fill"></i> Deep search custom data, upload your data.
-                  </button>
+                  </button> -->
                 </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
           <div class="col-md-6">
             <div class="h-100" style="color: transparent;">
               <div class="card-body">
-                <h5 class="card-title text-white mb-5"><strong>The begining of the Neural-Internet</strong></h5>
+                <h3 class="card-title purple mb-5"><strong>The begining of the Neural-Internet</strong></h3>
                 <!-- <div class="list-unstyled">
                   <button class="btn-list-item" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
@@ -49,7 +49,7 @@
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h5 class="card-title text-white subtitle mb-7">Resources Links</h5>
+                <h3 class="card-title purple mb-7">Resources Links</h3>
                 <div class="list-unstyled">
                   <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/tinygrad/tinygrad" target="_blank" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> TinyGrad
@@ -118,7 +118,7 @@
   max-width: 90%; /* Ajusta el ancho máximo del contenedor para permitir que el contenido ocupe más espacio */
 }
 .card {
-  background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 100%);
+  background: linear-gradient(90deg, rgba(207,204,187,1) 0%, rgba(207,204,187,1) 95%, rgba(215,93,65,1) 100%);
   border: none;
   border-radius: 20px; /* Bordes redondeados */
   margin: 0;
@@ -126,9 +126,9 @@
 
 .btn-list-item {
   display: block;
-  background-color: #E3CBA6;
+  background-color: #D75D41;
   border: none;
-  color: #3E3C3E;
+  color: #F09F33;
   text-align: left;
   width: 100%;
   padding: 10px 15px;
@@ -149,7 +149,7 @@
 .full-width-section {
   /* background: #fff; Ajusta según tu diseño */
   padding: 20px;
-  box-shadow: 0 4px 5px #C8B255; /* Sombra opcional para resaltar la sección */
+  box-shadow: 0 4px 5px #F09F33; /* Sombra opcional para resaltar la sección */
   border-radius: 20px; /* Consistente con el estilo de las cards */
 }
 </style>
