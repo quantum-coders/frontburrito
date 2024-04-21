@@ -6,7 +6,7 @@
           <h1 class="staking-title">burritoAI Staking-AI<br>(*under construction*)</h1>
           <p class="staking-description">This index is calculated with with AI for the longevity of the AI powered witha cost-staker-adquisition-risk APY.</p>
           <bpay-button-v2
-									class="mb-4 btn-terms"
+									class="mb-4 btn-sm btn-terms"
 									target="_blank"
 									to="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f"
 									style="color:white"
@@ -68,7 +68,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button disabled type="submit" class="btn btn-primary">Lock burritoAI</button>
+                  <button disabled type="submit" class="btn btn-primary btn-round">Lock burritoAI</button>
                 </div>
               </form>
             </div>
@@ -110,7 +110,18 @@ const calculateStaking = () => {
 .h3 {
   color:#D75D41;
 }
-
+.btn-terms {
+  padding: 0.5rem 1rem; /* Ajusta el padding para hacer el botón más pequeño */
+  font-size: 0.8rem; /* Reduce el tamaño de la fuente */
+  margin-bottom: 0.5rem; /* Ajuste opcional del margen si es necesario */
+  /* Otros estilos que ya tienes para btn-terms */
+  color: white; /* Asegurándonos de que el color y otros estilos se mantengan */
+}
+.btn-round {
+  border-radius: 9999px; /* Hace el botón completamente redondo */
+  padding: 0.5rem 1.5rem; /* Ajusta el padding para asegurar que el botón tenga una forma más circular */
+  /* Asegúrate de que el padding horizontal sea suficiente para el texto dentro del botón */
+}
 /* Aquí podrías añadir estilos personalizados si es necesario */
 /* Asegúrate de que el path de la imagen y los colores sean correctos */
 </style>

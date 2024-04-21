@@ -6,7 +6,7 @@
           <div class="col-12">
             <div class="full-width-section" style="color: transparent;">
               <!-- Contenido de la nueva sección -->
-              <h5 class="card-title text-white title mb-8"><u>Know more ∴ Know the Future</u></h5>
+              <!-- <h5 class="card-title text-white title mb-8"><u>Know more ∴ Know the Future</u></h5> -->
                 <div class="list-unstyled">
                   <button class="btn-list-item mt-3 mb-8 title" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill" style="color:#F09F33;"></i> Crypto AI investing portfolio data from 2024. All chains
@@ -27,7 +27,7 @@
           <div class="col-md-6">
             <div class="h-100" style="color: transparent;">
               <div class="card-body">
-                <h3 class="card-title purple mb-5"><strong>The begining of the Neural-Internet</strong></h3>
+                <h3 class="card-title text-white mb-5"><strong>The begining of the Neural-Internet</strong></h3>
                 <!-- <div class="list-unstyled">
                   <button class="btn-list-item" aria-label="Servicio 1">
                     <i class="bi bi-check-circle-fill"></i> Crypto AI investing portfolio data from 2024. All chains
