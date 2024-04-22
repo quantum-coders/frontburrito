@@ -60,8 +60,8 @@
                   <a class="btn-list-item subtitle mt-3 mb-8" href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" aria-label="Servicio 3">
                     <i class="bi bi-check-circle-fill"></i> AutoGPT
                   </a>
-                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://en.wikipedia.org/wiki/Language_model" target="_blank" aria-label="Servicio 3">
-                    <i class="bi bi-check-circle-fill"></i> GPT info
+                  <a class="btn-list-item subtitle mt-3 mb-8" href="https://en.wikipedia.org/wiki/Energy-based_model" target="_blank" aria-label="Servicio 3">
+                    <i class="bi bi-check-circle-fill"></i> Energy Based Model 
                   </a>
                 </div>
               </div>
