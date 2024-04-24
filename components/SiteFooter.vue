@@ -60,7 +60,7 @@
 								<bpay-button-v2
 									class="mb-4 btn-terms"
 									target="_blank"
-        							:href="'https://burritoai.finance/WhitePaper-burritoAI-crypto-AI-Finances.pdf'"
+        							href="https://burritoai.finance/WhitePaper-burritoAI-crypto-AI-Finances.pdf"
 									style="color:white"
 								>
 									Whitepaper 🌯🤖
