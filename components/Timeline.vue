@@ -18,7 +18,7 @@
   
             <!-- Text content on the right -->
             <div class="col-md-7 d-flex align-items-center mt-2">
-              <p class="m-0 purple subtitle">{{ item.txt }}</p>
+              <p class="m-0 purple subtitle text-justify">{{ item.txt }}</p>
             </div>
           </div>
         </div>
@@ -86,6 +86,10 @@
     padding: 20px;
     border-radius: 4px;
     /* Personaliza según necesidad */
+  }
+  .text-justify {
+    text-align: justify;
+    text-justify: inter-word;
   }
   </style>
   
