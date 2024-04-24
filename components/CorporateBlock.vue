@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row flex-column-reverse flex-sm-row">
 				<div class="col-12 col-sm-6">
-					<h1 class="title purple text-center text-sm-start mt-5" style="color:$brand1;">State of the art AI for global and efficient crypto+IA synergies</h1>
+					<h1 class="title purple text-center text-sm-start mt-0" style="color:$brand1;">State of the art AI for global and efficient crypto+IA synergies</h1>
 					<h2 class="subtitle purple mb-5 text-center text-sm-start">
 						Enjoyable blockchain technology with IA, for the crypto-communitty
 					</h2>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img class="mt-4 mt-sm-8 mt-md-8 mt-lg-4 mt-xl-4 mt-xxl-4 mt-8" src="/hero-crypto-ai-blockchain-staking.png" alt="new-token-market-money-investing-blockchain">
+					<img class="mt-3 mt-sm-8 mt-md-8 mt-lg-4 mt-xl-4 mt-xxl-4 mt-8" src="/hero-crypto-ai-blockchain-staking.png" alt="new-token-market-money-investing-blockchain">
 
 				</div>
 			</div>
@@ -206,6 +206,6 @@
 
 		.feature
 			:deep(svg)
-				width: 48px
-				height: 48px
+				width: 100%
+				height: 100%
 </style>

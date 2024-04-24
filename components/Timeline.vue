@@ -64,7 +64,7 @@
   /* Aquí puedes añadir estilos específicos para personalizar tu línea de tiempo */
   .timeline {
     position: relative;
-    padding-left: 50px;
+    padding-left: 0px;
     list-style: none;
   }
   

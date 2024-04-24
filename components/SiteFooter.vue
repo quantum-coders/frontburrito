@@ -60,7 +60,7 @@
 								<bpay-button-v2
 									class="mb-4 btn-terms"
 									target="_blank"
-									to="https://traderjoexyz.com/avalanche/trade"
+        							:href="'https://burritoai.finance/WhitePaper-burritoAI-crypto-AI-Finances.pdf'"
 									style="color:white"
 								>
 									Whitepaper 🌯🤖
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 
-				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">AI architecture for Crypto-Markets® {{ new Date().getFullYear() }}.
+				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">Real AI architecture for Crypto-Markets® {{ new Date().getFullYear() }}.
 				</p>
 			</div>
 		</div>
