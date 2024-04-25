@@ -42,12 +42,16 @@
 						</li>
 					</ul>
 				</nav>
+			<div class="site-actions d-flex align-items-center gap-3">
+				<web3-wallet />
 				<hamburger
 					class="hamburger d-block d-md-none"
 					:open="menuIsActive"
 					@toggle="menuIsActive = !menuIsActive"
 				/>
-			</nav>
+			</div>
+		</nav>
+
 		</div>
 	</header>
 </template>
@@ -65,16 +69,16 @@
 	.hamburger
 		z-index: 2
 		margin-left: auto !important
-		margin-top: -16px !important
+		margin-top: -6px !important
 
 	.site-header
 		overflow: hidden
-		z-index: 1000
-		height: 100px
+		z-index: 1050
+		height: 170px
 
 	.primary-nav
 		position: fixed
-		z-index: 1
+		z-index: 100
 		top: 0
 		left: 0
 		opacity: 0
