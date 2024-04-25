@@ -200,6 +200,7 @@
 			img
 				width: 100%
 				max: width 100%
+				position: relative
 				top: 50%
 				transform: translateY(-50%)
 				padding:0
