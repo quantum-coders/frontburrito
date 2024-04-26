@@ -104,7 +104,7 @@ export const useWeb3 = () => {
 
     const getAccount = () => window.localStorage.getItem('currentAccount') || null;
 
-    const initProvider = async (provider) => {
+    const initProvider = async () => {
 
         web3log.info('Global Provider initialization');
 
@@ -114,12 +114,8 @@ export const useWeb3 = () => {
         if(window.ethereum !== undefined) {
 
             await verifyMainNet();
-            let provider;
-            if(provider == 'core'){
-                provider = new ethers.providers.Web3Provider(window.avalanche, 'any');
-            }else {
-                provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
-            }
+
+            const provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
             cryptoStore.globalProvider = markRaw(provider);
 
             web3log.info('Global Provider in store', cryptoStore.globalProvider);
@@ -128,18 +124,8 @@ export const useWeb3 = () => {
             // If the current account is set, get nfts
             if(cryptoStore.currentAccount != null) {
                 try {
-                    cryptoStore.nfts = await getNfts();
-                    cryptoStore.stakedNfts = await getStakedNfts();
-
-                    cryptoStore.userMax = await getUserMax();
-                    cryptoStore.avaxBalance = await avaxBalance();
-                    cryptoStore.usdtBalance = await usdtBalance();
-                    cryptoStore.bpayBalance = await bpayBalance();
-
-                    cryptoStore.usdtPrice = await getUSDTPrice();
-
-                    cryptoStore.totalNFTs = await getTotalNfts();
-
+                        // your address
+                       console.log('Current Account', cryptoStore.currentAccount);
                 } catch(error) {
                     web3log.error('Error getting NFTs', error);
                     await disconnectWallet();
@@ -235,11 +221,6 @@ export const useWeb3 = () => {
             window.localStorage.setItem('currentAccount', await cryptoStore.globalProvider.getSigner().getAddress());
             cryptoStore.currentAccount = getAccount();
 
-            // get nfts
-            cryptoStore.nfts = await getNfts();
-            cryptoStore.stakedNfts = await getStakedNfts();
-            cryptoStore.avaxBalance = await avaxBalance();
-            cryptoStore.usdtBalance = await usdtBalance();
             cryptoStore.initLoading = false;
 
         } catch(error) {
