@@ -27,7 +27,7 @@
 								style="color:#3E3C3E;"
 								:to="'/staking-ia-crypto-finance'"
 							>
-								Staking-IA
+								Earn
 							</nuxt-link>
 						</li>
 						<li class="menu-item m-3">

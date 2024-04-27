@@ -47,7 +47,7 @@
 										<span @click="disconnectWallet" class="disconnect">Disconnect</span>
 									</span>
 
-				<div
+				<!-- <div
 						class="nfts"
 				>
 					<svg
@@ -72,7 +72,7 @@
 												{{ cryptoStore.nfts.length + cryptoStore.stakedNfts.length }} NFT{{ cryptoStore.nfts.length > 1 ? 's' : '' }}
 											</span>
 					</nuxt-link>
-				</div>
+				</div> -->
 			</a>
 		</div>
 	</div>

@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 				{
 					hid: 'og:image',
 					property: 'og:image',
-					content: 'https://burritoai.finance/crypto-AI-defi-best-crypto-narrative.png'
+					content: 'https://burritoai.finance/new-crypto-AI-defi-best-crypto-business-narrative-fintech.png'
 				},
 				{ hid: 'og:url', property: 'og:url', content: 'https://burritoai.finance/' },
 				{ hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
@@ -36,7 +36,7 @@ export default defineNuxtConfig({
 				{
 					hid: 'twitter:image',
 					name: 'twitter:image',
-					content: 'https://burritoai.finance/crypto-AI-defi-best-crypto-narrative.png'
+					content: 'https://burritoai.finance/new-crypto-AI-defi-best-crypto-business-narrative-fintech.png'
 				}
 			],
 			link: [
