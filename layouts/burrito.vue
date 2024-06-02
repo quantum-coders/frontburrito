@@ -19,7 +19,7 @@
 			{
 				hid: 'description',
 				name: 'description',
-				content: 'Automated mails with AI',
+				content: 'democratizing AI',
 			},
 		],
 	});

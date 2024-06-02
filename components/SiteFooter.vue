@@ -41,8 +41,8 @@
 					<div class="col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center">
 						<div class="data-chunk px-4 mb-4">
 							<p class="text-center d-flex flex-column align-items-center">
-								<img width="25px" class="mb-3" style="color:#3E3C3E;" src="/icon-envelope.png" alt="Contáctanos">
-								<a style="color:#3E3C3E;" href="/blockchain-terms-and-conditions-artificial-cryptocurrency">terms & conditions</a>
+								<img width="25px" class="mb-3" style="color:#3E3C3E;" src="/burritopng.png" alt="Contáctanos">
+								<a style="color:#3E3C3E;" href="/terms-and-conditions-crypto-ai-platform">terms & conditions</a>
 							</p>
 						</div>
 
@@ -60,14 +60,13 @@
 								<bpay-button-v2
 									class="mb-4 btn-terms"
 									target="_blank"
-									to="https://traderjoexyz.com/avalanche/trade"
-									style="color:#3E3C3E;"
+        							href="https://burritoai.finance/WhitePaper-burritoAI-crypto-AI-Finances.pdf"
+									style="color:white"
 								>
-									<img src="/burritopng.png" :alt="$t('footer.button.terms')">
-									Buy $burritoAI
+									Whitepaper 🌯🤖
 								</bpay-button-v2>
 							</div>
-							<div class="col-12 d-flex justify-content-center">
+							<!-- <div class="col-12 d-flex justify-content-center">
 								<bpay-button-v2
 									href="/how-tu-buy-burrito-ia-artificial-cryptocurrency"
 									target="_blank"
@@ -77,12 +76,12 @@
 									<img src="/burritopng.png">
 									AI Markets
 								</bpay-button-v2>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
 
-				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">AI architecture for Crypto-Markets® {{ new Date().getFullYear() }}.
+				<p class="text-center footer-copy text-balance" style="color:#3E3C3E;">Real AI architecture for Crypto-Markets® {{ new Date().getFullYear() }}.
 				</p>
 			</div>
 		</div>
@@ -108,15 +107,10 @@
 						flex: 1
 
 		.footer-columns
-			.col:nth-child(1),
-			.col:nth-child(2)
-				border-bottom: 1px solid rgba(255, 255, 255, 0.5)
-				margin-bottom: 2rem
-
-				@media (min-width: $md)
-					margin: 0
-					border: 0
-					border-right: 1px solid rgba(255, 255, 255, 0.5)
+			.col
+				display: flex
+				justify-content: center
+				align-items: center
 
 		.btn-gradient
 			width: 50%

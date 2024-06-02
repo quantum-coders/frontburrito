@@ -18,6 +18,16 @@
 					></iframe>
 				</div>
 			</div>
+
+			<div class="video-wrapper mt-4">
+				<div class="ratio ratio-16x9">
+					<img
+						width="560"
+						height="315"
+						src="/crypto-new-2024-ai.jpg"
+					/>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -31,7 +41,7 @@
 
 <style lang="sass" scoped>
 	.block-video
-		background: #EEE
+		background: white
 		text-align: center
 		padding: 5rem 0
 

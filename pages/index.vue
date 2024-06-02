@@ -1,9 +1,12 @@
 <template>
 	<div>
-	<corporate-block />
+		<home-hero />
+	<home-features />
+	<home-video />
+	<!-- <corporate-block /> -->
     <!-- <hero-block class="z-3" /> -->
-	<info-bullet />
-	<avalanche-block class="mt-3"/>
+	<!-- <info-bullet />
+	<avalanche-block class="mt-3"/> -->
 	</div>
 </template>
 

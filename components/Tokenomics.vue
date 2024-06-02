@@ -1,11 +1,11 @@
 <template>
     <div class="tokenomics">
-      <div class="container py-5">
-        <h2 class="text-center mb-5" style="color:#E3CBA6;"><u>BurritoAI Cyber-Tokenomics</u></h2>
+      <div class="container py-3">
+        <h2 class="text-center mb-5 purple"><u>BurritoAI Cyber-Tokenomics</u></h2>
   
-        <div class="row g-4">
+        <div class="row g-8">
           <!-- Inicio de la visualización de Tokenomics -->
-          <div class="col-12 col-md-6 col-lg-4" v-for="element in tokenomicsData" :key="element.title">
+          <div class="col-12 col-md-6 col-lg-6" v-for="element in tokenomicsData" :key="element.title">
             <!-- <div class="card-footer text-muted">
                 <h3 class="subtitle" style="color: #3E3C3E;">{{ element.footer }}
               </h3>
@@ -15,7 +15,7 @@
                     <img :src="element.image" class="card-img-top image-filter" :alt="element.title" />
                   </div>
                 <div class="card-body">
-                  <h5 class="card-title" style="color: #3E3C3E;">{{ element.title }}</h5>
+                  <h5 class="card-title" style="color: black;">{{ element.title }}</h5>
                   <p class="card-text">{{ element.description }}</p>
                 </div>
                 <div class="card-footer text-muted">
@@ -104,13 +104,14 @@
   
   <style scoped>
   .tokenomics {
-    background-color: #f8f9fa;
-    padding: 2rem 0;
+    background-color: #D75D41;
+    padding: 1rem 0;
   }
   
   .card {
     transition: transform 0.5s ease;
-    background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 23%);
+    background: linear-gradient(90deg, #D75D41 0%, #e2e3d5 23%);
+    height:477px;
   }
   
   .card:hover {

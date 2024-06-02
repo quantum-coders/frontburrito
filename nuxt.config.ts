@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 	modules: [
 		'nuxt-svgo',
 		'@nuxtjs/i18n',
+		'@pinia/nuxt',
 		'nuxt-swiper',
 	],
 	app: {
@@ -26,7 +27,7 @@ export default defineNuxtConfig({
 				{
 					hid: 'og:image',
 					property: 'og:image',
-					content: 'https://burritoai.finance/burrito-IA-finance-logo.png'
+					content: 'https://burritoai.finance/new-crypto-AI-defi-best-crypto-business-narrative-fintech.png'
 				},
 				{ hid: 'og:url', property: 'og:url', content: 'https://burritoai.finance/' },
 				{ hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
@@ -35,7 +36,7 @@ export default defineNuxtConfig({
 				{
 					hid: 'twitter:image',
 					name: 'twitter:image',
-					content: 'https://burritoai.finance/burrito-IA-finance-logo.png'
+					content: 'https://burritoai.finance/new-crypto-AI-defi-best-crypto-business-narrative-fintech.png'
 				}
 			],
 			link: [
@@ -46,6 +47,30 @@ export default defineNuxtConfig({
 				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js' }
 			],
 		}
+	},
+	imports: {
+		dirs: [
+			'stores',
+		],
+	},
+	runtimeConfig: {
+		public: {
+			baseURL: process.env.BASE_URL || 'http://localhost:1337',
+			appURL: process.env.APP_URL || 'http://localhost:3000',
+			gtmContainerId: 'GTM-TPFNCRF',
+			avaxPriceFeed: process.env.AVAX_PRICEFEED,
+			avaxPriceFeedTestnet: process.env.AVAX_TEST_PRICEFEED,
+			mainnetRPCProvider: process.env.MAINNET_RPC_PROVIDER,
+			testnetRPCProvider: process.env.TESTNET_RPC_PROVIDER,
+			bpayNftAddress: process.env.BPAY_NFT_ADDRESS,
+			BPAYTokenAddress: process.env.BPAY_TOKEN_ADDRESS,
+			avaxNetwork: process.env.AVAX_NETWORK,
+			stakerAddress: process.env.STAKER_ADDRESS,
+			usdtAddress: process.env.USDT_TESTNET,
+			chainId: process.env.CHAIN_ID,
+			chainIdHex: process.env.CHAIN_ID_HEX,
+			bC: process.env.BC,
+		},
 	},
 	vite: {
 		css: {

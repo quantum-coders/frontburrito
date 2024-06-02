@@ -27,7 +27,7 @@
 								style="color:#3E3C3E;"
 								:to="'/staking-ia-crypto-finance'"
 							>
-								Staking-IA
+								Earn
 							</nuxt-link>
 						</li>
 						<li class="menu-item m-3">
@@ -42,12 +42,16 @@
 						</li>
 					</ul>
 				</nav>
+			<div class="site-actions d-flex align-items-center gap-3">
+				<web3-wallet />
 				<hamburger
 					class="hamburger d-block d-md-none"
 					:open="menuIsActive"
 					@toggle="menuIsActive = !menuIsActive"
 				/>
-			</nav>
+			</div>
+		</nav>
+
 		</div>
 	</header>
 </template>
@@ -65,16 +69,16 @@
 	.hamburger
 		z-index: 2
 		margin-left: auto !important
-		margin-top: -16px !important
+		margin-top: -6px !important
 
 	.site-header
 		overflow: hidden
-		z-index: 1000
-		height: 100px
+		z-index: 1050
+		height: 170px
 
 	.primary-nav
 		position: fixed
-		z-index: 1
+		z-index: 100
 		top: 0
 		left: 0
 		opacity: 0
@@ -82,7 +86,7 @@
 		height: 100dvh
 		pointer-events: none
 		transition: 500ms all
-		background: linear-gradient(90deg, rgba(200,178,85,1) 0%, rgba(227,203,166,1) 23%, rgba(207,204,187,1) 100%)
+		background: linear-gradient(90deg, rgba(215,93,65,1) 0%, rgba(207,204,187,1) 5%, rgba(207,204,187,1) 95%, rgba(215,93,65,1) 100%)
 
 		a:not(.button-wallet, .lang-item)
 			position: relative
