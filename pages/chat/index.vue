@@ -1,6 +1,7 @@
 <template>
 	<div class="chat-wrapper">
 		<header class="chat-header">
+			<chat-app-header />
 			<img class="logo" src="/images/logo.svg" alt="">
 		</header>
 		<main class="chat-content">

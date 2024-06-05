@@ -62,7 +62,6 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             baseURL: process.env.BASE_URL || 'http://localhost:1337',
-            appURL: process.env.APP_URL || 'http://localhost:3000',
             rpcProvider: process.env.RPC_PROVIDER,
             burritoTokenAddress: process.env.BURRITO_TOKEN_ADDRESS,
             usdtAddress: process.env.USDT_ADDRESS,
