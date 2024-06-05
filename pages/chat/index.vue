@@ -28,11 +28,11 @@
 <script setup>
 	const { me } = useAuth();
 	const authToken = localStorage.getItem('authToken');
-	const router = useRouter();
 	if(authToken) await me(authToken);
 	const user = useAuthUser();
+	const router = useRouter();
 
-	if(!!user) {
+	if(!!user.value) {
 
 		const chatRes = await useBaseFetch('/users/me/chats', {
 			method: 'POST',
