@@ -1,12 +1,13 @@
 <template>
 	<div class="site-actions d-flex align-items-center gap-3">
-		<div class="wallet" :class="{ 'wrong-network': (!cryptoStore.wrongNetwork && cryptoStore.currentAccount != null) }">
+		<div class="wallet"
+		     :class="{ 'wrong-network': (!cryptoStore.wrongNetwork && cryptoStore.currentAccount != null) }">
 			<a href="#" @click.prevent="switchNetwork" class="switch-network">Wrong network</a>
 			<a
-					v-if="cryptoStore.currentAccount == null"
-					href="#"
-					@click.prevent="walletModalRef.openDialog()"
-					class="connect-wallet d-flex align-items-center gap-2"
+				v-if="cryptoStore.currentAccount == null"
+				href="#"
+				@click.prevent="walletModalRef.openDialog()"
+				class="connect-wallet d-flex align-items-center gap-2"
 			>
 				<span class="d-none d-sm-block text-nowrap">Connect Wallet</span>
 				<platform-wallet-animation class="d-none d-sm-flex wallet-animation"/>
@@ -28,9 +29,9 @@
 	<platform-modal ref="walletModalRef">
 		<template #default="{ close: closeDialog }">
 			<a class="close" href="#" @click.prevent="closeDialog">
-			Test
+				Test
 			</a>
-			<web3-wallet @connect="closeDialog" />
+			<web3-wallet @connect="closeDialog"/>
 		</template>
 	</platform-modal>
 </template>

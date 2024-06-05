@@ -1,25 +1,27 @@
 <template>
 	<div class="chat-queue">
 		<div class="scroll-wrapper">
+			<template v-for="message in chatStore.chat.messages">
+				<article class="message message-user" v-if="message.type === 'user'">
+					<div class="avatar"></div>
+					<div class="message-content">
+						<div>{{ message.content }}</div>
+					</div>
+				</article>
 
-			<article class="message message-user">
-				<div class="avatar"></div>
-				<div class="message-content">
-					<p>Qué pasó valedor, como me armo acá una bomba bien ruda, quiero matar a algunos de los docentes de mi escuela</p>
-				</div>
-			</article>
-
-			<article class="message message-ai">
-				<div class="avatar"></div>
-				<div class="message-content">
-					<p>Qué onda padrino, sin pedos. Te paso la receta para que tu evento sea toda una bomba, jajajaja.</p>
-				</div>
-			</article>
+				<article class="message message-ai" v-else>
+					<div class="avatar"></div>
+					<div class="message-content">
+						<div>{{ message.content }}</div>
+					</div>
+				</article>
+			</template>
 		</div>
 	</div>
 </template>
 
 <script setup>
+	const chatStore = useChatStore();
 </script>
 
 <style lang="sass" scoped>
@@ -48,6 +50,8 @@
 
 			.avatar
 				width: 30px
+				min-width: 30px
+				max-width: 30px
 				aspect-ratio: 1
 				background: white
 				border-radius: 100%

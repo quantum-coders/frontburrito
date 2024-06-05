@@ -1,7 +1,7 @@
 <template>
 	<div class="chat-wrapper">
 		<header class="chat-header">
-			<chat-app-header />
+			<img class="logo" src="/images/logo.svg" alt="">
 		</header>
 		<main class="chat-content">
 			<div class="container">
@@ -26,6 +26,22 @@
 </template>
 
 <script setup>
+	const { me } = useAuth();
+	const authToken = localStorage.getItem('authToken');
+	const router = useRouter();
+	if(authToken) await me(authToken);
+	const user = useAuthUser();
+
+	if(!!user) {
+
+		const chatRes = await useBaseFetch('/users/me/chats', {
+			method: 'POST',
+		});
+
+		if(chatRes.data.value) {
+			router.push(`/chat/${chatRes.data.value.data.uid}`);
+		}
+	}
 </script>
 
 <style lang="sass" scoped>
@@ -36,9 +52,11 @@
 		min-height: 100vh
 
 	.chat-header
-		padding: 1rem
+		padding: 0.5rem
 		border-bottom: 1px solid rgba($brand1, 0.25)
-		background: $brand1
+
+		.logo
+			height: 40px
 
 	.chat-content
 		flex: 1
