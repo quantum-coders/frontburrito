@@ -1,11 +1,21 @@
 <template>
 	<div class="chat-input">
-		<input type="text" placeholder="Write literally anything..." />
-		<chat-send-button />
+		<input v-model="message" type="text" placeholder="Write literally anything..." />
+		<chat-send-button @click="sendMessage" />
 	</div>
 </template>
 
 <script setup>
+	const chatStore = useChatStore();
+	const message = ref('');
+
+	const sendMessage = () => {
+		if(message.value) {
+			chatStore.sendMessage(message.value);
+			message.value = '';
+		}
+	}
+
 </script>
 
 <style lang="sass" scoped>

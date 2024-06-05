@@ -1,6 +1,7 @@
 <template>
 	<div class="chat-wrapper">
 		<header class="chat-header">
+			<img class="logo" src="/images/logo.svg" alt="">
 		</header>
 		<main class="chat-content">
 			<div class="container">
@@ -25,6 +26,19 @@
 </template>
 
 <script setup>
+	definePageMeta({ middleware: 'auth' });
+	const user = useAuthUser();
+	const route = useRoute();
+	const router = useRouter();
+	const uid = route.params.uid;
+	const chatStore = useChatStore();
+
+	if(!uid) {
+		router.push('/');
+	} else {
+		await chatStore.getChat(uid);
+	}
+
 </script>
 
 <style lang="sass" scoped>
@@ -35,9 +49,11 @@
 		min-height: 100vh
 
 	.chat-header
-		padding: 1rem
+		padding: 0.5rem
 		border-bottom: 1px solid rgba($brand1, 0.25)
-		background: $brand1
+
+		.logo
+			height: 40px
 
 	.chat-content
 		flex: 1

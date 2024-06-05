@@ -43,7 +43,6 @@ export default defineNuxtConfig({
 				{ rel: 'icon', href: '/favicon.ico' }
 			],
 			script: [
-				{ src: '/scripts/font-awesome/all.js', },
 				{ src: 'https://cdnjs.cloudflare.com/ajax/libs/textfit/2.4.0/textFit.min.js' }
 			],
 		}
