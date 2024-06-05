@@ -1,6 +1,7 @@
 <template>
 	<div class="chat-wrapper">
 		<header class="chat-header">
+			<chat-app-header />
 		</header>
 		<main class="chat-content">
 			<div class="container">
