@@ -1,8 +1,14 @@
 <template>
 	<div class="chat-wrapper">
-		<header class="d-inline d-inline-flex">
-			<chat-nav-bar />
-			<img class="logo" src="/images/logo.svg" alt="">
+		<header class="chat-header bg-light border-bottom">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">
+						<img class="logo" src="/images/logo.svg" alt="">
+					</a>
+					<chat-nav-bar class="ms-auto" />
+				</div>
+			</nav>
 		</header>
 		<main class="chat-content">
 			<div class="container">

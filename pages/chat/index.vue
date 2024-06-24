@@ -1,14 +1,18 @@
 <template>
 	<div class="chat-wrapper">
-		<header class="chat-header">
-			<chat-nav-bar />
-			<img class="logo" src="/images/logo.svg" alt="">
-		</header>
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<img class="logo" src="/images/logo.svg" alt="">
+				</a>
+				<chat-nav-bar class="ms-auto"/>
+			</div>
+		</nav>
 		<main class="chat-content">
 			<div class="container">
 				<div class="chat-experience">
-					<chat-queue class="flex-grow-1" />
-					<chat-input class="m-2" />
+					<chat-queue class="flex-grow-1"/>
+					<chat-input class="m-2"/>
 				</div>
 
 				<aside class="chat-config">
@@ -27,60 +31,63 @@
 </template>
 
 <script setup>
-	const { me } = useAuth();
-	const authToken = localStorage.getItem('authToken');
-	if(authToken) await me(authToken);
-	const user = useAuthUser();
-	const router = useRouter();
+const {me} = useAuth();
+const authToken = localStorage.getItem('authToken');
+if (authToken) await me(authToken);
+const user = useAuthUser();
+const router = useRouter();
 
-	if(!!user.value) {
+console.log(user.value);
+console.log(authToken)
+console.log(me.value)
+if (!!user.value) {
 
-		const chatRes = await useBaseFetch('/users/me/chats', {
-			method: 'POST',
-		});
+	const chatRes = await useBaseFetch('/users/me/chats', {
+		method: 'POST',
+	});
 
-		if(chatRes.data.value) {
-			router.push(`/chat/${chatRes.data.value.data.uid}`);
-		}
+	if (chatRes.data.value) {
+		router.push(`/chat/${chatRes.data.value.data.uid}`);
 	}
+}
 </script>
 
 <style lang="sass" scoped>
 
-	.chat-wrapper
+.chat-wrapper
+	display: flex
+	flex-direction: column
+	min-height: 100vh
+
+.chat-header
+	padding: 0.5rem
+	border-bottom: 1px solid rgba($brand1, 0.25)
+
+	.logo
+		height: 40px
+
+.chat-content
+	flex: 1
+	display: flex
+	align-items: stretch
+
+	.container
 		display: flex
-		flex-direction: column
-		min-height: 100vh
-
-	.chat-header
-		padding: 0.5rem
-		border-bottom: 1px solid rgba($brand1, 0.25)
-
-		.logo
-			height: 40px
-
-	.chat-content
 		flex: 1
-		display: flex
 		align-items: stretch
 
-		.container
-			display: flex
-			flex: 1
-			align-items: stretch
+	.chat-experience
+		flex: 1
+		display: flex
+		flex-direction: column
 
-		.chat-experience
-			flex: 1
-			display: flex
-			flex-direction: column
-
-		.chat-config
-			width: 300px
-			padding: 1rem
-			border-left: 1px solid rgba($brand1, 0.25)
-
-	.chat-footer
-		border-top: 1px solid rgba($brand1, 0.25)
+	.chat-config
+		width: 300px
 		padding: 1rem
+		border-left: 1px solid rgba($brand1, 0.25)
+
+.chat-footer
+	border-top: 1px solid rgba($brand1, 0.25)
+	padding: 1rem
 
 </style>
