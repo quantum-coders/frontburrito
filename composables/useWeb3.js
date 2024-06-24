@@ -24,29 +24,13 @@ export const useWeb3 = () => {
     const network = config.public.network;
     const chainId = parseInt(config.public.chainId);
     const isCorrectNetwork = async () => {
-        let providerName = window.localStorage.getItem('providerName');
-        let wallet;
+        let chainId = useRuntimeConfig().public.chainId;
+        console.log("[[[[[[[[[[[[[[CHAINID: ]]]]]]]]]]]]]", chainId)
+        console.log(cryptoStore.globalProvider.network.chainId)
         try {
-            switch (providerName) {
-                case 'metamask':
-                    wallet = new MetaMaskWallet();
-                    console.log('[getChainId]', await wallet.getChainId());
-                    cryptoStore.wrongNetwork = await wallet.getChainId() === parseInt(chainId);
-                    break;
-                case 'core':
-                    wallet = new CoreWallet();
-                    cryptoStore.wrongNetwork = await wallet.getChainId() === parseInt(chainId);
-                    break;
-                case 'rabby':
-                    wallet = new RabbyWallet();
-                    cryptoStore.wrongNetwork = await wallet.getChainId() === parseInt(chainId);
-                    break;
-                default:
-                    wallet = new MetaMaskWallet();
-                    cryptoStore.wrongNetwork = await wallet.getChainId() === parseInt(chainId);
-                    console.log('[wrongNetwork: ]', cryptoStore.wrongNetwork);
-                    break;
-            }
+            const providerNetwork = await cryptoStore.globalProvider.getNetwork();
+            cryptoStore.wrongNetwork = parseInt(providerNetwork) === parseInt(chainId);
+            return cryptoStore.wrongNetwork;
         } catch (error) {
             web3log.error('Error checking network', error);
             return {message: 'Error checking network: ' + error.message};
@@ -153,110 +137,103 @@ export const useWeb3 = () => {
     const onAccountsChanged = async () => {
         web3log.info(':::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Global Provider in onAccountsChanged', cryptoStore.globalProvider);
         await connectWallet();
-    };
-
-    async function switchNetwork() {
-        console.log('WE ARE HERE');
-
-
-        console.log("Hola: ", cryptoStore.globalProvider)
-
-        if (window.ethereum === undefined && window.avalanche === undefined && window.rabby === undefined) {
-            console.log('No wallet detected');
-            return {message: 'No wallet detected'};
-        }
-        let providerName = window.localStorage.getItem('providerName');
-        let chainIdHex = chainId === 43114 ? '0xa86a' : '0xa869';
-
-
-        console.log("CHAIN ID HEX: ", chainIdHex)
-
-        let wallet;
-        try {
-            switch (providerName) {
-                case 'metamask':
-                    wallet = new MetaMaskWallet();
-                    chainIdHex = await wallet.switchChain(chainIdHex);
-                    break;
-                case 'core':
-                    wallet = new CoreWallet();
-                    chainIdHex = await wallet.switchChain(chainIdHex);
-                    break;
-                case 'rabby':
-                    wallet = new RabbyWallet();
-                    chainIdHex = await wallet.switchChain(chainIdHex);
-                    break;
-                default:
-                    wallet = new MetaMaskWallet();
-                    chainIdHex = await wallet.switchChain(chainIdHex);
-                    break;
-            }
-
-            await isCorrectNetwork();
-            return wallet;
-        } catch (error) {
-            web3log.error('Error checking network', error);
-            return {message: 'Error checking network: ' + error.message};
-        }
-    }
-
-    const onChainChanged = async () => {
-        web3log.info('Global Provider in onChainChanged', cryptoStore.globalProvider);
         await isCorrectNetwork();
     };
 
-    const connectWallet = async () => {
+    async function switchNetwork() {
+		if(window.ethereum === undefined && window.avalanche === undefined && window.rabby === undefined) {
+			console.log('No wallet detected');
+			return { message: 'No wallet detected' };
+		}
+		let providerName = window.localStorage.getItem('providerName');
+		let chainIdHex = useRuntimeConfig().public.chainId === 43114 ? '0xa86a' : '0xa869';
+		chainIdHex = chainIdHex.toString();
+		let wallet;
+		try {
+			switch(providerName) {
+				case 'metamask':
+					wallet = new MetaMaskWallet();
+					await wallet.connect();
+					chainIdHex = await wallet.switchChain(chainIdHex);
+					break;
+				case 'core':
+					wallet = new CoreWallet();
+					await wallet.connect();
+					chainIdHex = await wallet.switchChain(chainIdHex);
+					break;
+				case 'rabby':
+					wallet = new RabbyWallet();
+					await wallet.connect();
+					chainIdHex = await wallet.switchChain(chainIdHex);
+					break;
+				default:
+					wallet = new MetaMaskWallet();
+					await wallet.connect();
+					chainIdHex = await wallet.switchChain(chainIdHex);
+					break;
+			}
+			return wallet;
+		} catch(error) {
+			web3log.error('Error checking network', error);
+			return { message: 'Error checking network: ' + error.message };
+		}
+	}
 
-        web3log.info('Connecting wallet...');
-        cryptoStore.initLoading = true;
+	const onChainChanged = async () => {
+		web3log.info('Global Provider in onChainChanged', cryptoStore.globalProvider);
+		await initProvider(window.localStorage.getItem('providerName'), true);
+		await isCorrectNetwork();
+	};
 
-        try {
 
-            web3log.info('Global Provider in connectWallet', cryptoStore.globalProvider);
-            const accounts = await cryptoStore.globalProvider.listAccounts();
-            web3log.info('Accounts', accounts);
+	const connectWallet = async () => {
+		web3log.info('Connecting wallet...');
+		cryptoStore.initLoading = true;
+		try {
+			web3log.info('Global Provider in connectWallet', cryptoStore.globalProvider);
+			const accounts = await cryptoStore.globalProvider.listAccounts();
+			web3log.info('Accounts', accounts);
+			if(!accounts.length) {
+				web3log.error('No accounts found');
+				await disconnectWallet();
+			}
+			await cryptoStore.globalProvider.send('eth_requestAccounts', []);
+			window.localStorage.setItem('currentAccount', await cryptoStore.globalProvider.getSigner().getAddress());
+			cryptoStore.currentAccount = getAccount();
+			cryptoStore.burritoBalance = await burritoBalance();
+			cryptoStore.avaxBalance = await avaxBalance();
+			cryptoStore.usdtBalance = await usdtBalance();
+			cryptoStore.initLoading = false;
 
-            if (!accounts.length) {
-                web3log.error('No accounts found');
-                await disconnectWallet();
-            }
-
-            await cryptoStore.globalProvider.send('eth_requestAccounts', []);
-            window.localStorage.setItem('currentAccount', await cryptoStore.globalProvider.getSigner().getAddress());
-            cryptoStore.currentAccount = getAccount();
-
-            cryptoStore.burritoBalance = await burritoBalance();
-            cryptoStore.avaxBalance = await avaxBalance();
-            cryptoStore.usdtBalance = await usdtBalance();
-            cryptoStore.initLoading = false;
-
-        } catch (error) {
-            web3log.error('Error connecting wallet', error);
-            cryptoStore.initLoading = false;
-            await disconnectWallet();
-            let e = 'Metamask not found';
-            errorToast(e.message ?? 'Metamask not found', 'bottom-right')
-
-        }
-    };
+		} catch(error) {
+			web3log.error('Error connecting wallet', error);
+			cryptoStore.initLoading = false;
+			await disconnectWallet();
+			let e = 'Metamask not found';
+			if(error.code === -32002) {
+				e = 'Metamask connection is already in progress, please confirm the connection in Metamask';
+				errorToast(e, 'bottom-right');
+			}
+		}
+	};
 
     const disconnectWallet = async () => {
-        try {
-            web3log.info('Disconnecting wallet...');
-            cryptoStore.currentAccount = null;
-            setListeners(false);
-            window.localStorage.removeItem('currentAccount');
-            window.localStorage.removeItem('providerName');
-            if (window.ethereum) {
-                console.log('Disconnecting wallet');
-                console.log(window.ethereum);
-            }
+		try {
+			web3log.info('Disconnecting wallet...');
+			cryptoStore.currentAccount = null;
+			setListeners(false);
+			window.localStorage.removeItem('currentAccount');
+			window.localStorage.removeItem('providerName');
+			if(window.ethereum) {
+				console.log('Disconnecting wallet');
+				console.log(window.ethereum);
+			}
 
-        } catch (error) {
-            web3log.error('Error disconnecting wallet', error);
-            decodeErrors(error);
-        }
-    };
+		} catch(error) {
+			web3log.error('Error disconnecting wallet', error);
+			decodeErrors(error);
+		}
+	};
 
     const decodeErrors = (error) => {
         // Comprobamos que 'error' no sea nulo o indefinido
@@ -399,26 +376,29 @@ export const useWeb3 = () => {
         }
     };
 
-    const getThirdWebWalletProvider = async (provider, connected = false) => {
-        let wallet;
-        switch (provider) {
-            case 'core':
-                wallet = new CoreWallet({});
-                await wallet.connect();
-                if (!connected) await wallet.signMessage('Approve Connection to BlockPay Platform');
-                return (await wallet.getSigner()).provider;
-            case 'metamask':
-                wallet = new MetaMaskWallet({});
-                await wallet.connect();
-                if (!connected) await wallet.signMessage('Approve Connection to BlockPay Platform');
-                return (await wallet.getSigner()).provider;
-            case 'rabby':
-                wallet = new RabbyWallet({});
-                await wallet.connect();
-                if (!connected) await wallet.signMessage('Approve Connection to BlockPay Platform');
-                return (await wallet.getSigner()).provider;
-        }
-    };
+	const getThirdWebWalletProvider = async (provider, connected = false) => {
+		let wallet;
+		switch(provider) {
+			case 'core':
+				wallet = new CoreWallet({});
+				await wallet.connect();
+				if(!connected) await wallet.signMessage('Approve Connection to BlockPay Platform');
+				return (await wallet.getSigner()).provider;
+				break;
+			case 'metamask':
+				wallet = new MetaMaskWallet({});
+				await wallet.connect();
+				if(!connected) await wallet.signMessage('Approve Connection to BlockPay Platform');
+				return (await wallet.getSigner()).provider;
+				break;
+			case 'rabby':
+				wallet = new RabbyWallet({});
+				await wallet.connect();
+				if(!connected) await wallet.signMessage('Approve Connection to BlockPay Platform');
+				return (await wallet.getSigner()).provider;
+				break;
+		}
+	};
 
     return {
         addTokenToWallet,
