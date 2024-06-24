@@ -241,6 +241,7 @@ export const useWeb3 = () => {
                 setListeners(false);
                 window.localStorage.removeItem('currentAccount');
                 window.localStorage.removeItem('providerName');
+                window.localStorage.removeItem('authToken');
                 if (window.ethereum) {
                     console.log('Disconnecting wallet');
                     console.log(window.ethereum);
