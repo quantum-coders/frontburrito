@@ -1,13 +1,6 @@
 <template>
 	<div class="chat-wrapper">
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">
-					<img class="logo" src="/images/logo.svg" alt="">
-				</a>
-				<chat-nav-bar class="ms-auto"/>
-			</div>
-		</nav>
+		<platform-header-wallet/>
 		<main class="chat-content">
 			<div class="container">
 				<div class="chat-experience">

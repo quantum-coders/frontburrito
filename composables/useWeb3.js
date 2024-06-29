@@ -25,8 +25,6 @@ export const useWeb3 = () => {
         const chainId = parseInt(config.public.chainId);
         const isCorrectNetwork = async () => {
             let chainId = useRuntimeConfig().public.chainId;
-            console.log("[[[[[[[[[[[[[[CHAINID: ]]]]]]]]]]]]]", chainId)
-            console.log(cryptoStore.globalProvider.network.chainId)
             try {
                 const providerNetwork = await cryptoStore.globalProvider.getNetwork();
                 cryptoStore.wrongNetwork = parseInt(providerNetwork) === parseInt(chainId);
@@ -212,7 +210,6 @@ export const useWeb3 = () => {
                     });
 
                     if(!error.value){
-                        console.log("DATA", data.value.data)
                         localStorage.setItem('authToken', data.value.token);
                     }
 
@@ -244,7 +241,6 @@ export const useWeb3 = () => {
                 window.localStorage.removeItem('authToken');
                 if (window.ethereum) {
                     console.log('Disconnecting wallet');
-                    console.log(window.ethereum);
                 }
 
             } catch (error) {

@@ -12,7 +12,7 @@ export const useChatStore = defineStore('chatStore', () => {
 		}
 	}
 
-	const sendMessage = async (message) => {
+	const sendMessage = async (message, callback = null) => {
 		const messageRes = await useBaseFetch(`/users/me/chats/${ chat.value.uid }/messages`, {
 			method: 'POST',
 			body: { message }
@@ -48,7 +48,12 @@ export const useChatStore = defineStore('chatStore', () => {
 				let chunks = '';
 
 				return reader.read().then(async function processText({ done, value }) {
-					if(done) { return chunks; }
+					if (done) {
+						if (callback && typeof callback === 'function') {
+							callback(chunks);
+						}
+						return chunks;
+                	}
 
 					const textDecoder = new TextDecoder('utf-8');
 					const chunk = textDecoder.decode(value);

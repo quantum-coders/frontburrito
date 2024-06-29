@@ -70,6 +70,7 @@ const {switchNetwork, disconnectWallet} = useWeb3();
 const showWalletMenu = ref(false);
 const walletModalRef = ref(null);
 
+
 const currentAccountTrimmed = computed(() => {
 	if (cryptoStore.currentAccount) {
 		return `${cryptoStore.currentAccount.slice(0, 6)}...${cryptoStore.currentAccount.slice(-4)}`;

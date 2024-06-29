@@ -17,8 +17,17 @@ export default defineNuxtConfig({
         'nuxt-svgo',
         '@nuxtjs/i18n',
         '@pinia/nuxt',
+        "@nuxt/icon",
         'nuxt-swiper',
     ],
+    mdc: {
+        default: true,
+        highlight: {
+            theme: 'github-dark',
+            langs: ['javascript', 'typescript', 'json', 'html', 'css', 'scss', 'sass', 'shell', 'yaml', 'markdown'],
+            wrapperStyle: true
+        }
+    },
     app: {
         head: {
             htmlAttrs: {
