@@ -28,6 +28,9 @@ export default defineNuxtConfig({
             wrapperStyle: true
         }
     },
+    icon:{
+        mode: 'svg'
+    },
     app: {
         head: {
             htmlAttrs: {
