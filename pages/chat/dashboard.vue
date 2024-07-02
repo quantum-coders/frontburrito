@@ -69,13 +69,13 @@
                 </span>
 								<div class="btn-group" role="group" aria-label="Chat actions" @click.stop>
 									<button type="button" class="btn btn-outline-secondary btn-sm" title="Download"
-									        @click="downloadChat(chat.id)">
+									        @click="downloadChat(chat)">
 										<Icon name="ph:download"/>
 									</button>
-									<button type="button" class="btn btn-outline-secondary btn-sm" title="View"
+<!--									<button type="button" class="btn btn-outline-secondary btn-sm" title="View"
 									        @click="viewChat(chat.uid)">
 										<Icon name="ph:eye"/>
-									</button>
+									</button>-->
 									<button type="button" class="btn btn-outline-danger btn-sm" title="Delete"
 									        @click="openDeleteModal(chat)">
 										<Icon name="ph:trash"/>
@@ -159,7 +159,7 @@ const fetchChats = async () => {
 		const {error, data} = await useBaseFetch('users/me/chats', {
 			method: 'GET',
 		});
-		if (!error.value){
+		if (!error.value) {
 			console.log("Chats: ", data.value.data)
 			// if it is an object then it is a single chat if it is an array then it is multiple chats
 			if (Array.isArray(data.value.data)) {
@@ -207,10 +207,12 @@ const confirmDelete = async (closeDialog) => {
 	}
 };
 
-const downloadChat = async (chatId: string) => {
-	console.log('Downloading chat:', chatId);
-};
+const downloadChat = async (chat, type = 'txt') => {
 
+	if (useChatStore) {
+		useChatStore().downloadChat(chat, type);
+	}
+}
 const toggleSelectAll = () => {
 	chats.value.forEach(chat => chat.selected = selectAll.value);
 	updateSelectedChats();
