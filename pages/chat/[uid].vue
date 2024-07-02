@@ -61,9 +61,9 @@
 						<div class="chat-stats mt-4">
 							<h4 class="h6 mb-2">Chat Statistics</h4>
 							<ul class="list-unstyled small">
-								<li><strong>Messages:</strong> {{chatStore.chat.messages.length }} </li>
-								<li><strong>Created:</strong> {{ useTimeAgo(chatStore.chat.created).value }}</li>
-								<li><strong>Last Activity:</strong> {{ useTimeAgo(chatStore.chat.modified).value }}</li>
+								<li><strong>Messages:</strong> {{chatStore.chat.messageStatistics.count }} </li>
+								<li><strong>Created:</strong> {{ useTimeAgo(chatStore.chat.messageStatistics.created).value }}</li>
+								<li><strong>Last Activity:</strong> {{ useTimeAgo(chatStore.chat.messageStatistics.modified).value }}</li>
 							</ul>
 						</div>
 					</aside>
