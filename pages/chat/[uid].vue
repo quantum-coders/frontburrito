@@ -6,8 +6,19 @@
 				<div class="row h-100">
 					<div class="col-md-9 d-flex flex-column">
 						<div class="chat-info bg-light p-2 mb-2 rounded-3">
-							<h2 class="h5 mb-1">{{ chatStore.chat?.name }}</h2>
-							<p class="text-muted small mb-0">ID: {{ chatStore.chat?.uid}}</p>
+							<div class="h5 mb-1"
+							     v-if="!editChatName"
+							     v-html="$mdRenderer.render(chatStore.chat?.name)"
+							     @click="editChatName = !editChatName"
+							/>
+							<input
+								v-if="editChatName"
+								v-model="chatStore.chat.name"
+								type="text"
+								class="form-control"
+								@blur="updateAndClose({ name: chatStore.chat.name })"
+							>
+							<p class="text-muted small mb-0">ID: {{ chatStore.chat?.uid }}</p>
 						</div>
 						<chat-queue class="flex-grow-1 overflow-auto mb-2"/>
 						<chat-input class="mt-auto"/>
@@ -20,8 +31,9 @@
 								class="form-control"
 								id="system-prompt"
 								rows="4"
-								v-model="systemPrompt"
+								v-model="chatStore.chat.system"
 								placeholder="Enter system instructions here..."
+								@blur="chatStore.updateChat({ system: chatStore.chat.system })"
 							></textarea>
 						</div>
 						<div class="form-check form-switch mb-3">
@@ -30,6 +42,7 @@
 								type="checkbox"
 								id="web-search"
 								v-model="webSearchEnabled"
+								@change="updateWebSearch"
 							>
 							<label class="form-check-label" for="web-search">Enable WebSearch</label>
 						</div>
@@ -42,7 +55,8 @@
 									name="searchType"
 									id="normalSearch"
 									value="normal"
-									v-model="searchType"
+									v-model="webSearchType"
+									@change="updateSearchType"
 									autocomplete="off"
 								>
 								<label class="btn btn-outline-primary" for="normalSearch">Normal</label>
@@ -52,7 +66,8 @@
 									name="searchType"
 									id="deepSearch"
 									value="deep"
-									v-model="searchType"
+									v-model="webSearchType"
+									@change="updateSearchType"
 									autocomplete="off"
 								>
 								<label class="btn btn-outline-primary" for="deepSearch">Deep</label>
@@ -61,9 +76,13 @@
 						<div class="chat-stats mt-4">
 							<h4 class="h6 mb-2">Chat Statistics</h4>
 							<ul class="list-unstyled small">
-								<li><strong>Messages:</strong> {{chatStore.chat.messageStatistics.count }} </li>
-								<li><strong>Created:</strong> {{ useTimeAgo(chatStore.chat.messageStatistics.created).value }}</li>
-								<li><strong>Last Activity:</strong> {{ useTimeAgo(chatStore.chat.messageStatistics.modified).value }}</li>
+								<li><strong>Messages:</strong> {{ chatStore.chat.messageStatistics.count }}</li>
+								<li><strong>Created:</strong>
+									{{ useTimeAgo(chatStore.chat.messageStatistics.created).value }}
+								</li>
+								<li><strong>Last Activity:</strong>
+									{{ useTimeAgo(chatStore.chat.messageStatistics.modified).value }}
+								</li>
 							</ul>
 						</div>
 					</aside>
@@ -76,33 +95,90 @@
 	</div>
 </template>
 
+
 <script setup>
 import {useTimeAgo} from "@vueuse/core";
-const systemPrompt = ref('');
+
+const {$mdRenderer} = useNuxtApp();
 const {me} = useAuth();
 const authToken = localStorage.getItem('authToken');
 if (authToken) await me(authToken);
-const webSearchEnabled = ref(false);
-const searchType = ref('normal');
+
 const route = useRoute();
 const router = useRouter();
 const uid = route.params.uid;
-const chatStore = useChatStore()
+const chatStore = useChatStore();
+const editChatName = ref(false);
+
+const webSearchEnabled = ref(false);
+const webSearchType = ref('normal');
 
 if (!uid) {
 	router.push('/');
 } else {
 	await chatStore.getChat(uid);
+	webSearchEnabled.value = chatStore.chat.metas?.webSearch?.enabled || false;
+	webSearchType.value = chatStore.chat.metas?.webSearch?.type || 'normal';
 }
-onMounted(async () => {
-	if(chatStore.chat && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
-		await useBaseFetch('/chats/generate-chat-name/' + uid, {
-			method: 'POST',
+
+const updateAndClose = async (data) => {
+	await chatStore.updateChat(data);
+	editChatName.value = false;
+};
+
+const updateWebSearch = async () => {
+	console.log("burrito---", webSearchEnabled.value);
+	if (chatStore.chat.metas) {
+		await chatStore.updateChat({
+			metas: {
+				...chatStore.chat.metas,
+				webSearch: {
+					...chatStore.chat.metas.webSearch,
+					enabled: webSearchEnabled.value
+				}
+			}
 		});
 	}
+};
+
+const updateSearchType = async () => {
+	if (chatStore.chat.metas) {
+		await chatStore.updateChat({
+			metas: {
+				...chatStore.chat.metas,
+				webSearch: {
+					...chatStore.chat.metas.webSearch,
+					type: webSearchType.value
+				}
+			}
+		});
+	}
+};
+
+watch(
+	() => [chatStore.chat?.messageStatistics.count, chatStore.chat?.name],
+	async ([messageCount, chatName]) => {
+		if (chatStore.chat && messageCount >= 4 && (chatName === '' || chatName === 'New Chat')) {
+			await generateChatName();
+		}
+	}
+);
+
+const generateChatName = async () => {
+	const {data} = await useBaseFetch('/chats/generate-chat-name/' + chatStore.chat.uid, {
+		method: 'POST',
+	});
+
+	if (data.value && data.value.data) {
+		await chatStore.updateChatFrontend({name: data.value.data.name});
+	}
+};
+
+onMounted(async () => {
+	if (chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
+		await generateChatName();
+	}
 });
-
-
 </script>
 
 <style lang="sass" scoped>

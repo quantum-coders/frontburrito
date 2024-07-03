@@ -52,7 +52,9 @@
 									       v-model="chat.selected" @change="updateSelectedChats">
 									<label class="form-check-label" :for="'chat' + chat.id"></label>
 								</div>
-								<h5 class="card-title text-truncate mb-0">{{ chat.name || 'Untitled Chat' }}</h5>
+								<div class="card-title text-truncate mb-0"
+									v-html="$mdRenderer.render(chat.name)"
+								/>
 							</div>
 							<p class="card-text text-muted small mb-2">
 								<Icon name="ph:user" class="me-2"/>
@@ -129,6 +131,7 @@
 
 <script setup lang="ts">
 import {useTimeAgo} from '@vueuse/core';
+const {$mdRenderer} = useNuxtApp();
 
 const router = useRouter();
 const {me} = useAuth();

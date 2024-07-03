@@ -89,46 +89,77 @@ export const useChatStore = defineStore('chatStore', () => {
         }
     }
 
-   const downloadChat = async (chat, type = 'txt') => {
-    const chatId = chat.uid;
+    const downloadChat = async (chat, type = 'txt') => {
+        const chatId = chat.uid;
 
-    console.log(`Downloading chat: ${chatId}, type: ${type}`);
-    try {
-        const token = localStorage.getItem('authToken');
-        const response = await fetch(`${useRuntimeConfig().public.baseURL}/chats/${chatId}/download?type=${type}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
+        console.log(`Downloading chat: ${chatId}, type: ${type}`);
+        try {
+            const token = localStorage.getItem('authToken');
+            const response = await fetch(`${useRuntimeConfig().public.baseURL}/chats/${chatId}/download?type=${type}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const blob = await response.blob();
+            const filename = response.headers.get('Content-Disposition')
+                ? response.headers.get('Content-Disposition').split('filename=')[1].replace(/"/g, '')
+                : `chat_${chatId}.${type}`;
+
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Error downloading chat:', error);
+            alert('Error al descargar el chat. Por favor, inténtelo de nuevo más tarde.');
         }
+    };
 
-        const blob = await response.blob();
-        const filename = response.headers.get('Content-Disposition')
-            ? response.headers.get('Content-Disposition').split('filename=')[1].replace(/"/g, '')
-            : `chat_${chatId}.${type}`;
+    const updateChat = async (updates) => {
+        try {
+            console.log("updating...")
+            const updateRes = await useBaseFetch(`/users/me/chats/${chat.value.uid}`, {
+                method: 'PATCH',
+                body: updates
+            });
 
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-    } catch (error) {
-        console.error('Error downloading chat:', error);
-        alert('Error al descargar el chat. Por favor, inténtelo de nuevo más tarde.');
+            if (updateRes.data.value) {
+                // Actualizar solo los campos modificados en el estado local
+                Object.assign(chat.value, updateRes.data.value.data);
+            }
+        } catch (error) {
+            console.error('Error updating chat:', error);
+        }
     }
-};
+
+    const updateChatFrontend = async (updates) => {
+        console.log("Before chat", chat.value)
+        chat.value = { ...chat.value, ...updates };
+        console.log("After chat", chat.value)
+    }
+
+    // increase messageStatistics.count
+    const increaseMessageStatistics = (messageStatistics) => {
+        chat.value.messageStatistics.count += 1;
+    }
 
     return {
         getChat,
+        updateChatFrontend,
+        increaseMessageStatistics,
+        updateChat,
         sendMessage,
         chat,
         downloadChat

@@ -12,6 +12,7 @@ const message = ref('');
 const sendMessage = () => {
 	if (message.value) {
 		chatStore.sendMessage(message.value, saveMessage);
+		chatStore.increaseMessageStatistics();
 		message.value = '';
 	}
 }
@@ -21,6 +22,7 @@ const saveMessage = async (message) => {
 		method: 'POST',
 		body: {message, type: 'assistant'}
 	});
+	chatStore.increaseMessageStatistics();
 }
 </script>
 
