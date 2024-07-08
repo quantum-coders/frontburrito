@@ -31,7 +31,7 @@
                   <label for="burritoAmount" class="form-label">Add burritoAI</label>
                   <div class="input-group">
                     <span class="input-group-text">
-                      <img src="/burrito-IA-finance-logo.png" width="40" height="40" alt="BurritoAI" />
+                      <img src="/images/burrito-IA-finance-logo.png" width="40" height="40" alt="BurritoAI" />
                     </span>
                     <input type="number" class="form-control" id="burritoAmount" v-model="amount" placeholder="0">
                   </div>
@@ -40,7 +40,7 @@
                   <label for="stakingDuration" class="form-label">Add burritoAI</label>
                   <div class="input-group">
                     <span class="input-group-text">
-                      <img src="/burrito-IA-finance-logo.png" width="40" height="40" alt="BurritoAI" />
+                      <img src="/images/burrito-IA-finance-logo.png" width="40" height="40" alt="BurritoAI" />
                     </span>
                     <input type="number" class="form-control" id="stakingDuration" v-model="duration" placeholder="Weeks">
                 </div>

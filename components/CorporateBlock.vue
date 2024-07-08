@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-sm-6">
-					<img class="mt-3 mt-sm-8 mt-md-8 mt-lg-4 mt-xl-4 mt-xxl-4 mt-8" src="/hero-crypto-ai-blockchain-staking.png" alt="new-token-market-money-investing-blockchain">
+					<img class="mt-3 mt-sm-8 mt-md-8 mt-lg-4 mt-xl-4 mt-xxl-4 mt-8" src="/images/hero-crypto-ai-blockchain-staking.png" alt="new-token-market-money-investing-blockchain">
 
 				</div>
 			</div>

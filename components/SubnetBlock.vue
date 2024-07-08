@@ -6,7 +6,7 @@
 		<div class="row align-items-center flex-row-reverse">
 		  <div class="col col-12 col-sm-6">
 			<div>
-			  <img src="/crypto_gem_burritoAI.gif" style="padding: 100px;"/>
+			  <img src="/images/crypto_gem_burritoAI.gif" style="padding: 100px;"/>
 			</div>
 		  </div>
 		  <div class="col col-12 col-sm-6">
@@ -25,14 +25,14 @@
   
 		<!-- Imagen central que conecta hacia abajo -->
 		<div class="image-connection">
-		  <img src="/defi_burrito.png" alt="Connection" class="mx-auto d-block" />
+		  <img src="/images/defi_burrito.png" alt="Connection" class="mx-auto d-block" />
 		</div>
   
 		<!-- Sección de Mecanismos de Staking y Recompensas -->
 		<div class="row align-items-center mt-5">
 		  <div class="col col-12 col-sm-6">
 			<div>
-			  <img src="/giphy.gif" class="mx-auto d-block" alt="Staking and Rewards"/>
+			  <img src="/images/giphy.gif" class="mx-auto d-block" alt="Staking and Rewards"/>
 			</div>
 		  </div>
 		  <div class="col col-12 col-sm-6">
@@ -53,7 +53,7 @@
   
 		<!-- Otra imagen central que conecta hacia abajo -->
 		<div class="image-connection">
-		  <img src="/defi_burritodos.png" alt="More Connection" class="mx-auto d-block" />
+		  <img src="/images/defi_burritodos.png" alt="More Connection" class="mx-auto d-block" />
 		</div>
 
 		<!-- Agrega más secciones según la estructura proporcionada arriba, ajustando el contenido según tus necesidades -->

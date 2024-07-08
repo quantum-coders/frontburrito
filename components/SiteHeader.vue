@@ -3,7 +3,7 @@
 		<div class="container">
 			<nav class="navbar navbar-expand-lg">
 				<nuxt-link class="navbar-brand" to="/">
-					<img src="/burrito-IA-finance-logo.png" height="90" width="200" class="logo" alt="IA-finance-logo" />
+					<img src="/images/burrito-IA-finance-logo.png" height="90" width="200" class="logo" alt="IA-finance-logo" />
 				</nuxt-link>
 				<nav
 					class="primary-nav ms-auto d-flex flex-column align-items-center justify-content-center"

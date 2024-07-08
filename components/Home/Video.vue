@@ -24,7 +24,7 @@
 					<img
 						width="560"
 						height="315"
-						src="/crypto-new-2024-ai.jpg"
+						src="/images/crypto-new-2024-ai.jpg"
 					/>
 				</div>
 			</div>

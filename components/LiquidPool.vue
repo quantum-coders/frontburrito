@@ -12,7 +12,7 @@
 					</p>
 				</div>
 				<div class="col col-12 col-lg-6 order-1 order-lg-2 text-center">
-					<img class="image" src="/defi-trending-fintech-blockchain.png" alt="BlockPay cards">
+					<img class="image" src="/images/defi-trending-fintech-blockchain.png" alt="BlockPay cards">
 				</div>
 			</div>
 		</div>

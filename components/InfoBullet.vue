@@ -2,8 +2,8 @@
 	<div class="block block-nodes bg-white mt-3">
 		<div class="container">
 			<div class="block-wrapper d-flex align-items-center flex-column flex-sm-row">
-				<img src="/advisory.png" class="d-none d-sm-block nodes" alt="">
-				<img src="/nodes-mobile.png" class="nodes d-block d-sm-none mb-4" alt="">
+				<img src="/images/advisory.png" class="d-none d-sm-block nodes" alt="">
+				<img src="/images/nodes-mobile.png" class="nodes d-block d-sm-none mb-4" alt="">
 				<div class="content">
 					<div class="feature mb-5 mt-8" v-for="(feature, index) in features" :key="index">
 						<h3 class="subtitle purple mb-7">{{ feature.title }}</h3>

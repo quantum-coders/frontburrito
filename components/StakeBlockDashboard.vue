@@ -35,12 +35,12 @@
 							<bpay-button-v2
 								disabled
 							>
-								<img class="btn-image btn-image-3" src="/ui3.png" alt="">
+								<img class="btn-image btn-image-3" src="/images/ui3.png" alt="">
 								UNSTAKE
 							</bpay-button-v2>
 							<bpay-button-v2
 							>
-								<img class="btn-image btn-image-3" src="/ui3.png" alt="">
+								<img class="btn-image btn-image-3" src="/images/ui3.png" alt="">
 								Stake
 							</bpay-button-v2>
 

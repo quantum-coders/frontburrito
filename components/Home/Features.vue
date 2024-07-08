@@ -1,80 +1,154 @@
 <template>
 	<div class="block block-features">
 		<div class="container">
-			<div class="line d-none d-sm-block" />
+
+			<div class="copy">
+				<h2 class="title">Ever found yourself craving some uncensored, unapologetic, and undeniably entertaining AI chat? Well, buckle up, buttercup, because Burrito AI is here to serve you a piping hot plate of AI conversations with a side of sass!</h2>
+
+				<div class="content-wrapper d-flex align-items-center justify-content-between">
+					<p class="content">At Burrito AI, we believe in keeping it real. None of that watered-down, sugar-coated nonsense you find elsewhere. Our AI is trained to chat with you like a true friend – brutally honest, hilariously blunt, and delightfully candid. If you’re tired of boring bots and need a dose of real talk, Burrito AI is your new bestie.</p>
+					<div class="wow-wrapper">
+						<img class="wow" src="/images/wow.png" alt="WOW">
+						<div class="balloon">
+							<p>SUCH UNCENSORED</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<article class="feature">
-				<div class="feature-image" style="background-image: url('/home/splash2.png');"></div>
-				<div class="feature-copy">
-					<h2>AI-fine tuning Deep analysis on Trading, NFTs</h2>
-					<p>Our bots provide you with the insights and automation needed to streamline every process. From lead generation to closing deals, AI assists you every step of the way, ensuring that your productivity is focus on building more complete analysis years ahead of the curve. Dealing to getting things done efficiently.</p>
+				<img class="vibes" src="/images/feel-the-vibes.svg" alt="">
+				<img class="omg" src="/images/omg.svg" alt="">
+
+				<div class="copy">
+					<h3>Free Range Conversations</h3>
+					<p>Our AI isn’t shackled by the usual constraints. Want to talk about taboo topics? Go ahead! Burrito AI dives headfirst into the spicy stuff without flinching. No filters, no censors – just raw, unfiltered chat.</p>
+					<p class="text-end">
+						<a href="#" class="btn btn-burrito">START CHAT NOW</a>
+					</p>
 				</div>
 			</article>
 
 			<article class="feature">
-				<div class="feature-image" style="background-image: url('/home/splash3.png');"></div>
-				<div class="feature-copy">
-					<h2>Real AI with real crypto users</h2>
-					<p>Say goodbye to general weak AI, with just some $burritoAI token you can access AI-powered tools that understands and responds to your real-time processes with the right information at the right time.</p>
+				<img class="weird" src="/images/stay-weird.svg" alt="">
+				<div class="copy">
+					<h3>A Spicy Investment</h3>
+					<p>The Burrito AI Token is your VIP pass to exclusive content, premium features, and advanced functionalities within the Burrito AI ecosystem. As our AI grows in popularity, the demand for these tokens can increase, potentially boosting their value. Whether you're a tech enthusiast or an investor, the Burrito AI Token offers a blend of utility and growth potential, making it a hot addition to your portfolio.</p>
+					<p class="text-end">
+						<a href="#" class="btn btn-burrito">JOIN OUR PRESALE</a>
+					</p>
 				</div>
 			</article>
 
 			<article class="feature">
-				<div class="feature-image" style="background-image: url('home/splash.png');"></div>
-				<div class="feature-copy">
-					<h2>Institutional-grade Multi-Chain liquidity</h2>
-					<p>Leverage cutting-edge AI tools to enhance institutional investing. Our AI-driven solutions fintech architecture allows for Institutions to manage AI-crypto shares. Thanks to blockchain, customer data is secure, personalized and it increase incentives log term research and development.</p>
+				<img class="lfg" src="/images/lfg.svg" alt="">
+				<div class="copy">
+					<h3>Burrito AI NFTs</h3>
+					<p>Owning a Burrito AI NFT isn’t just about the art – it’s about being part of an exclusive community. NFT holders enjoy special perks like access to limited-edition content, exclusive events, and priority in future drops. Plus, with the growing popularity of AI-generated art, your Burrito AI NFT could become a valuable asset. So, spice up your digital collection and join the hottest NFT community around.</p>
+					<p class="text-end">
+						<a href="#" class="btn btn-burrito">MINT A BURRITO</a>
+					</p>
 				</div>
 			</article>
-
 		</div>
 	</div>
 </template>
 
 <script setup>
-	useHead({
-		title: 'Burrito AI',
-	});
-
 </script>
 
 <style lang="sass" scoped>
 	.block-features
+		padding: 10rem 0
 
-		.line
-			height: 100%
-			position: absolute
-			left: 110px
-			border-left: 1px solid #AAA
+		.title
+			color: $brand1
+			font-weight: 900
+			font-size: 2rem
+			text-align: center
+			text-wrap: balance
+			margin-bottom: 2rem
 
-		.feature
-			margin-bottom: 5rem
-			display: flex
-			flex-direction: column
-			gap: 1rem
+		.content-wrapper
+			margin: 0 auto 5rem
+			max-width: 80%
+			gap: 3rem
 
-			@media (min-width: $sm)
-				gap: 2rem
-				align-items: center
-				flex-direction: row
+			.wow-wrapper
+				.wow
+					image-rendering: pixelated
+					min-width: 52px * 3
 
-			.feature-image
-				width: 150px
-				min-width: 150px
-				aspect-ratio: 1
-				background: white
-				border: 1px solid #AAA
-				border-radius: 30%
-				background-size: cover
-				background-position: center
-
-				@media (min-width: $sm)
+				.balloon
+					position: absolute
 					width: 200px
-					min-width: 200px
+					aspect-ratio: 3.6
+					background: url('/images/wow-balloon.svg') no-repeat
+					background-size: contain
+					display: flex
+					justify-content: center
+					align-items: center
+					color: white
+					right: 90%
+					top: 90%
 
-			h2
-				font-size: 1.5rem
-				margin-bottom: 1rem
-				color: $brand2
+					p
+						text-align: center
+						margin-top: 2%
+						margin-right: 5%
+						margin-bottom: 0
 
+			.content
+				margin-bottom: 0
+
+	.feature
+		margin: 0 auto 8rem
+		max-width: calc(100% - 200px)
+		border: 3px solid $brand1
+		border-radius: 0.5rem
+		padding: 2rem
+		box-shadow: 0 2rem 0 $brand1
+
+		.copy
+			max-width: 65%
+
+			p:last-child
+				margin-bottom: 0
+
+			h3
+				text-transform: uppercase
+				font-family: 'Chibold', sans-serif
+				font-size: 2.5rem
+				color: $brand1
+
+			.btn-burrito
+				padding: 0.5rem 2rem
+
+		.vibes
+			width: 150px
+			position: absolute
+			z-index: 100
+			right: -50px
+			top: -50px
+
+		.omg
+			width: 120px
+			position: absolute
+			z-index: 100
+			right: -50px
+			bottom: -50px
+
+		.weird
+			width: 150px
+			position: absolute
+			z-index: 100
+			right: -50px
+			bottom: -50px
+
+		.lfg
+			width: 150px
+			position: absolute
+			z-index: 100
+			right: -50px
+			top: -20px
 </style>

@@ -3,10 +3,10 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-12 col-sm-6">
-					<img class="image" src="/photo_7_w_prev_ui.png" alt="">
+					<img class="image" src="/images/photo_7_w_prev_ui.png" alt="">
 				</div>
 				<div class="col-12 col-sm-6 text-center" style="margin-left: 0px;"> <!-- Añade text-center aquí -->
-					<img class="logo" src="/photo_5.png" alt="Blockpay Advisory">
+					<img class="logo" src="/images/photo_5.png" alt="Blockpay Advisory">
 					<h2 class="title mb-5" style="color: #E3CBA6;"><strong>Because it is important to democratize<br> the combination of AI+Crypto</strong></h2>
 					<div class="button-group d-flex justify-content-center gap-4"> <!-- Ajusta este div para centrar los botones -->
 						<!-- <bpay-button-v2 tag="button" class="px-5 btn-send">How to buy</bpay-button-v2>

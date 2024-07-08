@@ -2,7 +2,7 @@
 	<footer class="site-footer">
 		<div class="logo-wrapper d-flex align-items-center mb-2 mb-md-4">
 			<span class="divider"></span>
-			<img src="/burrito-IA-finance-logo.png" class="footer-logo mx-3" width="150" alt="Blockpay" />
+			<img src="/images/burrito-IA-finance-logo.png" class="footer-logo mx-3" width="150" alt="Blockpay" />
 			<span class="divider"></span>
 		</div>
 		<div class="container">
@@ -41,7 +41,7 @@
 					<div class="col col-12 col-md-4 d-flex flex-column align-items-center justify-content-center text-center">
 						<div class="data-chunk px-4 mb-4">
 							<p class="text-center d-flex flex-column align-items-center">
-								<img width="25px" class="mb-3" style="color:#3E3C3E;" src="/burritopng.png" alt="Contáctanos">
+								<img width="25px" class="mb-3" style="color:#3E3C3E;" src="/images/burritopng.png" alt="Contáctanos">
 								<a style="color:#3E3C3E;" href="/terms-and-conditions-crypto-ai-platform">terms & conditions</a>
 							</p>
 						</div>

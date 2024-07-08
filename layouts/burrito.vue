@@ -1,12 +1,18 @@
 <template>
-	<platform-header />
+	<layout-header :class="{ 'fixed': headerFixed }" />
+	<waypoint class="waypoint" @change="headerWaypoint" />
+
 	<section class="site-wrapper">
 		<nuxt-page />
 	</section>
-	<platform-footer />
+	<layout-footer />
 </template>
 
 <script setup>
+	import { Waypoint } from 'vue-waypoint';
+
+	const headerFixed = ref(false);
+
 	useHead({
 		htmlAttrs: {
 			lang: 'en',
@@ -23,9 +29,21 @@
 			},
 		],
 	});
+
+	const headerWaypoint = (waypointState) => {
+		console.log(waypointState);
+
+		headerFixed.value = waypointState.direction === 'UP';
+	};
+
 </script>
 
 <style lang="sass">
+
+	.waypoint
+		position: absolute
+		top: 80px
+		width: 20px
 
 	.site-wrapper
 		flex: 1

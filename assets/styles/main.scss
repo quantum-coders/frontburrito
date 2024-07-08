@@ -5,116 +5,114 @@
 @import "bootstrap/scss/variables";
 @import "globals";
 
+@import "animate.css";
+
 
 $brand-colors: (
 	"brand1": $brand1,
 	"brand2": $brand2,
 	"primary": $primary,
+	"secondary": $secondary
 );
 
 $theme-colors: map-merge($theme-colors, $brand-colors);
 
-$spacers: (
-	0: 0,
-	1: $spacer * .25,
-	2: $spacer * .5,
-	3: $spacer,
-	4: $spacer * 1.5,
-	5: $spacer * 3,
-	6: $spacer * 4,
-	7: $spacer * 5,
-	8: $spacer * 6,
-	9: $spacer * 7,
-);
-
 @import "bootstrap/scss/bootstrap";
 
-// Overwrite bootstrap sass variables
-$enable-negative-margins: true;
-$font-family-sans-serif: 'Inter', sans-serif;
-$font-family: 'Inter', sans-serif;
+/* Generals
+--------------------------------------------------------------------------------------------------------------------- */
 
-$container-max-widths: (
-	sm: 540px,
-	md: 720px,
-	lg: 960px,
-	xl: 1140px,
-	xxl: 1280px
-);
+:root {
+
+	//font-size: 14px;
+}
 
 * {
-
 	position: relative;
 }
 
 html {
 
-	min-height: 100dvh;
+	min-height: 100vh;
 }
 
 body {
 
-	overflow-x: hidden;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	min-height: 100dvh;
+	overflow-x: clip;
+	min-height: 100vh;
+	font-family: 'JetBrains Mono', monospace;
+	background: url("/images/background-texture.png");
 }
 
 #__nuxt {
 
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	flex: 1;
 }
 
-* {
+.fs-7 {
 
-	position: relative;
+	font-size: 0.875rem;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import "bootstrap";
+/* Loading Button
+--------------------------------------------------------------------------------------------------------------------- */
 
-.purple {
-	color: #D75D41;
-}
+.btn {
 
-.btn-brand {
+	.icon {
 
-	background-color: #F09F33;
-	border-color: #89888a;
-	color: white !important;
-
-	&:hover {
-		background-color: #4D0099;
-		border-color: #4D0099;
-		color: white !important;
+		top: -1.5px;
 	}
 }
 
-.btn-inverted {
+.btn.btn-loading {
 
-	background-color: white;
-	border-color: white;
-	color: #b1b1b1 !important;
+	&:before {
 
-	&:hover, &:focus, &:active {
-		background-color: #b1b1b1;
-		border-color: #807e7e;
-		color: #b1b1b1 !important;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		content: '';
+		width: 100%;
+		height: 100%;
+		background: inherit;
+		transition: all 500ms ease-in-out;
+		opacity: 1;
+	}
+
+	&:after {
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		content: '';
+		width: 1rem;
+		height: 1rem;
+		border: 2px solid currentColor;
+		border-right-color: transparent;
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+		transition: all 500ms ease-in-out;
+		opacity: 1;
 	}
 }
 
-.btn-blockpay {
-
-	background: linear-gradient(108deg, rgba(62,60,62,1) 0%, rgba(227,203,166,1) 19%, rgba(207,204,187,1) 43%, rgba(0,0,0,1) 100%);
-	border-color: #6400AE;
-	color: white !important;
-
-	&:hover {
-		background-color: #242225;
-		border-color: #b1b1b1;
-		color: white !important;
+@keyframes spin {
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
 	}
+}
+
+/* Dialog
+--------------------------------------------------------------------------------------------------------------------- */
+
+.dialog-close {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	z-index: 10;
 }
