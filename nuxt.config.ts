@@ -11,7 +11,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/i18n',
 		'@pinia/nuxt',
 		'nuxt-swiper',
-		'nuxt-icon',
+		"@nuxt/icon"
 	],
 	app: {
 		head: {
