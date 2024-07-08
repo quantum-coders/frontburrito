@@ -22,7 +22,7 @@ export const useCryptoStore = defineStore('cryptoStore', () => {
 
 	const avaxBalance = ref(0);
 	const usdtBalance = ref(0);
-	const bpayBalance = ref(0);
+	const burritoBalance = ref(0);
 
 	const avaxPrice = ref(0);
 	const usdtPrice = ref(0);
@@ -46,7 +46,7 @@ export const useCryptoStore = defineStore('cryptoStore', () => {
 		stakedNfts,
 		avaxBalance,
 		usdtBalance,
-		bpayBalance,
+		burritoBalance,
 		userMax,
 		avaxPrice,
 		usdtPrice,

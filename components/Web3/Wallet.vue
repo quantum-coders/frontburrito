@@ -95,9 +95,7 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
-		console.log("[Wallet.vue] onMounted")
 		const providerName = localStorage.getItem('providerName')
-		console.log("[Wallet.vue] providerName", providerName)
 		if(providerName !== '' && providerName != null){
 			await initProvider(providerName, true);
 		}

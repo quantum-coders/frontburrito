@@ -3,16 +3,25 @@
 		<div class="scroll-wrapper" v-if="!!chatStore.chat">
 			<template v-for="message in chatStore.chat.messages">
 				<article class="message message-user" v-if="message.type === 'user'">
-					<div class="avatar"></div>
+						<Avatar
+							:size="30"
+							:seed="useCryptoStore().currenAccount"
+							:colors="['#FFD700', '#FF6347', '#FF4500', '#FF8C00', '#FFA07A']"
+							variant="pixel"
+						/>
 					<div class="message-content">
-						<div>{{ message.content }}</div>
+						<div v-html="$mdRenderer.render(message.content)" />
 					</div>
 				</article>
 
 				<article class="message message-ai" v-else>
-					<div class="avatar"></div>
+					<Avatar
+						:size="35"
+						seed="AI"
+						variant="pixel"
+					/>
 					<div class="message-content">
-						<div>{{ message.content }}</div>
+						<div v-html="$mdRenderer.render(message.content)" />
 					</div>
 				</article>
 			</template>
@@ -21,6 +30,8 @@
 </template>
 
 <script setup>
+	const { $mdRenderer } = useNuxtApp();
+	import Avatar from "vue-boring-avatars";
 	const chatStore = useChatStore();
 </script>
 
