@@ -27,20 +27,28 @@
 <style lang="sass">
 
 	.site-header
-		position: sticky
+		position: fixed
+		width: 100%
 		top: 0
 		z-index: 1000
-		padding: 1rem 0 1rem 2rem
+		padding: 0.75rem
 		transition: all 250ms ease
+
+		@media (min-width: $sm)
+			position: sticky
+			padding: 1rem 0 1rem 2rem
 
 		&.fixed
 			background: white url("/images/background-texture.png")
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
 
 		.primary-navigation
-			display: flex
+			display: none
 			justify-content: space-between
 			padding: 1rem 0
+
+			@media (min-width: $sm)
+				display: flex
 
 			ul
 				margin-bottom: 0

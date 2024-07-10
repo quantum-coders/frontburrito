@@ -5,7 +5,7 @@
 			<div class="copy">
 				<h2 class="title">Ever found yourself craving some uncensored, unapologetic, and undeniably entertaining AI chat? Well, buckle up, buttercup, because Burrito AI is here to serve you a piping hot plate of AI conversations with a side of sass!</h2>
 
-				<div class="content-wrapper d-flex align-items-center justify-content-between">
+				<div class="content-wrapper d-flex flex-column flex-sm-row align-items-center justify-content-between">
 					<p class="content">At Burrito AI, we believe in keeping it real. None of that watered-down, sugar-coated nonsense you find elsewhere. Our AI is trained to chat with you like a true friend – brutally honest, hilariously blunt, and delightfully candid. If you’re tired of boring bots and need a dose of real talk, Burrito AI is your new bestie.</p>
 					<div class="wow-wrapper">
 						<img class="wow" src="/images/wow.png" alt="WOW">
@@ -59,22 +59,33 @@
 
 <style lang="sass" scoped>
 	.block-features
-		padding: 10rem 0
+		padding: 5rem 0
+
+		@media (min-width: $sm)
+			padding: 10rem 0
 
 		.title
 			color: $brand1
 			font-weight: 900
-			font-size: 2rem
+			font-size: 1.5rem
 			text-align: center
 			text-wrap: balance
 			margin-bottom: 2rem
 
+			@media (min-width: $sm)
+				font-size: 2rem
+
 		.content-wrapper
 			margin: 0 auto 5rem
 			max-width: 80%
-			gap: 3rem
+			gap: 1rem
+
+			@media (min-width: $sm)
+				gap: 3rem
 
 			.wow-wrapper
+				align-self: flex-end
+
 				.wow
 					image-rendering: pixelated
 					min-width: 52px * 3
@@ -103,14 +114,17 @@
 
 	.feature
 		margin: 0 auto 8rem
-		max-width: calc(100% - 200px)
 		border: 3px solid $brand1
 		border-radius: 0.5rem
 		padding: 2rem
 		box-shadow: 0 2rem 0 $brand1
 
+		@media (min-width: $sm)
+			max-width: calc(100% - 200px)
+
 		.copy
-			max-width: 65%
+			@media (min-width: $sm)
+				max-width: 65%
 
 			p:last-child
 				margin-bottom: 0
@@ -125,30 +139,52 @@
 				padding: 0.5rem 2rem
 
 		.vibes
-			width: 150px
+			width: 120px
 			position: absolute
 			z-index: 100
-			right: -50px
+			right: -5px
 			top: -50px
+
+			@media (min-width: $sm)
+				width: 150px
+				right: -50px
+				top: -50px
 
 		.omg
 			width: 120px
 			position: absolute
 			z-index: 100
-			right: -50px
+			left: 0
 			bottom: -50px
+
+			@media (min-width: $sm)
+				left: auto
+				width: 120px
+				right: -50px
+				bottom: -50px
 
 		.weird
-			width: 150px
+			width: 120px
 			position: absolute
 			z-index: 100
-			right: -50px
-			bottom: -50px
+			right: -10px
+			top: -30px
+
+			@media (min-width: $sm)
+				top: auto
+				width: 150px
+				right: -50px
+				bottom: -50px
 
 		.lfg
-			width: 150px
+			width: 140px
 			position: absolute
 			z-index: 100
-			right: -50px
+			right: -10px
 			top: -20px
+
+			@media (min-width: $sm)
+				width: 150px
+				right: -50px
+				top: -20px
 </style>

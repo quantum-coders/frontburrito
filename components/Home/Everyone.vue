@@ -20,8 +20,9 @@
 		width: 100vw
 		max-width: 100%
 		height: 100px
-		// slightly rotate the marquee to make it more interesting
-		transform: rotate(-2deg) scale(1.5)
+
+		@media (min-width: $sm)
+			transform: rotate(-2deg) scale(1.5)
 
 		.track
 			position: absolute
