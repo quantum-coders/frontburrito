@@ -12,7 +12,7 @@ export const useChatStore = defineStore('chatStore', () => {
         }
     }
 
-    const sendMessage = async (message, callback = null) => {
+    const sendMessage = async (message,callback = null) => {
         const messageRes = await useBaseFetch(`/users/me/chats/${chat.value.uid}/messages`, {
             method: 'POST',
             body: {message}
@@ -22,7 +22,7 @@ export const useChatStore = defineStore('chatStore', () => {
             chat.value?.messages.push(messageRes.data.value.data);
 
             const token = localStorage.getItem('authToken');
-
+            console.log("CHATTID", chat.value.id)
             const aiRes = await fetch(`${useRuntimeConfig().public.baseURL}/ai/message`, {
                 method: 'POST',
                 headers: {
@@ -32,7 +32,8 @@ export const useChatStore = defineStore('chatStore', () => {
                 body: JSON.stringify({
                     model: 'burrito-8x7b',
                     temperature: 1,
-                    prompt: message
+                    idChat: chat.value.id,
+                    prompt: message,
                 })
             });
 

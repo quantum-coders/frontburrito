@@ -34,7 +34,6 @@ console.log(user.value);
 console.log(authToken)
 console.log(me.value)
 if (!!user.value) {
-
 	const chatRes = await useBaseFetch('/users/me/chats', {
 		method: 'POST',
 	});
