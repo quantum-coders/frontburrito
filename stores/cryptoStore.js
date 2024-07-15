@@ -4,6 +4,7 @@ export const useCryptoStore = defineStore('cryptoStore', () => {
 
 	const globalProvider = ref(null);
 	const currentAccount = ref(null);
+	const userBalance = ref(0);
 	const nftsToMint = ref(1);
 	const userMax = ref(0);
 	const totalNFTs = ref(0);
@@ -52,6 +53,6 @@ export const useCryptoStore = defineStore('cryptoStore', () => {
 		usdtPrice,
 		correctNetwork,
 		totalNFTs,
-
+		userBalance
 	};
 });

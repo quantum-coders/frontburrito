@@ -22,7 +22,6 @@ export const useChatStore = defineStore('chatStore', () => {
             chat.value?.messages.push(messageRes.data.value.data);
 
             const token = localStorage.getItem('authToken');
-            console.log("CHATTID", chat.value.id)
             const aiRes = await fetch(`${useRuntimeConfig().public.baseURL}/ai/message`, {
                 method: 'POST',
                 headers: {

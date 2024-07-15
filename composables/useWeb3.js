@@ -27,7 +27,10 @@ export const useWeb3 = () => {
             let chainId = useRuntimeConfig().public.chainId;
             try {
                 const providerNetwork = await cryptoStore.globalProvider.getNetwork();
-                cryptoStore.wrongNetwork = parseInt(providerNetwork) === parseInt(chainId);
+                console.log("THIS IS the correct chainId", chainId);
+                console.log("THIS IS the provider chainId", providerNetwork.chainId);
+                cryptoStore.wrongNetwork = parseInt(providerNetwork.chainId) === parseInt(chainId);
+                console.log("Correct network", cryptoStore.wrongNetwork);
                 return cryptoStore.wrongNetwork;
             } catch (error) {
                 web3log.error('Error checking network', error);
@@ -144,8 +147,9 @@ export const useWeb3 = () => {
                 return {message: 'No wallet detected'};
             }
             let providerName = window.localStorage.getItem('providerName');
-            let chainIdHex = useRuntimeConfig().public.chainId === 43114 ? '0xa86a' : '0xa869';
+            let chainIdHex = parseInt(useRuntimeConfig().public.chainId) === 43114 ? '0xa86a' : '0xa869';
             chainIdHex = chainIdHex.toString();
+            await isCorrectNetwork();
             let wallet;
             try {
                 switch (providerName) {

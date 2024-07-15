@@ -5,6 +5,7 @@ export const useAuth = () => {
 	const setUser = (user) => {
 		if(process.client && user && user.accessToken) localStorage.setItem('authToken', user.accessToken);
 		authUser.value = user;
+		useCryptoStore().userBalance = user?.balance || 0.00;
 	};
 
 	const login = async ({

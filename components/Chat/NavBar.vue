@@ -24,7 +24,7 @@
 				<div class="d-flex align-items-center gap-2">
 					<img src="/burrito-icon_black.svg" alt="BURRITO" class="token-icon">
 					<div>
-						<small class="text-muted">BURRITO</small>
+						<small class="text-muted">BURRITO AI Tokens</small>
 						<div>{{ parseFloat(cryptoStore.burritoBalance || 0).toFixed(4) ?? 0.0 }}</div>
 					</div>
 				</div>
@@ -45,14 +45,43 @@
 					</div>
 				</div>
 				<hr class="dropdown-divider">
-				<div class="text-center mt-2">
-					<button class="btn btn-danger btn-sm" @click.prevent="handleDisconnectWallet">Disconnect Wallet
+				<!-- Nuevo balance para gastar en la IA -->
+				<div class="d-flex align-items-center gap-2">
+					<Icon name="cryptocurrency:usd"
+						size="24"
+					 />
+					<div>
+						<small class="text-muted">Account Balance (USD)</small>
+						<div>{{ parseFloat(cryptoStore?.userBalance || 0).toFixed(4) ?? 0.0 }}</div>
+					</div>
+				</div>
+				<hr class="dropdown-divider">
+				<div class="d-flex justify-content-center mt-2">
+					<button class="btn btn-primary btn-sm me-2 d-flex align-items-center"
+					        @click.prevent="handleStaking">
+						<Icon name="ph:wallet" class="me-2"/>
+						Staking
+					</button>
+					<button class="btn btn-info btn-sm me-2 text-white d-flex align-items-center"
+					        @click.prevent="handleBilling">
+						<Icon name="ph:credit-card" class="me-2"/>
+						Billing
+					</button>
+					<button class="btn btn-danger btn-sm text-white d-flex align-items-center"
+					        @click.prevent="handleDisconnectWallet">
+						<Icon name="ri:logout-circle-r-line" class="me-2"/>
+						Disconnect Wallet
 					</button>
 				</div>
+
+
+				<div v-if="!cryptoStore.wrongNetwork && cryptoStore.currentAccount" class="alert alert-danger mt-2"
+				     role="alert">
+					<a href="#" @click.prevent="switchNetwork" class="alert-link">Wrong network. Click here to
+						switch.</a>
+				</div>
+
 			</div>
-		</div>
-		<div v-if="cryptoStore.wrongNetwork && cryptoStore.currentAccount" class="alert alert-danger mt-2" role="alert">
-			<a href="#" @click.prevent="switchNetwork" class="alert-link">Wrong network. Click here to switch.</a>
 		</div>
 	</div>
 
@@ -62,6 +91,18 @@
 			<web3-wallet @connect="closeDialog"/>
 		</template>
 	</platform-modal>
+	<platform-modal ref="stakingModalRef">
+		<template #default="{ close: closeDialog }">
+			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
+			<web3-staking @close="closeDialog"/>
+		</template>
+	</platform-modal>
+	<platform-modal ref="billingModalRef">
+		<template #default="{ close: closeDialog }">
+			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
+			<web3-billing @close="closeDialog"/>
+		</template>
+	</platform-modal>
 </template>
 
 <script setup>
@@ -69,7 +110,18 @@ const cryptoStore = useCryptoStore();
 const {switchNetwork, disconnectWallet} = useWeb3();
 const showWalletMenu = ref(false);
 const walletModalRef = ref(null);
+const stakingModalRef = ref(null);
+const billingModalRef = ref(null);
 
+const handleStaking = () => {
+	stakingModalRef.value.openDialog();
+	showWalletMenu.value = false;
+};
+
+const handleBilling = () => {
+	billingModalRef.value.openDialog();
+	showWalletMenu.value = false;
+};
 
 const currentAccountTrimmed = computed(() => {
 	if (cryptoStore.currentAccount) {
@@ -106,6 +158,7 @@ $lg: 992px
 	width: 24px
 	height: 24px
 	margin-right: 0
+
 .site-actions
 	display: flex
 	justify-content: flex-end
@@ -133,6 +186,7 @@ $lg: 992px
 	width: 24px
 	height: 24px
 	margin-right: 0.5rem
+
 	&.wallet-icon
 		margin-right: 0
 
