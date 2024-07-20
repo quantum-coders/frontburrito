@@ -6,6 +6,9 @@ export default defineNuxtConfig({
 		'~/assets/styles/main.scss',
 		'~/assets/fonts/style.css',
 	],
+	icon:{
+		mode: 'svg'
+	},
 	modules: [
 		'nuxt-svgo',
 		'@nuxtjs/i18n',

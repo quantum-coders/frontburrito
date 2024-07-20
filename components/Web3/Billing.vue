@@ -56,39 +56,55 @@ onMounted(async () => {
 	<div class="dashboard-container">
 		<div class="card shadow-lg">
 			<div class="card-body">
-				<h2 class="card-title text-center mb-4">User Dashboard</h2>
+				<h2 class="card-title text-center mb-4">
+					<Icon name="mdi:account-circle" class="me-2"/>
+					User Dashboard
+				</h2>
 
-				<div class="mb-4">
-					<h4>Current Balance: ${{ currentBalance.toFixed(8) }}</h4>
+				<div class="mb-4 p-3 bg-light rounded">
+					<h4 class="mb-0">
+						<Icon name="mdi:wallet" class="me-2"/>
+						Current Balance:
+						<span class="fw-bold text-primary">${{ currentBalance.toFixed(8) }}</span>
+					</h4>
 				</div>
 
-				<ul class="nav nav-tabs mb-3">
+				<ul class="nav nav-pills mb-4 justify-content-center">
 					<li class="nav-item">
 						<a class="nav-link" :class="{ active: activeTab === 'funding' }"
 						   @click.prevent="activeTab = 'funding'" href="#">
+							<Icon name="mdi:cash-plus" class="me-1"/>
 							Funding
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" :class="{ active: activeTab === 'payments' }"
 						   @click.prevent="activeTab = 'payments'" href="#">
+							<Icon name="mdi:history" class="me-1"/>
 							Payment History
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" :class="{ active: activeTab === 'usage' }"
 						   @click.prevent="activeTab = 'usage'" href="#">
+							<Icon name="mdi:chart-bar" class="me-1"/>
 							Token Usage
 						</a>
 					</li>
 				</ul>
 
 				<div v-if="activeTab === 'funding'" class="tab-content">
-					<h3 class="mb-3">Funding Calculator</h3>
+					<h3 class="mb-3">
+						<Icon name="mdi:calculator" class="me-2"/>
+						Funding Calculator
+					</h3>
 					<form @submit.prevent="handleSubmit">
 						<div class="mb-3">
 							<label for="amount" class="form-label">Amount to Fund</label>
 							<div class="input-group">
+                <span class="input-group-text">
+                  <Icon name="mdi:currency-usd"/>
+                </span>
 								<input
 									type="number"
 									class="form-control"
@@ -120,15 +136,21 @@ onMounted(async () => {
 								>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary w-100">Fund</button>
+						<button type="submit" class="btn btn-primary w-100">
+							<Icon name="mdi:cash-plus" class="me-2"/>
+							Fund Account
+						</button>
 					</form>
 				</div>
 
 				<div v-if="activeTab === 'payments'" class="tab-content">
-					<h3 class="mb-3">Payment History</h3>
+					<h3 class="mb-3">
+						<Icon name="mdi:history" class="me-2"/>
+						Payment History
+					</h3>
 					<div class="table-responsive">
-						<table class="table table-striped">
-							<thead>
+						<table class="table table-hover">
+							<thead class="table-light">
 							<tr>
 								<th>Date</th>
 								<th>Amount</th>
@@ -138,9 +160,22 @@ onMounted(async () => {
 							</thead>
 							<tbody>
 							<tr v-for="transaction in balanceTransactions" :key="transaction.id">
-								<td>{{ new Date(transaction.created).toLocaleString() }}</td>
-								<td>{{ transaction.amount }}</td>
-								<td>{{ transaction.type }}</td>
+								<td>
+									<Icon name="mdi:calendar" class="me-1"/>
+									{{ new Date(transaction.created).toLocaleString() }}
+								</td>
+								<td>
+									<Icon name="mdi:currency-usd" class="me-1"/>
+									{{ transaction.amount }}
+								</td>
+								<td>
+                    <span
+	                    :class="{'text-success': transaction.type === 'credit', 'text-danger': transaction.type === 'debit'}">
+                      <Icon :name="transaction.type === 'credit' ? 'mdi:arrow-up-bold' : 'mdi:arrow-down-bold'"
+                            class="me-1"/>
+                      {{ transaction.type }}
+                    </span>
+								</td>
 								<td>{{ transaction.description }}</td>
 							</tr>
 							</tbody>
@@ -149,10 +184,13 @@ onMounted(async () => {
 				</div>
 
 				<div v-if="activeTab === 'usage'" class="tab-content">
-					<h3 class="mb-3">Token Usage</h3>
+					<h3 class="mb-3">
+						<Icon name="mdi:chart-bar" class="me-2"/>
+						Token Usage
+					</h3>
 					<div class="table-responsive">
-						<table class="table table-striped">
-							<thead>
+						<table class="table table-hover">
+							<thead class="table-light">
 							<tr>
 								<th>Date</th>
 								<th>Model</th>
@@ -162,10 +200,22 @@ onMounted(async () => {
 							</thead>
 							<tbody>
 							<tr v-for="usage in modelUsages" :key="usage.id">
-								<td>{{ new Date(usage.created).toLocaleString() }}</td>
-								<td>{{ usage.aiModel.name }}</td>
-								<td>{{ usage.tokensUsed }}</td>
-								<td>{{ usage.cost }}</td>
+								<td>
+									<Icon name="mdi:calendar" class="me-1"/>
+									{{ new Date(usage.created).toLocaleString() }}
+								</td>
+								<td>
+									<Icon name="mdi:robot" class="me-1"/>
+									{{ usage.aiModel.name }}
+								</td>
+								<td>
+									<Icon name="mdi:counter" class="me-1"/>
+									{{ usage.tokensUsed }}
+								</td>
+								<td>
+									<Icon name="mdi:currency-usd" class="me-1"/>
+									{{ usage.cost }}
+								</td>
 							</tr>
 							</tbody>
 						</table>
@@ -184,48 +234,21 @@ onMounted(async () => {
 .card
 	border-radius: 1rem
 	overflow: hidden
+	transition: box-shadow 0.3s ease
 
-.card-title
-	color: #333
-	font-weight: bold
+	&:hover
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1)
 
-.nav-tabs
-	border-bottom: 2px solid #dee2e6
+.nav-pills
+	.nav-link
+		transition: all 0.3s ease
 
-.nav-link
-	color: #495057
-	cursor: pointer
-
-	&.active
-		color: #007bff
-		border-bottom: 2px solid #007bff
-
-.tab-content
-	padding-top: 1rem
+		&:hover
+			transform: translateY(-2px)
 
 .table
 	th, td
 		vertical-align: middle
-
-.form-control, .form-select, .btn
-	border-radius: 0.5rem
-
-.btn-primary
-	background-color: #007bff
-	border-color: #007bff
-	font-weight: bold
-	transition: all 0.3s ease
-
-	&:hover
-		background-color: #0056b3
-		border-color: #0056b3
-		transform: translateY(-2px)
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
-
-.input-group-text
-	background-color: #f8f9fa
-	color: #495057
-	font-weight: bold
 
 @media (max-width: 576px)
 	.table-responsive
