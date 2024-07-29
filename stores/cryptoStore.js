@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import {ethers} from "ethers";
 
 export const useCryptoStore = defineStore('cryptoStore', () => {
 
@@ -30,8 +31,19 @@ export const useCryptoStore = defineStore('cryptoStore', () => {
 
 	const correctNetwork = ref(-1);
 
+
+	const getAvaxPrice = async () => {
+		const avaxMainnetRpc = 'https://api.avax.network/ext/bc/C/rpc';
+		const provider = new ethers.providers.JsonRpcProvider(avaxMainnetRpc);
+		const priceFeed = new ethers.Contract('0x0A77230d17318075983913bC2145DB16C7366156', [ 'function latestRoundData() view returns (uint80, int256, uint256, uint256, uint80)' ], provider);
+		const [ roundId, price, startedAt, updatedAt, answeredInRound ] = await priceFeed.latestRoundData();
+		avaxPrice.value = price / 1e8;
+		return avaxPrice.value;
+	}
+
 	return {
 		mintTries,
+		getAvaxPrice,
 		initLoading,
 		nftsLoading,
 		wallet,
