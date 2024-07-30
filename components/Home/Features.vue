@@ -16,7 +16,7 @@
 				</div>
 			</div>
 
-			<article class="feature">
+			<article class="feature" id="ai">
 				<img class="vibes" src="/images/feel-the-vibes.svg" alt="">
 				<img class="omg" src="/images/omg.svg" alt="">
 
@@ -29,7 +29,7 @@
 				</div>
 			</article>
 
-			<article class="feature">
+			<article class="feature" id="tokens">
 				<img class="weird" src="/images/stay-weird.svg" alt="">
 				<div class="copy">
 					<h3>A Spicy Investment</h3>
@@ -40,7 +40,7 @@
 				</div>
 			</article>
 
-			<article class="feature">
+			<article class="feature" id="nfts">
 				<img class="lfg" src="/images/lfg.svg" alt="">
 				<div class="copy">
 					<h3>Burrito AI NFTs</h3>

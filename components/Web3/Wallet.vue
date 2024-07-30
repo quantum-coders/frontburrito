@@ -1,6 +1,9 @@
 <template>
 	<div class="web3-wallet">
-		<h2 class="title mb-5">Connect a wallet</h2>
+		<div class="wallet-header">
+			<button type="button" class="btn-close" aria-label="Close" @click.prevent="close"></button>
+			<h5 class="wallet-title text-center">Connect a wallet</h5>
+		</div>
 
 		<div class="loading" :class="{ 'active': loading }">
 			<!-- bootstrap spinner -->
@@ -9,67 +12,97 @@
 			</div>
 		</div>
 
-		<div class="row align-items-stretch">
-			<div class="col-12 col-sm-5 col-wallets">
-				<nav class="wallets">
-					<ul class="list-unstyled">
-						<li>
-							<a v-if="!coreInstalled" href="https://core.app" target="_blank" class="wallet-link" />
+		<div class="px-3">
+			<nav class="wallets">
+				<div class="row align-items-stretch">
+					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
+
+						<div class="wallet">
+							<a
+								v-if="!coreInstalled"
+								href="https://core.app"
+								target="_blank"
+								class="wallet-link"
+							/>
 							<a v-else @click.prevent="doConnect('core')" href="#" class="wallet-link" />
-
-							<a><img src="/images/core.png" alt="Core"> Core</a>
-
-							<span class="is-installed">
+							<img
+								class="wallet-sprite sprite-core"
+								src="/images/wallets/core.gif"
+								alt="Core"
+							>
+							<p class="wallet-name">Core</p>
+							<p class="wallet-status">
 								<span class="installed" v-if="coreInstalled">
 									<span class="inst">Installed</span>
 									<span class="conn">Connect</span>
 								</span>
 								<span class="get" v-else>Get</span>
-							</span>
-						</li>
-						<li>
-							<a v-if="!metamaskInstalled" href="https://metamask.io/" target="_blank" class="wallet-link" />
+							</p>
+						</div>
+					</div>
+					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
+
+						<div class="wallet">
+							<a
+								v-if="!metamaskInstalled"
+								href="https://metamask.io/"
+								target="_blank"
+								class="wallet-link"
+							/>
 							<a v-else @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
-
-							<a><img src="/images/metamask.png" alt="Metamask"> Metamask</a>
-
-							<span class="is-installed">
+							<img
+								class="wallet-sprite sprite-metamask"
+								src="/images/wallets/metamask.gif"
+								alt="Metamask"
+							>
+							<p class="wallet-name">Metamask</p>
+							<p class="wallet-status">
 								<span class="installed" v-if="metamaskInstalled">
 									<span class="inst">Installed</span>
 									<span class="conn">Connect</span>
 								</span>
 								<span class="get" v-else>Get</span>
-							</span>
-						</li>
-						<li>
-							<a v-if="!rabbyInstalled" href="https://rabby.io/" target="_blank" class="wallet-link" />
+							</p>
+						</div>
+					</div>
+					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
+
+						<div class="wallet">
+							<a
+								v-if="!rabbyInstalled"
+								href="https://rabby.io/"
+								target="_blank"
+								class="wallet-link"
+							/>
 							<a v-else @click.prevent="doConnect('rabby')" href="#" class="wallet-link" />
-
-							<a><img src="/images/rabbit-coin.png" alt="Rabby Wallet"> Rabby Wallet</a>
-
-							<span class="is-installed">
+							<img
+								class="wallet-sprite sprite-rabby"
+								src="/images/wallets/rabby.gif"
+								alt="Rabby Wallet"
+							>
+							<p class="wallet-name">Rabby Wallet</p>
+							<p class="wallet-status">
 								<span class="installed" v-if="rabbyInstalled">
 									<span class="inst">Installed</span>
 									<span class="conn">Connect</span>
 								</span>
 								<span class="get" v-else>Get</span>
-							</span>
-						</li>
-					</ul>
-				</nav>
-
-			</div>
-			<div class="col-12 col-sm-7">
-				<div class="copy">
-					<h3>What is a Wallet?</h3>
-
-					<h4>A Secure Digital Asset Holder</h4>
-					<p>Wallets store, send, receive, and showcase digital assets such as Ethereum and NFTs.</p>
-
-					<h4>A Simplified Login Experience</h4>
-					<p>Rather than creating new accounts and passwords for each website, simply connect your wallet.</p>
+							</p>
+						</div>
+					</div>
 				</div>
+			</nav>
+			<div class="copy d-none">
+				<h4>What is a Wallet?</h4>
 
+				<h6>A Secure Digital Asset Holder</h6>
+				<p>Wallets store, send, receive, and showcase digital assets such as Ethereum and NFTs.</p>
+
+				<h6>A Simplified Login Experience</h6>
+				<p>Rather than creating new accounts and passwords for each website, simply connect your wallet.</p>
 			</div>
 		</div>
 	</div>
@@ -90,13 +123,20 @@
 
 	const nftCounter = ref(0);
 
+	const props = defineProps({
+		close: {
+			type: Function,
+			required: true,
+		},
+	});
+
 	const metamaskInstalled = ref(false);
 	const coreInstalled = ref(false);
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
-		const providerName = localStorage.getItem('providerName')
-		if(providerName !== '' && providerName != null){
+		const providerName = localStorage.getItem('providerName');
+		if(providerName !== '' && providerName != null) {
 			await initProvider(providerName, true);
 		}
 		metamaskInstalled.value = await injectedProvider('io.metamask');
@@ -109,7 +149,7 @@
 		try {
 			await initProvider(provider);
 			loading.value = false;
-		}catch (e) {
+		} catch(e) {
 			console.error(e);
 			loading.value = false;
 		}
@@ -118,13 +158,40 @@
 </script>
 
 <style scoped lang="sass">
+
+	.wallet-sprite
+		image-rendering: pixelated
+
+		&.sprite-core
+			width: 27 * 2px
+
+		&.sprite-metamask
+			width: 33 * 2px
+
+		&.sprite-rabby
+			width: 29 * 2px
+			left: -8px
+
 	.web3-wallet
 		width: 800px
 		max-width: 100%
-		padding: 0.5rem
 
-		@media (min-width: $sm)
-			padding: 2rem
+		.wallet-header
+			border-bottom: 1px solid rgba($brand1, 0.25)
+			padding: 0.5rem
+
+			.btn-close
+				position: absolute
+				right: 1rem
+				top: 50%
+				transform: translateY(-50%)
+				z-index: 10
+
+			.wallet-title
+				font-family: "Chibold", sans-serif
+				font-size: 2.5rem
+				color: $primary
+				margin: 0
 
 		.loading
 			position: absolute
@@ -145,17 +212,87 @@
 				opacity: 1
 				pointer-events: all
 
-		.col-wallets
-			border-bottom: 1px solid #ccc
-			margin-bottom: 1rem
-
-			@media (min-width: $sm)
-				border-bottom: 0
-				border-right: 1px solid #ccc
-				margin-bottom: 0
-
 		.wallets
-			padding-right: 2rem
+			padding: 2rem
+			text-align: center
+			width: 100%
+
+			.col-wallet
+				border: 1px solid transparent
+				border-radius: 0.5rem
+				padding-top: 1rem
+
+				.selector
+					width: 14px
+					position: absolute
+					top: 1rem
+					image-rendering: pixelated
+					opacity: 0
+
+				&:hover
+					border: 1px solid $brand1
+
+					.selector
+						opacity: 1
+
+			.wallet
+				margin-top: 1.5rem
+				width: 100%
+				display: flex
+				flex-direction: column
+				align-items: center
+				justify-content: flex-end
+
+				.wallet-name
+					color: $brand1
+					font-weight: bold
+					margin-bottom: 0
+
+				.wallet-link
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					z-index: 10
+
+				.wallet-status
+					font-size: 0.75rem
+					width: 100%
+
+					.installed
+						height: 16px
+						display: block
+
+						span
+							position: absolute
+							left: 50%
+							transform: translateX(-50%)
+							top: 0
+							transition: all 500ms ease-in-out
+
+							&.inst
+								opacity: 1
+								color: var(--bs-success)
+								font-weight: bold
+
+							&.conn
+								background: var(--bs-success)
+								color: white
+								border-radius: 1rem
+								padding: 0 1rem
+								opacity: 0
+				&:hover
+					.wallet-status
+						.installed
+							.inst
+								opacity: 0
+							.conn
+								opacity: 1
+
+
+				img
+					margin-bottom: 0.5rem
 
 			li
 				display: flex
@@ -173,20 +310,6 @@
 
 				img
 					transition: all 500ms ease
-
-				&:hover
-					img
-						margin-left: 1rem
-
-					.installed span
-						&.conn
-							opacity: 1 !important
-
-						&.inst
-							opacity: 0 !important
-
-					.is-installed .get
-						color: #333
 
 				.is-installed
 					font-size: 0.8rem

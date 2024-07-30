@@ -20,7 +20,7 @@
 
 				<p class="buttons d-flex">
 					<a href="#" class="btn btn-burrito flex-grow-1">Presale Live</a>
-					<a href="#" class="btn btn-burrito flex-grow-1">Uncensored Chat</a>
+					<nuxt-link to="/chat" class="btn btn-burrito flex-grow-1">Uncensored Chat</nuxt-link>
 				</p>
 			</div>
 		</div>
@@ -142,6 +142,7 @@
 		image-rendering: pixelated
 		margin: 0 auto -8px
 		width: 48px * 4
+		z-index: 10
 
 		@media (min-width: $sm)
 			position: absolute

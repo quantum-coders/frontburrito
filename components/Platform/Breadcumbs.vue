@@ -24,49 +24,49 @@
 </template>
 
 <script setup>
-const route = useRoute();
+	const route = useRoute();
 
-const breadcrumbs = computed(() => {
-	const paths = route.path.split('/').filter(Boolean);
-	return paths.map((path, index) => {
-		return {
-			name: path.charAt(0).toUpperCase() + path.slice(1),
-			path: '/' + paths.slice(0, index + 1).join('/')
-		};
+	const breadcrumbs = computed(() => {
+		const paths = route.path.split('/').filter(Boolean);
+		return paths.map((path, index) => {
+			return {
+				name: path.charAt(0).toUpperCase() + path.slice(1),
+				path: '/' + paths.slice(0, index + 1).join('/'),
+			};
+		});
 	});
-});
 
-const getBreadcrumbPath = (breadcrumb) => {
-	return breadcrumb.name.toLowerCase() === 'chat'
-		? '/chat/dashboard'
-		: breadcrumb.path;
-};
+	const getBreadcrumbPath = (breadcrumb) => {
+		return breadcrumb.name.toLowerCase() === 'chat'
+			? '/chat/dashboard'
+			: breadcrumb.path;
+	};
 </script>
 
 <style scoped lang="sass">
-.breadcrumb-container
-	font-size: 0.875rem
-	margin-bottom: 0
+	.breadcrumb-container
+		font-size: 0.875rem
+		margin-bottom: 0
 
-.breadcrumb
-	background: none
-	padding: 0
-	margin-bottom: 0
+	.breadcrumb
+		background: none
+		padding: 0
+		margin-bottom: 0
 
-.breadcrumb-item + .breadcrumb-item::before
-	content: ">"
+	.breadcrumb-item + .breadcrumb-item::before
+		content: ">"
 
-.breadcrumb-link
-	text-decoration: none
-	cursor: pointer
+	.breadcrumb-link
+		text-decoration: none
+		cursor: pointer
 
-	&:hover
-		text-decoration: underline
+		&:hover
+			text-decoration: underline
 
-.breadcrumb-current
-	color: #6c757d
-	cursor: default
+	.breadcrumb-current
+		color: #6c757d
+		cursor: default
 
-.breadcrumb-item
-	cursor: default
+	.breadcrumb-item
+		cursor: default
 </style>

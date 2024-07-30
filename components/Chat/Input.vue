@@ -48,5 +48,6 @@ const saveMessage = async (message) => {
 		outline: none
 		box-sizing: border-box
 		margin: 0 0 0 1rem
+		background: transparent
 
 </style>
