@@ -4,31 +4,22 @@
 
 			<layout-logo />
 
-			<nav class="primary-navigation">
-				<ul class="list-unstyled">
-					<li><a href="/#ai">AI</a></li>
-					<li><a href="/#tokens">Tokens</a></li>
-					<li><a href="/#nfts">NFTs</a></li>
+			<div class="d-flex align-items-center">
+				<nav class="primary-navigation">
+					<ul class="list-unstyled">
+						<li><a href="/#ai">AI</a></li>
+						<li><a href="/#tokens">Tokens</a></li>
+						<li><a href="/#nfts">NFTs</a></li>
+					</ul>
+				</nav>
 
-					<li class="wallet">
-						<a href="#" @click.prevent="walletModalRef.openDialog()">Connect Wallet</a>
-						<img alt="Burrito" src="/images/burrito-photo.png" />
-					</li>
-				</ul>
-			</nav>
+				<layout-wallet />
+			</div>
 		</div>
-
-		<platform-modal ref="walletModalRef" class="p-0">
-			<template #default="{ close: closeDialog }">
-				<web3-wallet @connect="closeDialog" :close="closeDialog" />
-			</template>
-		</platform-modal>
 	</header>
 </template>
 
 <script setup>
-	const walletModalRef = ref(null);
-
 </script>
 
 <style scoped lang="sass">
@@ -67,34 +58,6 @@
 					display: block
 					padding-right: 50px
 					font-size: 0.8rem
-
-					&.wallet
-						white-space: nowrap
-						overflow-x: clip
-						align-items: center
-						display: flex
-						width: 200px
-
-						a
-							font-weight: 900
-							border: 3px solid #D75D41
-							border-radius: 0.5rem
-							color: #D75D41
-							text-transform: uppercase
-							padding: 0.5rem
-							box-shadow: 0 0.5em 0 #D75D41
-							transition: all 150ms ease-in-out !important
-
-							&:active
-								transform: translateY(0.5em)
-								box-shadow: none
-
-						img
-							position: absolute
-							right: -10px
-							top: 50%
-							transform: translateY(-50%)
-							width: 70px
 
 					a
 						text-transform: uppercase
