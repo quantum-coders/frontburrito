@@ -96,13 +96,6 @@
 		</template>
 	</platform-modal>
 
-	<platform-modal ref="walletModalRef">
-		<template #default="{ close: closeDialog }">
-			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
-			<web3-wallet @connect="closeDialog" />
-		</template>
-	</platform-modal>
-
 	<platform-modal ref="stakingModalRef">
 		<template #default="{ close: closeDialog }">
 			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
@@ -112,7 +105,6 @@
 
 	<platform-modal ref="billingModalRef">
 		<template #default="{ close: closeDialog }">
-			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
 			<web3-billing @close="closeDialog" />
 		</template>
 	</platform-modal>

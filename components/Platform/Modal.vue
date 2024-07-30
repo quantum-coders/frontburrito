@@ -1,24 +1,11 @@
 <template>
 	<dialog class="dialog" ref="dialog">
+		<!-- expose close method on slot scope -->
 		<slot :close="closeDialog" />
 	</dialog>
 </template>
 
 <script setup>
-
-	// Receive function from parent as close callback
-	const props = defineProps({
-		closeDialog: {
-			type: Function,
-			default: null,
-		},
-		closeOnBackdrop: {
-			type: Boolean,
-			default: true,
-		},
-	});
-
-	const emit = defineEmits([ 'close' ]);
 
 	// Get the dialog element from the ref
 	const dialog = ref(null);
@@ -28,12 +15,11 @@
 		dialog.value.showModal();
 	};
 
-	const open = () => { openDialog(); };
+	const open = () => {
+		openDialog();
+	};
 
 	const closeDialog = () => {
-
-		console.log('CLOSE DIALOG');
-
 		dialog.value.classList.add('hide');
 		dialog.value.addEventListener('animationend', () => {
 			// If it does not have the hide class, cancel
@@ -42,51 +28,47 @@
 			dialog.value.classList.remove('hide');
 			dialog.value.close();
 			dialog.value.removeEventListener('animationend', () => { }, false);
-
-			if(props.closeDialog && props.closeOnBackdrop) {
-				props.closeDialog();
-			}
-
-			emit('close');
 		});
 	};
 
-	const close = () => { closeDialog(); };
+	const close = () => {
+		closeDialog();
+	};
 
-	onMounted(() => {
-		if(props.closeOnBackdrop) {
-			dialog.value.addEventListener('click', function(event) {
-				console.log('click');
-
-				const rect = dialog.value.getBoundingClientRect();
-				const isInDialog = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
-				if(!isInDialog) {
-
-					console.log('CLOSE DIALOG FROM EVENT LISTENER');
-					closeDialog();
-				}
-			});
-		}
-	});
-
-	onUnmounted(() => {
-		if(props.closeOnBackdrop) {
-			if(dialog && dialog.value) {
-				dialog.value.removeEventListener('click', () => { }, false);
-			}
-		}
-	});
-
-	defineExpose({ openDialog, open, closeDialog, close });
+	defineExpose({ openDialog, closeDialog, open, close });
 </script>
+
+<style lang="sass">
+
+	&:before
+		content: ''
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: rgba(black, 0)
+		z-index: 10000
+		opacity: 0
+		pointer-events: none
+		transition: all 500ms ease-in-out
+
+	&:has(dialog[open].hide-backdrop)
+		&:before
+			opacity: 1
+
+</style>
 
 <style lang="sass" scoped>
 
 	.dialog
 		border: 0
-		padding: 1rem
+		padding: 0
 		border-radius: 0.5rem
-		position: fixed
+
+		&.hide-backdrop
+			&::backdrop
+				display: none
 
 		&[open]
 			animation: show 0.3s ease-out forwards
