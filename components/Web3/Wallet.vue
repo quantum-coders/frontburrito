@@ -126,7 +126,7 @@
 	const props = defineProps({
 		close: {
 			type: Function,
-			required: true,
+			default: () => {},
 		},
 	});
 

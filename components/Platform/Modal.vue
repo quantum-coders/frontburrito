@@ -65,6 +65,7 @@
 		border: 0
 		padding: 0
 		border-radius: 0.5rem
+		position: fixed
 
 		&.hide-backdrop
 			&::backdrop

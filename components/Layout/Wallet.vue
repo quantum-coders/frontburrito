@@ -105,7 +105,7 @@
 
 	<platform-modal ref="billingModalRef">
 		<template #default="{ close: closeDialog }">
-			<web3-billing @close="closeDialog" />
+			<web3-billing :close="closeDialog" />
 		</template>
 	</platform-modal>
 </template>

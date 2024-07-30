@@ -1,5 +1,7 @@
 <template>
 	<div class="dashboard-container">
+		<button type="button" class="btn-close" @click.prevent="close"></button>
+
 		<div class="card-title d-flex align-items-center justify-content-between p-2">
 			<h5 class="mb-0">
 				<icon name="mdi:account-circle" />
@@ -79,11 +81,11 @@
 			</form>
 		</div>
 
-		<div v-if="activeTab === 'payments'" class="tab-content">
-			<h3 class="mb-3">
-				<icon name="mdi:history" class="me-2" />
+		<div v-if="activeTab === 'payments'" class="tab-content p-3">
+			<h5 class="mb-3">
+				<icon name="mdi:history" />
 				Payment History
-			</h3>
+			</h5>
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead class="table-light">
@@ -117,6 +119,13 @@
 <script setup>
 
 	const { successToast, errorToast } = usePrettyToast();
+
+	const props = defineProps({
+		close: {
+			type: Function,
+			default: () => {},
+		},
+	});
 
 	const amount = ref(0);
 	const selectedCurrency = ref('USD');
