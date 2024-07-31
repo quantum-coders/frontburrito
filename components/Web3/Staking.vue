@@ -109,6 +109,10 @@
 									step="1"
 								/>
 							</div>
+							<small class="text-muted">Available: {{ useCryptoStore().burritoBalance }} Burrito AI Tokens</small>
+							<small class="text-danger" v-if="amountToStake > useCryptoStore().burritoBalance">
+								Insufficient balance
+							</small>
 						</div>
 						<div class="mb-4">
 							<label for="stakeDuration" class="form-label">Stake Duration (days)</label>
