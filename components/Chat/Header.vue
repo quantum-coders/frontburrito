@@ -4,14 +4,9 @@
 
 			<layout-logo />
 
-			<nav class="primary-navigation">
-				<ul class="list-unstyled">
-					<li class="wallet">
-						<a href="#">Connect Wallet</a>
-						<img alt="Burrito" src="/images/burrito-photo.png" />
-					</li>
-				</ul>
-			</nav>
+			<div class="d-flex align-items-center">
+				<layout-wallet />
+			</div>
 		</div>
 	</header>
 </template>
@@ -55,18 +50,6 @@
 					display: block
 					padding-right: 50px
 					font-size: 0.8rem
-
-					&.wallet
-						width: 180px
-						white-space: nowrap
-						overflow-x: clip
-
-						img
-							position: absolute
-							right: -10px
-							top: 50%
-							transform: translateY(-50%)
-							width: 70px
 
 					a
 						text-transform: uppercase
