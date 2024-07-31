@@ -6,7 +6,7 @@
 
 	<div class="wallet-info" v-else>
 		<div class="wallet-summary d-flex align-items-stretch gap-2">
-			<img src="/images/burrito-token-icon.svg" alt="">
+			<img class="token-icon" src="/images/burrito-token-icon.svg" alt="">
 			<span class="d-none d-md-flex burrito-balance">
 				{{ parseFloat(cryptoStore.burritoBalance || 0).toFixed(4) ?? 0.0 }}
 			</span>
@@ -174,13 +174,20 @@
 						background: #F2F3E6
 						z-index: 100
 
+		.token-icon
+			width: 24px
+
 		.burrito-balance
+			font-size: 0.8em
+			font-weight: bold
 			border-right: 2px solid $brand1
 			align-items: center
 			justify-content: center
 			padding-right: 0.5rem
 
 		.address
+			font-size: 0.8em
+			font-weight: bold
 			align-items: center
 			justify-content: center
 
@@ -193,7 +200,7 @@
 			border: 2px solid $brand1
 			box-shadow: 0 0.5em 0 $brand1
 			border-radius: 0.5rem 0 0.5rem 0.5rem
-			background: #F2F3E6
+			background: #F7F2E9
 
 			.coin,
 			.connected-account
