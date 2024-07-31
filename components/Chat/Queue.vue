@@ -1,6 +1,6 @@
 <template>
 	<div class="chat-queue">
-		<div class="scroll-wrapper p-3" v-if="!!chatStore.chat">
+		<div class="scroll-wrapper p-3 pretty-scrolls" v-if="!!chatStore.chat">
 			<template v-for="message in chatStore.chat.messages">
 				<article class="message message-user" v-if="message.type === 'user'">
 						<avatar

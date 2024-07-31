@@ -80,6 +80,8 @@
 						<li><strong>Last Activity:</strong>
 							{{ useTimeAgo(chatStore.chat.messageStatistics.modified).value }}
 						</li>
+						<li><strong>Token Usage:</strong> {{ chatStore.chat.tokensUsed }}</li>
+						<li><strong>Cost:</strong> $ {{ chatStore.chat.totalCost }}</li>
 					</ul>
 				</div>
 			</aside>
@@ -170,6 +172,7 @@
 		if(chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
 			await generateChatName();
 		}
+		await chatStore.getTokenUsage(uid)
 	});
 </script>
 
