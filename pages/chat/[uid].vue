@@ -21,7 +21,9 @@
 							<p class="text-muted small mb-0">ID: {{ chatStore.chat?.uid }}</p>
 						</div>
 						<chat-queue class="flex-grow-1 overflow-auto mb-2"/>
-						<chat-input class="mt-auto"/>
+						<chat-input class="mt-auto"
+
+						/>
 					</div>
 					<aside class="col-md-3 chat-config bg-light p-3 border-start">
 						<h3 class="h5 mb-3">Chat Configuration</h3>
@@ -83,6 +85,8 @@
 								<li><strong>Last Activity:</strong>
 									{{ useTimeAgo(chatStore.chat.messageStatistics.modified).value }}
 								</li>
+								<li><strong>Token Usage:</strong> {{ chatStore.chat.tokensUsed }}</li>
+								<li><strong>Cost:</strong> $ {{ chatStore.chat.totalCost }}</li>
 							</ul>
 						</div>
 					</aside>
@@ -178,6 +182,8 @@ onMounted(async () => {
 	if (chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
 		await generateChatName();
 	}
+
+	await chatStore.getTokenUsage(uid)
 });
 </script>
 

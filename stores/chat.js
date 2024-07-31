@@ -10,6 +10,8 @@ export const useChatStore = defineStore('chatStore', () => {
         if (chatRes.data.value) {
             chat.value = chatRes.data.value.data;
         }
+
+        console.log("CHAT ISNOW", chat.value)
     }
 
     const sendMessage = async (message,callback = null) => {
@@ -151,12 +153,29 @@ export const useChatStore = defineStore('chatStore', () => {
     }
 
     // increase messageStatistics.count
-    const increaseMessageStatistics = (messageStatistics) => {
+    const increaseMessageStatistics = async (messageStatistics) => {
         chat.value.messageStatistics.count += 1;
+        await getTokenUsage(chat.value.uid)
+    }
+
+    const getTokenUsage = async (uid) => {
+        // route chats/token-usage/:uid
+        const res = await useBaseFetch(`/chats/token-usage/${uid}`);
+        if(!res.data.value) {
+            console.error('Error getting token usage:', res.error.value);
+            return;
+        }
+        chat.value.totalCost = res.data.value.data.totalCost;
+        chat.value.tokensUsed = res.data.value.data.tokensUsed;
+        return {
+            totalCost: res.data.value.data.totalCost,
+            tokensUsed: res.data.value.data.tokensUsed
+        };
     }
 
     return {
         getChat,
+        getTokenUsage,
         updateChatFrontend,
         increaseMessageStatistics,
         updateChat,
