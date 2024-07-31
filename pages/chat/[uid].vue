@@ -13,7 +13,7 @@
 						spellcheck="false"
 						@keydown.enter="saveChatName"
 					/>
-					<p class="text-muted small mb-0">ID: {{ chatStore.chat?.uid }}</p>
+					<p class="small">{{ chatStore.chat?.uid }}</p>
 				</div>
 
 				<chat-queue class="flex-grow-1 overflow-auto mb-2" />
@@ -23,8 +23,7 @@
 			</div>
 
 			<aside class="chat-config">
-				<h3 class="h5 mb-3">Chat Configuration</h3>
-				<div class="mb-3">
+				<div class="mb-3 form-group form-group-system">
 					<label class="form-label" for="system-prompt">System Prompt</label>
 					<textarea
 						class="form-control"
@@ -35,7 +34,7 @@
 						@blur="chatStore.updateChat({ system: chatStore.chat.system })"
 					></textarea>
 				</div>
-				<div class="form-check form-switch mb-3">
+				<div class="form-check form-switch mb-2">
 					<input
 						class="form-check-input"
 						type="checkbox"
@@ -43,11 +42,10 @@
 						v-model="webSearchEnabled"
 						@change="updateWebSearch"
 					>
-					<label class="form-check-label" for="web-search">Enable WebSearch</label>
+					<label class="form-check-label fs-7" for="web-search">Enable WebSearch</label>
 				</div>
 				<div v-if="webSearchEnabled" class="mb-3">
-					<label class="form-label d-block">Search Type</label>
-					<div class="btn-group w-100" role="group">
+					<div class="btn-group btn-group-sm w-100" role="group">
 						<input
 							type="radio"
 							class="btn-check"
@@ -177,6 +175,9 @@
 
 <style lang="sass" scoped>
 
+	.btn-check:checked + .btn
+		color: white !important
+
 	.chat-wrapper
 		display: flex
 		flex-direction: column
@@ -196,10 +197,25 @@
 				padding: 1rem
 				border-left: 1px solid rgba($brand1, 0.25)
 
+				.form-group
+					.form-label
+						font-weight: bold
+						color: $brand1
+						margin-bottom: 0.25rem
+						font-size: 0.75rem
+
+				.form-control
+					border: 2px solid $brand1
+					border-radius: 0.5rem
+					box-shadow: 0 0.5em 0 $brand1
+					margin-bottom: 0.5em
+
 				.form-control, .btn-group
 					font-size: 0.9rem
 
 			.chat-info
+				background: $brand1
+				color: white
 				padding: 0.5rem
 				border-bottom: 1px solid rgba(0, 0, 0, 0.1)
 

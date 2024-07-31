@@ -34,8 +34,10 @@ const saveMessage = async (message) => {
 	align-items: center
 	gap: 0.5rem
 	border-radius: 100rem
-	border: 1px solid rgba($brand1, 0.25)
+	border: 2px solid $brand1
 	transition: all 500ms ease-in-out
+	box-shadow: 0 0.5em 0 $brand1
+	margin-bottom: 0.5em
 
 	&:hover,
 	&:has(input:focus)
