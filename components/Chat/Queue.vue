@@ -1,37 +1,44 @@
 <template>
 	<div class="chat-queue">
-		<div class="scroll-wrapper p-3 pretty-scrolls" v-if="!!chatStore.chat">
-			<template v-for="message in chatStore.chat.messages">
-				<article class="message message-user" v-if="message.type === 'user'">
-						<avatar
-							:size="30"
-							:seed="useCryptoStore().currenAccount"
-							:colors="['#FFD700', '#FF6347', '#FF4500', '#FF8C00', '#FFA07A']"
-							variant="pixel"
-						/>
-					<div class="message-content">
-						<div v-html="$mdRenderer.render(message.content)" />
-					</div>
-				</article>
+		<div class="scroll-wrapper pretty-scrolls" v-if="!!chatStore.chat">
+			<div class="p-2">
 
-				<article class="message message-ai" v-else>
-					<Avatar
-						:size="35"
-						seed="AI"
-						variant="pixel"
-					/>
-					<div class="message-content">
-						<div v-html="$mdRenderer.render(message.content)" />
+				<template v-for="message in chatStore.chat.messages">
+					<div class="message-wrapper">
+						<article class="message message-user" v-if="message.type === 'user'">
+							<avatar
+								:size="30"
+								class="avatar"
+								:seed="useCryptoStore().currenAccount"
+								:colors="['#FFD700', '#FF6347', '#FF4500', '#FF8C00', '#FFA07A']"
+								variant="pixel"
+							/>
+							<div class="message-content">
+								<div v-html="$mdRenderer.render(message.content)" />
+							</div>
+						</article>
+
+						<article class="message message-ai" v-else>
+							<avatar
+								:size="35"
+								class="avatar"
+								seed="AI"
+								variant="pixel"
+							/>
+							<div class="message-content">
+								<div v-html="$mdRenderer.render(message.content)" />
+							</div>
+						</article>
 					</div>
-				</article>
-			</template>
+				</template>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
 	const { $mdRenderer } = useNuxtApp();
-	import Avatar from "vue-boring-avatars";
+	import Avatar from 'vue-boring-avatars';
 	const chatStore = useChatStore();
 </script>
 
@@ -50,27 +57,35 @@
 	.chat-queue
 		padding: 1rem
 
+		.message-wrapper
+			display: flex
+			margin: 0 auto 1rem
+			max-width: 1000px
+
+			&:has(.message-user)
+				justify-content: flex-end
+
+
 		.message
 			border-radius: 0.5rem
 			padding: 1rem
-			margin-bottom: 1rem
 			display: flex
 			gap: 1rem
 			align-items: flex-start
+			max-width: 80%
 
 			.avatar
 				width: 30px
 				min-width: 30px
 				max-width: 30px
 				aspect-ratio: 1
-				background: white
 				border-radius: 100%
 
 			.message-content
 				padding-top: 3px
 
-				p:last-child
-					margin: 0
+				:deep(p:last-child)
+					margin-bottom: 0
 
 			&.message-ai
 				background: rgba($brand2, 0.5)

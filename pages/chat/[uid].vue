@@ -16,8 +16,8 @@
 					<p class="small">{{ chatStore.chat?.uid }}</p>
 				</div>
 
-				<chat-queue class="flex-grow-1 overflow-auto mb-2" />
-				<div class="p-3">
+				<chat-queue class="flex-grow-1" />
+				<div class="p-2">
 					<chat-input class="mt-auto" />
 				</div>
 			</div>
@@ -71,7 +71,7 @@
 					</div>
 				</div>
 				<div class="chat-stats mt-4">
-					<h4 class="h6 mb-2">Chat Statistics</h4>
+					<h4 class="chat-stats-title">Chat Statistics</h4>
 					<ul class="list-unstyled small">
 						<li><strong>Messages:</strong> {{ chatStore.chat.messageStatistics.count }}</li>
 						<li><strong>Created:</strong>
@@ -229,4 +229,9 @@
 			.chat-stats
 				border-top: 1px solid rgba(0, 0, 0, 0.1)
 				padding-top: 1rem
+
+				.chat-stats-title
+					font-family: 'Chibold', sans-serif
+					color: $brand1
+					margin-bottom: 0.25rem
 </style>
