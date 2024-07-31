@@ -1,9 +1,9 @@
 <template>
 	<div class="chat-queue">
-		<div class="scroll-wrapper" v-if="!!chatStore.chat">
+		<div class="scroll-wrapper p-3" v-if="!!chatStore.chat">
 			<template v-for="message in chatStore.chat.messages">
 				<article class="message message-user" v-if="message.type === 'user'">
-						<Avatar
+						<avatar
 							:size="30"
 							:seed="useCryptoStore().currenAccount"
 							:colors="['#FFD700', '#FF6347', '#FF4500', '#FF8C00', '#FFA07A']"
@@ -38,7 +38,6 @@
 <style lang="sass" scoped>
 
 	.scroll-wrapper
-		padding: 1rem 1rem 1rem 0
 		position: absolute
 		top: 0
 		left: 0
