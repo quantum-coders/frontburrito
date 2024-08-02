@@ -77,6 +77,7 @@ export const useChatStore = defineStore('chatStore', () => {
 
 									// append chunk to content from last message
 									chat.value.messages[chat.value.messages.length - 1].content += json.choices[0].delta.content;
+									scrollToBottom();
 								}
 							}
 						} catch(e) {
@@ -127,6 +128,13 @@ export const useChatStore = defineStore('chatStore', () => {
 		}
 	};
 
+	const scrollToBottom = () => {
+		// scroll to the bottom of #thread, animated
+		const thread = document.querySelector('.chat-queue .scroll-wrapper');
+		if(!thread) return;
+		thread.scrollTo({ top: thread.scrollHeight, behavior: 'smooth' });
+	};
+
 	const updateChat = async (updates) => {
 		try {
 			console.log('updating...');
@@ -150,35 +158,36 @@ export const useChatStore = defineStore('chatStore', () => {
 		console.log('After chat', chat.value);
 	};
 
-    // increase messageStatistics.count
-    const increaseMessageStatistics = async (messageStatistics) => {
-        chat.value.messageStatistics.count += 1;
-        await getTokenUsage(chat.value.uid)
-    }
+	// increase messageStatistics.count
+	const increaseMessageStatistics = async (messageStatistics) => {
+		chat.value.messageStatistics.count += 1;
+		await getTokenUsage(chat.value.uid);
+	};
 
-    const getTokenUsage = async (uid) => {
-        // route chats/token-usage/:uid
-        const res = await useBaseFetch(`/chats/token-usage/${uid}`);
-        if(!res.data.value) {
-            console.error('Error getting token usage:', res.error.value);
-            return;
-        }
-        chat.value.totalCost = res.data.value.data.totalCost;
-        chat.value.tokensUsed = res.data.value.data.tokensUsed;
-        return {
-            totalCost: res.data.value.data.totalCost,
-            tokensUsed: res.data.value.data.tokensUsed
-        };
-    }
+	const getTokenUsage = async (uid) => {
+		// route chats/token-usage/:uid
+		const res = await useBaseFetch(`/chats/token-usage/${ uid }`);
+		if(!res.data.value) {
+			console.error('Error getting token usage:', res.error.value);
+			return;
+		}
+		chat.value.totalCost = res.data.value.data.totalCost;
+		chat.value.tokensUsed = res.data.value.data.tokensUsed;
+		return {
+			totalCost: res.data.value.data.totalCost,
+			tokensUsed: res.data.value.data.tokensUsed,
+		};
+	};
 
-    return {
-        getChat,
-        getTokenUsage,
-        updateChatFrontend,
-        increaseMessageStatistics,
-        updateChat,
-        sendMessage,
-        chat,
-        downloadChat
-    };
+	return {
+		getChat,
+		getTokenUsage,
+		updateChatFrontend,
+		increaseMessageStatistics,
+		updateChat,
+		sendMessage,
+		scrollToBottom,
+		chat,
+		downloadChat,
+	};
 });

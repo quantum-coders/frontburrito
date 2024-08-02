@@ -11,7 +11,9 @@
 
 	const sendMessage = () => {
 		if(message.value) {
+			chatStore.scrollToBottom();
 			chatStore.sendMessage(message.value, saveMessage);
+			chatStore.scrollToBottom();
 			chatStore.increaseMessageStatistics();
 			message.value = '';
 		}

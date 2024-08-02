@@ -219,7 +219,7 @@
 			.chat-info
 				background: $brand1
 				color: white
-				padding: 0.5rem
+				padding: 0.25rem 0.5rem
 				border-bottom: 1px solid rgba(0, 0, 0, 0.1)
 
 				:deep(p)

@@ -83,16 +83,21 @@
 
 			.message-content
 				padding-top: 3px
+				font-size: 0.8rem
 
 				:deep(p:last-child)
 					margin-bottom: 0
 
 			&.message-ai
+				border-radius: 0 0.5rem 0.5rem 0.5rem
 				background: rgba($brand2, 0.5)
 				align-self: flex-start
+				box-shadow: 0 0.5em 0 $brand2
 
 			&.message-user
+				border-radius: 0.5rem 0 0.5rem 0.5rem
 				background: rgba($brand1, 0.5)
 				align-self: flex-end
 				flex-direction: row-reverse
+				box-shadow: 0 0.5em 0 $brand1
 </style>
