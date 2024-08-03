@@ -27,6 +27,7 @@
 						<a href="#" class="btn btn-burrito">START CHAT NOW</a>
 					</p>
 				</div>
+				<animations-chat class="flex-grow-1" />
 			</article>
 
 			<article class="feature" id="tokens">
@@ -116,13 +117,15 @@
 		margin: 0 auto 8rem
 		border: 3px solid $brand1
 		border-radius: 0.5rem
-		padding: 2rem
 		box-shadow: 0 2rem 0 $brand1
+		display: flex
+		align-items: center
 
 		@media (min-width: $sm)
 			max-width: calc(100% - 200px)
 
 		.copy
+			padding: 1rem
 			@media (min-width: $sm)
 				max-width: 65%
 
