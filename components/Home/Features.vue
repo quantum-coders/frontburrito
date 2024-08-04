@@ -27,7 +27,9 @@
 						<a href="#" class="btn btn-burrito">START CHAT NOW</a>
 					</p>
 				</div>
-				<animations-chat class="flex-grow-1" />
+				<div class="animation-wrapper">
+					<animations-chat class="flex-grow-1" />
+				</div>
 			</article>
 
 			<article class="feature" id="tokens">
@@ -39,6 +41,16 @@
 						<a href="#" class="btn btn-burrito">JOIN OUR PRESALE</a>
 					</p>
 				</div>
+				<div class="animation-wrapper animation-wrapper-token">
+					<animations-emoji-rain
+						class="emoji-rain"
+						:emojis="['⭐', '✨', '🌟', '🌙']"
+						:speed="10"
+						:density="50"
+						:spawn="true"
+					/>
+					<img src="/images/rich-burrito.png" alt="Start Now!">
+				</div>
 			</article>
 
 			<article class="feature" id="nfts">
@@ -49,6 +61,9 @@
 					<p class="text-end">
 						<a href="#" class="btn btn-burrito">MINT A BURRITO</a>
 					</p>
+				</div>
+				<div class="animation-wrapper animation-wrapper-nfts">
+					<img src="/images/burritos-nfts.gif" alt="Burrito NFTs">
 				</div>
 			</article>
 		</div>
@@ -119,13 +134,52 @@
 		border-radius: 0.5rem
 		box-shadow: 0 2rem 0 $brand1
 		display: flex
-		align-items: center
+		flex-direction: column-reverse
+		align-items: stretch
 
 		@media (min-width: $sm)
+			flex-direction: row
 			max-width: calc(100% - 200px)
+
+		.animation-wrapper
+			flex-grow: 1
+			overflow: hidden
+			aspect-ratio: 1
+			border-bottom: 2px solid $brand1
+
+			@media (min-width: $sm)
+				aspect-ratio: auto
+
+			&.animation-wrapper-token
+
+				.emoji-rain
+					overflow: hidden
+					z-index: 1
+
+				img
+					position: absolute
+					left: 0
+					bottom: 0
+					width: 206px * 2
+					image-rendering: pixelated
+					z-index: 2
+
+			&.animation-wrapper-nfts
+				display: flex
+				justify-content: center
+				align-items: center
+
+				img
+					position: absolute
+					image-rendering: pixelated
+					width: 100%
+					height: 100%
+					object-fit: contain
 
 		.copy
 			padding: 1rem
+			z-index: 10
+
 			@media (min-width: $sm)
 				max-width: 65%
 
@@ -184,7 +238,7 @@
 			position: absolute
 			z-index: 100
 			right: -10px
-			top: -20px
+			top: -40px
 
 			@media (min-width: $sm)
 				width: 150px
