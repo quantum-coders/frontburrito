@@ -290,7 +290,15 @@
 
 	.tab-funding
 		.btn-burrito
+			font-family: 'Chibold', sans-serif
+			font-size: 1.5rem
+			padding: 0.5rem 0
+			margin-bottom: 1.5rem !important
 			border: 0
 			border-top: 2px solid $brand1
 			border-radius: 0 0 0.25rem 0.25rem
+
+			&:hover
+				background: $brand2
+				color: white
 </style>
