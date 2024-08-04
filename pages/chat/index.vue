@@ -1,29 +1,5 @@
 <template>
 	<div class="chat-wrapper">
-		<chat-header class="border-bottom" />
-		<platform-header-wallet />
-		<template v-if="!!useCryptoStore().currentAccount">
-			<main class="chat-content">
-
-				<div class="container">
-					<div class="chat-experience">
-						<chat-queue class="flex-grow-1" />
-						<chat-input class="m-2" />
-					</div>
-
-					<aside class="chat-config">
-						<!-- input for system prompt -->
-						<div class="chat-config-item">
-							<label class="form-label" for="system-prompt">System Prompt</label>
-							<textarea class="form-control" id="system-prompt" rows="5"></textarea>
-						</div>
-
-					</aside>
-				</div>
-			</main>
-			<footer class="chat-footer">
-			</footer>
-		</template>
 	</div>
 </template>
 

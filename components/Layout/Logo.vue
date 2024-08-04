@@ -26,7 +26,10 @@
 
 <style lang="sass" scoped>
 	.logo
-		width: 40px
+		width: 30px
+
+		@media (min-width: $sm)
+			width: 40px
 
 		&:hover
 			.phrase
@@ -37,20 +40,26 @@
 			position: absolute
 			top: 50%
 			overflow: clip
-			width: 250px
+			width: 200px
 			transform: translateY(-50%)
-			font-size: 0.875rem
+			font-size: 0.75rem
 			line-height: 1.1
 			z-index: 1
 			color: $brand1
+
+			@media (min-width: $sm)
+				width: 250px
+				font-size: 0.875rem
 
 			span
 				text-wrap: balance
 				display: block
 				left: -500px
-				width: 200px
+				width: 150px
 				transition: all 500ms ease-in-out
 
+				@media (min-width: $sm)
+					width: 200px
 		img
 			width: 100%
 			z-index: 2

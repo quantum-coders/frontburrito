@@ -21,7 +21,7 @@
 		width: 100%
 		top: 0
 		z-index: 1000
-		padding: 0.75rem
+		padding: 0.75rem 0 0.75rem 0.75rem
 		transition: all 250ms ease
 
 		@media (min-width: $sm)

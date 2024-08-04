@@ -65,14 +65,17 @@
 			&:has(.message-user)
 				justify-content: flex-end
 
-
 		.message
 			border-radius: 0.5rem
-			padding: 1rem
+			padding: 0.5rem
 			display: flex
 			gap: 1rem
 			align-items: flex-start
-			max-width: 80%
+			max-width: 90%
+
+			@media (min-width: $sm)
+				max-width: 80%
+				padding: 1rem
 
 			.avatar
 				width: 30px

@@ -48,10 +48,13 @@
 		input
 			width: 100%
 			border: 0
-			font-size: 1rem
+			font-size: 0.785rem
 			outline: none
 			box-sizing: border-box
 			margin: 0 0 0 1rem
 			background: transparent
+
+			@media (min-width: $sm)
+				font-size: 1rem
 
 </style>

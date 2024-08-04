@@ -84,15 +84,6 @@
 						Disconnect Wallet
 					</button>
 				</div>
-
-				<div
-					v-if="!cryptoStore.wrongNetwork && cryptoStore.currentAccount" class="alert alert-danger mt-2"
-					role="alert"
-				>
-					<a href="#" @click.prevent="switchNetwork" class="alert-link">Wrong network. Click here to
-						switch.</a>
-				</div>
-
 			</div>
 		</div>
 	</div>

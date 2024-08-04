@@ -23,66 +23,81 @@
 			</div>
 
 			<aside class="chat-config">
-				<div class="mb-3 form-group form-group-system">
-					<label class="form-label" for="system-prompt">System Prompt</label>
-					<textarea
-						class="form-control"
-						id="system-prompt"
-						rows="4"
-						v-model="chatStore.chat.system"
-						placeholder="Enter system instructions here..."
-						@blur="chatStore.updateChat({ system: chatStore.chat.system })"
-					></textarea>
-				</div>
-				<div class="form-check form-switch mb-2">
-					<input
-						class="form-check-input"
-						type="checkbox"
-						id="web-search"
-						v-model="webSearchEnabled"
-						@change="updateWebSearch"
-					>
-					<label class="form-check-label fs-7" for="web-search">Enable WebSearch</label>
-				</div>
-				<div v-if="webSearchEnabled" class="mb-3">
-					<div class="btn-group btn-group-sm w-100" role="group">
+				<div class="chat-inputs p-3">
+					<div class="mb-3 form-group form-group-system">
+						<label class="form-label" for="system-prompt">System Prompt</label>
+						<textarea
+							class="form-control"
+							id="system-prompt"
+							rows="4"
+							v-model="chatStore.chat.system"
+							placeholder="Enter system instructions here..."
+							@blur="chatStore.updateChat({ system: chatStore.chat.system })"
+						></textarea>
+					</div>
+					<div class="form-check form-switch mb-2">
 						<input
-							type="radio"
-							class="btn-check"
-							name="searchType"
-							id="normalSearch"
-							value="normal"
-							v-model="webSearchType"
-							@change="updateSearchType"
-							autocomplete="off"
+							class="form-check-input"
+							type="checkbox"
+							id="web-search"
+							v-model="webSearchEnabled"
+							@change="updateWebSearch"
 						>
-						<label class="btn btn-outline-primary" for="normalSearch">Normal</label>
-						<input
-							type="radio"
-							class="btn-check"
-							name="searchType"
-							id="deepSearch"
-							value="deep"
-							v-model="webSearchType"
-							@change="updateSearchType"
-							autocomplete="off"
-						>
-						<label class="btn btn-outline-primary" for="deepSearch">Deep</label>
+						<label class="form-check-label fs-7" for="web-search">Enable WebSearch</label>
+					</div>
+					<div v-if="webSearchEnabled" class="mb-3">
+						<div class="btn-group btn-group-sm w-100" role="group">
+							<input
+								type="radio"
+								class="btn-check"
+								name="searchType"
+								id="normalSearch"
+								value="normal"
+								v-model="webSearchType"
+								@change="updateSearchType"
+								autocomplete="off"
+							>
+							<label class="btn btn-outline-primary" for="normalSearch">Normal</label>
+							<input
+								type="radio"
+								class="btn-check"
+								name="searchType"
+								id="deepSearch"
+								value="deep"
+								v-model="webSearchType"
+								@change="updateSearchType"
+								autocomplete="off"
+							>
+							<label class="btn btn-outline-primary" for="deepSearch">Deep</label>
+						</div>
 					</div>
 				</div>
-				<div class="chat-stats mt-4">
+				<div class="chat-stats">
 					<h4 class="chat-stats-title">Chat Statistics</h4>
-					<ul class="list-unstyled small">
-						<li><strong>Messages:</strong> {{ chatStore.chat.messageStatistics.count }}</li>
-						<li><strong>Created:</strong>
-							{{ useTimeAgo(chatStore.chat.messageStatistics.created).value }}
-						</li>
-						<li><strong>Last Activity:</strong>
-							{{ useTimeAgo(chatStore.chat.messageStatistics.modified).value }}
-						</li>
-						<li><strong>Token Usage:</strong> {{ chatStore.chat.tokensUsed }}</li>
-						<li><strong>Cost:</strong> $ {{ chatStore.chat.totalCost }}</li>
-					</ul>
+					<div class="statistic-chunk">
+						<strong>Messages</strong>
+						<span>{{ chatStore.chat.messageStatistics.count.toLocaleString('en-US') }}</span>
+					</div>
+
+					<div class="statistic-chunk">
+						<strong>Created</strong>
+						<span>{{ useTimeAgo(chatStore.chat.messageStatistics.created).value }}</span>
+					</div>
+
+					<div class="statistic-chunk">
+						<strong>Last Activity</strong>
+						<span>{{ useTimeAgo(chatStore.chat.messageStatistics.modified).value }}</span>
+					</div>
+
+					<div class="statistic-chunk">
+						<strong>Token Usage</strong>
+						<span>{{ chatStore.chat.tokensUsed.toLocaleString('en-US') }}</span>
+					</div>
+
+					<div class="statistic-chunk">
+						<strong>Cost</strong>
+						<span>${{ chatStore.chat.totalCost.toLocaleString('en-US') }}</span>
+					</div>
 				</div>
 			</aside>
 		</main>
@@ -172,14 +187,14 @@
 		if(chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
 			await generateChatName();
 		}
-		await chatStore.getTokenUsage(uid)
+		await chatStore.getTokenUsage(uid);
 	});
 </script>
 
 <style lang="sass" scoped>
 
 	.btn-check:checked + .btn
-		color: white !important
+		color: $complement !important
 
 	.chat-wrapper
 		display: flex
@@ -188,7 +203,14 @@
 
 		.chat-content
 			display: flex
-			flex-grow: 1
+			top: 70px
+			height: calc(100dvh - 70px)
+			overflow: hidden
+
+			@media (min-width: $sm)
+				top: 0
+				flex-grow: 1
+				height: auto
 
 			.chat-area
 				display: flex
@@ -197,8 +219,15 @@
 
 			.chat-config
 				min-width: 350px
-				padding: 1rem
 				border-left: 1px solid rgba($brand1, 0.25)
+				position: fixed
+				background: $complement
+				right: -100vw
+
+				@media (min-width: $sm)
+					position: relative
+					background: transparent
+					right: auto
 
 				.form-group
 					.form-label
@@ -212,13 +241,14 @@
 					border-radius: 0.5rem
 					box-shadow: 0 0.5em 0 $brand1
 					margin-bottom: 0.5em
+					background: transparent
 
 				.form-control, .btn-group
 					font-size: 0.9rem
 
 			.chat-info
 				background: $brand1
-				color: white
+				color: $complement
 				padding: 0.25rem 0.5rem
 				border-bottom: 1px solid rgba(0, 0, 0, 0.1)
 
@@ -233,5 +263,18 @@
 				.chat-stats-title
 					font-family: 'Chibold', sans-serif
 					color: $brand1
+					margin: 0 1rem
 					margin-bottom: 0.25rem
+
+				.statistic-chunk
+					border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+					display: flex
+					padding: 0.5rem
+					align-items: center
+					justify-content: space-between
+					font-size: 0.85rem
+
+					strong
+						font-weight: bold
+						color: $brand1
 </style>

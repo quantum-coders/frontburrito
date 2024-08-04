@@ -62,10 +62,12 @@
 <style lang="sass" scoped>
 
 	.dialog
-		border: 0
 		padding: 0
 		border-radius: 0.5rem
 		position: fixed
+		overflow: visible
+		border: 2px solid $brand1
+		outline: 0.25rem solid white
 
 		&.hide-backdrop
 			&::backdrop

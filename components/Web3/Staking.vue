@@ -1,5 +1,9 @@
 <template>
 	<div class="staking-dashboard">
+		<a class="close" @click.prevent="close">
+			<icon name="material-symbols:close" />
+		</a>
+
 		<div :data-loading="loadingState">
 			<div class="d-flex align-items-center justify-content-between mb-3 p-3">
 				<h5 class="mb-0">BurritoAI Staking Hub</h5>
@@ -260,6 +264,14 @@
 	const isRewardsClaimable = ref(false);
 	const nextClaimableDate = ref(null);
 
+	const props = defineProps({
+		close: {
+			type: Function,
+			default: () => {
+			},
+		},
+	});
+
 	const updateStakeAmount = (stakeAmount) => {
 		amountToStake.value = stakeAmount;
 		stakePercentage.value = (stakeAmount / maxStakeAmount.value) * 100;
@@ -480,9 +492,23 @@
 
 <style scoped lang="sass">
 	.staking-dashboard
-		background-color: #f8f9fa
 		max-width: 100%
 		width: 1000px
+
+		.close
+			color: $complement
+			width: 2rem
+			aspect-ratio: 1
+			display: flex
+			justify-content: center
+			align-items: center
+			position: absolute
+			right: -0.75rem
+			top: -0.75rem
+			border-radius: 0.25rem
+			background: $brand1
+			cursor: pointer
+			z-index: 2
 
 		.crypto-card
 			transition: transform 0.3s ease, box-shadow 0.3s ease
