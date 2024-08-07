@@ -149,6 +149,7 @@
 
 			@media (min-width: $sm)
 				aspect-ratio: auto
+				border: 0
 
 			&.animation-wrapper-token
 

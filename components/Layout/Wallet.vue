@@ -13,7 +13,12 @@
 			<span class="address ms-2 d-none d-md-flex">{{ currentAccountTrimmed }}</span>
 
 			<div class="wallet-button">
-				<a href="#" class="wallet-button" @click.prevent="toggleWalletMenu">Wallet</a>
+				<a
+					href="#"
+					class="wallet-button"
+					@click.prevent="toggleWalletMenu"
+					v-click-outside="closeWalletMenu"
+				>Wallet</a>
 				<img alt="Burrito" src="/images/burrito-photo.png" />
 			</div>
 		</div>
@@ -127,8 +132,17 @@
 		return '';
 	});
 
+	onMounted(async () => {
+		const authToken = localStorage.getItem('authToken');
+		if(authToken) await useAuth().me(authToken);
+	});
+
 	const toggleWalletMenu = () => {
 		showWalletMenu.value = !showWalletMenu.value;
+	};
+
+	const closeWalletMenu = () => {
+		showWalletMenu.value = false;
 	};
 
 	const handleStaking = () => {

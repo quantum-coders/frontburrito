@@ -72,19 +72,39 @@
 	@media (min-width: $sm)
 		font-size: 1.3rem
 
+.btn.btn-with-icon
+	display: flex
+	align-items: center
+	gap: 0.5rem
+
 .btn-burrito
 	font-weight: 900
-	border: 3px solid $brand1
+	border: 2px solid $brand1
 	color: $brand1
 	text-transform: uppercase
-	padding: 1rem
-	box-shadow: 0 1em 0 $brand1
-	margin-bottom: 1em
+	box-shadow: 0 0.5em 0 $brand1
+	margin-bottom: 0.5em
 	top: 0
 	transition: all 150ms ease-in-out !important
 
 	&:active
 		border: 3px solid $brand1
 		color: $brand1
-		box-shadow: 0 0.5em 0 $brand1
+		box-shadow: 0 0 0 $brand1
 		top: 0.5em
+
+.dialog
+	.close
+		color: $complement
+		width: 2rem
+		aspect-ratio: 1
+		display: flex
+		justify-content: center
+		align-items: center
+		position: absolute
+		right: -0.75rem
+		top: -0.75rem
+		border-radius: 0.25rem
+		background: $brand1
+		cursor: pointer
+		z-index: 10

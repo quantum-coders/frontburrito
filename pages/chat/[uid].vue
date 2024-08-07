@@ -6,13 +6,15 @@
 			<div class="chat-area">
 
 				<div class="chat-info d-flex align-items-center justify-content-between">
-					<div
-						class="w-auto"
-						v-html="$mdRenderer.render(chatStore.chat?.name)"
-						contenteditable="true"
-						spellcheck="false"
-						@keydown.enter="saveChatName"
-					/>
+					<div>
+						<span
+							class="w-auto"
+							v-html="$mdRenderer.render(chatStore.chat?.name)"
+							contenteditable="true"
+							spellcheck="false"
+							@keydown.enter="saveChatName"
+						/>
+					</div>
 					<p class="small">{{ chatStore.chat?.uid }}</p>
 				</div>
 

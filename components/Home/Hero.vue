@@ -20,7 +20,7 @@
 
 				<p class="buttons d-flex">
 					<a href="#" class="btn btn-burrito flex-grow-1">Presale Live</a>
-					<nuxt-link to="/chat" class="btn btn-burrito flex-grow-1">Uncensored Chat</nuxt-link>
+					<nuxt-link to="/chat/dashboard" class="btn btn-burrito flex-grow-1">Uncensored Chat</nuxt-link>
 				</p>
 			</div>
 		</div>
@@ -183,6 +183,8 @@
 					flex-direction: row
 
 			.btn-burrito
+				padding: 1rem 2rem
+
 				@media (min-width: $sm)
 					font-size: 1.5rem
 
