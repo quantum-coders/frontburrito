@@ -28,10 +28,10 @@
 		position: fixed
 		width: 100%
 		top: 0
-		z-index: 1000
-		padding: 0.75rem
-		padding-right: 0
+		z-index: 10000
+		padding: 0.75rem 0 0.75rem 0.75rem
 		transition: all 250ms ease
+		background: white url("/images/background-texture.png")
 
 		@media (min-width: $sm)
 			position: sticky

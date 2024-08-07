@@ -1,7 +1,6 @@
 <template>
 	<header class="site-header">
 		<div class="d-flex align-items-center justify-content-between">
-
 			<layout-logo />
 
 			<div class="d-flex align-items-center">
@@ -20,7 +19,7 @@
 		position: fixed
 		width: 100%
 		top: 0
-		z-index: 1000
+		z-index: 10000
 		padding: 0.75rem 0 0.75rem 0.75rem
 		transition: all 250ms ease
 

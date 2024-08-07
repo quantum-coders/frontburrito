@@ -51,7 +51,7 @@
 				<hr class="dropdown-divider">
 				<!-- Nuevo balance para gastar en la IA -->
 				<div class="d-flex align-items-center gap-2">
-					<Icon
+					<icon
 						name="cryptocurrency:usd"
 						size="24"
 					/>
@@ -66,21 +66,21 @@
 						class="btn btn-primary btn-sm me-2 d-flex align-items-center"
 						@click.prevent="handleStaking"
 					>
-						<Icon name="ph:wallet" class="me-2" />
+						<icon name="ph:wallet" class="me-2" />
 						Staking
 					</button>
 					<button
 						class="btn btn-info btn-sm me-2 text-white d-flex align-items-center"
 						@click.prevent="handleBilling"
 					>
-						<Icon name="ph:credit-card" class="me-2" />
+						<icon name="ph:credit-card" class="me-2" />
 						Billing
 					</button>
 					<button
 						class="btn btn-danger btn-sm text-white d-flex align-items-center"
 						@click.prevent="handleDisconnectWallet"
 					>
-						<Icon name="ri:logout-circle-r-line" class="me-2" />
+						<icon name="ri:logout-circle-r-line" class="me-2" />
 						Disconnect Wallet
 					</button>
 				</div>
