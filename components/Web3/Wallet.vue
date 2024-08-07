@@ -106,7 +106,9 @@
 							<p class="wallet-name">Metamask</p>
 							<p class="wallet-status">
 								<span class="installed">
-									<span class="conn btn conn-mobile">Connect</span>
+									<span class="conn"
+                  @click.prevent="doConnect('metamask')"
+                  >Connect</span>
 								</span>
 							</p>
               <p class="text-muted small">
