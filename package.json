@@ -12,6 +12,7 @@
 		},
 		"devDependencies": {
 				"@nuxt/icon": "^1.0.0",
+				"@nuxtjs/device": "^3.1.1",
 				"@popperjs/core": "^2.11.6",
 				"@types/node": "^18",
 				"bootstrap": "^5.2.3",
@@ -29,8 +30,8 @@
 				"@types/markdown-it": "^14.1.1",
 				"@vuelidate/core": "^2.0.3",
 				"@vuelidate/validators": "^2.0.4",
-				"animate.css": "^4.1.1",
 				"@vueuse/core": "^10.11.0",
+				"animate.css": "^4.1.1",
 				"aos": "^2.3.4",
 				"chalk": "5.3.0",
 				"ethers": "5.7.2",

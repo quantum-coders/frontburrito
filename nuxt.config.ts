@@ -12,6 +12,7 @@ export default defineNuxtConfig({
 	modules: [
 		'nuxt-svgo',
 		'@nuxtjs/i18n',
+		'@nuxtjs/device',
 		'@pinia/nuxt',
 		'nuxt-swiper',
 		"@nuxt/icon"

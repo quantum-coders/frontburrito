@@ -14,11 +14,13 @@
 
 		<div class="px-3">
 			<nav class="wallets">
-				<div class="row align-items-stretch">
+				<div class="row align-items-stretch" v-if="$device.isDesktop">
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
 						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
 
-						<div class="wallet">
+						<div
+                v-if="$device.isDesktop"
+                class="wallet">
 							<a
 								v-if="!coreInstalled"
 								href="https://core.app"
@@ -94,6 +96,23 @@
 						</div>
 					</div>
 				</div>
+        <div class="row align-items-center justify-content-center" v-else>
+          <a  @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
+							<img
+								class="wallet-sprite sprite-metamask"
+								src="/images/wallets/metamask.gif"
+								alt="Metamask"
+							>
+							<p class="wallet-name">Metamask</p>
+							<p class="wallet-status">
+								<span class="installed">
+									<span class="conn btn conn-mobile">Connect</span>
+								</span>
+							</p>
+              <p class="text-muted small">
+                  In order to connect your wallet, you must have Metamask App installed on your device.
+              </p>
+        </div>
 			</nav>
 			<div class="copy d-none">
 				<h4>What is a Wallet?</h4>
@@ -110,6 +129,7 @@
 <script setup>
 	const cryptoStore = useCryptoStore();
 	import { injectedProvider } from 'thirdweb/wallets';
+  const {isMobile} = useDevice();
 
 	const loading = ref(false);
 
@@ -135,13 +155,20 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
-		const providerName = localStorage.getItem('providerName');
-		if(providerName !== '' && providerName != null) {
-			await initProvider(providerName, true);
-		}
-		metamaskInstalled.value = await injectedProvider('io.metamask');
-		rabbyInstalled.value = await injectedProvider('io.rabby');
-		coreInstalled.value = !!window.avalanche;
+    console.log("is Mobile", isMobile);
+
+    if(isMobile){
+
+    }else{
+
+      const providerName = localStorage.getItem('providerName');
+      if(providerName !== '' && providerName != null) {
+        await initProvider(providerName, true);
+      }
+      metamaskInstalled.value = await injectedProvider('io.metamask');
+      rabbyInstalled.value = await injectedProvider('io.rabby');
+      coreInstalled.value = !!window.avalanche;
+      }
 	});
 
 	const doConnect = async (provider) => {
