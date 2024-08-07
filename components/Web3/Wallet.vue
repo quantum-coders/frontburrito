@@ -97,6 +97,7 @@
 					</div>
 				</div>
         <div class="row align-items-center justify-content-center" v-else>
+          <div class="wallet">
           <a  @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
 							<img
 								class="wallet-sprite sprite-metamask"
@@ -114,6 +115,7 @@
               <p class="text-muted small">
                   In order to connect your wallet, you must have Metamask App installed on your device.
               </p>
+            </div>
         </div>
 			</nav>
 			<div class="copy d-none">
@@ -187,7 +189,6 @@
 </script>
 
 <style scoped lang="sass">
-
 	.wallet-sprite
 		image-rendering: pixelated
 
