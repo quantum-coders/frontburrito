@@ -158,24 +158,46 @@ export const useWeb3 = () => {
 						wallet = new MetaMaskWallet({
 							qrcode: true,
 						});
-						await wallet.connect();
+						await wallet.connect(
+							{
+								dappMetadata: {
+									name: 'BurritoAI',
+									icons: ['https://burritoai.com/favicon.ico'],
+								},
+							}
+						);
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 					case 'core':
 						wallet = new CoreWallet();
-						await wallet.connect();
+						await wallet.connect({
+							dappMetadata: {
+								name: 'BurritoAI',
+								icons: ['https://burritoai.com/favicon.ico'],
+							},
+						});
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 					case 'rabby':
 						wallet = new RabbyWallet();
-						await wallet.connect();
+						await wallet.connect({
+							dappMetadata: {
+								name: 'BurritoAI',
+								icons: ['https://burritoai.com/favicon.ico'],
+							},
+						});
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 					default:
 						wallet = new MetaMaskWallet({
 							qrcode: true,
 						});
-						await wallet.connect();
+						await wallet.connect({
+							dappMetadata: {
+								name: 'BurritoAI',
+								icons: ['https://burritoai.com/favicon.ico'],
+							},
+						});
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 				}
@@ -405,7 +427,12 @@ export const useWeb3 = () => {
 			switch (provider) {
 				case 'core':
 					wallet = new CoreWallet({});
-					await wallet.connect();
+					await wallet.connect({
+						dappMetadata: {
+							name: 'BurritoAI',
+							icons: ['https://burritoai.com/favicon.ico'],
+						},
+					});
 					if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
 					return (await wallet.getSigner()).provider;
 					break;
@@ -413,13 +440,23 @@ export const useWeb3 = () => {
 					wallet = new MetaMaskWallet({
 						qrcode: true,
 					});
-					await wallet.connect();
+					await wallet.connect({
+						dappMetadata: {
+							name: 'BurritoAI',
+							icons: ['https://burritoai.com/favicon.ico'],
+						},
+					});
 					if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
 					return (await wallet.getSigner()).provider;
 					break;
 				case 'rabby':
 					wallet = new RabbyWallet({});
-					await wallet.connect();
+					await wallet.connect({
+						dappMetadata: {
+							name: 'BurritoAI',
+							icons: ['https://burritoai.com/favicon.ico'],
+						},
+					});
 					if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
 					return (await wallet.getSigner()).provider;
 					break;
