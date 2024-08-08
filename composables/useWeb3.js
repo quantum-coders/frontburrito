@@ -2,7 +2,6 @@ import {ethers} from 'ethers';
 import chalk from 'chalk';
 import {CoreWallet, MetaMaskWallet, RabbyWallet} from '@thirdweb-dev/wallets';
 import ERC20 from '../contracts/ERC20.sol/ERC20.json';
-import {MetaMaskSDK} from "@metamask/sdk"
 
 export const useWeb3 = () => {
 
