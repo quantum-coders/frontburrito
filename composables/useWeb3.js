@@ -156,12 +156,14 @@ export const useWeb3 = () => {
 				switch (providerName) {
 					case 'metamask':
 						wallet = new MetaMaskWallet({
-							qrcode: true,
+							qrcode: false,
 						});
 						await wallet.connect(
 							{
 								dappMetadata: {
 									name: 'BurritoAI',
+									url: 'https://burritoai.finance',
+									description: 'Simplifying crypto AI Markets',
 									icons: ['https://burritoai.com/favicon.ico'],
 								},
 							}
@@ -173,6 +175,8 @@ export const useWeb3 = () => {
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
+								url: 'https://burritoai.finance',
+								description: 'Simplifying crypto AI Markets',
 								icons: ['https://burritoai.com/favicon.ico'],
 							},
 						});
@@ -183,6 +187,8 @@ export const useWeb3 = () => {
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
+								url: 'https://burritoai.finance',
+								description: 'Simplifying crypto AI Markets',
 								icons: ['https://burritoai.com/favicon.ico'],
 							},
 						});
@@ -190,11 +196,13 @@ export const useWeb3 = () => {
 						break;
 					default:
 						wallet = new MetaMaskWallet({
-							qrcode: true,
+							qrcode: false,
 						});
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
+								url: 'https://burritoai.finance',
+								description: 'Simplifying crypto AI Markets',
 								icons: ['https://burritoai.com/favicon.ico'],
 							},
 						});
@@ -430,6 +438,8 @@ export const useWeb3 = () => {
 					await wallet.connect({
 						dappMetadata: {
 							name: 'BurritoAI',
+							url: 'https://burritoai.finance',
+							description: 'Simplifying crypto AI Markets',
 							icons: ['https://burritoai.com/favicon.ico'],
 						},
 					});
@@ -438,11 +448,13 @@ export const useWeb3 = () => {
 					break;
 				case 'metamask':
 					wallet = new MetaMaskWallet({
-						qrcode: true,
+						qrcode: false,
 					});
 					await wallet.connect({
 						dappMetadata: {
 							name: 'BurritoAI',
+							url: 'https://burritoai.finance',
+							description: 'Simplifying crypto AI Markets',
 							icons: ['https://burritoai.com/favicon.ico'],
 						},
 					});
@@ -454,6 +466,8 @@ export const useWeb3 = () => {
 					await wallet.connect({
 						dappMetadata: {
 							name: 'BurritoAI',
+							url: 'https://burritoai.finance',
+							description: 'Simplifying crypto AI Markets',
 							icons: ['https://burritoai.com/favicon.ico'],
 						},
 					});
