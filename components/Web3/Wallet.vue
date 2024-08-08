@@ -133,7 +133,7 @@
 <script setup>
 	const cryptoStore = useCryptoStore();
 	import { injectedProvider } from 'thirdweb/wallets';
-  const {isMobile} = useDevice();
+    const {isMobile} = useDevice();
 
 	const loading = ref(false);
 
@@ -141,6 +141,7 @@
 		initProvider,
 		requestNetworkChange,
 		checkConnection,
+			loginWithMetamask
 	} = useWeb3();
 
 	const emit = defineEmits([ 'connect' ]);
@@ -159,20 +160,18 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
-    console.log("is Mobile", isMobile);
-
-    if(isMobile){
-
-    }else{
-
-      const providerName = localStorage.getItem('providerName');
+		console.log("is Mobile", isMobile);
+      let providerName = localStorage.getItem('providerName');
       if(providerName !== '' && providerName != null) {
+		  if(isMobile && providerName !== 'metamask'){
+			  providerName = 'metamask';
+		  }
         await initProvider(providerName, true);
       }
       metamaskInstalled.value = await injectedProvider('io.metamask');
       rabbyInstalled.value = await injectedProvider('io.rabby');
       coreInstalled.value = !!window.avalanche;
-      }
+
 	});
 
 	const doConnect = async (provider) => {
