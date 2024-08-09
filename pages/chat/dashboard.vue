@@ -1,96 +1,98 @@
 <template>
 	<section class="section-dashboard">
-		<div class="container my-5">
-			<div class="d-flex justify-content-between align-items-center mb-4">
-				<h2 class="title mb-0">My Awesome Chats</h2>
+		<template v-if="useCryptoStore().currentAccount">
+			<div class="container my-5">
+				<div class="d-flex justify-content-between align-items-center mb-4">
+					<h2 class="title mb-0">My Awesome Chats</h2>
 
-				<button class="btn btn-burrito d-flex align-items-center gap-2" @click="createNewChat">
-					<icon name="ph:plus-circle" />
-					New Chat
-				</button>
-			</div>
-			<!-- Search bar -->
-			<div class="mb-4">
-				<div class="input-group input-group-search">
-					<span class="input-group-text bg-light border-end-0">
-						<icon name="mdi:magnify" />
-					</span>
-					<input
-						type="text"
-						class="form-control border-start-0 bg-light"
-						placeholder="Search chats..."
-						v-model="searchQuery"
-					>
-				</div>
-			</div>
-			<div v-if="filteredChats.length === 0 && !loading" class="alert alert-info text-center" role="alert">
-				No chats found. Start a new conversation!
-			</div>
-			<div v-if="loading" class="d-flex justify-content-center">
-				<div class="spinner-border text-primary" role="status">
-					<span class="visually-hidden">Loading...</span>
-				</div>
-			</div>
-			<div v-else>
-				<div class="selection d-flex justify-content-between align-items-center mb-3">
-					<div class="form-check">
-						<input
-							class="form-check-input"
-							type="checkbox"
-							v-model="selectAll"
-							@change="toggleSelectAll"
-							id="selectAllChats"
-						>
-						<label class="form-check-label" for="selectAllChats">Select All</label>
-					</div>
-					<button v-if="selectedChats.length > 1" class="btn btn-danger" @click="openBulkDeleteModal">
-						<icon name="ph:trash" class="me-2" />
-						Delete Selected ({{ selectedChats.length }})
+					<button class="btn btn-burrito d-flex align-items-center gap-2" @click="createNewChat">
+						<icon name="ph:plus-circle" />
+						New Chat
 					</button>
 				</div>
-				<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-					<div v-for="chat in filteredChats" :key="chat.id" class="col">
-						<div class="card shadow-sm hover" @click="viewChat(chat.uid)">
-							<div class="card-body d-flex flex-column">
-								<div class="d-flex justify-content-between align-items-center mb-2">
-									<div class="form-check" @click.stop>
-										<input
-											class="form-check-input" type="checkbox" :id="'chat' + chat.id"
-											v-model="chat.selected" @change="updateSelectedChats"
-										>
-										<label class="form-check-label" :for="'chat' + chat.id"></label>
+				<!-- Search bar -->
+				<div class="mb-4">
+					<div class="input-group input-group-search">
+						<span class="input-group-text bg-light border-end-0">
+							<icon name="mdi:magnify" />
+						</span>
+						<input
+							type="text"
+							class="form-control border-start-0 bg-light"
+							placeholder="Search chats..."
+							v-model="searchQuery"
+						>
+					</div>
+				</div>
+				<div v-if="filteredChats.length === 0 && !loading" class="alert alert-info text-center" role="alert">
+					No chats found. Start a new conversation!
+				</div>
+				<div v-if="loading" class="d-flex justify-content-center">
+					<div class="spinner-border text-primary" role="status">
+						<span class="visually-hidden">Loading...</span>
+					</div>
+				</div>
+				<div v-else>
+					<div class="selection d-flex justify-content-between align-items-center mb-3">
+						<div class="form-check">
+							<input
+								class="form-check-input"
+								type="checkbox"
+								v-model="selectAll"
+								@change="toggleSelectAll"
+								id="selectAllChats"
+							>
+							<label class="form-check-label" for="selectAllChats">Select All</label>
+						</div>
+						<button v-if="selectedChats.length > 1" class="btn btn-danger" @click="openBulkDeleteModal">
+							<icon name="ph:trash" class="me-2" />
+							Delete Selected ({{ selectedChats.length }})
+						</button>
+					</div>
+					<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+						<div v-for="chat in filteredChats" :key="chat.id" class="col">
+							<div class="card shadow-sm hover" @click="viewChat(chat.uid)">
+								<div class="card-body d-flex flex-column">
+									<div class="d-flex justify-content-between align-items-center mb-2">
+										<div class="form-check" @click.stop>
+											<input
+												class="form-check-input" type="checkbox" :id="'chat' + chat.id"
+												v-model="chat.selected" @change="updateSelectedChats"
+											>
+											<label class="form-check-label" :for="'chat' + chat.id"></label>
+										</div>
+										<div
+											class="card-title text-truncate mb-0"
+											v-html="$mdRenderer.render(chat.name)"
+										/>
 									</div>
-									<div
-										class="card-title text-truncate mb-0"
-										v-html="$mdRenderer.render(chat.name)"
-									/>
-								</div>
-								<p class="card-text d-flex align-items-center gap-2 text-muted small mb-2">
-									<icon name="ph:user" />
-									Created by: {{ accountTrimmed(chat.wallet) }}
-								</p>
-								<p class="card-text d-flex align-items-center gap-2 text-muted small mb-1">
-									<icon name="ph:clock" />
-									Last Modified {{ useTimeAgo(chat.modified).value }}
-								</p>
-								<div class="mt-auto d-flex justify-content-between align-items-center">
-									<span class="badge bg-primary rounded-pill d-flex align-items-center gap-1">
-										<icon name="ph:chat-circle-dots" />
-										{{ chat?._count?.messages || 0 }} messages
-									</span>
-									<div class="btn-group" role="group" aria-label="Chat actions" @click.stop>
-										<button
-											type="button" class="btn btn-outline-secondary btn-sm" title="Download"
-											@click="downloadChat(chat)"
-										>
-											<icon name="ph:download" />
-										</button>
-										<button
-											type="button" class="btn btn-outline-danger btn-sm" title="Delete"
-											@click="openDeleteModal(chat)"
-										>
-											<icon name="ph:trash" />
-										</button>
+									<p class="card-text d-flex align-items-center gap-2 text-muted small mb-2">
+										<icon name="ph:user" />
+										Created by: {{ accountTrimmed(chat.wallet) }}
+									</p>
+									<p class="card-text d-flex align-items-center gap-2 text-muted small mb-1">
+										<icon name="ph:clock" />
+										Last Modified {{ useTimeAgo(chat.modified).value }}
+									</p>
+									<div class="mt-auto d-flex justify-content-between align-items-center">
+										<span class="badge bg-primary rounded-pill d-flex align-items-center gap-1">
+											<icon name="ph:chat-circle-dots" />
+											{{ chat?._count?.messages || 0 }} messages
+										</span>
+										<div class="btn-group" role="group" aria-label="Chat actions" @click.stop>
+											<button
+												type="button" class="btn btn-outline-secondary btn-sm" title="Download"
+												@click="downloadChat(chat)"
+											>
+												<icon name="ph:download" />
+											</button>
+											<button
+												type="button" class="btn btn-outline-danger btn-sm" title="Delete"
+												@click="openDeleteModal(chat)"
+											>
+												<icon name="ph:trash" />
+											</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -98,55 +100,62 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<platform-dialog ref="chatModalRef" class="p-4">
-			<template #default="{ close: closeDialog }">
-				<a class="close" @click.prevent="close">
-					<icon name="material-symbols:close" />
-				</a>
-				<pre>{{ closeDialog }}</pre>
+			<platform-dialog ref="chatModalRef" class="p-4">
+				<template #default="{ close: closeDialog }">
+					<a class="close" @click.prevent="close">
+						<icon name="material-symbols:close" />
+					</a>
+					<pre>{{ closeDialog }}</pre>
 
-				<div class="modal-content">
-					<div class="modal-header d-flex justify-content-between align-items-center">
-						<h5 class="modal-title d-flex align-items-center gap-2 fs-5 m-0">
-							<icon name="ph:trash" />
-							Delete Chat{{ selectedChats.length > 1 ? 's' : '' }}
-						</h5>
-					</div>
-					<div class="modal-body p-4">
-						<p class="mb-0 text-center">
-							<icon name="ph:warning-circle" class="me-2 text-warning" />
-							Are you sure you want to delete
-							{{ selectedChats.length === 1 ? 'this chat' : `${ selectedChats.length } chats` }}?
-						</p>
-					</div>
-					<div class="modal-footer d-flex justify-content-center">
-						<div class="d-flex gap-3">
-							<button
-								type="button" class="btn btn-secondary btn-with-icon"
-								@click="closeDialog"
-							>
-								<icon name="ph:x-circle" />
-								Cancel
-							</button>
-							<button
-								type="button"
-								class="btn btn-danger btn-with-icon"
-								@click="confirmDelete(closeDialog)"
-								:disabled="!!isDeleting"
-							>
-								<span
-									v-if="!!isDeleting" class="spinner-border spinner-border-sm" role="status"
-									aria-hidden="true"
-								></span>
-								<icon v-else name="ph:trash" />
-								{{ !!isDeleting ? 'Deleting...' : 'Delete' }}
-							</button>
+					<div class="modal-content">
+						<div class="modal-header d-flex justify-content-between align-items-center">
+							<h5 class="modal-title d-flex align-items-center gap-2 fs-5 m-0">
+								<icon name="ph:trash" />
+								Delete Chat{{ selectedChats.length > 1 ? 's' : '' }}
+							</h5>
+						</div>
+						<div class="modal-body p-4">
+							<p class="mb-0 text-center">
+								<icon name="ph:warning-circle" class="me-2 text-warning" />
+								Are you sure you want to delete
+								{{ selectedChats.length === 1 ? 'this chat' : `${ selectedChats.length } chats` }}?
+							</p>
+						</div>
+						<div class="modal-footer d-flex justify-content-center">
+							<div class="d-flex gap-3">
+								<button
+									type="button" class="btn btn-secondary btn-with-icon"
+									@click="closeDialog"
+								>
+									<icon name="ph:x-circle" />
+									Cancel
+								</button>
+								<button
+									type="button"
+									class="btn btn-danger btn-with-icon"
+									@click="confirmDelete(closeDialog)"
+									:disabled="!!isDeleting"
+								>
+									<span
+										v-if="!!isDeleting" class="spinner-border spinner-border-sm" role="status"
+										aria-hidden="true"
+									></span>
+									<icon v-else name="ph:trash" />
+									{{ !!isDeleting ? 'Deleting...' : 'Delete' }}
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-			</template>
-		</platform-dialog>
+				</template>
+			</platform-dialog>
+		</template>
+
+		<div class="please-connect" v-else>
+			<div class="connect">
+				<img src="/images/pepe-burrito.png" alt="Pepe Burrito">
+				<p>Please connect your wallet fren</p>
+			</div>
+		</div>
 	</section>
 </template>
 
@@ -155,6 +164,8 @@
 
 	import { useTimeAgo } from '@vueuse/core';
 	const { $mdRenderer } = useNuxtApp();
+
+	const currentAccount = useCryptoStore().currentAccount;
 
 	const router = useRouter();
 	const { me } = useAuth();
@@ -165,6 +176,7 @@
 	const selectedChats = ref([]);
 	const selectAll = ref(false);
 	const isDeleting = ref(false);
+	const user = useAuthUser();
 
 	const filteredChats = computed(() => {
 		const query = searchQuery.value.toLowerCase();
@@ -251,6 +263,15 @@
 		router.push('/chat');
 	};
 
+	// watch currentAccount
+	watch(currentAccount, (newVal, oldVal) => {
+		console.log('currentAccount changed:', newVal, oldVal);
+
+		if(newVal) {
+			fetchChats();
+		}
+	});
+
 	onMounted(async () => {
 		const authToken = localStorage.getItem('authToken');
 		if(authToken) await me(authToken);
@@ -269,6 +290,11 @@
 </style>
 
 <style lang="sass" scoped>
+
+	.section-dashboard
+		display: flex
+		flex-direction: column
+		flex-grow: 1
 
 	.selection
 		height: 38px
@@ -305,4 +331,30 @@
 			border-color: $primary
 			background: $complement
 			box-shadow: 0 0.5em 0 0 $primary
+
+	.please-connect
+		display: flex
+		flex-direction: column
+		flex-grow: 1
+		justify-content: center
+		align-items: center
+
+		.connect
+			text-align: center
+			width: 300px
+			padding: 1rem
+			border: 2px solid $primary
+			box-shadow: 0 1rem 0 0 $primary !important
+			border-radius: 0.5rem
+
+			p
+				font-size: 2rem
+				line-height: 1.1
+				font-family: Chibold, sans-serif
+				color: $brand1
+
+			img
+				margin-bottom: 1rem
+				image-rendering: pixelated
+				width: 44px * 2
 </style>

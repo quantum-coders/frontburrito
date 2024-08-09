@@ -175,12 +175,13 @@
 				margin-bottom: 2rem
 
 			.buttons
-				gap: 3rem
+				gap: 1rem
 				max-width: 800px
 				flex-direction: column
 
 				@media (min-width: $sm)
 					flex-direction: row
+					gap: 3rem
 
 			.btn-burrito
 				padding: 1rem 2rem

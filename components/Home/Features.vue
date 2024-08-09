@@ -49,7 +49,7 @@
 						:density="50"
 						:spawn="true"
 					/>
-					<img src="/images/rich-burrito.png" alt="Start Now!">
+					<img src="/images/rich-burrito.png" alt="Join Our Presale">
 				</div>
 			</article>
 
@@ -159,11 +159,17 @@
 
 				img
 					position: absolute
-					left: 0
+					left: 50%
+					transform: translateX(-50%)
 					bottom: 0
-					width: 206px * 2
+					width: 206px
 					image-rendering: pixelated
 					z-index: 2
+
+					@media (min-width: $sm)
+						left: 0
+						width: 206px * 2
+						transform: none
 
 			&.animation-wrapper-nfts
 				display: flex

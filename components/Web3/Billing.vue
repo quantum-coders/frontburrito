@@ -4,11 +4,11 @@
 			<icon name="material-symbols:close" />
 		</a>
 
-		<div class="card-title d-flex align-items-center justify-content-between px-4 py-3">
-			<h5 class="mb-0">
-				<icon name="mdi:account-circle" />
-				User Dashboard
-			</h5>
+		<div class="card-title">
+			<div class="burrito-wrapper">
+				<img class="burrito" src="/images/elegant-burrito.png" alt="">
+			</div>
+			<h5 class="mb-0">User Dashboard</h5>
 
 			<ul class="nav nav-pills justify-content-center">
 				<li class="nav-item">
@@ -30,7 +30,7 @@
 						@click.prevent="activeTab = 'payments'"
 					>
 						<icon name="mdi:history" class="me-1" />
-						Payment History
+						History
 					</a>
 				</li>
 			</ul>
@@ -93,7 +93,7 @@
 						{{ messageForUser }}
 					</div>
 				</div>
-				<button type="submit" class="btn btn-burrito w-100 mb-3" :disabled="loadingState">
+				<button type="submit" class="btn btn-burrito w-100" :disabled="loadingState">
 					<icon name="mdi:cash-plus" class="me-2" />
 					Fund Account
 				</button>
@@ -265,9 +265,57 @@
 
 	.card-title
 		border-bottom: 1px solid rgba($brand1, 0.25)
+		display: flex
+		flex-direction: column
 
-	.nav-pills .nav-link
-		cursor: pointer
+		@media (min-width: $sm)
+			flex-direction: row
+			align-items: center
+			justify-content: space-between
+			padding: 1rem 1rem 1rem 0
+
+		h5
+			font-family: Chibold, sans-serif
+			font-size: 2rem
+			color: $brand1
+			padding-left: 80px
+
+		.burrito-wrapper
+			position: absolute
+			overflow: hidden
+			width: 80px
+			height: 95px
+			top: -18px
+
+			@media (min-width: $sm)
+				top: auto
+				bottom: 0
+
+			.burrito
+				image-rendering: pixelated
+				position: absolute
+				top: 0
+				width: 80px
+
+	.nav-pills
+		border-top: 1px solid rgba($brand1, 0.25)
+		justify-content: stretch !important
+
+		@media (min-width: $sm)
+			border-top: 0
+
+		.nav-item
+			flex-basis: 50%
+			text-align: center
+
+			.nav-link
+				cursor: pointer
+				font-size: 0.875rem
+				border-radius: 0
+
+				@media (min-width: $sm)
+					font-size: 1rem
+					border-radius: 0.25rem
 
 	.nav-pills .nav-link.active
 		background-color: $brand1
@@ -293,7 +341,6 @@
 			font-family: 'Chibold', sans-serif
 			font-size: 1.5rem
 			padding: 0.5rem 0
-			margin-bottom: 1.5rem !important
 			border: 0
 			border-top: 2px solid $brand1
 			border-radius: 0 0 0.25rem 0.25rem

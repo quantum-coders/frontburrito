@@ -56,7 +56,7 @@
 					</div>
 				</div>
 				<div class="coin d-flex align-items-center gap-2 py-1 px-2">
-					<img src="/avax-logo.svg" alt="AVAX" class="token-icon">
+					<img src="/images/avax-logo.svg" alt="AVAX" class="token-icon">
 					<div>
 						<small class="label">AVAX</small>
 						<p class="coin-qty">{{ parseFloat(cryptoStore.avaxBalance || 0).toFixed(4) ?? 0.0 }}</p>
@@ -97,7 +97,7 @@
 		</div>
 	</div>
 
-	<platform-modal ref="walletModalRef" class="p-0">
+	<platform-modal ref="walletModalRef">
 		<template #default="{ close: closeDialog }">
 			<web3-wallet @connect="closeDialog" :close="closeDialog" />
 		</template>
@@ -158,6 +158,10 @@
 	const handleDisconnectWallet = () => {
 		disconnectWallet();
 		showWalletMenu.value = false;
+
+		// remove user
+		localStorage.removeItem('authToken');
+		
 	};
 </script>
 

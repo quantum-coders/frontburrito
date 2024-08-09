@@ -72,6 +72,7 @@
 			outline: 0.25rem solid white
 			background: var(--bs-body-bg)
 			width: auto
+			max-width: calc(100% - 2rem)
 			animation: show 0.3s ease-out forwards
 
 	@keyframes backdrop-fade

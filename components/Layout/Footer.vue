@@ -31,6 +31,17 @@
 		background: $brand1
 		color: white
 
+		&:before
+			content: ''
+			position: absolute
+			top: -10px
+			left: 0
+			width: 100%
+			height: 10px
+			background: url('/images/triangle.png') repeat-x center
+			background-size: auto 100%
+			image-rendering: pixelated
+
 		.footer-navigation
 
 			ul
