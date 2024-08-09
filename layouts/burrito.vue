@@ -5,6 +5,9 @@
 	<section class="site-wrapper">
 		<nuxt-page />
 	</section>
+
+	<platform-wait-list />
+
 	<layout-footer />
 </template>
 

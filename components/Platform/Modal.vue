@@ -1,18 +1,23 @@
 <template>
-	<dialog class="dialog" ref="dialog">
-		<!-- expose close method on slot scope -->
-		<slot :close="closeDialog" />
-	</dialog>
+	<teleport to="body">
+		<div class="modal-wrapper" ref="modal" v-show="visible" :class="{ hide }">
+			<div class="modal-content">
+				<slot :close="closeDialog" />
+			</div>
+		</div>
+	</teleport>
 </template>
 
 <script setup>
 
-	// Get the dialog element from the ref
-	const dialog = ref(null);
+	// Get the modal element from the ref
+	const modal = ref(null);
+	const visible = ref(false);
+	const hide = ref(false);
 
 	const openDialog = () => {
-		// Open the dialog using the ref
-		dialog.value.showModal();
+		console.log('WAX');
+		visible.value = true;
 	};
 
 	const open = () => {
@@ -20,14 +25,16 @@
 	};
 
 	const closeDialog = () => {
-		dialog.value.classList.add('hide');
-		dialog.value.addEventListener('animationend', () => {
-			// If it does not have the hide class, cancel
-			if(!dialog.value.classList.contains('hide')) return;
+		console.log('WAX CULERO');
+		hide.value = true;
 
-			dialog.value.classList.remove('hide');
-			dialog.value.close();
-			dialog.value.removeEventListener('animationend', () => { }, false);
+		modal.value.addEventListener('animationend', () => {
+			// If it does not have the hide class, cancel
+			if(!modal.value.classList.contains('hide')) return;
+
+			visible.value = false;
+			hide.value = false;
+			modal.value.removeEventListener('animationend', () => { }, false);
 		});
 	};
 
@@ -38,53 +45,34 @@
 	defineExpose({ openDialog, closeDialog, open, close });
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 
-	&:before
-		content: ''
+	.modal-wrapper
 		position: fixed
 		top: 0
 		left: 0
 		width: 100%
 		height: 100%
-		background: rgba(black, 0)
 		z-index: 10000
-		opacity: 0
-		pointer-events: none
-		transition: all 500ms ease-in-out
-
-	&:has(dialog[open].hide-backdrop)
-		&:before
-			opacity: 1
-
-</style>
-
-<style lang="sass" scoped>
-
-	.dialog
-		padding: 0
-		border-radius: 0.5rem
-		position: fixed
-		overflow: visible
-		border: 2px solid $brand1
-		outline: 0.25rem solid white
-
-		&.hide-backdrop
-			&::backdrop
-				display: none
-
-		&[open]
-			animation: show 0.3s ease-out forwards
-
-			&::backdrop
-				animation: backdrop-fade 0.3s ease forwards
+		animation: backdrop-fade 0.3s ease forwards
+		align-items: center
+		justify-content: center
+		display: flex
 
 		&.hide
-			animation: hide 0.25s ease-out forwards
+			.modal-content
+				animation: hide 0.25s ease-out forwards
 
-			&::backdrop
-				animation: backdrop-fade 0.3s ease backwards
-				animation-direction: reverse
+		.modal-content
+			padding: 0
+			border-radius: 0.5rem
+			position: fixed
+			overflow: visible
+			border: 2px solid $brand1
+			outline: 0.25rem solid white
+			background: var(--bs-body-bg)
+			width: auto
+			animation: show 0.3s ease-out forwards
 
 	@keyframes backdrop-fade
 		from

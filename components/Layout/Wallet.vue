@@ -103,17 +103,17 @@
 		</template>
 	</platform-modal>
 
-	<platform-modal ref="stakingModalRef">
+	<platform-dialog ref="stakingModalRef">
 		<template #default="{ close: closeDialog }">
 			<web3-staking :close="closeDialog" />
 		</template>
-	</platform-modal>
+	</platform-dialog>
 
-	<platform-modal ref="billingModalRef">
+	<platform-dialog ref="billingModalRef">
 		<template #default="{ close: closeDialog }">
 			<web3-billing :close="closeDialog" />
 		</template>
-	</platform-modal>
+	</platform-dialog>
 </template>
 
 <script setup>

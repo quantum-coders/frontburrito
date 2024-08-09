@@ -88,24 +88,24 @@
 		</div>
 	</div>
 
-	<platform-modal ref="walletModalRef">
+	<platform-dialog ref="walletModalRef">
 		<template #default="{ close: closeDialog }">
 			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
 			<web3-wallet @connect="closeDialog" />
 		</template>
-	</platform-modal>
-	<platform-modal ref="stakingModalRef">
+	</platform-dialog>
+	<platform-dialog ref="stakingModalRef">
 		<template #default="{ close: closeDialog }">
 			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
 			<web3-staking @close="closeDialog" />
 		</template>
-	</platform-modal>
-	<platform-modal ref="billingModalRef">
+	</platform-dialog>
+	<platform-dialog ref="billingModalRef">
 		<template #default="{ close: closeDialog }">
 			<button type="button" class="btn-close" aria-label="Close" @click.prevent="closeDialog"></button>
 			<web3-billing @close="closeDialog" />
 		</template>
-	</platform-modal>
+	</platform-dialog>
 </template>
 
 <script setup>

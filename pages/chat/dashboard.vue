@@ -99,7 +99,7 @@
 				</div>
 			</div>
 		</div>
-		<platform-modal ref="chatModalRef" class="p-4">
+		<platform-dialog ref="chatModalRef" class="p-4">
 			<template #default="{ close: closeDialog }">
 				<a class="close" @click.prevent="close">
 					<icon name="material-symbols:close" />
@@ -146,7 +146,7 @@
 					</div>
 				</div>
 			</template>
-		</platform-modal>
+		</platform-dialog>
 	</section>
 </template>
 

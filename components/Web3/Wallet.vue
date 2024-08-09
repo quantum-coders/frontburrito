@@ -19,8 +19,9 @@
 						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
 
 						<div
-                v-if="$device.isDesktop"
-                class="wallet">
+							v-if="$device.isDesktop"
+							class="wallet"
+						>
 							<a
 								v-if="!coreInstalled"
 								href="https://core.app"
@@ -96,27 +97,28 @@
 						</div>
 					</div>
 				</div>
-        <div class="row align-items-center justify-content-center" v-else>
-          <div class="wallet">
-          <a  @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
-							<img
-								class="wallet-sprite sprite-metamask"
-								src="/images/wallets/metamask.gif"
-								alt="Metamask"
-							>
-							<p class="wallet-name">Metamask</p>
-							<p class="wallet-status">
-								<span class="installed">
-									<span class="conn"
-                  @click.prevent="doConnect('metamask')"
-                  >Connect</span>
-								</span>
-							</p>
-              <p class="text-muted small">
-                  In order to connect your wallet, you must have Metamask App installed on your device.
-              </p>
-            </div>
-        </div>
+				<div class="row align-items-center justify-content-center" v-else>
+					<div class="wallet">
+						<a @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
+						<img
+							class="wallet-sprite sprite-metamask"
+							src="/images/wallets/metamask.gif"
+							alt="Metamask"
+						>
+						<p class="wallet-name">Metamask</p>
+						<p class="wallet-status">
+							<span class="installed">
+								<span
+									class="conn"
+									@click.prevent="doConnect('metamask')"
+								>Connect</span>
+							</span>
+						</p>
+						<p class="text-muted small">
+							In order to connect your wallet, you must have Metamask App installed on your device.
+						</p>
+					</div>
+				</div>
 			</nav>
 			<div class="copy d-none">
 				<h4>What is a Wallet?</h4>
@@ -133,7 +135,7 @@
 <script setup>
 	const cryptoStore = useCryptoStore();
 	import { injectedProvider } from 'thirdweb/wallets';
-    const {isMobile} = useDevice();
+	const { isMobile } = useDevice();
 
 	const loading = ref(false);
 
@@ -141,7 +143,7 @@
 		initProvider,
 		requestNetworkChange,
 		checkConnection,
-			loginWithMetamask
+		loginWithMetamask,
 	} = useWeb3();
 
 	const emit = defineEmits([ 'connect' ]);
@@ -160,17 +162,17 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
-		console.log("is Mobile", isMobile);
-      let providerName = localStorage.getItem('providerName');
-      if(providerName !== '' && providerName != null) {
-		  if(isMobile && providerName !== 'metamask'){
-			  providerName = 'metamask';
-		  }
-        await initProvider(providerName, true);
-      }
-      metamaskInstalled.value = await injectedProvider('io.metamask');
-      rabbyInstalled.value = await injectedProvider('io.rabby');
-      coreInstalled.value = !!window.avalanche;
+		console.log('is Mobile', isMobile);
+		let providerName = localStorage.getItem('providerName');
+		if(providerName !== '' && providerName != null) {
+			if(isMobile && providerName !== 'metamask') {
+				providerName = 'metamask';
+			}
+			await initProvider(providerName, true);
+		}
+		metamaskInstalled.value = await injectedProvider('io.metamask');
+		rabbyInstalled.value = await injectedProvider('io.rabby');
+		coreInstalled.value = !!window.avalanche;
 
 	});
 
@@ -311,14 +313,15 @@
 								border-radius: 1rem
 								padding: 0 1rem
 								opacity: 0
+
 				&:hover
 					.wallet-status
 						.installed
 							.inst
 								opacity: 0
+
 							.conn
 								opacity: 1
-
 
 				img
 					margin-bottom: 0.5rem
