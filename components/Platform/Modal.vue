@@ -25,7 +25,7 @@
 	};
 
 	const closeDialog = () => {
-		console.log('WAX CULERO');
+		console.log('WAX CULERO000000000000000');
 		hide.value = true;
 
 		modal.value.addEventListener('animationend', () => {

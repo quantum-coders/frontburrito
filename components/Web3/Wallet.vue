@@ -164,10 +164,8 @@
 	onMounted(async () => {
 		console.log('is Mobile', isMobile);
 		let providerName = localStorage.getItem('providerName');
+		console.log('providerName', providerName);
 		if(providerName !== '' && providerName != null) {
-			if(isMobile){
-				providerName = 'walletconnect';
-			}
 			await initProvider(providerName, true);
 		}
 		metamaskInstalled.value = await injectedProvider('io.metamask');

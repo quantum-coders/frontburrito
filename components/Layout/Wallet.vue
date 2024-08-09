@@ -156,11 +156,14 @@ const handleBilling = () => {
 };
 
 const handleDisconnectWallet = () => {
+	console.log('disconnecting wallet');
 	disconnectWallet();
+	console.log('wallet disconnected');
 	showWalletMenu.value = false;
-
+	console.log('wallet menu closed');
 	// remove user
 	localStorage.removeItem('authToken');
+	console.log('authToken removed');
 
 };
 </script>
