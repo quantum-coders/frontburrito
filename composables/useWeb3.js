@@ -1,6 +1,6 @@
 import {ethers} from 'ethers';
 import chalk from 'chalk';
-import {CoreWallet, MetaMaskWallet, RabbyWallet} from '@thirdweb-dev/wallets';
+import {CoreWallet, MetaMaskWallet, RabbyWallet, WalletConnect} from '@thirdweb-dev/wallets';
 import ERC20 from '../contracts/ERC20.sol/ERC20.json';
 
 export const useWeb3 = () => {
@@ -193,18 +193,33 @@ export const useWeb3 = () => {
 						});
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
+					case 'walletconnect':
+						wallet = new WalletConnect(
+							{
+								dappMetadata: {
+									name: 'BurritoAI',
+									url: 'https://burritoai.finance',
+									description: 'Simplifying crypto AI Markets',
+									icons: ['https://burritoai.com/favicon.ico'],
+								},
+								qrcode: true,
+							}
+						)
+						await wallet.connect({});
+						chainIdHex = await wallet.switchChain(chainIdHex);
 					default:
-						wallet = new MetaMaskWallet({
-							qrcode: false,
-						});
-						await wallet.connect({
-							dappMetadata: {
-								name: 'BurritoAI',
-								url: 'https://burritoai.finance',
-								description: 'Simplifying crypto AI Markets',
-								icons: ['https://burritoai.com/favicon.ico'],
-							},
-						});
+						wallet = new WalletConnect(
+							{
+								dappMetadata: {
+									name: 'BurritoAI',
+									url: 'https://burritoai.finance',
+									description: 'Simplifying crypto AI Markets',
+									icons: ['https://burritoai.com/favicon.ico'],
+								},
+								qrcode: true,
+							}
+						)
+						await wallet.connect({});
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 				}
@@ -470,6 +485,21 @@ export const useWeb3 = () => {
 							icons: ['https://burritoai.com/favicon.ico'],
 						},
 					});
+				case 'walletconnect':
+					wallet = new WalletConnect(
+						{
+							dappMetadata: {
+								name: 'BurritoAI',
+								url: 'https://burritoai.finance',
+								description: 'Simplifying crypto AI Markets',
+								icons: ['https://burritoai.com/favicon.ico'],
+							},
+							qrcode: true,
+						}
+					)
+
+					await wallet.connect({});
+
 					if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
 					return (await wallet.getSigner()).provider;
 					break;

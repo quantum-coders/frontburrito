@@ -1,7 +1,7 @@
 <template>
 	<div class="wallet-button" v-if="!cryptoStore.currentAccount">
 		<a href="#" @click.prevent="walletModalRef.openDialog()">Connect Wallet</a>
-		<img alt="Burrito" src="/images/burrito-photo.png" />
+		<img alt="Burrito" src="/images/burrito-photo.png"/>
 	</div>
 
 	<div class="wallet-info" v-else>
@@ -14,12 +14,12 @@
 
 			<div class="wallet-button">
 				<a
-					href="#"
-					class="wallet-button"
-					@click.prevent="toggleWalletMenu"
-					v-click-outside="closeWalletMenu"
+						href="#"
+						class="wallet-button"
+						@click.prevent="toggleWalletMenu"
+						v-click-outside="closeWalletMenu"
 				>Wallet</a>
-				<img alt="Burrito" src="/images/burrito-photo.png" />
+				<img alt="Burrito" src="/images/burrito-photo.png"/>
 			</div>
 		</div>
 
@@ -28,8 +28,8 @@
 			<div class="connected-account d-flex flex-column p-2">
 
 				<div
-					v-if="!cryptoStore.wrongNetwork && cryptoStore.currentAccount"
-					class="alert alert-danger mb-2 p-1 text-center"
+						v-if="!cryptoStore.wrongNetwork && cryptoStore.currentAccount"
+						class="alert alert-danger mb-2 p-1 text-center"
 				>
 					<a href="#" @click.prevent="switchNetwork" class="alert-link">
 						Wrong network honey. Switch here.
@@ -63,7 +63,7 @@
 					</div>
 				</div>
 				<div class="coin d-flex align-items-center gap-2 py-1 px-2">
-					<icon name="cryptocurrency:usd" size="24" />
+					<icon name="cryptocurrency:usd" size="24"/>
 					<div>
 						<small class="label">Account Balance (USD)</small>
 						<p class="coin-qty">{{ parseFloat(cryptoStore?.userBalance || 0).toFixed(4) ?? 0.0 }}</p>
@@ -72,24 +72,24 @@
 
 				<div class="d-flex wallet-buttons">
 					<button
-						class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
-						@click.prevent="handleStaking"
+							class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
+							@click.prevent="handleStaking"
 					>
-						<icon name="ph:wallet" />
+						<icon name="ph:wallet"/>
 						Staking
 					</button>
 					<button
-						class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
-						@click.prevent="handleBilling"
+							class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
+							@click.prevent="handleBilling"
 					>
-						<icon name="ph:credit-card" />
+						<icon name="ph:credit-card"/>
 						Billing
 					</button>
 					<button
-						class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
-						@click.prevent="handleDisconnectWallet"
+							class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
+							@click.prevent="handleDisconnectWallet"
 					>
-						<icon name="ri:logout-circle-r-line" />
+						<icon name="ri:logout-circle-r-line"/>
 						Disconnect
 					</button>
 				</div>
@@ -99,210 +99,215 @@
 
 	<platform-modal ref="walletModalRef">
 		<template #default="{ close: closeDialog }">
-			<web3-wallet @connect="closeDialog" :close="closeDialog" />
+			<web3-wallet @connect="closeDialog" :close="closeDialog"/>
 		</template>
 	</platform-modal>
 
 	<platform-dialog ref="stakingModalRef">
 		<template #default="{ close: closeDialog }">
-			<web3-staking :close="closeDialog" />
+			<web3-staking :close="closeDialog"/>
 		</template>
 	</platform-dialog>
 
 	<platform-dialog ref="billingModalRef">
 		<template #default="{ close: closeDialog }">
-			<web3-billing :close="closeDialog" />
+			<web3-billing :close="closeDialog"/>
 		</template>
 	</platform-dialog>
 </template>
 
 <script setup>
-	const cryptoStore = useCryptoStore();
-	const { switchNetwork, disconnectWallet } = useWeb3();
-	const showWalletMenu = ref(false);
+const cryptoStore = useCryptoStore();
+const {switchNetwork, disconnectWallet} = useWeb3();
+const showWalletMenu = ref(false);
 
-	const walletModalRef = ref(null);
-	const stakingModalRef = ref(null);
-	const billingModalRef = ref(null);
+const walletModalRef = ref(null);
+const stakingModalRef = ref(null);
+const billingModalRef = ref(null);
 
-	const currentAccountTrimmed = computed(() => {
-		if(cryptoStore.currentAccount) {
-			return `${ cryptoStore.currentAccount.slice(0, 6) }...${ cryptoStore.currentAccount.slice(-4) }`;
-		}
-		return '';
-	});
+const currentAccountTrimmed = computed(() => {
+	if (cryptoStore.currentAccount) {
+		return `${cryptoStore.currentAccount.slice(0, 6)}...${cryptoStore.currentAccount.slice(-4)}`;
+	}
+	return '';
+});
 
-	onMounted(async () => {
-		const authToken = localStorage.getItem('authToken');
-		if(authToken) await useAuth().me(authToken);
-	});
+onMounted(async () => {
+	const authToken = localStorage.getItem('authToken');
+	if (authToken) await useAuth().me(authToken);
+});
 
-	const toggleWalletMenu = () => {
-		showWalletMenu.value = !showWalletMenu.value;
-	};
+const toggleWalletMenu = () => {
+	showWalletMenu.value = !showWalletMenu.value;
+};
 
-	const closeWalletMenu = () => {
-		showWalletMenu.value = false;
-	};
+const closeWalletMenu = () => {
+	showWalletMenu.value = false;
+};
 
-	const handleStaking = () => {
-		stakingModalRef.value.openDialog();
-		showWalletMenu.value = false;
-	};
+const handleStaking = () => {
+	stakingModalRef.value.openDialog();
+	showWalletMenu.value = false;
+};
 
-	const handleBilling = () => {
-		billingModalRef.value.openDialog();
-		showWalletMenu.value = false;
-	};
+const handleBilling = () => {
+	billingModalRef.value.openDialog();
+	showWalletMenu.value = false;
+};
 
-	const handleDisconnectWallet = () => {
-		disconnectWallet();
-		showWalletMenu.value = false;
+const handleDisconnectWallet = () => {
+	disconnectWallet();
+	showWalletMenu.value = false;
 
-		// remove user
-		localStorage.removeItem('authToken');
-		
-	};
+	// remove user
+	localStorage.removeItem('authToken');
+
+};
 </script>
 
 <style lang="sass" scoped>
 
-	.wallet-info
-		padding-left: 1rem
+.wallet-info
+	padding-left: 1rem
 
+	.wallet-button
+		transition: none !important
+
+	&:has(.wallet-menu)
 		.wallet-button
-			transition: none !important
+			a
+				background: #F2F3E6
+				border-bottom: 0
+				border-radius: 0.5rem 0.5rem 0 0
+				box-shadow: none
+				padding-bottom: 20px
+				margin-bottom: -20px
 
-		&:has(.wallet-menu)
-			.wallet-button
-				a
+				&:after
+					content: ''
+					position: absolute
+					bottom: 0
+					right: 0
+					width: 80%
+					height: 20px
 					background: #F2F3E6
-					border-bottom: 0
-					border-radius: 0.5rem 0.5rem 0 0
-					box-shadow: none
-					padding-bottom: 20px
-					margin-bottom: -20px
+					z-index: 100
 
-					&:after
-						content: ''
-						position: absolute
-						bottom: 0
-						right: 0
-						width: 80%
-						height: 20px
-						background: #F2F3E6
-						z-index: 100
+	.token-icon
+		width: 24px
+
+	.burrito-balance
+		font-size: 0.8em
+		font-weight: bold
+		border-right: 2px solid $brand1
+		align-items: center
+		justify-content: center
+		padding-right: 0.5rem
+
+	.address
+		font-size: 0.8em
+		font-weight: bold
+		align-items: center
+		justify-content: center
+
+	.wallet-menu
+		position: absolute
+		width: calc(100vw - 2rem)
+		top: 100%
+		right: 1rem
+		z-index: 10
+		border: 2px solid $brand1
+		box-shadow: 0 0.5em 0 $brand1
+		border-radius: 0.5rem 0 0.5rem 0.5rem
+		background: #F7F2E9
+
+		@media (min-width: $sm)
+			width: 400px
+			right: 102px
+
+		.coin,
+		.connected-account
+			border-bottom: 1px solid $brand1
+
+		.coin
+			.coin-qty
+				line-height: 1
+				margin: 0
+
+		.label
+			color: $brand1
+			line-height: 1
+
+			font-size: 0.75rem
+			font-weight: 900
 
 		.token-icon
 			width: 24px
+			height: 24px
+			margin-right: 0.5rem
 
-		.burrito-balance
-			font-size: 0.8em
-			font-weight: bold
-			border-right: 2px solid $brand1
-			align-items: center
-			justify-content: center
-			padding-right: 0.5rem
+			&.wallet-icon
+				margin-right: 0
 
-		.address
-			font-size: 0.8em
-			font-weight: bold
-			align-items: center
-			justify-content: center
-
-		.wallet-menu
-			position: absolute
-			width: calc(100vw - 2rem)
-			top: 100%
-			right: 1rem
-			z-index: 10
-			border: 2px solid $brand1
-			box-shadow: 0 0.5em 0 $brand1
-			border-radius: 0.5rem 0 0.5rem 0.5rem
-			background: #F7F2E9
-
-			@media (min-width: $sm)
-				width: 400px
-				right: 102px
-
-			.coin,
-			.connected-account
-				border-bottom: 1px solid $brand1
-
-			.coin
-				.coin-qty
-					line-height: 1
-					margin: 0
-
-			.label
-				color: $brand1
-				line-height: 1
-
-				font-size: 0.75rem
-				font-weight: 900
-
-			.token-icon
-				width: 24px
-				height: 24px
-				margin-right: 0.5rem
-
-				&.wallet-icon
-					margin-right: 0
-
-		&:before
-			content: ''
-			position: absolute
-			top: 50%
-			transform: translateY(-50%)
-			left: 0
-			width: 100%
-			height: calc(100% + 5px)
-			border-radius: 10rem 0 0 10rem
-			border: 2px solid $brand1
-			border-right: 0
-
-		.wallet-button
-			top: -1px
+	&:before
+		content: ''
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		left: 0
+		width: 100%
+		height: calc(100% + 5px)
+		border-radius: 10rem 0 0 10rem
+		border: 2px solid $brand1
+		border-right: 0
 
 	.wallet-button
-		white-space: nowrap
-		overflow-x: clip
-		align-items: center
-		display: flex
-		font-size: 0.8rem
-		gap: 2rem
+		top: -1px
 
-		a
-			font-weight: 900
-			text-decoration: none
-			border: 2px solid $brand1
-			border-radius: 0.5rem
-			color: $brand1
-			text-transform: uppercase
-			padding: 0.25rem 1rem
-			box-shadow: 0 0.5em 0 $brand1
-			transition: all 150ms ease-in-out !important
+.wallet-button
+	white-space: nowrap
+	overflow-x: clip
+	align-items: center
+	display: flex
+	font-size: 0.8rem
+	gap: 2rem
 
-			&:active
-				transform: translateY(0.5em)
-				box-shadow: none
-
-		img
-			z-index: 100
-			right: 0
-			width: 70px
-			transform: scale(1.5)
-
-	.wallet-buttons
-		.btn
-			border-radius: 0
-			border-right: 1px solid $brand1
-			justify-content: center
-
-			&:last-child
-				border-right: 0
-
-	.alert-link
-		font-size: 0.875rem
+	a
+		font-weight: 900
 		text-decoration: none
+		border: 2px solid $brand1
+		border-radius: 0.5rem
+		color: $brand1
+		text-transform: uppercase
+		padding: 0.25rem 1rem
+		box-shadow: 0 0.5em 0 $brand1
+		transition: all 150ms ease-in-out !important
+
+		&:active
+			transform: translateY(0.5em)
+			box-shadow: none
+
+	img
+		z-index: 100
+		right: 0
+		width: 70px
+		transform: scale(1.5)
+
+.wallet-buttons
+	.btn
+		border-radius: 0
+		border-right: 1px solid $brand1
+		justify-content: center
+
+		&:last-child
+			border-right: 0
+
+.alert-link
+	font-size: 0.875rem
+	text-decoration: none
+
+</style>
+
+<style lang="sass" scoped>
+
 </style>

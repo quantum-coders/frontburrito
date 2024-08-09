@@ -99,18 +99,18 @@
 				</div>
 				<div class="row align-items-center justify-content-center" v-else>
 					<div class="wallet">
-						<a @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
+						<a @click.prevent="doConnect('walletconnect')" href="#" class="wallet-link" />
 						<img
 							class="wallet-sprite sprite-metamask"
 							src="/images/wallets/metamask.gif"
 							alt="Metamask"
 						>
-						<p class="wallet-name">Metamask</p>
+						<p class="wallet-name">WalletConnect</p>
 						<p class="wallet-status">
 							<span class="installed">
 								<span
 									class="conn"
-									@click.prevent="doConnect('metamask')"
+									@click.prevent="doConnect('walletconnect')"
 								>Connect</span>
 							</span>
 						</p>
@@ -165,8 +165,8 @@
 		console.log('is Mobile', isMobile);
 		let providerName = localStorage.getItem('providerName');
 		if(providerName !== '' && providerName != null) {
-			if(isMobile && providerName !== 'metamask') {
-				providerName = 'metamask';
+			if(isMobile){
+				providerName = 'walletconnect';
 			}
 			await initProvider(providerName, true);
 		}
@@ -179,6 +179,10 @@
 	const doConnect = async (provider) => {
 		loading.value = true;
 		try {
+			if(isMobile) {
+				loading.value = false;
+				emit('connect');
+			}
 			await initProvider(provider);
 			loading.value = false;
 		} catch(e) {
