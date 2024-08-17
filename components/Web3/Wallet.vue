@@ -177,11 +177,7 @@
 	const doConnect = async (provider) => {
 		loading.value = true;
 		try {
-			if(isMobile) {
-				loading.value = false;
-				emit('connect');
-			}
-			await initProvider(provider);
+			await initProvider(provider, false, isMobile);
 			loading.value = false;
 		} catch(e) {
 			console.error(e);
