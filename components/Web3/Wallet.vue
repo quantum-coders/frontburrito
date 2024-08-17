@@ -136,7 +136,7 @@
 	const cryptoStore = useCryptoStore();
 	import { injectedProvider } from 'thirdweb/wallets';
 	const { isMobile } = useDevice();
-
+	const route = useRoute();
 	const loading = ref(false);
 
 	const {
@@ -162,6 +162,12 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
+		const isMobileParam = route?.query?.isMobileDevice ?? 'false';
+		console.log('isMobileDevice:', isMobileParam);
+		if (isMobileParam) {
+			await initProvider('metamask', true, false)
+		}
+	    console.log('isMobileDevice:', autoConnect.value);
 		console.log('is Mobile', isMobile);
 		let providerName = localStorage.getItem('providerName');
 		console.log('providerName', providerName);

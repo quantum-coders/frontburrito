@@ -438,7 +438,7 @@ export const useWeb3 = () => {
 					wallet = new MetaMaskWallet({});
 					if(!wallet.isInjected)
 					{
-						window.open('https://metamask.app.link/dapp/burritoai.finance', '_blank');
+						window.open('https://metamask.app.link/dapp/burritoai.finance?isMobileDevice=true', '_blank');
 						return provider;
 					}
 					else{
