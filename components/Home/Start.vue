@@ -35,5 +35,6 @@
 		display: block
 		margin: 2rem auto 0
 		max-width: 100%
+		z-index: 2
 
 </style>

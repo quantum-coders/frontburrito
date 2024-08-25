@@ -26,6 +26,10 @@
 
 			<aside class="chat-config">
 				<div class="chat-inputs p-3">
+					<p class="text-end">
+						<a href="#" class="btn btn-burrito btn-new-chat" @click.prevent="createNewChat">New Chat</a>
+					</p>
+
 					<div class="mb-3 form-group form-group-system">
 						<label class="form-label" for="system-prompt">System Prompt</label>
 						<textarea
@@ -185,6 +189,10 @@
 		}
 	};
 
+	const createNewChat = () => {
+		router.push('/chat');
+	};
+
 	onMounted(async () => {
 		if(chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
 			await generateChatName();
@@ -279,4 +287,8 @@
 					strong
 						font-weight: bold
 						color: $brand1
+
+	.btn-new-chat
+		padding: 0.25rem 1.5rem
+		font-size: 0.75rem
 </style>
