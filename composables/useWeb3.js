@@ -1,6 +1,6 @@
 import {ethers} from 'ethers';
 import chalk from 'chalk';
-import {CoreWallet, MetaMaskWallet, RabbyWallet} from '@thirdweb-dev/wallets';
+import {CoreWallet, MetaMaskWallet, RabbyWallet, WalletConnect} from '@thirdweb-dev/wallets';
 import ERC20 from '../contracts/ERC20.sol/ERC20.json';
 
 export const useWeb3 = () => {
@@ -38,7 +38,7 @@ export const useWeb3 = () => {
 			}
 		};
 		const getAccount = () => window.localStorage.getItem('currentAccount') || null;
-		const initProvider = async (providerName, connected = false) => {
+		const initProvider = async (providerName, connected = false, isMobile = false) => {
 
 			web3log.info('Global Provider initialization');
 
@@ -48,7 +48,7 @@ export const useWeb3 = () => {
 			let provider;
 			web3log.info('Provider NAME::::::::::::::::::::::::::::::::::::', providerName);
 
-			provider = await getThirdWebWalletProvider(providerName, connected);
+			provider = await getThirdWebWalletProvider(providerName, connected, isMobile);
 			window.localStorage.setItem('providerName', providerName);
 			cryptoStore.globalProvider = markRaw(provider);
 
@@ -193,18 +193,22 @@ export const useWeb3 = () => {
 						});
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
+
 					default:
+						//Metamask
 						wallet = new MetaMaskWallet({
 							qrcode: false,
 						});
-						await wallet.connect({
-							dappMetadata: {
-								name: 'BurritoAI',
-								url: 'https://burritoai.finance',
-								description: 'Simplifying crypto AI Markets',
-								icons: ['https://burritoai.com/favicon.ico'],
-							},
-						});
+						await wallet.connect(
+							{
+								dappMetadata: {
+									name: 'BurritoAI',
+									url: 'https://burritoai.finance',
+									description: 'Simplifying crypto AI Markets',
+									icons: ['https://burritoai.com/favicon.ico'],
+								},
+							}
+						);
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 				}
@@ -428,53 +432,64 @@ export const useWeb3 = () => {
 			}
 		};
 
-		const getThirdWebWalletProvider = async (provider, connected = false) => {
-			let wallet;
-			console.log("[GETWALLET PROVIDER] Provider: ", provider);
-			switch (provider) {
-				case 'core':
-					wallet = new CoreWallet({});
-					await wallet.connect({
-						dappMetadata: {
-							name: 'BurritoAI',
-							url: 'https://burritoai.finance',
-							description: 'Simplifying crypto AI Markets',
-							icons: ['https://burritoai.com/favicon.ico'],
-						},
-					});
-					if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
-					return (await wallet.getSigner()).provider;
-					break;
-				case 'metamask':
-					wallet = new MetaMaskWallet({
-						qrcode: false,
-					});
-					await wallet.connect({
-						dappMetadata: {
-							name: 'BurritoAI',
-							url: 'https://burritoai.finance',
-							description: 'Simplifying crypto AI Markets',
-							icons: ['https://burritoai.com/favicon.ico'],
-						},
-					});
-					if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
-					return (await wallet.getSigner()).provider;
-					break;
-				case 'rabby':
-					wallet = new RabbyWallet({});
-					await wallet.connect({
-						dappMetadata: {
-							name: 'BurritoAI',
-							url: 'https://burritoai.finance',
-							description: 'Simplifying crypto AI Markets',
-							icons: ['https://burritoai.com/favicon.ico'],
-						},
-					});
-					if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
-					return (await wallet.getSigner()).provider;
-					break;
-			}
-		};
+			const getThirdWebWalletProvider = async (provider, connected = false, isMobile = false) => {
+				let wallet;
+				if (isMobile) {
+					wallet = new MetaMaskWallet({});
+					if(!wallet.isInjected)
+					{
+						window.open('https://metamask.app.link/dapp/burritoai.finance?isMobileDevice=true', '_blank');
+						return provider;
+					}
+					else{
+						provider = 'metamask';
+					}
+
+				}
+
+				switch (provider) {
+					case 'core':
+						wallet = new CoreWallet({});
+						await wallet.connect({
+							dappMetadata: {
+								name: 'BurritoAI',
+								url: 'https://burritoai.finance',
+								description: 'Simplifying crypto AI Markets',
+								icons: ['https://burritoai.com/favicon.ico'],
+							},
+						});
+						if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
+						return (await wallet.getSigner()).provider;
+						break;
+					case 'metamask':
+						wallet = new MetaMaskWallet({});
+						await wallet.connect({
+							dappMetadata: {
+								name: 'BurritoAI',
+								url: 'https://burritoai.finance',
+								description: 'Simplifying crypto AI Markets',
+								icons: ['https://burritoai.com/favicon.ico'],
+							},
+						});
+						if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
+						return (await wallet.getSigner()).provider;
+						break;
+					case 'rabby':
+						wallet = new RabbyWallet({});
+						await wallet.connect({
+							dappMetadata: {
+								name: 'BurritoAI',
+								url: 'https://burritoai.finance',
+								description: 'Simplifying crypto AI Markets',
+								icons: ['https://burritoai.com/favicon.ico'],
+							},
+						});
+
+						if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
+						return (await wallet.getSigner()).provider;
+						break;
+				}
+			};
 		return {
 			addTokenToWallet,
 			usdtBalance,

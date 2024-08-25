@@ -99,18 +99,18 @@
 				</div>
 				<div class="row align-items-center justify-content-center" v-else>
 					<div class="wallet">
-						<a @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
+						<a @click.prevent="doConnect('walletconnect')" href="#" class="wallet-link" />
 						<img
 							class="wallet-sprite sprite-metamask"
 							src="/images/wallets/metamask.gif"
 							alt="Metamask"
 						>
-						<p class="wallet-name">Metamask</p>
+						<p class="wallet-name">WalletConnect</p>
 						<p class="wallet-status">
 							<span class="installed">
 								<span
 									class="conn"
-									@click.prevent="doConnect('metamask')"
+									@click.prevent="doConnect('walletconnect')"
 								>Connect</span>
 							</span>
 						</p>
@@ -136,7 +136,7 @@
 	const cryptoStore = useCryptoStore();
 	import { injectedProvider } from 'thirdweb/wallets';
 	const { isMobile } = useDevice();
-
+	const route = useRoute();
 	const loading = ref(false);
 
 	const {
@@ -162,12 +162,16 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
+		const isMobileParam = route?.query?.isMobileDevice ?? 'false';
+		console.log('isMobileDevice:', isMobileParam);
+		if (isMobileParam) {
+			await initProvider('metamask', true, false)
+		}
+	    console.log('isMobileDevice:', autoConnect.value);
 		console.log('is Mobile', isMobile);
 		let providerName = localStorage.getItem('providerName');
+		console.log('providerName', providerName);
 		if(providerName !== '' && providerName != null) {
-			if(isMobile && providerName !== 'metamask') {
-				providerName = 'metamask';
-			}
 			await initProvider(providerName, true);
 		}
 		metamaskInstalled.value = await injectedProvider('io.metamask');
@@ -179,7 +183,7 @@
 	const doConnect = async (provider) => {
 		loading.value = true;
 		try {
-			await initProvider(provider);
+			await initProvider(provider, false, isMobile);
 			loading.value = false;
 		} catch(e) {
 			console.error(e);
