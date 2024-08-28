@@ -1,11 +1,12 @@
 <template>
 	<div class="block-start">
 		<div class="container">
-			<h2>Jump into the spiciest AI chats and snag unique digital collectibles with Burrito AI! Enjoy unfiltered conversations, exclusive perks, and vibrant NFTs. Don’t miss out – join the fun and spice up your digital life today!</h2>
+			<h2>
+				<br>Enjoy unfiltered conversations, exclusive perks and vibrant NFTs. Don’t miss out – join the fun and spice up your digital life today!</h2>
 			
-			<p class="text-center mb-5">
+			<!-- <p class="text-center mb-5">
 				<a href="#" class="btn btn-burrito">Start now</a>
-			</p>
+			</p> -->
 			
 			<img src="/images/rich-burrito.png" alt="Start Now!">
 		</div>

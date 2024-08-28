@@ -3,7 +3,7 @@
 
 		<img class="gif d-block d-sm-none" src="/images/burrito-idle.gif" alt="">
 		<div class="hero-logo">
-			<img class="heart" src="/images/heart.svg" alt="">
+			<!-- <img class="heart" src="/images/heart.svg" alt=""> -->
 
 			<img class="nothing" src="/images/nothing.svg" alt="">
 			<img class="like" src="/images/like.svg" alt="">
@@ -15,12 +15,13 @@
 		<div class="copy">
 			<img class="gif d-none d-sm-block" src="/images/burrito-idle.gif" alt="">
 			<div class="copy-wrapper">
-				<h3>SIMPLIFYING CRYTPO AI MARKETS</h3>
-				<p>Feast on Innovation with the Spiciest Token in Tech. Dive into a delicious blend of blockchain technology and artificial intelligence, where every token packs a punch of flavor and cutting-edge AI. Wrap up your assets in something exciting—taste the future with Burrito AI!</p>
+				<h3>SIMPLIFYING CRYTPO-AI SERVICES</h3>
+				<p>Cutting-edge AI meets the power of decentralized finance. Imagine a world where you are assited by the sharpest, unbiased intelligence, tailored to your needs. 
+					BurritoAI is your key to unlocking a new era of collaboration and innovation.</p>
 
 				<p class="buttons d-flex">
-					<a href="#" class="btn btn-burrito flex-grow-1">Presale Live</a>
-					<nuxt-link to="/chat/dashboard" class="btn btn-burrito flex-grow-1">Uncensored Chat</nuxt-link>
+					<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" class="btn btn-burrito flex-grow-1">Presale Live</a>
+					<nuxt-link to="/chat/dashboard" class="btn btn-burrito flex-grow-1">Un-baised AI</nuxt-link>
 				</p>
 			</div>
 		</div>

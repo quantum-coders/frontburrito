@@ -7,9 +7,9 @@
 			<div class="d-flex align-items-center">
 				<nav class="primary-navigation">
 					<ul class="list-unstyled">
-						<li><a href="/#ai">AI</a></li>
-						<li><a href="/#tokens">Tokens</a></li>
-						<li><a href="/#nfts">NFTs</a></li>
+						<li><a href="/#">Tokenomics</a></li>
+						<li><a href="/#">Earn</a></li>
+						<li><a href="/#nfts">Community</a></li>
 					</ul>
 				</nav>
 
