@@ -2,7 +2,10 @@
   <div class="center-container">
 	<web3-staking />
   </div>
+  <earn-stakemarket />
   <earn-benefits class="earn-benefits"/>
+  <platform-socials class="social-div"/>
+  <br>
 </template>
 
 <script setup>
@@ -29,4 +32,10 @@
 		
 		@media (min-width: 1200px)
 			padding-top: 15px
+
+	.social-div
+		padding-bottom: 15px
+		
+		@media (min-width: 1200px)
+			padding-bottom: 11px
 </style>

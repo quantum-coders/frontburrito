@@ -8,7 +8,7 @@
 				<nav class="primary-navigation">
 					<ul class="list-unstyled">
 						<li><nuxt-link to="/">Tokenomics</nuxt-link></li>
-						<li><nuxt-link to="/burritoai-crypto-staking">Earn</nuxt-link></li>
+						<li><nuxt-link to="/">Earn</nuxt-link></li>
 						<li><nuxt-link to="/">Services</nuxt-link></li>
 					</ul>
 				</nav>
