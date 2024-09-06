@@ -3,10 +3,10 @@
 		<div class="container">
 
 			<div class="copy">
-				<h2 class="title">Ever found yourself craving uncensored, unapologetic and entertaining AI chat? Well, buckle up, Burrito AI is here to disrupt!</h2>
+				<h2 class="title">Looking for uncensored, unapologetic and wildly entertaining AI chat? Burrito AI is here to shake things up!</h2>
 
 				<div class="content-wrapper d-flex flex-column flex-sm-row align-items-center justify-content-between">
-					<p class="content">At Burrito AI, we believe in keeping it real. None of that watered-down, sugar-coated Chat-AI you find elsewhere. Our AI is trained to chat with you like a true friend – brutally honest, hilariously blunt and delightfully candid.</p>
+					<p class="content">We believe in keeping it real. None of that watered-down, sugar-coated Chat-AI you find elsewhere. Our AI is trained to chat with you like a true friend, brutally honest, hilariously blunt and delightfully candid.</p>
 					<div class="wow-wrapper">
 						<img class="wow" src="/images/wow.png" alt="WOW">
 						<div class="balloon">
@@ -22,9 +22,9 @@
 
 				<div class="copy">
 					<h3>Free Range Conversations</h3>
-					<p>Our AI isn’t shackled by the usual constraints. Want to talk about controversial topics? Go ahead! No filters, no surveillance – just raw, unfiltered chat.</p>
+					<p>Not shackled by the usual constraints. Want to talk about controversial topics with Deep Search? Go ahead! No filters, just raw unfiltered chat.</p>
 					<p class="text-end">
-						<nuxt-link href="/chat/dashboard" class="btn btn-burrito">START CHAT</nuxt-link>
+						<nuxt-link href="/chat/dashboard" class="btn btn-burrito">>CHAT</nuxt-link>
 					</p>
 				</div>
 				<div class="animation-wrapper">
@@ -36,7 +36,7 @@
 				<img class="weird" src="/images/stay-weird.svg" alt="">
 				<div class="copy">
 					<h3>A Spicy Investment</h3>
-					<p>The Burrito AI Token is your VIP pass to exclusive content, premium features, and advanced functionalities within the Burrito AI ecosystem. As our AI grows in popularity, the demand for these tokens can increase, potentially boosting their value. Whether you're a tech enthusiast or an investor, the Burrito AI Token offers a blend of utility and growth potential, making it a hot addition to your portfolio.</p>
+					<p>The BurritoAI Token utility unlocks premium features and advanced functionalities within the Burrito AI ecosystem. Whether you're a tech enthusiast or an investor, the Burrito AI Token offers a blend of utility and growth potential, making it a hot addition to your portfolio.</p>
 					<p class="text-end">
 						<!-- <a href="#" class="btn btn-burrito">JOIN OUR PRESALE</a> -->
 					</p>
@@ -45,7 +45,7 @@
 					<animations-emoji-rain
 						class="emoji-rain"
 						:emojis="['⭐', '✨', '🌟', '🌙']"
-						:speed="10"
+						:speed="9"
 						:density="50"
 						:spawn="true"
 					/>
@@ -56,10 +56,10 @@
 			<article class="feature" id="nfts">
 				<img class="lfg" src="/images/lfg.svg" alt="">
 				<div class="copy">
-					<h3>BurritoAI NFTs</h3>
-					<p>ongratulations! You are an early adopter. stay tuned for the $burritoAI NFTa. NFT holders will enjoy special perks like access to limited-edition content, exclusive events, and priority in future drops. Spice up your digital collection and join the hottest crypto-AI community!</p>
+					<h3>Spice up</h3>
+					<p>Congrats! You are an early adopter! Stay tuned for special perks like access to limited-edition content, exclusive features, and priority in future drops. With staking rewards and airdrops on the horizon, your commitment will unlock even more benefits.</p>
 					<p class="text-end">
-						<a href="#" class="btn btn-burrito">Comming Soon</a>
+						<!-- <a href="#" class="btn btn-burrito">Comming Soon</a> -->
 					</p>
 				</div>
 				<div class="animation-wrapper animation-wrapper-nfts">
@@ -67,6 +67,7 @@
 				</div>
 			</article>
 		</div>
+		<platform-socials />
 	</div>
 </template>
 

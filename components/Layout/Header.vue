@@ -7,9 +7,9 @@
 			<div class="d-flex align-items-center">
 				<nav class="primary-navigation">
 					<ul class="list-unstyled">
-						<li><a href="/#">Tokenomics</a></li>
-						<li><a href="/#">Earn</a></li>
-						<li><a href="/#nfts">Community</a></li>
+						<li><nuxt-link to="/">Tokenomics</nuxt-link></li>
+						<li><nuxt-link to="/burritoai-crypto-staking">Earn</nuxt-link></li>
+						<li><nuxt-link to="/">Services</nuxt-link></li>
 					</ul>
 				</nav>
 

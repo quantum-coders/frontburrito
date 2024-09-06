@@ -2,8 +2,7 @@
   <div class="center-container">
 	<web3-staking />
   </div>
-  <br>
-  <earn-benefits />
+  <earn-benefits class="earn-benefits"/>
 </template>
 
 <script setup>
@@ -13,10 +12,21 @@
 <style lang="sass" scoped>
 	.center-container
 		display: flex
-		justify-content: center
+		flex-direction: column
+		justify-content: flex-start
 		align-items: center
 		width: 100vw
-		height: 100vh
-		min-height: 100vh
-		padding-top: 37px
+		padding-top: 49px
+		flex-grow: 1
+
+		@media (min-width: 1200px)
+			padding-top: 10px
+
+	html, body
+		height: 100%
+	.earn-benefits
+		padding-top: 20px
+		
+		@media (min-width: 1200px)
+			padding-top: 15px
 </style>

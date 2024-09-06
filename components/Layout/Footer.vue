@@ -6,9 +6,9 @@
 
 					<nav class="footer-navigation">
 						<ul class="list-unstyled">
-							<li><a href="#">Tokenomics</a></li>
-							<li><a href="#">Staking</a></li>
-							<li><a href="#">Markets</a></li>
+							<li><nuxt-link to="/">Tokenomics</nuxt-link></li>
+							<li><nuxt-link to="/burritoai-crypto-staking">Earn</nuxt-link></li>
+							<li><nuxt-link to="/">Services</nuxt-link></li>
 						</ul>
 					</nav>
 

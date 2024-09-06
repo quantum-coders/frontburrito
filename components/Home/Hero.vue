@@ -15,13 +15,13 @@
 		<div class="copy">
 			<img class="gif d-none d-sm-block" src="/images/burrito-idle.gif" alt="">
 			<div class="copy-wrapper">
-				<h3>SIMPLIFYING CRYTPO-AI SERVICES</h3>
-				<p>Cutting-edge AI meets the power of decentralized finance. Imagine a world where you are assited by the sharpest, unbiased intelligence, tailored to your needs. 
+				<h3>SIMPLIFYING CRYPTO-AI SERVICES</h3>
+				<p>AI meets the power of decentralized finance.<br>Imagine a world where you are assisted by the sharpest, unbiased intelligence, tailored to your needs!<br>
 					BurritoAI is your key to unlocking a new era of collaboration and innovation.</p>
 
 				<p class="buttons d-flex">
-					<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" class="btn btn-burrito flex-grow-1">Presale Live</a>
-					<nuxt-link to="/chat/dashboard" class="btn btn-burrito flex-grow-1">Un-baised AI</nuxt-link>
+					<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" class="btn btn-burrito flex-grow-1">Live</a>
+					<nuxt-link to="/chat/dashboard" class="btn btn-burrito flex-grow-1">Unbiased AI</nuxt-link>
 				</p>
 			</div>
 		</div>

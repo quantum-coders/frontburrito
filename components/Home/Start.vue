@@ -2,7 +2,7 @@
 	<div class="block-start">
 		<div class="container">
 			<h2>
-				<br>Enjoy unfiltered conversations, exclusive perks and vibrant NFTs. Don’t miss out – join the fun and spice up your digital life today!</h2>
+				<br>Enjoy unfiltered conversations, exclusive perks and vibrant AI. Don’t miss out – join the fun and spice up your digital life today!</h2>
 			
 			<!-- <p class="text-center mb-5">
 				<a href="#" class="btn btn-burrito">Start now</a>
