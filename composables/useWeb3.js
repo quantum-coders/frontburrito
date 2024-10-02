@@ -170,7 +170,7 @@ export const useWeb3 = () => {
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 					case 'core':
-						wallet = new CoreWallet();
+						wallet = new CoreWallet({qrcode: false});
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
@@ -182,7 +182,7 @@ export const useWeb3 = () => {
 						chainIdHex = await wallet.switchChain(chainIdHex);
 						break;
 					case 'rabby':
-						wallet = new RabbyWallet();
+						wallet = new RabbyWallet({qrcode: false});
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
@@ -435,7 +435,9 @@ export const useWeb3 = () => {
 			const getThirdWebWalletProvider = async (provider, connected = false, isMobile = false) => {
 				let wallet;
 				if (isMobile) {
-					wallet = new MetaMaskWallet({});
+					wallet = new MetaMaskWallet({
+						qrcode: false,
+					});
 					if(!wallet.isInjected)
 					{
 						window.open('https://metamask.app.link/dapp/burritoai.finance?isMobileDevice=true', '_blank');
@@ -449,7 +451,7 @@ export const useWeb3 = () => {
 
 				switch (provider) {
 					case 'core':
-						wallet = new CoreWallet({});
+						wallet = new CoreWallet({qrcode: false});
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
@@ -462,7 +464,7 @@ export const useWeb3 = () => {
 						return (await wallet.getSigner()).provider;
 						break;
 					case 'metamask':
-						wallet = new MetaMaskWallet({});
+						wallet = new MetaMaskWallet({qrcode: false});
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
@@ -475,7 +477,7 @@ export const useWeb3 = () => {
 						return (await wallet.getSigner()).provider;
 						break;
 					case 'rabby':
-						wallet = new RabbyWallet({});
+						wallet = new RabbyWallet({qrcode: false});
 						await wallet.connect({
 							dappMetadata: {
 								name: 'BurritoAI',
