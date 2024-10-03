@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { v4 as uuidv4 } from 'uuid';
 
 export const useChatStore = defineStore('chatStore', () => {
 
@@ -13,13 +14,14 @@ export const useChatStore = defineStore('chatStore', () => {
 	};
 
 	const sendMessage = async (message, callback = null) => {
-		const messageRes = await useBaseFetch(`/users/me/chats/${ chat.value.uid }/messages`, {
-			method: 'POST',
-			body: { message },
-		});
-
-		if(messageRes.data.value) {
-			chat.value?.messages.push(messageRes.data.value.data);
+			// create uuid
+			const uuid = uuidv4();
+			const assistantUidMessage = uuidv4();
+			chat.value?.messages.push({
+				type: 'user',
+				content: message,
+				uid: uuid
+			});
 
 			const token = localStorage.getItem('authToken');
 			const aiRes = await fetch(`${ useRuntimeConfig().public.baseURL }/ai/message`, {
@@ -32,14 +34,16 @@ export const useChatStore = defineStore('chatStore', () => {
 					model: 'burrito-8x7b',
 					temperature: 1,
 					idChat: chat.value.id,
+					uidMessage: uuid,
+					assistantUidMessage: assistantUidMessage,
 					prompt: message,
 				}),
 			});
 
 			if(aiRes.ok) {
-
 				// add an empty message to chat with type "assistant"
 				chat.value.messages.push({
+					uid: assistantUidMessage,
 					type: 'assistant',
 					content: '',
 				});
@@ -87,7 +91,7 @@ export const useChatStore = defineStore('chatStore', () => {
 					return reader.read().then(processText);
 				});
 			}
-		}
+
 	};
 
 	const downloadChat = async (chat, type = 'txt') => {

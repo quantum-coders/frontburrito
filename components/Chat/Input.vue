@@ -20,10 +20,6 @@
 	};
 
 	const saveMessage = async (message) => {
-		await useBaseFetch(`/users/me/chats/${ chatStore.chat.uid }/messages`, {
-			method: 'POST',
-			body: { message, type: 'assistant' },
-		});
 		chatStore.increaseMessageStatistics();
 	};
 </script>
