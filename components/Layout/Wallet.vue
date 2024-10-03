@@ -1,120 +1,125 @@
 <template>
-	<div class="wallet-button" v-if="!cryptoStore.currentAccount">
-		<a href="#" @click.prevent="walletModalRef.openDialog()">Connect Wallet</a>
-		<img alt="Burrito" src="/images/burrito-photo.png"/>
-	</div>
+  <div class="wallet-button" v-if="!cryptoStore.currentAccount">
+    <a href="#" @click.prevent="walletModalRef.openDialog()">Connect Wallet</a>
+    <img alt="Burrito" src="/images/burrito-photo.png"/>
+  </div>
 
-	<div class="wallet-info" v-else>
-		<div class="wallet-summary d-flex align-items-stretch gap-2">
-			<img class="token-icon d-none d-sm-block" src="/images/burrito-token-icon.svg" alt="">
-			<span class="d-none d-md-flex burrito-balance">
-				{{ parseFloat(cryptoStore.burritoBalance || 0).toFixed(4) ?? 0.0 }}
-			</span>
-			<span class="address ms-2 d-none d-md-flex">{{ currentAccountTrimmed }}</span>
+  <div class="wallet-info" v-else>
+    <div class="wallet-summary d-flex align-items-stretch gap-2">
+      <img class="token-icon d-none d-sm-block" src="/images/burrito-token-icon.svg" alt="">
+      <span class="d-none d-md-flex burrito-balance">
+        {{ parseFloat(cryptoStore.burritoBalance || 0).toFixed(4) ?? 0.0 }}
+      </span>
+      <span class="address ms-2 d-none d-md-flex">{{ currentAccountTrimmed }}</span>
 
-			<div class="wallet-button">
-				<a
-						href="#"
-						class="wallet-button"
-						@click.prevent="toggleWalletMenu"
-						v-click-outside="closeWalletMenu"
-				>Wallet</a>
-				<img alt="Burrito" src="/images/burrito-photo.png"/>
-			</div>
-		</div>
+      <!-- Inicio de la modificación -->
+      <div class="wallet-button-container" v-click-outside="closeWalletMenu">
+        <div class="wallet-button">
+          <a
+            href="#"
+            class="wallet-button"
+            @click.prevent="toggleWalletMenu"
+          >Wallet</a>
+          <img alt="Burrito" src="/images/burrito-photo.png"/>
+        </div>
 
-		<div v-if="showWalletMenu" class="wallet-menu">
+        <div v-if="showWalletMenu" class="wallet-menu">
 
-			<div class="connected-account d-flex flex-column p-2">
+          <div class="connected-account d-flex flex-column p-2">
 
-				<div
-						v-if="!cryptoStore.wrongNetwork && cryptoStore.currentAccount"
-						class="alert alert-danger mb-2 p-1 text-center"
-				>
-					<a href="#" @click.prevent="switchNetwork" class="alert-link">
-						Wrong network honey. Switch here.
-					</a>
-				</div>
+            <div
+              v-if="!cryptoStore.wrongNetwork && cryptoStore.currentAccount"
+              class="alert alert-danger mb-2 p-1 text-center"
+            >
+              <a href="#" @click.prevent="switchNetwork" class="alert-link">
+                Wrong network honey. Switch here.
+              </a>
+            </div>
 
-				<small class="label">Connected Account</small>
-				<span class="text-truncate fs-5">{{ currentAccountTrimmed }}</span>
-			</div>
+            <small class="label">Connected Account</small>
+            <span class="text-truncate fs-5">{{ currentAccountTrimmed }}</span>
+          </div>
 
-			<div class="d-flex flex-column">
-				<div class="coin d-flex align-items-center gap-2 py-1 px-2">
-					<img src="/images/burrito-token-icon.svg" alt="BURRITO" class="token-icon">
-					<div>
-						<small class="label">BURRITO AI Tokens</small>
-						<p class="coin-qty">{{ parseFloat(cryptoStore.burritoBalance || 0).toFixed(4) ?? 0.0 }}</p>
-					</div>
-				</div>
-				<div class="coin d-flex align-items-center gap-2 py-1 px-2">
-					<img src="/usdt-avax.svg" alt="USDT" class="token-icon">
-					<div>
-						<small class="label">USDT</small>
-						<p class="coin-qty">{{ parseFloat(cryptoStore.usdtBalance || 0).toFixed(4) ?? 0.0 }}</p>
-					</div>
-				</div>
-				<div class="coin d-flex align-items-center gap-2 py-1 px-2">
-					<img src="/images/avax-logo.svg" alt="AVAX" class="token-icon">
-					<div>
-						<small class="label">AVAX</small>
-						<p class="coin-qty">{{ parseFloat(cryptoStore.avaxBalance || 0).toFixed(4) ?? 0.0 }}</p>
-					</div>
-				</div>
-				<div class="coin d-flex align-items-center gap-2 py-1 px-2">
-					<icon name="cryptocurrency:usd" size="24"/>
-					<div>
-						<small class="label">Account Balance (USD)</small>
-						<p class="coin-qty">{{ parseFloat(cryptoStore?.userBalance || 0).toFixed(4) ?? 0.0 }}</p>
-					</div>
-				</div>
+          <div class="d-flex flex-column">
+            <div class="coin d-flex align-items-center gap-2 py-1 px-2">
+              <img src="/images/burrito-token-icon.svg" alt="BURRITO" class="token-icon">
+              <div>
+                <small class="label">BURRITO AI Tokens</small>
+                <p class="coin-qty">{{ parseFloat(cryptoStore.burritoBalance || 0).toFixed(4) ?? 0.0 }}</p>
+              </div>
+            </div>
+            <div class="coin d-flex align-items-center gap-2 py-1 px-2">
+              <img src="/usdt-avax.svg" alt="USDT" class="token-icon">
+              <div>
+                <small class="label">USDT</small>
+                <p class="coin-qty">{{ parseFloat(cryptoStore.usdtBalance || 0).toFixed(4) ?? 0.0 }}</p>
+              </div>
+            </div>
+            <div class="coin d-flex align-items-center gap-2 py-1 px-2">
+              <img src="/images/avax-logo.svg" alt="AVAX" class="token-icon">
+              <div>
+                <small class="label">AVAX</small>
+                <p class="coin-qty">{{ parseFloat(cryptoStore.avaxBalance || 0).toFixed(4) ?? 0.0 }}</p>
+              </div>
+            </div>
+            <div class="coin d-flex align-items-center gap-2 py-1 px-2">
+              <icon name="cryptocurrency:usd" size="24"/>
+              <div>
+                <small class="label">Account Balance (USD)</small>
+                <p class="coin-qty">{{ parseFloat(cryptoStore?.userBalance || 0).toFixed(4) ?? 0.0 }}</p>
+              </div>
+            </div>
 
-				<div class="d-flex wallet-buttons">
-					<button
-							class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
-							@click.prevent="handleStaking"
-					>
-						<icon name="ph:wallet"/>
-						Staking
-					</button>
-					<button
-							class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
-							@click.prevent="handleBilling"
-					>
-						<icon name="ph:credit-card"/>
-						Billing
-					</button>
-					<button
-							class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
-							@click.prevent="handleDisconnectWallet"
-					>
-						<icon name="ri:logout-circle-r-line"/>
-						Disconnect
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="d-flex wallet-buttons">
+              <button
+                class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
+                @click.prevent="handleStaking"
+              >
+                <icon name="ph:wallet"/>
+                Staking
+              </button>
+              <button
+                class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
+                @click.prevent="handleBilling"
+              >
+                <icon name="ph:credit-card"/>
+                Billing
+              </button>
+              <button
+                class="btn btn-sm flex-grow-1 d-flex align-items-center gap-2"
+                @click.prevent="handleDisconnectWallet"
+              >
+                <icon name="ri:logout-circle-r-line"/>
+                Disconnect
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin de la modificación -->
 
-	<platform-modal ref="walletModalRef">
-		<template #default="{ close: closeDialog }">
-			<web3-wallet @connect="closeDialog" :close="closeDialog"/>
-		</template>
-	</platform-modal>
+    </div>
+  </div>
 
-	<platform-dialog ref="stakingModalRef">
-		<template #default="{ close: closeDialog }">
-			<web3-staking :close="closeDialog"/>
-		</template>
-	</platform-dialog>
+  <platform-modal ref="walletModalRef">
+    <template #default="{ close: closeDialog }">
+      <web3-wallet @connect="closeDialog" :close="closeDialog"/>
+    </template>
+  </platform-modal>
 
-	<platform-dialog ref="billingModalRef">
-		<template #default="{ close: closeDialog }">
-			<web3-billing :close="closeDialog"/>
-		</template>
-	</platform-dialog>
+  <platform-dialog ref="stakingModalRef">
+    <template #default="{ close: closeDialog }">
+      <web3-staking :close="closeDialog"/>
+    </template>
+  </platform-dialog>
+
+  <platform-dialog ref="billingModalRef">
+    <template #default="{ close: closeDialog }">
+      <web3-billing :close="closeDialog"/>
+    </template>
+  </platform-dialog>
 </template>
+
 
 <script setup>
 const cryptoStore = useCryptoStore();
