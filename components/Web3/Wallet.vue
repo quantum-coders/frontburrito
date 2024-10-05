@@ -167,7 +167,6 @@
 		if (isMobileParam) {
 			await initProvider('metamask', true, false)
 		}
-	    console.log('isMobileDevice:', autoConnect.value);
 		console.log('is Mobile', isMobile);
 		let providerName = localStorage.getItem('providerName');
 		console.log('providerName', providerName);

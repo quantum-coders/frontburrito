@@ -157,12 +157,13 @@
 	};
 
 	const updateSearchType = async () => {
+		console.info("Enabled: ", webSearchEnabled.value, "Type: ", webSearchType.value);
 		if(chatStore.chat.metas) {
 			await chatStore.updateChat({
 				metas: {
 					...chatStore.chat.metas,
 					webSearch: {
-						...chatStore.chat.metas.webSearch,
+						enabled: webSearchEnabled.value,
 						type: webSearchType.value,
 					},
 				},

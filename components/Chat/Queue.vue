@@ -40,6 +40,10 @@
 	const { $mdRenderer } = useNuxtApp();
 	import Avatar from 'vue-boring-avatars';
 	const chatStore = useChatStore();
+
+	onMounted(() => {
+		chatStore.scrollToBottom();
+	});
 </script>
 
 <style lang="sass" scoped>
