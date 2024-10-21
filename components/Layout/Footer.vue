@@ -6,7 +6,7 @@
 
 					<nav class="footer-navigation">
 						<ul class="list-unstyled">
-							<li><a href="/WhitepaperV2.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
+							<li><a href="/BurritoAI-Whitepaper.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
 							<li><nuxt-link to="/burritoai-crypto-staking">Earn</nuxt-link></li>
 							<li><nuxt-link to="/">Services</nuxt-link></li>
 						</ul>
