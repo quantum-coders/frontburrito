@@ -7,7 +7,7 @@
 			<div class="d-flex align-items-center">
 				<nav class="primary-navigation">
 					<ul class="list-unstyled">
-						<li><nuxt-link to="/">Tokenomics</nuxt-link></li>
+						<li><a href="/WhitepaperV2.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a></li>
 						<li><nuxt-link to="/">Earn</nuxt-link></li>
 						<li><nuxt-link to="/">Services</nuxt-link></li>
 					</ul>
