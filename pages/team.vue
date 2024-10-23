@@ -150,6 +150,7 @@
 
 		@media (min-width: $sm)
 			width: 60vw
+			max-width: 750px
 
 		&:last-child
 			border-bottom: 0
