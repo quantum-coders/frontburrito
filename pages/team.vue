@@ -60,7 +60,7 @@
 			<article class="team-member">
 				<img src="/images/team/rodrigo.jpg" alt="Erick Niet" />
 				<div class="team-info">
-					<h2>Erick Niet</h2>
+					<h2>CriptoAddice</h2>
 					<h3>Digital Asset Trading & Blockchain Investments</h3>
 					<p>Business developer and investor with a forward-thinking approach, Erick embodies the entrepreneurial spirit of Silicon Valley. Always ahead of the curve, he's fluent in both the language of tech and the nuances of investment.</p>
 
