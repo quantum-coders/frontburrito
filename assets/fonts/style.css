@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'Chibold';
-	src: url('Chibold.woff2') format('woff2'),
-	url('Chibold.woff') format('woff');
+	src: url('CHIBOLD.woff2') format('woff2'),
+	url('CHIBOLD.woff') format('woff');
 	font-weight: bold;
 	font-style: normal;
 	font-display: swap;
