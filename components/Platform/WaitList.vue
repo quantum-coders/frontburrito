@@ -71,7 +71,7 @@
 	.wait-list
 		position: fixed
 		bottom: 2rem
-		left: 2rem
+		right: 2rem
 		background: $brand1
 		color: white
 		border: 2px solid black
@@ -81,7 +81,7 @@
 		border-radius: 0.5rem
 		z-index: 100
 		transition: opacity 1s
-		width: 300px
+		width: 230px
 
 		&.is-invisible
 			opacity: 0
@@ -103,7 +103,7 @@
 			padding: 0.5rem
 			border-radius: 0.25rem
 			aspect-ratio: 1
-			width: 40px
+			width: 10px
 			position: absolute
 			background: $brand1
 			display: flex

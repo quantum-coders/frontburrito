@@ -12,12 +12,12 @@
 			<article class="team-member">
 				<img src="/images/team/marcus.jpg" alt="@TaoCybernetics" />
 				<div class="team-info">
-					<h2>@TaoCybernetics</h2>
+					<h2>@taocybernetics</h2>
 					<h3>Developer & Blockchain Marker Maker</h3>
-					<p>System Engineer, developer at Blockpay Network, hashpowerlab.web.app, lunadefi.ai and Blockchain Market Strategist with 8 years of experience in blockchain systems.</p>
+					<p>System Engineer, developer at #burritoAI, hashpowerlab.web.app, lunadefi.ai and Blockchain Market Strategist with 8 years of experience in blockchain systems.</p>
 
 					<p class="text-end">
-						<a href="#" class="btn btn-primary text-white">
+						<a href="https://x.com/taocybernetics" class="btn btn-primary text-white">
 							Follow on
 							<icon name="line-md:twitter-x-alt" />
 						</a>
@@ -28,12 +28,12 @@
 			<article class="team-member">
 				<img src="/images/team/rodrigo.jpg" alt="@TheWebChimp" />
 				<div class="team-info">
-					<h2>@TheWebChimp</h2>
+					<h2>@ChimpWebStudio</h2>
 					<h3>Full Stack Developer</h3>
 					<p>10+ years of expertise in web infrastructure development and frontend engineering. Known as "the best frontend in this hemisphere." Previously led frontend teams at Universal Music, Under Armour and more resulting in a 40% improvement in user engagement metrics.</p>
 
 					<p class="text-end">
-						<a href="#" class="btn btn-primary text-white">
+						<a href="https://x.com/ChimpWebStudio" class="btn btn-primary text-white">
 							Follow on
 							<icon name="line-md:twitter-x-alt" />
 						</a>
@@ -49,7 +49,7 @@
 					<p>Co-founder of AG1 Labs, Bonkhemist, and Burrito.AI. Has won over 5 hackathons in the last year. 9+ years of experience in software development and backend integration.</p>
 
 					<p class="text-end">
-						<a href="#" class="btn btn-primary text-white">
+						<a href="https://x.com/_0xjesus" class="btn btn-primary text-white">
 							Follow on
 							<icon name="line-md:twitter-x-alt" />
 						</a>
@@ -65,10 +65,10 @@
 					<p>Business developer and investor with a forward-thinking approach, Erick embodies the entrepreneurial spirit of Silicon Valley. Always ahead of the curve, he's fluent in both the language of tech and the nuances of investment.</p>
 
 					<p class="text-end">
-						<a href="#" class="btn btn-primary text-white">
+						<!-- <a href="#" class="btn btn-primary text-white">
 							Follow on
 							<icon name="line-md:twitter-x-alt" />
-						</a>
+						</a> -->
 					</p>
 				</div>
 			</article>
