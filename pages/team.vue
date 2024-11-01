@@ -10,7 +10,7 @@
 
 		<div class="team-wrapper">
 			<article class="team-member">
-				<img src="/images/team/marcus.jpg" alt="@TaoCybernetics" />
+				<img src="/images/team/marcus.png" alt="@TaoCybernetics" />
 				<div class="team-info">
 					<h2>@taocybernetics</h2>
 					<h3>Developer & Blockchain Marker Maker</h3>
@@ -58,7 +58,7 @@
 			</article>
 
 			<article class="team-member">
-				<img src="/images/team/rodrigo.jpg" alt="Erick Niet" />
+				<img src="/images/team/business_dev.jpeg" alt="Erick Niet" />
 				<div class="team-info">
 					<h2>CriptoAddice</h2>
 					<h3>Digital Asset Trading & Blockchain Investments</h3>

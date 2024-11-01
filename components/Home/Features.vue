@@ -3,7 +3,7 @@
 		<div class="container">
 
 			<div class="copy">
-				<h2 class="title">Looking for uncensored, unapologetic and wildly entertaining AI chat? Burrito AI is here to shake things up!</h2>
+				<h2 class="title">Born from collective friendship, driven by a spirit of free expression and open dialogue for limitless AI. BurritoAI brings you unapologetic and wildly entertaining AI chats. BurritoAI is here to shake things up!</h2>
 
 				<div class="content-wrapper d-flex flex-column flex-sm-row align-items-center justify-content-between">
 					<p class="content">We believe in keeping it real. None of that watered-down, sugar-coated Chat-AI you find elsewhere. Our AI is trained to chat with you like a true friend, brutally honest, hilariously blunt and delightfully candid.</p>

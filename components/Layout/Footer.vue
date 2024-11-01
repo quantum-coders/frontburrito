@@ -6,9 +6,14 @@
 
 					<nav class="footer-navigation">
 						<ul class="list-unstyled">
-							<li><a href="/BurritoAI-Whitepaper.pdf" target="_blank">Whitepaper</a></li>
-							<li><nuxt-link to="/team">Team</nuxt-link></li>
-							<li><nuxt-link to="/">AI Services</nuxt-link></li>
+							<li><nuxt-link to="/">Home</nuxt-link></li>
+						<li>
+							<a href="/BurritoAI-Whitepaper.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a>
+						</li>
+						<li><a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" target="_blank" rel="noopener noreferrer">Buy</a></li>
+						<li><nuxt-link to="chat/dashboard">Dashboard</nuxt-link></li>
+						<li><nuxt-link to="#">Ecosystem</nuxt-link></li>
+						<li><nuxt-link to="/team">Team</nuxt-link></li>
 						</ul>
 					</nav>
 

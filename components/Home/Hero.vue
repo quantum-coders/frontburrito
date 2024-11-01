@@ -16,8 +16,8 @@
 			<img class="gif d-none d-sm-block" src="/images/burrito-idle.gif" alt="">
 			<div class="copy-wrapper">
 				<h3>SIMPLIFYING CRYPTO-AI SERVICES</h3>
-				<p>AI meets the power of decentralized finance.<br>Imagine a world where you are assisted by the sharpest, unbiased intelligence, tailored to your needs!<br>
-					BurritoAI is your key to unlocking a new era of collaboration and innovation.</p>
+				<p>BurritoAI is the intersection of AI and DeFi<br>Imagine a world where you are assisted by the sharpest, unbiased intelligence, tailored to your needs!<br>
+					Through a flexible DeFi billing system, BurritoAI empowers people with AI capabilities in two clics!</p>
 
 				<p class="buttons d-flex">
 					<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" class="btn btn-burrito flex-grow-1">Live</a>
