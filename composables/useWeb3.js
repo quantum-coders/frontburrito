@@ -41,7 +41,7 @@ export const useWeb3 = () => {
 		const initProvider = async (providerName, connected = false, isMobile = false) => {
 
 			web3log.info('Global Provider initialization');
-
+			console.info("Paremeters", providerName, connected, isMobile);
 			cryptoStore.initLoading = true;
 			cryptoStore.currentAccount = getAccount();
 
@@ -464,6 +464,7 @@ export const useWeb3 = () => {
 						return (await wallet.getSigner()).provider;
 						break;
 					case 'metamask':
+						console.info("Memtamask selected..............");
 						wallet = new MetaMaskWallet({qrcode: false});
 						await wallet.connect({
 							dappMetadata: {

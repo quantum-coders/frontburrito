@@ -1,7 +1,7 @@
 <template>
 	<div class="dashboard-container">
 		<a class="close" @click.prevent="close">
-			<icon name="material-symbols:close" />
+			<icon name="material-symbols:close"/>
 		</a>
 
 		<div class="card-title">
@@ -18,7 +18,7 @@
 						:class="{ active: activeTab === 'funding' }"
 						@click.prevent="activeTab = 'funding'"
 					>
-						<icon name="mdi:cash-plus" class="me-1" />
+						<icon name="mdi:cash-plus" class="me-1"/>
 						Funding
 					</a>
 				</li>
@@ -29,7 +29,7 @@
 						:class="{ active: activeTab === 'payments' }"
 						@click.prevent="activeTab = 'payments'"
 					>
-						<icon name="mdi:history" class="me-1" />
+						<icon name="mdi:history" class="me-1"/>
 						History
 					</a>
 				</li>
@@ -41,7 +41,7 @@
 				<div class="p-3">
 					<div class="d-flex align-items-center justify-content-between">
 						<p class="text-center">
-							<icon name="mdi:currency-usd" />
+							<icon name="mdi:currency-usd"/>
 							Current AVAX Price: ${{ exchangeRate.toFixed(2) }} USD
 						</p>
 					</div>
@@ -53,7 +53,7 @@
 						</label>
 						<div class="input-group">
 							<span class="input-group-text">
-								<icon name="mdi:currency-usd" />
+								<icon name="mdi:currency-usd"/>
 							</span>
 							<input
 								type="number" class="form-control" id="amount" v-model="amount" min="0"
@@ -86,7 +86,7 @@
 						<label class="form-label">Value in USD</label>
 						<div class="input-group">
 							<span class="input-group-text">$</span>
-							<input type="text" class="form-control" :value="usdValue.toFixed(2)" readonly />
+							<input type="text" class="form-control" :value="usdValue.toFixed(2)" readonly/>
 						</div>
 					</div>
 					<div v-if="messageForUser" class="alert alert-info">
@@ -94,7 +94,7 @@
 					</div>
 				</div>
 				<button type="submit" class="btn btn-burrito w-100" :disabled="loadingState">
-					<icon name="mdi:cash-plus" class="me-2" />
+					<icon name="mdi:cash-plus" class="me-2"/>
 					Fund Account
 				</button>
 			</form>
@@ -102,32 +102,32 @@
 
 		<div v-if="activeTab === 'payments'" class="tab-content p-3">
 			<h5 class="mb-3">
-				<icon name="mdi:history" />
+				<icon name="mdi:history"/>
 				Payment History
 			</h5>
 			<div class="table-responsive">
 				<table class="table table-hover">
 					<thead class="table-light">
-						<tr>
-							<th>Date</th>
-							<th>AVAX Amount</th>
-							<th>USDT Amount</th>
-						</tr>
+					<tr>
+						<th>Date</th>
+						<th>AVAX Amount</th>
+						<th>USDT Amount</th>
+					</tr>
 					</thead>
 					<tbody>
-						<tr v-for="transaction in paymentHistory" :key="transaction.timestamp">
-							<td>
-								<icon name="mdi:calendar" class="me-1" />
-								{{ new Date(transaction.timestamp).toLocaleString() }}
-							</td>
-							<td>
-								<icon name="mdi:currency-usd" class="me-1" />
-								{{ transaction.avaxAmount }} AVAX
-							</td>
-							<td>
-								{{ transaction.usdtAmount }} USDT
-							</td>
-						</tr>
+					<tr v-for="transaction in paymentHistory" :key="transaction.timestamp">
+						<td>
+							<icon name="mdi:calendar" class="me-1"/>
+							{{ new Date(transaction.timestamp).toLocaleString() }}
+						</td>
+						<td>
+							<icon name="mdi:currency-usd" class="me-1"/>
+							{{ transaction.avaxAmount }} AVAX
+						</td>
+						<td>
+							{{ transaction.usdtAmount }} USDT
+						</td>
+					</tr>
 					</tbody>
 				</table>
 			</div>
@@ -137,7 +137,7 @@
 
 <script setup>
 
-	const { successToast, errorToast } = usePrettyToast();
+	const {successToast, errorToast} = usePrettyToast();
 
 	const props = defineProps({
 		close: {
@@ -149,7 +149,7 @@
 
 	const amount = ref(0);
 	const selectedCurrency = ref('USD');
-	const currencies = [ 'USD', 'AVAX' ];
+	const currencies = ['USD', 'AVAX'];
 	const activeTab = ref('funding');
 	const paymentHistory = ref([]);
 	const loadingState = ref(false);
@@ -158,7 +158,7 @@
 	const getExchangeRate = async () => {
 		try {
 			return await cryptoStore.getAvaxPrice();
-		} catch(error) {
+		} catch (error) {
 			console.error('Error fetching exchange rate:', error);
 			return 0;
 		}
@@ -166,8 +166,12 @@
 
 	const syncBalances = async () => {
 		/// route = '/synchronize-payment-history'
-		const { data } = await useBaseFetch('/web3/synchronize-payment-history');
-		console.log('SYNC BALANCES: ', data.value.data);
+		try {
+			const {data} = await useBaseFetch('/web3/synchronize-payment-history');
+			// console.log('SYNC BALANCES: ', data.value.data);
+		} catch (error) {
+			console.error('Error syncing balances:', error);
+		}
 	};
 
 	const exchangeRate = ref(0);
@@ -179,7 +183,7 @@
 	});
 
 	const usdValue = computed(() => {
-		if(selectedCurrency.value === 'USD') {
+		if (selectedCurrency.value === 'USD') {
 			return amount.value;
 		} else {
 			return amount.value * exchangeRate.value;
@@ -190,7 +194,7 @@
 		loadingState.value = true;
 		messageForUser.value = '';
 		try {
-			const { data } = await useBaseFetch(`/web3/build-record-payment-transaction/${ cryptoStore.currentAccount }`, {
+			const {data} = await useBaseFetch(`/web3/build-record-payment-transaction/${cryptoStore.currentAccount}`, {
 				method: 'POST',
 				body: {
 					avaxAmount: selectedCurrency.value === 'AVAX' ? amount.value : 0,
@@ -198,26 +202,26 @@
 				},
 			});
 
-			if(data.value.data) {
+			if (data.value.data) {
 				const recordPaymentTx = data.value.data;
 				console.log('RECORD TX_: ', recordPaymentTx);
 				const signedTx = await cryptoStore.globalProvider.getSigner().sendTransaction(recordPaymentTx);
 				const tx1 = await signedTx.wait(3);
 				console.log('TX1: ', tx1);
-				if(tx1.status == 1) {
+				if (tx1.status == 1) {
 					/// obtain the amount in USD
 					const amountInUSD = selectedCurrency.value === 'USD' ? amount.value : amount.value * exchangeRate.value;
-					successToast(`Funding of ${ amount.value } ${ selectedCurrency.value } successful!`);
-					messageForUser.value = `Funded account with ${ amountInUSD.toFixed(2) } USD, if you don't see the transaction, please wait a few seconds and refresh the page.`;
+					successToast(`Funding of ${amount.value} ${selectedCurrency.value} successful!`);
+					messageForUser.value = `Funded account with ${amountInUSD.toFixed(2)} USD, if you don't see the transaction, please wait a few seconds and refresh the page.`;
 				} else {
-					errorToast(`Error funding account: ${ tx1 }`);
+					errorToast(`Error funding account: ${tx1}`);
 				}
 				await fetchPaymentHistory();
 			} else {
 				throw new Error('Error building record payment transaction');
 			}
-		} catch(error) {
-			errorToast(`Error funding account: ${ error.message }`);
+		} catch (error) {
+			errorToast(`Error funding account: ${error.message}`);
 		} finally {
 			loadingState.value = false;
 			messageForUser.value = '';
@@ -227,16 +231,16 @@
 
 	const fetchPaymentHistory = async () => {
 		try {
-			const { data } = await useBaseFetch(`/web3/payment-history/${ cryptoStore.currentAccount }`, {
+			const {data} = await useBaseFetch(`/web3/payment-history/${cryptoStore.currentAccount}`, {
 				method: 'GET',
 			});
 
-			if(data.value.data) {
+			if (data.value.data) {
 				paymentHistory.value = data.value.data;
 			} else {
 				throw new Error('Error fetching payment history');
 			}
-		} catch(error) {
+		} catch (error) {
 			console.error('Error fetching payment history:', error);
 		}
 	};

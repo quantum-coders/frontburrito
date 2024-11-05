@@ -162,17 +162,21 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
+		console.info("checkpint....")
 		const isMobileParam = route?.query?.isMobileDevice ?? 'false';
 		console.log('isMobileDevice:', isMobileParam);
-		if (isMobileParam) {
+		if (isMobileParam === 'true') {
+			console.info("Estas entrando?")
 			await initProvider('metamask', true, false)
 		}
-		console.log('is Mobile', isMobile);
+		console.log('idaadfs Mobile', isMobile);
 		let providerName = localStorage.getItem('providerName');
-		console.log('providerName', providerName);
+		console.log('prasdfasdfasdfasdfasdfoviderName', providerName);
 		if(providerName !== '' && providerName != null) {
 			await initProvider(providerName, true);
 		}
+		const resMetamask = await injectedProvider('io.metamask');
+		console.info("------------------>metamask", resMetamask);
 		metamaskInstalled.value = await injectedProvider('io.metamask');
 		rabbyInstalled.value = await injectedProvider('io.rabby');
 		coreInstalled.value = !!window.avalanche;
