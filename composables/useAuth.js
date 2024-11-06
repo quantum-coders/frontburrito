@@ -20,6 +20,8 @@ export const useAuth = () => {
 
 		if(!error.value) setUser(data.value.data);
 
+		// call me
+		await me(data.value.data.accessToken);
 		return { error, data };
 	};
 

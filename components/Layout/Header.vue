@@ -1,9 +1,7 @@
 <template>
 	<header class="site-header">
 		<div class="d-flex align-items-center justify-content-between">
-
 			<layout-logo />
-
 			<div class="d-flex align-items-center">
 				<nav class="primary-navigation">
 					<ul class="list-unstyled">
@@ -16,7 +14,6 @@
 						<li><nuxt-link to="/team">Team</nuxt-link></li>
 					</ul>
 				</nav>
-
 				<layout-wallet />
 			</div>
 		</div>

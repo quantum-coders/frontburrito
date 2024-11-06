@@ -4,93 +4,83 @@
 			<button type="button" class="btn-close" aria-label="Close" @click.prevent="close"></button>
 			<h5 class="wallet-title text-center">Connect a wallet</h5>
 		</div>
-
 		<div class="loading" :class="{ 'active': loading }">
-			<!-- bootstrap spinner -->
 			<div class="spinner-border text-primary" role="status">
 				<span class="visually-hidden">Loading...</span>
 			</div>
 		</div>
-
 		<div class="px-3">
 			<nav class="wallets">
 				<div class="row align-items-stretch" v-if="$device.isDesktop">
+					<!-- Core Wallet -->
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
-						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
-
-						<div
-							v-if="$device.isDesktop"
-							class="wallet"
-						>
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif"/>
+						<div class="wallet">
 							<a
 								v-if="!coreInstalled"
 								href="https://core.app"
 								target="_blank"
 								class="wallet-link"
-							/>
-							<a v-else @click.prevent="doConnect('core')" href="#" class="wallet-link" />
-							<img
-								class="wallet-sprite sprite-core"
-								src="/images/wallets/core.gif"
-								alt="Core"
-							>
+							></a>
+							<a v-else @click.prevent="doConnect('core')" href="#" class="wallet-link"></a>
+							<img class="wallet-sprite sprite-core" src="/images/wallets/core.gif" alt="Core"/>
 							<p class="wallet-name">Core</p>
 							<p class="wallet-status">
-								<span class="installed" v-if="coreInstalled">
-									<span class="inst">Installed</span>
-									<span class="conn">Connect</span>
-								</span>
+                <span class="installed" v-if="coreInstalled">
+                  <span class="inst">Installed</span>
+                  <span class="conn">Connect</span>
+                </span>
 								<span class="get" v-else>Get</span>
 							</p>
 						</div>
 					</div>
+					<!-- MetaMask Wallet -->
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
-						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
-
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif"/>
 						<div class="wallet">
 							<a
 								v-if="!metamaskInstalled"
 								href="https://metamask.io/"
 								target="_blank"
 								class="wallet-link"
-							/>
-							<a v-else @click.prevent="doConnect('metamask')" href="#" class="wallet-link" />
+							></a>
+							<a v-else @click.prevent="doConnect('metamask')" href="#" class="wallet-link"></a>
 							<img
 								class="wallet-sprite sprite-metamask"
 								src="/images/wallets/metamask.gif"
 								alt="Metamask"
-							>
+							/>
 							<p class="wallet-name">Metamask</p>
 							<p class="wallet-status">
-								<span class="installed" v-if="metamaskInstalled">
-									<span class="inst">Installed</span>
-									<span class="conn">Connect</span>
-								</span>
+									<span class="installed" v-if="metamaskInstalled">
+									  <span class="inst">Installed</span>
+									  <span class="conn">Connect</span>
+									</span>
 								<span class="get" v-else>Get</span>
 							</p>
 						</div>
 					</div>
+					<!-- Rabby Wallet -->
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
-						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
-
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif"/>
 						<div class="wallet">
 							<a
 								v-if="!rabbyInstalled"
 								href="https://rabby.io/"
 								target="_blank"
 								class="wallet-link"
-							/>
-							<a v-else @click.prevent="doConnect('rabby')" href="#" class="wallet-link" />
+							></a>
+							<a v-else @click.prevent="doConnect('rabby')" href="#" class="wallet-link"></a>
 							<img
 								class="wallet-sprite sprite-rabby"
 								src="/images/wallets/rabby.gif"
 								alt="Rabby Wallet"
-							>
+							/>
 							<p class="wallet-name">Rabby Wallet</p>
 							<p class="wallet-status">
 								<span class="installed" v-if="rabbyInstalled">
-									<span class="inst">Installed</span>
-									<span class="conn">Connect</span>
+								  <span class="inst">Installed</span>
+								  <span class="conn">Connect</span>
 								</span>
 								<span class="get" v-else>Get</span>
 							</p>
@@ -99,61 +89,45 @@
 				</div>
 				<div class="row align-items-center justify-content-center" v-else>
 					<div class="wallet">
-						<a @click.prevent="doConnect('walletconnect')" href="#" class="wallet-link" />
+						<a @click.prevent="doConnect('metamask')" href="#" class="wallet-link"></a>
 						<img
 							class="wallet-sprite sprite-metamask"
 							src="/images/wallets/metamask.gif"
 							alt="Metamask"
-						>
+						/>
 						<p class="wallet-name">WalletConnect</p>
 						<p class="wallet-status">
-							<span class="installed">
-								<span
-									class="conn"
-									@click.prevent="doConnect('walletconnect')"
-								>Connect</span>
-							</span>
+						  <span class="installed">
+							<span
+								class="conn"
+								@click.prevent="doConnect('metamask')"
+							>Connect</span>
+						  </span>
 						</p>
 						<p class="text-muted small">
-							In order to connect your wallet, you must have Metamask App installed on your device.
+							In order to connect your wallet, you must have MetaMask App installed on your device.
 						</p>
 					</div>
 				</div>
 			</nav>
-			<div class="copy d-none">
-				<h4>What is a Wallet?</h4>
-
-				<h6>A Secure Digital Asset Holder</h6>
-				<p>Wallets store, send, receive, and showcase digital assets such as Ethereum and NFTs.</p>
-
-				<h6>A Simplified Login Experience</h6>
-				<p>Rather than creating new accounts and passwords for each website, simply connect your wallet.</p>
-			</div>
 		</div>
 	</div>
 </template>
 <script setup>
-	const cryptoStore = useCryptoStore();
-	import { injectedProvider } from 'thirdweb/wallets';
-	const { isMobile } = useDevice();
-	const route = useRoute();
+	import {injectedProvider} from "thirdweb/wallets";
+
+	const {isMobile} = useDevice();
 	const loading = ref(false);
 
-	const {
-		initProvider,
-		requestNetworkChange,
-		checkConnection,
-		loginWithMetamask,
-	} = useWeb3();
+	const {initProvider} = useWeb3();
 
-	const emit = defineEmits([ 'connect' ]);
-
-	const nftCounter = ref(0);
+	const emit = defineEmits(['connect']);
 
 	const props = defineProps({
 		close: {
 			type: Function,
-			default: () => {},
+			default: () => {
+			},
 		},
 	});
 
@@ -162,34 +136,22 @@
 	const rabbyInstalled = ref(false);
 
 	onMounted(async () => {
-		console.info("checkpint....")
-		const isMobileParam = route?.query?.isMobileDevice ?? 'false';
-		console.log('isMobileDevice:', isMobileParam);
-		if (isMobileParam === 'true') {
-			console.info("Estas entrando?")
-			await initProvider('metamask', true, false)
+		const providerName = localStorage.getItem('providerName');
+		if (providerName) {
+			await initProvider(providerName, true, isMobile);
 		}
-		console.log('idaadfs Mobile', isMobile);
-		let providerName = localStorage.getItem('providerName');
-		console.log('prasdfasdfasdfasdfasdfoviderName', providerName);
-		if(providerName !== '' && providerName != null) {
-			await initProvider(providerName, true);
-		}
-		const resMetamask = await injectedProvider('io.metamask');
-		console.info("------------------>metamask", resMetamask);
 		metamaskInstalled.value = await injectedProvider('io.metamask');
 		rabbyInstalled.value = await injectedProvider('io.rabby');
 		coreInstalled.value = !!window.avalanche;
-
 	});
 
 	const doConnect = async (provider) => {
 		loading.value = true;
 		try {
 			await initProvider(provider, false, isMobile);
-			loading.value = false;
-		} catch(e) {
+		} catch (e) {
 			console.error(e);
+		} finally {
 			loading.value = false;
 		}
 		emit('connect');
