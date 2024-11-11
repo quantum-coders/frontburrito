@@ -79,7 +79,13 @@ export default defineNuxtConfig({
         }
     },
     gtag: {
-        id: 'G-K21GBXQZ0E'
+        id: 'G-K21GBXQZ0E',
+        enabled: process.env.NODE_ENV === 'production',
+        config: {
+            page_title: 'Burrito AI',
+            send_page_view: true,
+            link_attribution: true
+        }
     },
 
 
