@@ -1,66 +1,83 @@
 export const useAuth = () => {
+    const authUser = useAuthUser();
+    const isAuthenticating = ref(false);
 
-	const authUser = useAuthUser();
+    const isAuthenticated = computed(() => {
+        const authToken = localStorage.getItem('authToken');
+        const meUser = localStorage.getItem('isUserSet');
+        return authToken !== null &&
+            authToken !== 'null' &&
+            authToken !== '' &&
+            authToken !== 'undefined' &&
+            authToken !== undefined &&
+            meUser === 'true';
+    });
 
-	const setUser = (user) => {
-		if(process.client && user && user.accessToken) localStorage.setItem('authToken', user.accessToken);
-		authUser.value = user;
-		useCryptoStore().userBalance = user?.balance || 0.00;
-	};
+    const setUser = (user) => {
+        if (process.client && user && user.accessToken) {
+            localStorage.setItem('authToken', user.accessToken);
+        }
+        authUser.value = user;  // Esto actualiza el estado directamente
+        useCryptoStore().userBalance = user?.balance || 0.00;
+    };
 
-	const login = async ({
-		username,
-		password,
-	}) => {
+    const login = async ({
+        username,
+        password,
+    }) => {
+        isAuthenticating.value = true;
+        try {
+            const {error, data} = await useBaseFetch('/users/login', {
+                method: 'POST',
+                body: {username, password},
+            });
 
-		const { error, data } = await useBaseFetch('/users/login', {
-			method: 'POST',
-			body: { username, password },
-		});
+            if (!error.value) setUser(data.value.data);
 
-		if(!error.value) setUser(data.value.data);
+            // call me
+            await me(data.value.data.accessToken);
+            return {error, data};
+        } finally {
+            isAuthenticating.value = false;
+        }
+    };
 
-		// call me
-		await me(data.value.data.accessToken);
-		return { error, data };
-	};
+    const logout = async () => {
+        // TODO: Check how to use cookies instead of localStorage
+        if (process.client) localStorage.setItem('authToken', null);
+        if (process.client) localStorage.setItem('isUserSet', null);
+        setUser(false);
 
-	const logout = async () => {
-		// TODO: Check how to use cookies instead of localStorage
-		if(process.client) localStorage.setItem('authToken', null);
-		setUser(false);
+        navigateTo('/');
+    };
 
-		navigateTo('/');
-	};
+    const me = async (token) => {
+        try {
+            if (!!token && token !== 'null' && token !== 'undefined' && token !== '' && token !== null) {
+                const {error, data} = await useBaseFetch('/users/me', {
+                    method: 'GET',
+                    headers: [
+                        ['Authorization', `Bearer ${token}`],
+                    ],
+                });
 
-	const me = async (token) => {
-		if(!authUser.value) {
-			try {
-				if(!!token && token !== 'null') {
+                if (!error.value) {
+                    setUser(data.value.data);
+                    localStorage.setItem('isUserSet', 'true');
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        return authUser;
+    };
 
-					const { error, data } = await useBaseFetch('/users/me', {
-						method: 'GET',
-						// TODO: maybe we dont need to pass this
-						headers: [
-							[ 'Authorization', `Bearer ${ token }` ],
-						],
-					});
-
-					if(!error.value) setUser(data.value.data);
-				}
-
-			} catch(error) {
-				console.log(error);
-			}
-		}
-
-		return authUser;
-	};
-
-	return {
-		login,
-		logout,
-		me,
-		setUser,
-	};
+    return {
+        login,
+        isAuthenticated,
+        logout,
+        me,
+        setUser,
+        isAuthenticating
+    };
 };

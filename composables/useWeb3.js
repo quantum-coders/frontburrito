@@ -25,42 +25,36 @@ export const useWeb3 = () => {
 	};
 
 	const getAccount = () => window.localStorage.getItem('currentAccount') || null;
-
-	const initProvider = async (providerName, connected = false, isMobile = false) => {
-		cryptoStore.initLoading = true;
-		cryptoStore.currentAccount = getAccount();
-		let provider;
-
-		try {
-			provider = await getThirdWebWalletProvider(providerName, connected, isMobile);
-			window.localStorage.setItem('providerName', providerName);
-			cryptoStore.globalProvider = markRaw(provider);
-
-			if (cryptoStore.currentAccount) {
-				cryptoStore.burritoBalance = await burritoBalance();
-				cryptoStore.avaxBalance = await avaxBalance();
-				cryptoStore.usdtBalance = await usdtBalance();
-			}
-
-			setListeners(true);
-			await onAccountsChanged();
-		} catch (error) {
-			console.error('Error initializing provider', error);
-		} finally {
-			cryptoStore.initLoading = false;
-		}
-	};
-
 	const etherToWei = (etherUnits) => ethers.utils.parseEther(etherUnits);
 	const weiToEther = (weiUnits) => ethers.utils.formatEther(weiUnits);
 
 	const setListeners = (shouldListen) => {
-		if (shouldListen && cryptoStore.globalProvider) {
-			cryptoStore.globalProvider.provider.on('accountsChanged', onAccountsChanged);
-			cryptoStore.globalProvider.provider.on('chainChanged', onChainChanged);
-		} else if (cryptoStore.globalProvider) {
-			cryptoStore.globalProvider.provider.removeListener('accountsChanged', onAccountsChanged);
-			cryptoStore.globalProvider.provider.removeListener('chainChanged', onChainChanged);
+		// Verificar si el provider existe y tiene el método correcto para eventos
+		const provider = cryptoStore.globalProvider?.provider || cryptoStore.globalProvider;
+
+		if (!provider) {
+			console.error('No provider available for setting listeners');
+			return;
+		}
+
+		// Determinar el método correcto para agregar/remover listeners
+		const addListener = provider.on || provider.addListener;
+		const removeListener = provider.removeListener || provider.off;
+
+		if (shouldListen && addListener) {
+			// Remover listeners existentes primero para evitar duplicados
+			if (removeListener) {
+				removeListener('accountsChanged', onAccountsChanged);
+				removeListener('chainChanged', onChainChanged);
+			}
+
+			// Agregar nuevos listeners
+			addListener('accountsChanged', onAccountsChanged);
+			addListener('chainChanged', onChainChanged);
+		} else if (!shouldListen && removeListener) {
+			// Remover listeners
+			removeListener('accountsChanged', onAccountsChanged);
+			removeListener('chainChanged', onChainChanged);
 			window.localStorage.removeItem('currentAccount');
 		}
 	};
@@ -152,44 +146,54 @@ export const useWeb3 = () => {
 	};
 
 	const connectWallet = async () => {
-		cryptoStore.initLoading = true;
+    console.info('--------------> Connecting wallet...');
+    cryptoStore.initLoading = true;
+    const auth = useAuth();
+    auth.isAuthenticating.value = true;
 
-		try {
-			const accounts = await cryptoStore.globalProvider.listAccounts();
+    try {
+        const accounts = await cryptoStore.globalProvider.listAccounts();
 
-			if (!accounts.length) {
-				console.error('No accounts found');
-				await disconnectWallet();
-				return;
-			}
+        if (!accounts.length) {
+            console.error('No accounts found');
+            await disconnectWallet();
+            return;
+        }
 
-			await cryptoStore.globalProvider.send('eth_requestAccounts', []);
-			const signer = cryptoStore.globalProvider.getSigner();
-			window.localStorage.setItem('currentAccount', await signer.getAddress());
-			cryptoStore.currentAccount = getAccount();
-			cryptoStore.burritoBalance = await burritoBalance();
-			cryptoStore.avaxBalance = await avaxBalance();
-			cryptoStore.usdtBalance = await usdtBalance();
+        await cryptoStore.globalProvider.send('eth_requestAccounts', []);
+        const signer = cryptoStore.globalProvider.getSigner();
+        const address = await signer.getAddress();
 
-			const {data} = await useBaseFetch('/users/authenticate', {
-				method: 'POST',
-				body: {wallet: cryptoStore.currentAccount},
-			});
+        window.localStorage.setItem('currentAccount', address);
+        cryptoStore.currentAccount = address;
 
-			if (data.value) {
-				localStorage.setItem('authToken', data.value.token);
-			}
-		} catch (error) {
-			console.error('Error connecting wallet', error);
-			await disconnectWallet();
+        // Primero autenticar
+        const { data } = await useBaseFetch('/users/authenticate', {
+            method: 'POST',
+            body: { wallet: address },
+        });
 
-			if (error.code === -32002) {
-				errorToast('Metamask connection is already in progress, please confirm in Metamask', 'bottom-right');
-			}
-		} finally {
-			cryptoStore.initLoading = false;
-		}
-	};
+        if (data.value) {
+            localStorage.setItem('authToken', data.value.token);
+            await auth.me(data.value.token);
+
+            // Solo obtener balances después de la autenticación
+            cryptoStore.burritoBalance = await burritoBalance();
+            cryptoStore.avaxBalance = await avaxBalance();
+            cryptoStore.usdtBalance = await usdtBalance();
+        }
+    } catch (error) {
+        console.error('Error connecting wallet', error);
+        await disconnectWallet();
+
+        if (error.code === -32002) {
+            errorToast('Metamask connection is already in progress, please confirm in Metamask');
+        }
+    } finally {
+        cryptoStore.initLoading = false;
+        auth.isAuthenticating.value = false;
+    }
+};
 
 	const disconnectWallet = async () => {
 		try {
@@ -293,39 +297,81 @@ export const useWeb3 = () => {
 			decodeErrors(error);
 		}
 	};
+	const initProvider = async (providerName, connected = false, isMobile = false) => {
+		cryptoStore.initLoading = true;
+		cryptoStore.currentAccount = getAccount();
+		let provider;
 
+		try {
+			provider = await getThirdWebWalletProvider(providerName, connected, isMobile);
+
+			// Asegurarse de que el provider sea válido
+			if (!provider) {
+				throw new Error('Failed to initialize provider');
+			}
+
+			window.localStorage.setItem('providerName', providerName);
+			cryptoStore.globalProvider = markRaw(provider);
+
+			// Configurar listeners después de inicializar el provider
+			setListeners(true);
+
+			if (cryptoStore.currentAccount) {
+				cryptoStore.burritoBalance = await burritoBalance();
+				cryptoStore.avaxBalance = await avaxBalance();
+				cryptoStore.usdtBalance = await usdtBalance();
+			}
+
+			await onAccountsChanged();
+		} catch (error) {
+			console.error('Error initializing provider', error);
+			errorToast('Failed to initialize wallet provider', 'bottom-right');
+		} finally {
+			cryptoStore.initLoading = false;
+		}
+	};
 	const getThirdWebWalletProvider = async (providerName, connected = false, isMobile = false) => {
 		let wallet;
-		if (isMobile) {
-			window.open('https://metamask.app.link/dapp/burritoai.finance?isMobileDevice=true', '_blank');
-			return;
+
+		try {
+			if (isMobile) {
+				window.open('https://metamask.app.link/dapp/burritoai.finance?isMobileDevice=true', '_blank');
+				return null;
+			}
+
+			switch (providerName) {
+				case 'core':
+					wallet = new CoreWallet({qrcode: false});
+					break;
+				case 'metamask':
+					wallet = new MetaMaskWallet({qrcode: false});
+					break;
+				case 'rabby':
+					wallet = new RabbyWallet({qrcode: false});
+					break;
+				default:
+					wallet = new MetaMaskWallet({qrcode: false});
+			}
+
+			await wallet.connect({
+				dappMetadata: {
+					name: 'BurritoAI',
+					url: 'https://burritoai.finance',
+					description: 'Simplifying crypto AI Markets',
+					icons: ['https://burritoai.com/favicon.ico'],
+				}
+			});
+
+			if (!connected) {
+				await wallet.signMessage('Approve Connection to BurritoAI Platform');
+			}
+
+			const signer = await wallet.getSigner();
+			return signer.provider;
+		} catch (error) {
+			console.error('Error in getThirdWebWalletProvider:', error);
+			throw error;
 		}
-
-		switch (providerName) {
-			case 'core':
-				wallet = new CoreWallet({qrcode: false});
-				break;
-			case 'metamask':
-				wallet = new MetaMaskWallet({qrcode: false});
-				break;
-			case 'rabby':
-				wallet = new RabbyWallet({qrcode: false});
-				break;
-			default:
-				wallet = new MetaMaskWallet({qrcode: false});
-		}
-
-		await wallet.connect({
-			dappMetadata: {
-				name: 'BurritoAI',
-				url: 'https://burritoai.finance',
-				description: 'Simplifying crypto AI Markets',
-				icons: ['https://burritoai.com/favicon.ico'],
-			},
-		});
-
-		if (!connected) await wallet.signMessage('Approve Connection to BurritoAI Platform');
-		return (await wallet.getSigner()).provider;
 	};
 
 	return {

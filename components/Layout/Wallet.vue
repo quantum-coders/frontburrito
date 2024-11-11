@@ -1,4 +1,7 @@
 <template>
+	<pre>
+		Autenticado? {{useAuth().isAuthenticated}}
+	</pre>
 	<div class="wallet-button" v-if="!cryptoStore.currentAccount">
 		<a href="#" @click.prevent="walletModalRef.openDialog()">Connect Wallet</a>
 		<img alt="Burrito" src="/images/burrito-photo.png"/>
@@ -101,24 +104,25 @@
 				</div>
 			</div>
 		</div>
+
+
+		<platform-dialog ref="stakingModalRef">
+			<template #default="{ close: closeDialog }">
+				<web3-staking :close="closeDialog" v-if="useAuth().isAuthenticated" />
+			</template>
+		</platform-dialog>
+
+		<platform-dialog ref="billingModalRef">
+			<template #default="{ close: closeDialog }">
+				<web3-billing :close="closeDialog" v-if="useAuth().isAuthenticated"/>
+			</template>
+		</platform-dialog>
 	</div>
 	<platform-modal ref="walletModalRef">
 		<template #default="{ close: closeDialog }">
 			<web3-wallet @connect="closeDialog" :close="closeDialog"/>
 		</template>
 	</platform-modal>
-
-	<platform-dialog ref="stakingModalRef">
-		<template #default="{ close: closeDialog }">
-			<web3-staking :close="closeDialog"/>
-		</template>
-	</platform-dialog>
-
-	<platform-dialog ref="billingModalRef">
-		<template #default="{ close: closeDialog }">
-			<web3-billing :close="closeDialog"/>
-		</template>
-	</platform-dialog>
 </template>
 
 
