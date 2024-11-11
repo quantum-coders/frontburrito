@@ -1,7 +1,4 @@
 <template>
-	<pre>
-		Autenticado? {{useAuth().isAuthenticated}}
-	</pre>
 	<div class="wallet-button" v-if="!cryptoStore.currentAccount">
 		<a href="#" @click.prevent="walletModalRef.openDialog()">Connect Wallet</a>
 		<img alt="Burrito" src="/images/burrito-photo.png"/>
