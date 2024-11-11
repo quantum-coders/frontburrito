@@ -79,14 +79,7 @@ export default defineNuxtConfig({
         }
     },
     gtag: {
-        initCommands: [
-            ['consent', 'default', {
-                ad_storage: 'denied',
-                analytics_storage: 'denied',
-                wait_for_update: 500
-            }]
-        ]
-
+        id: 'G-K21GBXQZ0E'
     },
 
 
