@@ -59,7 +59,7 @@
 				body: JSON.stringify({ email: email.value }),
 			});
 
-			disableWaitList(forever);
+			disableWaitList(true);
 		}
 	};
 
