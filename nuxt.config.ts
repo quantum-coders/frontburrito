@@ -62,6 +62,7 @@ export default defineNuxtConfig({
         public: {
             baseURL: process.env.BASE_URL || 'http://localhost:1337',
             rpcProvider: process.env.RPC_PROVIDER,
+            clientURL: process.env.CLIENT_URL || 'https://burritoai.finance',
             burritoTokenAddress: process.env.BURRITO_TOKEN_ADDRESS,
             usdtAddress: process.env.USDT_ADDRESS,
             chainId: process.env.CHAIN_ID,

@@ -29,35 +29,71 @@ export const useWeb3 = () => {
 	const weiToEther = (weiUnits) => ethers.utils.formatEther(weiUnits);
 
 	const setListeners = (shouldListen) => {
-		// Verificar si el provider existe y tiene el método correcto para eventos
-		const provider = cryptoStore.globalProvider?.provider || cryptoStore.globalProvider;
+    try {
+        // Obtener el provider correcto con fallback seguro
+        const provider = cryptoStore.globalProvider?.provider || cryptoStore.globalProvider;
 
-		if (!provider) {
-			console.error('No provider available for setting listeners');
-			return;
-		}
+        if (!provider) {
+            console.warn('No provider available for setting listeners');
+            return;
+        }
 
-		// Determinar el método correcto para agregar/remover listeners
-		const addListener = provider.on || provider.addListener;
-		const removeListener = provider.removeListener || provider.off;
+        // Funciones de evento
+        const onAccountsChanged = async (accounts) => {
+            if (Array.isArray(accounts) && accounts.length === 0) {
+                await disconnectWallet();
+                return;
+            }
+            await connectWallet();
+            await isCorrectNetwork();
+        };
 
-		if (shouldListen && addListener) {
-			// Remover listeners existentes primero para evitar duplicados
-			if (removeListener) {
-				removeListener('accountsChanged', onAccountsChanged);
-				removeListener('chainChanged', onChainChanged);
-			}
+        const onChainChanged = async () => {
+            await initProvider(window.localStorage.getItem('providerName'), true);
+            await isCorrectNetwork();
+        };
 
-			// Agregar nuevos listeners
-			addListener('accountsChanged', onAccountsChanged);
-			addListener('chainChanged', onChainChanged);
-		} else if (!shouldListen && removeListener) {
-			// Remover listeners
-			removeListener('accountsChanged', onAccountsChanged);
-			removeListener('chainChanged', onChainChanged);
-			window.localStorage.removeItem('currentAccount');
-		}
-	};
+        // Función segura para agregar/remover listeners
+        const safeSetListener = (eventName, handler) => {
+            try {
+                if (shouldListen) {
+                    // Primero intentamos remover para evitar duplicados
+                    if (typeof provider.removeListener === 'function') {
+                        provider.removeListener(eventName, handler);
+                    } else if (typeof provider.off === 'function') {
+                        provider.off(eventName, handler);
+                    }
+
+                    // Luego agregamos el nuevo listener
+                    if (typeof provider.on === 'function') {
+                        provider.on(eventName, handler);
+                    } else if (typeof provider.addListener === 'function') {
+                        provider.addListener(eventName, handler);
+                    }
+                } else {
+                    // Removemos los listeners
+                    if (typeof provider.removeListener === 'function') {
+                        provider.removeListener(eventName, handler);
+                    } else if (typeof provider.off === 'function') {
+                        provider.off(eventName, handler);
+                    }
+                }
+            } catch (error) {
+                console.warn(`Error managing ${eventName} listener:`, error);
+            }
+        };
+
+        // Configurar cada evento de manera segura
+        safeSetListener('accountsChanged', onAccountsChanged);
+        safeSetListener('chainChanged', onChainChanged);
+
+        if (!shouldListen) {
+            window.localStorage.removeItem('currentAccount');
+        }
+    } catch (error) {
+        console.warn('Error in setListeners:', error);
+    }
+};
 
 	const requestNetworkChange = async () => {
 		const chainHexId = chainId === 43114 ? '0xa86a' : '0xa869';
@@ -304,12 +340,14 @@ export const useWeb3 = () => {
 
 		try {
 			provider = await getThirdWebWalletProvider(providerName, connected, isMobile);
-
+			if(provider === null) return 'Provider is null, mobile detected';
 			// Asegurarse de que el provider sea válido
 			if (!provider) {
-				throw new Error('Failed to initialize provider');
+				throw new Error('Failed to initialize provider', provider);
 			}
 
+			// delete  key providerName
+			// window.localStorage.removeItem('providerName');
 			window.localStorage.setItem('providerName', providerName);
 			cryptoStore.globalProvider = markRaw(provider);
 
@@ -325,7 +363,7 @@ export const useWeb3 = () => {
 			await onAccountsChanged();
 		} catch (error) {
 			console.error('Error initializing provider', error);
-			errorToast('Failed to initialize wallet provider', 'bottom-right');
+			errorToast(`Failed to initialize wallet provider with error: ${error}`, 'bottom-right');
 		} finally {
 			cryptoStore.initLoading = false;
 		}
@@ -333,9 +371,12 @@ export const useWeb3 = () => {
 	const getThirdWebWalletProvider = async (providerName, connected = false, isMobile = false) => {
 		let wallet;
 
+		console.info("Parameters are providerName:", providerName, "connected:", connected, "isMobile:", isMobile);
+
 		try {
 			if (isMobile) {
-				window.open('https://metamask.app.link/dapp/burritoai.finance?isMobileDevice=true', '_blank');
+				const clientUrl = useRuntimeConfig().public.clientURL;
+				window.open(`https://metamask.app.link/dapp/${clientUrl}?isMobileDevice=true`, '_blank');
 				return null;
 			}
 

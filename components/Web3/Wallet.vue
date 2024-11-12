@@ -95,7 +95,7 @@
 							src="/images/wallets/metamask.gif"
 							alt="Metamask"
 						/>
-						<p class="wallet-name">WalletConnect</p>
+						<p class="wallet-name">Metamask</p>
 						<p class="wallet-status">
 						  <span class="installed">
 							<span
@@ -104,8 +104,11 @@
 							>Connect</span>
 						  </span>
 						</p>
-						<p class="text-muted small">
+						<p class="text-muted small" v-if="isMobileParadox === null">
 							In order to connect your wallet, you must have MetaMask App installed on your device.
+						</p>
+						<p>
+							Connect your wallet to start using the app.
 						</p>
 					</div>
 				</div>
@@ -118,6 +121,7 @@
 
 	const {isMobile} = useDevice();
 	const loading = ref(false);
+	const router = useRouter();
 
 	const {initProvider} = useWeb3();
 
@@ -134,11 +138,36 @@
 	const metamaskInstalled = ref(false);
 	const coreInstalled = ref(false);
 	const rabbyInstalled = ref(false);
+	const isMobileParadox = ref(null);
+
 
 	onMounted(async () => {
+		isMobileParadox.value = router.currentRoute.value.query.isMobileDevice;
+		if (isMobileParadox.value) isMobileParadox.value = false
+		console.info("router.currentRoute.value.query.isMobileDevice: ", router.currentRoute.value.query.isMobileDevice);
+		console.info("isMobileQueryParameter?: ", isMobileParadox.value);
+		// gret the query param: isMobileDevice
 		const providerName = localStorage.getItem('providerName');
 		if (providerName) {
-			await initProvider(providerName, true, isMobile);
+			let connected = false;
+			if (providerName !== '' && providerName !== 'undefined' && providerName !== 'null') {
+				if (providerName === 'walletconnect') {
+					// delete the walletconnect provider
+					localStorage.removeItem('providerName');
+					connected = false
+				} else {
+					console.info("Provider: ", providerName);
+					connected = true
+				}
+			}
+			let isMobileFinalCheck = true;
+			if (isMobileParadox.value === false) {
+				isMobileFinalCheck = false
+			}else{
+				isMobileFinalCheck = isMobile
+			}
+			console.info("isMobile Final Check: ", isMobileFinalCheck);
+			await initProvider(providerName, connected, isMobileFinalCheck);
 		}
 		metamaskInstalled.value = await injectedProvider('io.metamask');
 		rabbyInstalled.value = await injectedProvider('io.rabby');
@@ -148,8 +177,17 @@
 	const doConnect = async (provider) => {
 		loading.value = true;
 		try {
-			await initProvider(provider, false, isMobile);
+			let isMobileFinalCheck = true;
+			if (isMobileParadox.value === false) {
+				isMobileFinalCheck = false
+			}else{
+				isMobileFinalCheck = isMobile
+			}
+			console.info("isMobile Final Check: ", isMobileFinalCheck);
+
+			await initProvider(provider, false, isMobileFinalCheck);
 		} catch (e) {
+			alert(e);
 			console.error(e);
 		} finally {
 			loading.value = false;
