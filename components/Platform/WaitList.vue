@@ -33,10 +33,10 @@
 		visible.value = false;
 	}
 
-	const disableWaitList = () => {
+	const disableWaitList = (forever = false) => {
 		visible.value = false;
 		// save to local storage
-		localStorage.setItem('waitList', '0');
+		if(forever) localStorage.setItem('waitList', '0');
 	};
 
 	const join = async () => {
@@ -59,7 +59,7 @@
 				body: JSON.stringify({ email: email.value }),
 			});
 
-			disableWaitList();
+			disableWaitList(forever);
 		}
 	};
 
