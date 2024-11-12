@@ -30,8 +30,8 @@
 				<img src="/images/team/marcus.png" alt="@TaoCybernetics" />
 				<div class="team-info">
 					<h2>@taocybernetics</h2>
-					<h3>Developer & Blockchain Marker Maker</h3>
-					<p>System Engineer, BurritoAI developer with 8 years of experience in blockchain, including crypto mining, dApp development, and smart contracts.</p>
+					<h3>Developer | System Engineer</h3>
+					<p>BurritoAI developer with 8 years of experience in blockchain, from expertise in GPU cryptomining to dApp development and smart contracts.</p>
 
 					<p class="text-end">
 						<a href="https://x.com/taocybernetics" class="btn btn-primary text-white">
