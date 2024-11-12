@@ -7,7 +7,7 @@
 
 		<p class="error fs-7" v-if="!!error">{{ error }}</p>
 
-		<p>Join our wait list to be the first to get Burrito AI News!</p>
+		<p>Join our wait list to be the first to get BurritoAI Alphas!</p>
 		<!-- input for email and button to join -->
 		<div class="input-group">
 			<input
@@ -103,7 +103,7 @@
 			padding: 0.5rem
 			border-radius: 0.25rem
 			aspect-ratio: 1
-			width: 10px
+			width: 35px
 			position: absolute
 			background: $brand1
 			display: flex

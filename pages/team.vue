@@ -3,18 +3,35 @@
 
 	<div class="container">
 		<div class="title">
-			<h2>Who the <span class="grawlix">#$?!</span></h2>
+			<h2>Who the<span class="grawlix">#$?!</span></h2>
 			<h3>Is behind<br>this product?</h3>
 		</div>
 
 
 		<div class="team-wrapper">
+
+			<article class="team-member">
+				<img src="/images/team/business_dev.jpeg" alt="CriptoAddice" />
+				<div class="team-info">
+					<h2>CriptoAddice</h2>
+					<h3>Digital Asset Trading & Blockchain Investments</h3>
+					<p>Business developer and investor with a forward-thinking approach, he embodies the entrepreneurial spirit of Silicon Valley. Always ahead of the curve, he's fluent in both the language of tech and the nuances of investment.</p>
+
+					<p class="text-end">
+						<!-- <a href="#" class="btn btn-primary text-white">
+							Follow on
+							<icon name="line-md:twitter-x-alt" />
+						</a> -->
+					</p>
+				</div>
+			</article>
+
 			<article class="team-member">
 				<img src="/images/team/marcus.png" alt="@TaoCybernetics" />
 				<div class="team-info">
 					<h2>@taocybernetics</h2>
 					<h3>Developer & Blockchain Marker Maker</h3>
-					<p>System Engineer, developer at #burritoAI, hashpowerlab.web.app, lunadefi.ai and Blockchain Market Strategist with 8 years of experience in blockchain systems.</p>
+					<p>System Engineer, BurritoAI developer with 8 years of experience in blockchain, including crypto mining, dApp development, and smart contracts.</p>
 
 					<p class="text-end">
 						<a href="https://x.com/taocybernetics" class="btn btn-primary text-white">
@@ -57,21 +74,6 @@
 				</div>
 			</article>
 
-			<article class="team-member">
-				<img src="/images/team/business_dev.jpeg" alt="Erick Niet" />
-				<div class="team-info">
-					<h2>CriptoAddice</h2>
-					<h3>Digital Asset Trading & Blockchain Investments</h3>
-					<p>Business developer and investor with a forward-thinking approach, Erick embodies the entrepreneurial spirit of Silicon Valley. Always ahead of the curve, he's fluent in both the language of tech and the nuances of investment.</p>
-
-					<p class="text-end">
-						<!-- <a href="#" class="btn btn-primary text-white">
-							Follow on
-							<icon name="line-md:twitter-x-alt" />
-						</a> -->
-					</p>
-				</div>
-			</article>
 		</div>
 	</div>
 

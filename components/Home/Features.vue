@@ -3,10 +3,12 @@
 		<div class="container">
 
 			<div class="copy">
-				<h2 class="title">Born from collective friendship, driven by a spirit of free expression and open dialogue for limitless AI. BurritoAI brings you unapologetic and wildly entertaining AI chats. BurritoAI is here to shake things up!</h2>
+				<h2 class="title">Born from collective friendship, driven by a spirit of free expression and open dialogue. BurritoAI is here to shake things up with wildly entertaining AI chats!</h2>
 
 				<div class="content-wrapper d-flex flex-column flex-sm-row align-items-center justify-content-between">
-					<p class="content">We believe in keeping it real. None of that watered-down, sugar-coated Chat-AI you find elsewhere. Our AI is trained to chat with you like a true friend, brutally honest, hilariously blunt and delightfully candid.</p>
+					<p class="content">We believe in keeping it real. Users have ownership of their data and anonymity.
+BurritoAI holders unlock a suite of AI features, like AI-chat with web search in depth, image generation, and soon trading on-chain.
+					</p>
 					<div class="wow-wrapper">
 						<img class="wow" src="/images/wow.png" alt="WOW">
 						<div class="balloon">
@@ -22,7 +24,9 @@
 
 				<div class="copy">
 					<h3>Free Range Conversations</h3>
-					<p>Not shackled by the usual constraints. Want to talk about controversial topics with Deep Search? Go ahead! No filters, just raw unfiltered chat.</p>
+					<p>Not shackled by the usual constraints.
+						Holders also enjoy benefits from tokenomics, airdrops, Liquidity Pool incentives, APY and more.
+It’s like enjoying an AI-burrito just the way you like it! 🌯</p>
 					<p class="text-end">
 						<nuxt-link href="/chat/dashboard" class="btn btn-burrito">>CHAT</nuxt-link>
 					</p>
@@ -57,7 +61,7 @@
 				<img class="lfg" src="/images/lfg.svg" alt="">
 				<div class="copy">
 					<h3>Spice up</h3>
-					<p>Congrats! You are an early adopter! Stay tuned for special perks like access to limited-edition content, exclusive features, and priority in future drops. With staking rewards and airdrops on the horizon, your commitment will unlock even more benefits.</p>
+					<p>Congrats! You are an early adopter! Stay tuned for special perks like access to limited-edition assets, exclusive features, and priority in future drops. With airdrops on the horizon for stakers, your commitment will unlock even more benefits.</p>
 					<p class="text-end">
 						<!-- <a href="#" class="btn btn-burrito">Comming Soon</a> -->
 					</p>
