@@ -273,6 +273,10 @@
 	});
 
 	const updateStakeAmount = (stakeAmount) => {
+		// if it is not a number, set it to 0
+		if(isNaN(stakeAmount)) {
+			stakeAmount = 0;
+		}
 		amountToStake.value = stakeAmount;
 		stakePercentage.value = (stakeAmount / maxStakeAmount.value) * 100;
 	};
