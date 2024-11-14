@@ -61,12 +61,12 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             baseURL: process.env.BASE_URL || 'http://localhost:1337',
-            rpcProvider: process.env.RPC_PROVIDER,
+            rpcProvider: process.env.RPC_PROVIDER || 'https://api.avax.network/ext/bc/C/rpc',
             clientURL: process.env.CLIENT_URL || 'https://burritoai.finance',
-            burritoTokenAddress: process.env.BURRITO_TOKEN_ADDRESS,
-            usdtAddress: process.env.USDT_ADDRESS,
-            chainId: process.env.CHAIN_ID,
-            network: process.env.NETWORK,
+            burritoTokenAddress: process.env.BURRITO_TOKEN_ADDRESS || '0xf65645a42609f6b44E2EC158A3Dc2b6CfC97093f',
+            usdtAddress: process.env.USDT_ADDRESS || '0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7',
+            chainId: process.env.CHAIN_ID || '43114',
+            network: process.env.NETWORK || 'mainnet',
         },
     },
 
