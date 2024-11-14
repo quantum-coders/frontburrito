@@ -103,21 +103,21 @@
 		</div>
 
 
-		<platform-dialog ref="stakingModalRef" class="pretty-scrolls">
+		<platform-dialog ref="stakingModalRef" class="pretty-scrolls ">
 			<template #default="{ close }">
 				<web3-staking :close="() => handleClose('staking', close)"
 							  v-if="useAuth().isAuthenticated && showStakingModal"/>
 			</template>
 		</platform-dialog>
 
-		<platform-dialog ref="billingModalRef">
+		<platform-dialog ref="billingModalRef" class="">
 			<template #default="{ close }">
 				<web3-billing :close="() => handleClose('billing', close)"
 							  v-if="useAuth().isAuthenticated && showBillingModal"/>
 			</template>
 		</platform-dialog>
 	</div>
-	<platform-modal ref="walletModalRef">
+	<platform-modal ref="walletModalRef" class="">
 		<template #default="{ close }">
 			<web3-wallet @connect="close" :close="close"/>
 		</template>
@@ -190,7 +190,6 @@
 </script>
 
 <style lang="sass" scoped>
-
 	.wallet-info
 		padding-left: 1rem
 

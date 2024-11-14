@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="modal fade"
+		class="modal fade pretty-scrolls"
 		tabindex="-1"
 		role="dialog"
 		ref="modal"
@@ -56,11 +56,11 @@
 	});
 </script>
 
-<style scoped lang="sass">
+<style lang="sass" scoped>
 	.modal-dialog
 		max-width: 90%
 		width: auto
-		position: relative
+		margin: auto
 	// Importante para el posicionamiento del botón
 
 	.modal-content
