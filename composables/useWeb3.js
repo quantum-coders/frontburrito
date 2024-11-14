@@ -415,10 +415,27 @@ export const useWeb3 = () => {
 		}
 	};
 
+	const refreshBalances = async () => {
+		if (!cryptoStore.currentAccount) {
+			console.error('No current account found');
+			return;
+		}
+
+		try {
+			cryptoStore.burritoBalance = await burritoBalance();
+			cryptoStore.avaxBalance = await avaxBalance();
+			cryptoStore.usdtBalance = await usdtBalance();
+		} catch (error) {
+			console.error('Error refreshing balances', error);
+			decodeErrors(error);
+		}
+	}
+
 	return {
 		addTokenToWallet,
 		usdtBalance,
 		connectWallet,
+		refreshBalances,
 		disconnectWallet,
 		burritoBalance,
 		initProvider,

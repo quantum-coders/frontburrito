@@ -103,21 +103,23 @@
 		</div>
 
 
-		<platform-dialog ref="stakingModalRef">
-			<template #default="{ close: closeDialog }">
-				<web3-staking :close="closeDialog" v-if="useAuth().isAuthenticated" />
+		<platform-dialog ref="stakingModalRef" class="pretty-scrolls">
+			<template #default="{ close }">
+				<web3-staking :close="() => handleClose('staking', close)"
+							  v-if="useAuth().isAuthenticated && showStakingModal"/>
 			</template>
 		</platform-dialog>
 
 		<platform-dialog ref="billingModalRef">
-			<template #default="{ close: closeDialog }">
-				<web3-billing :close="closeDialog" v-if="useAuth().isAuthenticated"/>
+			<template #default="{ close }">
+				<web3-billing :close="() => handleClose('billing', close)"
+							  v-if="useAuth().isAuthenticated && showBillingModal"/>
 			</template>
 		</platform-dialog>
 	</div>
 	<platform-modal ref="walletModalRef">
-		<template #default="{ close: closeDialog }">
-			<web3-wallet @connect="closeDialog" :close="closeDialog"/>
+		<template #default="{ close }">
+			<web3-wallet @connect="close" :close="close"/>
 		</template>
 	</platform-modal>
 </template>
@@ -130,8 +132,18 @@
 
 	const walletModalRef = ref(null);
 	const stakingModalRef = ref(null);
+	const showStakingModal = ref(false);
+	const showBillingModal = ref(false);
 	const billingModalRef = ref(null);
 
+	const handleClose = (modalType, closeDialog) => {
+		if (modalType === 'staking') {
+			showStakingModal.value = false;
+		} else if (modalType === 'billing') {
+			showBillingModal.value = false;
+		}
+		closeDialog();
+	};
 	const currentAccountTrimmed = computed(() => {
 		if (cryptoStore.currentAccount) {
 			return `${cryptoStore.currentAccount.slice(0, 6)}...${cryptoStore.currentAccount.slice(-4)}`;
@@ -154,11 +166,13 @@
 
 	const handleStaking = () => {
 		stakingModalRef.value.openDialog();
+		showStakingModal.value = true;
 		showWalletMenu.value = false;
 	};
 
 	const handleBilling = () => {
 		billingModalRef.value.openDialog();
+		showBillingModal.value = true;
 		showWalletMenu.value = false;
 	};
 
@@ -315,6 +329,7 @@
 	.alert-link
 		font-size: 0.875rem
 		text-decoration: none
+
 
 </style>
 
