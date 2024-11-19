@@ -2,7 +2,7 @@
 	<teleport to="body">
 		<div class="modal-wrapper" ref="modal" v-show="visible" :class="{ hide }">
 			<div class="modal-content">
-				<slot :close="closeDialog" />
+				<slot :close="closeDialog"/>
 			</div>
 		</div>
 	</teleport>
@@ -16,7 +16,6 @@
 	const hide = ref(false);
 
 	const openDialog = () => {
-		console.log('WAX');
 		visible.value = true;
 	};
 
@@ -30,11 +29,12 @@
 
 		modal.value.addEventListener('animationend', () => {
 			// If it does not have the hide class, cancel
-			if(!modal.value.classList.contains('hide')) return;
+			if (!modal.value.classList.contains('hide')) return;
 
 			visible.value = false;
 			hide.value = false;
-			modal.value.removeEventListener('animationend', () => { }, false);
+			modal.value.removeEventListener('animationend', () => {
+			}, false);
 		});
 	};
 
@@ -42,10 +42,16 @@
 		closeDialog();
 	};
 
-	defineExpose({ openDialog, closeDialog, open, close });
+	defineExpose({openDialog, closeDialog, open, close});
 </script>
 
 <style lang="sass" scoped>
+	#wcm-modal
+		z-index: 9999 !important
+	.wcm-overlay
+		z-index: 9999 !important
+	.v-toast
+		z-index: 9999 !important
 
 	.modal-wrapper
 		position: fixed
@@ -53,7 +59,7 @@
 		left: 0
 		width: 100%
 		height: 100%
-		z-index: 10000
+		z-index: 50
 		animation: backdrop-fade 0.3s ease forwards
 		align-items: center
 		justify-content: center

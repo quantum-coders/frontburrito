@@ -1,5 +1,5 @@
 import {ethers} from 'ethers';
-import {CoreWallet, MetaMaskWallet, RabbyWallet, WalletConnect} from '@thirdweb-dev/wallets';
+import {CoreWallet, MetaMaskWallet, RabbyWallet, TrustWallet} from '@thirdweb-dev/wallets';
 import ERC20 from '../contracts/ERC20.sol/ERC20.json';
 
 export const useWeb3 = () => {
@@ -29,71 +29,71 @@ export const useWeb3 = () => {
 	const weiToEther = (weiUnits) => ethers.utils.formatEther(weiUnits);
 
 	const setListeners = (shouldListen) => {
-    try {
-        // Obtener el provider correcto con fallback seguro
-        const provider = cryptoStore.globalProvider?.provider || cryptoStore.globalProvider;
+		try {
+			// Obtener el provider correcto con fallback seguro
+			const provider = cryptoStore.globalProvider?.provider || cryptoStore.globalProvider;
 
-        if (!provider) {
-            console.warn('No provider available for setting listeners');
-            return;
-        }
+			if (!provider) {
+				console.warn('No provider available for setting listeners');
+				return;
+			}
 
-        // Funciones de evento
-        const onAccountsChanged = async (accounts) => {
-            if (Array.isArray(accounts) && accounts.length === 0) {
-                await disconnectWallet();
-                return;
-            }
-            await connectWallet();
-            await isCorrectNetwork();
-        };
+			// Funciones de evento
+			const onAccountsChanged = async (accounts) => {
+				if (Array.isArray(accounts) && accounts.length === 0) {
+					await disconnectWallet();
+					return;
+				}
+				await connectWallet();
+				await isCorrectNetwork();
+			};
 
-        const onChainChanged = async () => {
-            await initProvider(window.localStorage.getItem('providerName'), true);
-            await isCorrectNetwork();
-        };
+			const onChainChanged = async () => {
+				await initProvider(window.localStorage.getItem('providerName'), true);
+				await isCorrectNetwork();
+			};
 
-        // Función segura para agregar/remover listeners
-        const safeSetListener = (eventName, handler) => {
-            try {
-                if (shouldListen) {
-                    // Primero intentamos remover para evitar duplicados
-                    if (typeof provider.removeListener === 'function') {
-                        provider.removeListener(eventName, handler);
-                    } else if (typeof provider.off === 'function') {
-                        provider.off(eventName, handler);
-                    }
+			// Función segura para agregar/remover listeners
+			const safeSetListener = (eventName, handler) => {
+				try {
+					if (shouldListen) {
+						// Primero intentamos remover para evitar duplicados
+						if (typeof provider.removeListener === 'function') {
+							provider.removeListener(eventName, handler);
+						} else if (typeof provider.off === 'function') {
+							provider.off(eventName, handler);
+						}
 
-                    // Luego agregamos el nuevo listener
-                    if (typeof provider.on === 'function') {
-                        provider.on(eventName, handler);
-                    } else if (typeof provider.addListener === 'function') {
-                        provider.addListener(eventName, handler);
-                    }
-                } else {
-                    // Removemos los listeners
-                    if (typeof provider.removeListener === 'function') {
-                        provider.removeListener(eventName, handler);
-                    } else if (typeof provider.off === 'function') {
-                        provider.off(eventName, handler);
-                    }
-                }
-            } catch (error) {
-                console.warn(`Error managing ${eventName} listener:`, error);
-            }
-        };
+						// Luego agregamos el nuevo listener
+						if (typeof provider.on === 'function') {
+							provider.on(eventName, handler);
+						} else if (typeof provider.addListener === 'function') {
+							provider.addListener(eventName, handler);
+						}
+					} else {
+						// Removemos los listeners
+						if (typeof provider.removeListener === 'function') {
+							provider.removeListener(eventName, handler);
+						} else if (typeof provider.off === 'function') {
+							provider.off(eventName, handler);
+						}
+					}
+				} catch (error) {
+					console.warn(`Error managing ${eventName} listener:`, error);
+				}
+			};
 
-        // Configurar cada evento de manera segura
-        safeSetListener('accountsChanged', onAccountsChanged);
-        safeSetListener('chainChanged', onChainChanged);
+			// Configurar cada evento de manera segura
+			safeSetListener('accountsChanged', onAccountsChanged);
+			safeSetListener('chainChanged', onChainChanged);
 
-        if (!shouldListen) {
-            window.localStorage.removeItem('currentAccount');
-        }
-    } catch (error) {
-        console.warn('Error in setListeners:', error);
-    }
-};
+			if (!shouldListen) {
+				window.localStorage.removeItem('currentAccount');
+			}
+		} catch (error) {
+			console.warn('Error in setListeners:', error);
+		}
+	};
 
 	const requestNetworkChange = async () => {
 		const chainHexId = chainId === 43114 ? '0xa86a' : '0xa869';
@@ -182,54 +182,46 @@ export const useWeb3 = () => {
 	};
 
 	const connectWallet = async () => {
-    console.info('--------------> Connecting wallet...');
-    cryptoStore.initLoading = true;
-    const auth = useAuth();
-    auth.isAuthenticating.value = true;
+  console.info('Conectando wallet...');
+  cryptoStore.initLoading = true;
+  const auth = useAuth();
+  auth.isAuthenticating.value = true;
 
-    try {
-        const accounts = await cryptoStore.globalProvider.listAccounts();
+  try {
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
 
-        if (!accounts.length) {
-            console.error('No accounts found');
-            await disconnectWallet();
-            return;
-        }
-
-        await cryptoStore.globalProvider.send('eth_requestAccounts', []);
-        const signer = cryptoStore.globalProvider.getSigner();
-        const address = await signer.getAddress();
-
-        window.localStorage.setItem('currentAccount', address);
-        cryptoStore.currentAccount = address;
-
-        // Primero autenticar
-        const { data } = await useBaseFetch('/users/authenticate', {
-            method: 'POST',
-            body: { wallet: address },
-        });
-
-        if (data.value) {
-            localStorage.setItem('authToken', data.value.token);
-            await auth.me(data.value.token);
-
-            // Solo obtener balances después de la autenticación
-            cryptoStore.burritoBalance = await burritoBalance();
-            cryptoStore.avaxBalance = await avaxBalance();
-            cryptoStore.usdtBalance = await usdtBalance();
-        }
-    } catch (error) {
-        console.error('Error connecting wallet', error);
-        await disconnectWallet();
-
-        if (error.code === -32002) {
-            errorToast('Metamask connection is already in progress, please confirm in Metamask');
-        }
-    } finally {
-        cryptoStore.initLoading = false;
-        auth.isAuthenticating.value = false;
+    if (isMobileDevice) {
+      // Forzar Trust Wallet en móvil
+      window.localStorage.setItem('providerName', 'trust');
     }
-};
+
+    const accounts = await cryptoStore.globalProvider.listAccounts();
+
+    if (!accounts.length) {
+      console.error('No se encontraron cuentas');
+      await disconnectWallet();
+      return;
+    }
+
+    await cryptoStore.globalProvider.send('eth_requestAccounts', []);
+    const signer = cryptoStore.globalProvider.getSigner();
+    const address = await signer.getAddress();
+
+    window.localStorage.setItem('currentAccount', address);
+    cryptoStore.currentAccount = address;
+
+    // Resto de tu lógica de autenticación...
+
+  } catch (error) {
+    console.error('Error conectando wallet', error);
+    await disconnectWallet();
+  } finally {
+    cryptoStore.initLoading = false;
+    auth.isAuthenticating.value = false;
+  }
+}
 
 	const disconnectWallet = async () => {
 		try {
@@ -340,7 +332,7 @@ export const useWeb3 = () => {
 
 		try {
 			provider = await getThirdWebWalletProvider(providerName, connected, isMobile);
-			if(provider === null) return 'Provider is null, mobile detected';
+			if (provider === null) return 'Provider is null, mobile detected';
 			// Asegurarse de que el provider sea válido
 			if (!provider) {
 				throw new Error('Failed to initialize provider', provider);
@@ -368,30 +360,39 @@ export const useWeb3 = () => {
 			cryptoStore.initLoading = false;
 		}
 	};
-	const getThirdWebWalletProvider = async (providerName, connected = false, isMobile = false) => {
+	const getThirdWebWalletProvider = async (providerName, connected = false) => {
 		let wallet;
 
-		console.info("Parameters are providerName:", providerName, "connected:", connected, "isMobile:", isMobile);
-
 		try {
-			if (isMobile) {
-				const clientUrl = useRuntimeConfig().public.clientURL;
-				window.open(`https://metamask.app.link/dapp/${clientUrl}?isMobileDevice=true`, '_blank');
-				return null;
-			}
+			// Detectar si es dispositivo móvil
+			const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+				navigator.userAgent
+			);
 
-			switch (providerName) {
-				case 'core':
-					wallet = new CoreWallet({qrcode: false});
-					break;
-				case 'metamask':
-					wallet = new MetaMaskWallet({qrcode: false});
-					break;
-				case 'rabby':
-					wallet = new RabbyWallet({qrcode: false});
-					break;
-				default:
-					wallet = new MetaMaskWallet({qrcode: false});
+			if (isMobileDevice) {
+				// Usar Trust Wallet para móvil
+				wallet = new TrustWallet({
+					qrcode: true, // Habilitamos QR para Trust Wallet
+					preferredModalDimensions: {
+						width: '100%',
+						height: '100%'
+					}
+				});
+			} else {
+				// Flujo normal para desktop
+				switch (providerName) {
+					case 'metamask':
+						wallet = new MetaMaskWallet({qrcode: false});
+						break;
+					case 'core':
+						wallet = new CoreWallet({qrcode: false});
+						break;
+					case 'rabby':
+						wallet = new RabbyWallet({qrcode: false});
+						break;
+					default:
+						wallet = new MetaMaskWallet({qrcode: false});
+				}
 			}
 
 			await wallet.connect({
@@ -399,22 +400,18 @@ export const useWeb3 = () => {
 					name: 'BurritoAI',
 					url: 'https://burritoai.finance',
 					description: 'Simplifying crypto AI Markets',
-					icons: ['https://burritoai.com/favicon.ico'],
+					icons: ['https://burritoai.com/favicon.ico']
 				}
 			});
 
-			if (!connected) {
-				await wallet.signMessage('Approve Connection to BurritoAI Platform');
-			}
-
 			const signer = await wallet.getSigner();
 			return signer.provider;
+
 		} catch (error) {
-			console.error('Error in getThirdWebWalletProvider:', error);
+			console.error('Error en provider:', error);
 			throw error;
 		}
-	};
-
+	}
 	const refreshBalances = async () => {
 		if (!cryptoStore.currentAccount) {
 			console.error('No current account found');

@@ -8,7 +8,7 @@ export const usePrettyToast = () => {
 
 		toast.success(message, {
 			duration: 3000,
-			position: position || 'bottom-right',
+			position: position || 'bottom',
 		});
 	};
 
