@@ -16,9 +16,9 @@
 						:to="getBreadcrumbPath(breadcrumb)"
 						class="breadcrumb-link"
 					>
-						{{ breadcrumb.name }}
+						{{ getBreadcrumbName(breadcrumb) }}
 					</nuxt-link>
-					<span v-else class="breadcrumb-current">{{ breadcrumb.name }}</span>
+					<span v-else class="breadcrumb-current">{{ getBreadcrumbName(breadcrumb) }}</span>
 				</li>
 			</ol>
 		</div>
@@ -43,9 +43,16 @@
 			? '/chat/dashboard'
 			: breadcrumb.path;
 	};
+
+	const getBreadcrumbName = (breadcrumb) => {
+		return breadcrumb.name.toLowerCase() === 'chat'
+			? 'Dashboard'
+			: breadcrumb.name;
+	};
 </script>
 
 <style scoped lang="sass">
+	// Los estilos se mantienen igual que en la versión anterior
 	.breadcrumb-container
 		padding: 0.75rem 1rem
 		background: $complement
@@ -59,13 +66,10 @@
 		overflow-x: auto
 		white-space: nowrap
 		scrollbar-width: none
-		// Firefox
 		-ms-overflow-style: none
-		// IE and Edge
 
 		&::-webkit-scrollbar
 			display: none
-	// Chrome, Safari, Opera
 
 	.breadcrumb
 		display: inline-flex
