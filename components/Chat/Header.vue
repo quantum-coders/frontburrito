@@ -4,7 +4,7 @@
 			<layout-logo />
 
 			<div class="d-flex align-items-center">
-				<layout-wallet />
+				<layout-wallet-new />
 			</div>
 		</div>
 	</header>

@@ -13,7 +13,7 @@
 						</li>
 					</ul>
 				</nav>
-				<layout-wallet />
+				<layout-wallet-new />
 			</div>
 		</div>
 	</header>

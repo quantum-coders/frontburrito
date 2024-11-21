@@ -4,14 +4,15 @@
 			<button type="button" class="btn-close" aria-label="Close" @click.prevent="close"></button>
 			<h5 class="wallet-title text-center">Connect a wallet</h5>
 		</div>
-		<div class="loading" :class="{ 'active': loading }">
+		<div class="loading" :class="{ 'active': loading || web3Store.isConnecting }">
 			<div class="spinner-border text-primary" role="status">
 				<span class="visually-hidden">Loading...</span>
 			</div>
 		</div>
 		<div class="px-3">
 			<nav class="wallets">
-				<div class="row align-items-stretch" v-if="$device.isDesktop">
+				<!-- Desktop Wallets -->
+				<div class="row align-items-stretch" v-if="!isMobile">
 					<!-- Core Wallet -->
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
 						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif"/>
@@ -52,10 +53,10 @@
 							/>
 							<p class="wallet-name">Metamask</p>
 							<p class="wallet-status">
-									<span class="installed" v-if="metamaskInstalled">
-									  <span class="inst">Installed</span>
-									  <span class="conn">Connect</span>
-									</span>
+                  <span class="installed" v-if="metamaskInstalled">
+                    <span class="inst">Installed</span>
+                    <span class="conn">Connect</span>
+                  </span>
 								<span class="get" v-else>Get</span>
 							</p>
 						</div>
@@ -78,37 +79,32 @@
 							/>
 							<p class="wallet-name">Rabby Wallet</p>
 							<p class="wallet-status">
-								<span class="installed" v-if="rabbyInstalled">
-								  <span class="inst">Installed</span>
-								  <span class="conn">Connect</span>
-								</span>
+                <span class="installed" v-if="rabbyInstalled">
+                  <span class="inst">Installed</span>
+                  <span class="conn">Connect</span>
+                </span>
 								<span class="get" v-else>Get</span>
 							</p>
 						</div>
 					</div>
 				</div>
+				<!-- Mobile WalletConnect -->
 				<div class="row align-items-center justify-content-center" v-else>
 					<div class="wallet">
-						<a @click.prevent="doConnect('metamask')" href="#" class="wallet-link"></a>
+						<a @click.prevent="doConnect('walletConnect')" href="#" class="wallet-link"></a>
 						<img
-							class="wallet-sprite sprite-metamask"
-							src="/images/wallets/metamask.gif"
-							alt="Metamask"
+							class="wallet-sprite wallet-connect"
+							src="/images/wallets/walletconnect.png"
+							alt="WalletConnect"
 						/>
-						<p class="wallet-name">Metamask</p>
+						<p class="wallet-name">Wallet Connect</p>
 						<p class="wallet-status">
-						  <span class="installed">
-							<span
-								class="conn"
-								@click.prevent="doConnect('metamask')"
-							>Connect</span>
-						  </span>
+              <span class="installed">
+                <span class="conn" @click.prevent="doConnect('walletConnect')">Connect</span>
+              </span>
 						</p>
-						<p class="text-muted small" v-if="isMobileParadox === null">
-							In order to connect your wallet, you must have MetaMask App installed on your device.
-						</p>
-						<p>
-							Connect your wallet to start using the app.
+						<p class="text-muted small">
+							Scan with your favorite wallet to connect
 						</p>
 					</div>
 				</div>
@@ -116,14 +112,11 @@
 		</div>
 	</div>
 </template>
-<script setup>
-	import {injectedProvider} from "thirdweb/wallets";
 
+<script setup>
 	const {isMobile} = useDevice();
 	const loading = ref(false);
-	const router = useRouter();
-
-	const {initProvider} = useWeb3();
+	const web3Store = useWeb3Store();
 
 	const emit = defineEmits(['connect']);
 
@@ -138,65 +131,124 @@
 	const metamaskInstalled = ref(false);
 	const coreInstalled = ref(false);
 	const rabbyInstalled = ref(false);
-	const isMobileParadox = ref(null);
 
+	// Manejar la reconexión automática
+	const attemptReconnection = async () => {
+		const savedWallet = localStorage.getItem('preferredWallet');
+		const currentAccount = localStorage.getItem('currentAccount');
+
+		if (savedWallet && currentAccount) {
+			console.log('🔄 Attempting to reconnect wallet:', savedWallet);
+			try {
+				await web3Store.connectWallet(savedWallet, isMobile.value);
+				if (web3Store.isConnected) {
+					console.log('✅ Reconnected successfully');
+					props.close();
+				}
+			} catch (error) {
+				console.error('❌ Reconnection failed:', error);
+				localStorage.removeItem('preferredWallet');
+				localStorage.removeItem('currentAccount');
+			}
+		}
+	};
+
+	// Observar el estado de conexión
+	watch(() => web3Store.isConnected, (newValue) => {
+		if (newValue) {
+			props.close();
+		}
+	});
 
 	onMounted(async () => {
-		isMobileParadox.value = router.currentRoute.value.query.isMobileDevice;
-		if (isMobileParadox.value) isMobileParadox.value = false
-		console.info("router.currentRoute.value.query.isMobileDevice: ", router.currentRoute.value.query.isMobileDevice);
-		console.info("isMobileQueryParameter?: ", isMobileParadox.value);
-		// gret the query param: isMobileDevice
-		const providerName = localStorage.getItem('providerName');
-		if (providerName) {
-			let connected = false;
-			if (providerName !== '' && providerName !== 'undefined' && providerName !== 'null') {
-				if (providerName === 'walletconnect') {
-					// delete the walletconnect provider
-					localStorage.removeItem('providerName');
-					connected = false
-				} else {
-					console.info("Provider: ", providerName);
-					connected = true
+		console.log('🏃 Starting wallet initialization...');
+		// Check for saved wallet and attempt reconnection
+		const authToken = localStorage.getItem('authToken');
+		const savedWallet = localStorage.getItem('preferredWallet');
+		const currentAccount = localStorage.getItem('currentAccount');
+
+		if (authToken && savedWallet && currentAccount) {
+			console.log('💾 Found saved wallet configuration, attempting reconnection...');
+			try {
+				const connected = await web3Store.connectWallet(savedWallet, isMobile.value);
+				if (connected) {
+					console.log('✅ Reconnection successful');
+					props.close();
 				}
+			} catch (error) {
+				console.error('❌ Reconnection failed:', error);
+				localStorage.removeItem('preferredWallet');
+				localStorage.removeItem('currentAccount');
 			}
-			let isMobileFinalCheck = true;
-			if (isMobileParadox.value === false) {
-				isMobileFinalCheck = false
-			}else{
-				isMobileFinalCheck = isMobile
-			}
-			console.info("isMobile Final Check: ", isMobileFinalCheck);
-			await initProvider(providerName, connected, isMobileFinalCheck);
 		}
-		metamaskInstalled.value = await injectedProvider('io.metamask');
-		rabbyInstalled.value = await injectedProvider('io.rabby');
-		coreInstalled.value = !!window.avalanche;
+
+		// Check installed wallets on desktop
+		if (!isMobile.value) {
+			console.log('🕵️‍♂️ Checking installed wallets...');
+
+			metamaskInstalled.value = !!window.ethereum?.isMetaMask;
+			console.log(metamaskInstalled.value ? '✅ MetaMask installed' : '❌ MetaMask not found');
+
+			rabbyInstalled.value = !!window.ethereum?.isRabby;
+			console.log(rabbyInstalled.value ? '✅ Rabby installed' : '❌ Rabby not found');
+
+			coreInstalled.value = !!window.avalanche;
+			console.log(coreInstalled.value ? '✅ Core installed' : '❌ Core not found');
+		}
 	});
 
 	const doConnect = async (provider) => {
 		loading.value = true;
-		try {
-			let isMobileFinalCheck = true;
-			if (isMobileParadox.value === false) {
-				isMobileFinalCheck = false
-			}else{
-				isMobileFinalCheck = isMobile
-			}
-			console.info("isMobile Final Check: ", isMobileFinalCheck);
+		console.log('🔌 Initiating connection with:', provider);
 
-			await initProvider(provider, false, isMobileFinalCheck);
-		} catch (e) {
-			alert(e);
-			console.error(e);
+		try {
+			let walletType;
+			switch (provider) {
+				case 'metamask':
+					walletType = SUPPORTED_WALLETS.METAMASK;
+					break;
+				case 'core':
+					walletType = SUPPORTED_WALLETS.CORE;
+					break;
+				case 'rabby':
+					walletType = SUPPORTED_WALLETS.RABBY;
+					break;
+				case 'walletConnect':
+					walletType = SUPPORTED_WALLETS.WALLET_CONNECT;
+					break;
+				default:
+					throw new Error('🚫 Unsupported wallet type');
+			}
+
+			const connected = await web3Store.connectWallet(walletType, isMobile.value);
+
+			if (web3Store.connectionError) {
+				console.error('❌ Connection failed:', web3Store.connectionError.message);
+				throw new Error(web3Store.connectionError.message);
+			}
+
+			if (connected && web3Store.isConnected) {
+				console.log('✅ Connection successful');
+				emit('connect');
+				props.close();
+				return true;
+			}
+
+			return false;
+		} catch (error) {
+			console.error('❌ Connection error:', error);
+			throw error;
 		} finally {
 			loading.value = false;
 		}
-		emit('connect');
 	};
 </script>
 
+
 <style scoped lang="sass">
+	.wallet-connect
+		max-width: 100px
+
 	.wallet-sprite
 		image-rendering: pixelated
 

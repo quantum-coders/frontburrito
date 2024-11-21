@@ -1,10 +1,13 @@
 <template>
 	<div class="chat-wrapper" v-if="chatStore.chat">
-		<chat-header class="chat-header shadow-sm" />
+		<chat-header class="chat-header shadow-sm"/>
 
 		<main class="chat-content">
-			<div class="chat-area">
 
+			<div class="chat-area">
+				<div class="breadcrumbs-wrapper">
+					<platform-breadcumbs/>
+				</div>
 				<div class="chat-info d-flex align-items-center justify-content-between">
 					<div>
 						<span
@@ -18,9 +21,9 @@
 					<p class="small">{{ chatStore.chat?.uid }}</p>
 				</div>
 
-				<chat-queue class="flex-grow-1" />
+				<chat-queue class="flex-grow-1"/>
 				<div class="p-2">
-					<chat-input class="mt-auto" />
+					<chat-input class="mt-auto"/>
 				</div>
 			</div>
 
@@ -111,12 +114,12 @@
 </template>
 
 <script setup>
-	import { useTimeAgo } from '@vueuse/core';
+	import {useTimeAgo} from '@vueuse/core';
 
-	const { $mdRenderer } = useNuxtApp();
-	const { me } = useAuth();
+	const {$mdRenderer} = useNuxtApp();
+	const {me} = useAuth();
 	const authToken = localStorage.getItem('authToken');
-	if(authToken) await me(authToken);
+	if (authToken) await me(authToken);
 
 	const route = useRoute();
 	const router = useRouter();
@@ -127,7 +130,7 @@
 	const webSearchEnabled = ref(false);
 	const webSearchType = ref('normal');
 
-	if(!uid) {
+	if (!uid) {
 		router.push('/');
 	} else {
 		await chatStore.getChat(uid);
@@ -138,12 +141,12 @@
 	const saveChatName = async (event) => {
 		event.target.blur();
 		chatStore.chat.name = event.target.innerText.trim();
-		await chatStore.updateChat({ name: chatStore.chat.name });
+		await chatStore.updateChat({name: chatStore.chat.name});
 	};
 
 	const updateWebSearch = async () => {
 		console.log('burrito---', webSearchEnabled.value);
-		if(chatStore.chat.metas) {
+		if (chatStore.chat.metas) {
 			await chatStore.updateChat({
 				metas: {
 					...chatStore.chat.metas,
@@ -158,7 +161,7 @@
 
 	const updateSearchType = async () => {
 		console.info("Enabled: ", webSearchEnabled.value, "Type: ", webSearchType.value);
-		if(chatStore.chat.metas) {
+		if (chatStore.chat.metas) {
 			await chatStore.updateChat({
 				metas: {
 					...chatStore.chat.metas,
@@ -172,21 +175,21 @@
 	};
 
 	watch(
-		() => [ chatStore.chat?.messageStatistics.count, chatStore.chat?.name ],
-		async ([ messageCount, chatName ]) => {
-			if(chatStore.chat && messageCount >= 4 && (chatName === '' || chatName === 'New Chat')) {
+		() => [chatStore.chat?.messageStatistics.count, chatStore.chat?.name],
+		async ([messageCount, chatName]) => {
+			if (chatStore.chat && messageCount >= 4 && (chatName === '' || chatName === 'New Chat')) {
 				await generateChatName();
 			}
 		},
 	);
 
 	const generateChatName = async () => {
-		const { data } = await useBaseFetch('/chats/generate-chat-name/' + chatStore.chat.uid, {
+		const {data} = await useBaseFetch('/chats/generate-chat-name/' + chatStore.chat.uid, {
 			method: 'POST',
 		});
 
-		if(data.value && data.value.data) {
-			await chatStore.updateChatFrontend({ name: data.value.data.name });
+		if (data.value && data.value.data) {
+			await chatStore.updateChatFrontend({name: data.value.data.name});
 		}
 	};
 
@@ -195,7 +198,7 @@
 	};
 
 	onMounted(async () => {
-		if(chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
+		if (chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
 			await generateChatName();
 		}
 		await chatStore.getTokenUsage(uid);
@@ -292,4 +295,45 @@
 	.btn-new-chat
 		padding: 0.25rem 1.5rem
 		font-size: 0.75rem
+
+		.breadcrumb-container
+		font-size: 0.875rem
+		margin: 0
+		padding: 0
+
+		.breadcrumb
+			background: none
+			padding: 0
+			margin: 0
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+
+			@media (max-width: $sm - 1)
+				font-size: 0.75rem
+
+		.breadcrumb-item
+			display: flex
+			align-items: center
+
+			&:not(:last-child)
+				margin-right: 0.5rem
+
+			& + .breadcrumb-item::before
+				content: ">"
+				margin-right: 0.5rem
+				color: $brand1
+				opacity: 0.75
+
+		.breadcrumb-link
+			color: $brand1
+			text-decoration: none
+			transition: opacity 0.2s ease
+
+			&:hover
+				opacity: 0.8
+				text-decoration: underline
+
+		.breadcrumb-current
+			color: rgba($brand1, 0.6)
 </style>

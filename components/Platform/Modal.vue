@@ -24,7 +24,6 @@
 	};
 
 	const closeDialog = () => {
-		console.log('WAX CULERO000000000000000');
 		hide.value = true;
 
 		modal.value.addEventListener('animationend', () => {
@@ -51,7 +50,7 @@
 	.wcm-overlay
 		z-index: 9999 !important
 	.v-toast
-		z-index: 9999 !important
+		z-index: 10000 !important
 
 	.modal-wrapper
 		position: fixed

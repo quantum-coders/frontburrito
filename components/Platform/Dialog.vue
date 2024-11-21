@@ -57,11 +57,21 @@
 </script>
 
 <style lang="sass" scoped>
+	:deep(.modal-backdrop)
+		z-index: 1500 !important
+
+	:deep(.modal)
+		z-index: 1501 !important
+
+	// Forzar el v-toast a estar siempre arriba
+	:deep(.v-toast)
+		z-index: 9999999 !important
+		position: fixed !important
+
 	.modal-dialog
 		max-width: 90%
 		width: auto
 		margin: auto
-	// Importante para el posicionamiento del botón
 
 	.modal-content
 		border-radius: 0.5rem
@@ -70,26 +80,18 @@
 		overflow: hidden
 		position: relative
 
-	// Nuevo estilo mejorado para el botón flotante
 	.floating-close-btn
 		position: fixed
-		// Cambiado a fixed para que siempre sea visible
 		top: 1rem
 		right: 1rem
-		z-index: 9999
-		// Número alto para asegurar que esté por encima de todo
+		z-index: 1502
 		width: 2.5rem
 		height: 2.5rem
 		border-radius: 50%
-		// Hace el botón circular
 		background: $brand1
-		// Color de fondo naranja
 		border: 2px solid white
-		// Borde blanco para contraste
 		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2)
-		// Sombra suave
 		color: white
-		// Color del texto X
 		font-size: 1.5rem
 		line-height: 1
 		cursor: pointer
@@ -99,35 +101,26 @@
 		transition: all 0.2s ease
 		padding: 0
 		transform: translate(50%, -50%)
-		// Ajusta la posición para que esté perfectamente en la esquina
 
 		&:hover
 			transform: translate(50%, -50%) scale(1.1)
-			// Efecto de hover con escala
 			background: darken($brand1, 10%)
-			// Oscurece el naranja en hover
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3)
-		// Sombra más pronunciada en hover
 
 		&:focus
 			outline: none
 			box-shadow: 0 0 0 3px rgba($brand1, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)
-		// Ring focus
 
 		&:active
 			transform: translate(50%, -50%) scale(0.95)
-		// Efecto de click
 
 		span
 			margin-top: -2px
-	// Ajuste fino para centrar la X
 
-	// Aseguramos que el contenido del modal sea scrolleable
 	.modal-body
 		max-height: 80vh
 		overflow-y: auto
 		padding: 1.5rem
-	// Aumentado el padding para mejor espaciado
 
 	@keyframes show
 		from
@@ -154,9 +147,16 @@
 	.modal-backdrop.show
 		opacity: 0.5
 
-	// Ocultar el botón de cierre por defecto de Bootstrap si existe
-	// Ocultar el botón de cierre por defecto de Bootstrap si existe
 	::v-deep .btn-close
 		display: none !important
 
+</style>
+
+<style lang="sass">
+	.modal-backdrop
+		z-index: 1040 !important
+
+	.v-toast
+		z-index: 10000 !important
+		position: fixed !important
 </style>

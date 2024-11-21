@@ -1,6 +1,6 @@
 <template>
 	<section class="section-dashboard">
-		<template v-if="useCryptoStore().currentAccount">
+		<template v-if="web3Store.isConnected">
 			<div class="container my-5">
 				<div class="d-flex justify-content-between align-items-center mb-4">
 					<h2 class="title mb-0">My Awesome Chats</h2>
@@ -164,8 +164,8 @@
 
 	import { useTimeAgo } from '@vueuse/core';
 	const { $mdRenderer } = useNuxtApp();
-
-	const currentAccount = useCryptoStore().currentAccount;
+	const web3Store = useWeb3Store();
+	const currentAccount = web3Store.address;
 
 	const router = useRouter();
 	const { me } = useAuth();

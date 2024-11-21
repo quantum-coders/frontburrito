@@ -66,18 +66,18 @@
 							</select>
 						</div>
 						<small class="text-muted flex-grow-1 ms-2">
-							{{ parseFloat(cryptoStore.avaxBalance || 0).toFixed(4) }} AVAX
-							{{ parseFloat(cryptoStore.usdtBalance || 0).toFixed(4) }} USDT
+							{{ parseFloat(web3Store.balances.native || 0).toFixed(4) }} AVAX
+							{{ parseFloat(web3Store.balances.usdt || 0).toFixed(4) }} USDT
 						</small>
 						<small
 							class="text-danger"
-							v-if="selectedCurrency === 'USD' && parseFloat(cryptoStore.usdtBalance || 0) < amount"
+							v-if="selectedCurrency === 'USD' && parseFloat(web3Store.balances.usdt || 0) < amount"
 						>
 							Insufficient balance
 						</small>
 						<small
 							class="text-danger"
-							v-else-if="selectedCurrency === 'AVAX' && parseFloat(cryptoStore.avaxBalance || 0) < amount"
+							v-else-if="selectedCurrency === 'AVAX' && parseFloat(web3Store.balances.native || 0) < amount"
 						>
 							Insufficient balance
 						</small>
@@ -94,7 +94,10 @@
 					</div>
 				</div>
 				<button type="submit" class="btn btn-burrito w-100" :disabled="loadingState">
-					<icon name="mdi:cash-plus" class="me-2"/>
+					<icon name="mdi:cash-plus" class="me-2"
+						v-if="!loadingState"
+					/>
+					<span v-else class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 					Fund Account
 				</button>
 			</form>
@@ -153,11 +156,11 @@
 	const activeTab = ref('funding');
 	const paymentHistory = ref([]);
 	const loadingState = ref(false);
-	const cryptoStore = useCryptoStore();
+	const web3Store = useWeb3Store();
 	const messageForUser = ref('');
 	const getExchangeRate = async () => {
 		try {
-			return await cryptoStore.getAvaxPrice();
+			return await web3Store.getAvaxPrice();
 		} catch (error) {
 			console.error('Error fetching exchange rate:', error);
 			return 0;
@@ -165,10 +168,8 @@
 	};
 
 	const syncBalances = async () => {
-		/// route = '/synchronize-payment-history'
 		try {
 			const {data} = await useBaseFetch('/web3/synchronize-payment-history');
-			// console.log('SYNC BALANCES: ', data.value.data);
 		} catch (error) {
 			console.error('Error syncing balances:', error);
 		}
@@ -180,6 +181,7 @@
 		exchangeRate.value = await getExchangeRate();
 		await syncBalances();
 		await fetchPaymentHistory();
+		await web3Store.refreshBalances(true);
 	});
 
 	const usdValue = computed(() => {
@@ -194,7 +196,7 @@
 		loadingState.value = true;
 		messageForUser.value = '';
 		try {
-			const {data} = await useBaseFetch(`/web3/build-record-payment-transaction/${cryptoStore.currentAccount}`, {
+			const {data} = await useBaseFetch(`/web3/build-record-payment-transaction/${web3Store.address}`, {
 				method: 'POST',
 				body: {
 					avaxAmount: selectedCurrency.value === 'AVAX' ? amount.value : 0,
@@ -205,22 +207,28 @@
 			if (data.value.data) {
 				const recordPaymentTx = data.value.data;
 				console.log('RECORD TX_: ', recordPaymentTx);
-				const signedTx = await cryptoStore.globalProvider.getSigner().sendTransaction(recordPaymentTx);
+				const signedTx = await web3Store.provider.getSigner().sendTransaction(recordPaymentTx);
+				console.log('SIGNED TX: ', signedTx);
 				const tx1 = await signedTx.wait(3);
 				console.log('TX1: ', tx1);
 				if (tx1.status == 1) {
 					/// obtain the amount in USD
 					const amountInUSD = selectedCurrency.value === 'USD' ? amount.value : amount.value * exchangeRate.value;
 					successToast(`Funding of ${amount.value} ${selectedCurrency.value} successful!`);
+					loadingState.value = false;
 					messageForUser.value = `Funded account with ${amountInUSD.toFixed(2)} USD, if you don't see the transaction, please wait a few seconds and refresh the page.`;
 				} else {
+					loadingState.value = false;
 					errorToast(`Error funding account: ${tx1}`);
 				}
 				await fetchPaymentHistory();
+				await web3Store.refreshBalances();
 			} else {
+				loadingState.value = false;
 				throw new Error('Error building record payment transaction');
 			}
 		} catch (error) {
+			loadingState.value = false;
 			errorToast(`Error funding account: ${error.message}`);
 		} finally {
 			loadingState.value = false;
@@ -231,7 +239,7 @@
 
 	const fetchPaymentHistory = async () => {
 		try {
-			const {data} = await useBaseFetch(`/web3/payment-history/${cryptoStore.currentAccount}`, {
+			const {data} = await useBaseFetch(`/web3/payment-history/${web3Store.address}`, {
 				method: 'GET',
 			});
 

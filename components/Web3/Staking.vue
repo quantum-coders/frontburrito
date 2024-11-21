@@ -72,7 +72,7 @@
 								<p class="card-text fs-5 fw-bold mb-0">Available</p>
 								<p class="fs-4 fw-bold">
 									{{
-										useCryptoStore().burritoBalance.toLocaleString(undefined, {maximumFractionDigits: 2})
+										useWeb3Store().balances.burrito.toLocaleString(undefined, {maximumFractionDigits: 2})
 									}} Burrito AI Tokens
 								</p>
 							</div>
@@ -144,12 +144,12 @@
 							<div class="mt-1">
 								<small class="text-muted">
 									Available: {{
-										useCryptoStore().burritoBalance.toLocaleString(undefined, {maximumFractionDigits: 2})
+										useWeb3Store().balances.burrito.toLocaleString(undefined, {maximumFractionDigits: 2})
 									}} Burrito AI Tokens
 								</small>
 								<small
 									class="text-danger d-block"
-									v-if="amountToStake > useCryptoStore().burritoBalance"
+									v-if="amountToStake > useWeb3Store().balances.burrito"
 								>
 									Insufficient balance
 								</small>
@@ -325,19 +325,14 @@
 </template>
 
 <script setup>
-	import {useWeb3} from "~/composables/useWeb3";
-
 	const {isMobile} = useDevice();
-
 	const {successToast, errorToast} = usePrettyToast();
-	const totalStaked = ref(0);
 	const userStaked = ref(0);
 	const rewardsEarned = ref(0);
 	const annualPercentageYield = ref(0);
-	const cryptoStore = useCryptoStore();
+	const web3Store = useWeb3Store();
 	const activeStakes = ref([]);
 	const stakingHistory = ref([]);
-
 	// Staking interface
 	const amountToStake = ref(0);
 	const activeTab = ref('dashboard');
@@ -358,7 +353,7 @@
 	});
 
 	const maxStakeAmount = computed(() => {
-		return useCryptoStore().burritoBalance;
+		return useWeb3Store().balances.burrito;
 	});
 	const updateStakeAmount = (stakeAmount) => {
 		if (isNaN(stakeAmount)) {
@@ -373,7 +368,7 @@
 	});
 
 	const runStakingChecks = async () => {
-		await useWeb3().refreshBalances();
+		await web3Store.refreshBalances();
 		await getStakedBalance();
 		await getAnnualPercentageYield();
 		await getRewardsEarned();
@@ -384,7 +379,7 @@
 		loadingState.value = true;
 		stakingStatus.value = 'Approving tokens...';
 		const {error, data} = await useBaseFetch(
-			`/web3/build-approval-transaction/${cryptoStore.currentAccount}`,
+			`/web3/build-approval-transaction/${web3Store.address}`,
 			{
 				method: 'POST',
 				body: {amount, contract: 'staking'},
@@ -395,7 +390,8 @@
 			const approveTx = data.value.data;
 
 			try {
-				const signedTx = await cryptoStore.globalProvider.getSigner().sendTransaction(approveTx);
+				console.log("Debugging Signer ", web3Store.provider);
+				const signedTx = await web3Store.provider.getSigner().sendTransaction(approveTx);
 				await signedTx.wait();
 				successToast(`Approval of ${amount} Burrito AI Tokens successful!`);
 				isApproved.value = true;
@@ -428,7 +424,7 @@
 
 	const getRewardsEarned = async () => {
 		const {error, data} = await useBaseFetch(
-			`/web3/calculate-reward/${cryptoStore.currentAccount}`,
+			`/web3/calculate-reward/${web3Store.address}`,
 			{method: 'GET'}
 		);
 		if (!error.value?.data) {
@@ -443,7 +439,7 @@
 		const amount = amountToStake.value;
 
 		const {error, data} = await useBaseFetch(
-			`/web3/build-stake-transaction/${cryptoStore.currentAccount}`,
+			`/web3/build-stake-transaction/${web3Store.address}`,
 			{
 				method: 'POST',
 				body: {amount, duration: stakeDuration.value},
@@ -454,7 +450,7 @@
 			const stakeTx = data.value.data;
 			try {
 				stakingStatus.value = 'Staking tokens...';
-				const signedTx = await cryptoStore.globalProvider.getSigner().sendTransaction(stakeTx);
+				const signedTx = await web3Store.provider.getSigner().sendTransaction(stakeTx);
 				await signedTx.wait();
 				successToast(`Staking of ${amount} Burrito AI Tokens successful!`);
 			} catch (error) {
@@ -476,7 +472,7 @@
 
 	const getActiveStakes = async () => {
 		const {error, data} = await useBaseFetch(
-			`/web3/active-stakes/${cryptoStore.currentAccount}`,
+			`/web3/active-stakes/${web3Store.address}`,
 			{
 				method: 'GET',
 			}
@@ -490,7 +486,7 @@
 	};
 
 	const getStakedBalance = async () => {
-		const {error, data} = await useBaseFetch(`/web3/stake/${cryptoStore.currentAccount}`, {
+		const {error, data} = await useBaseFetch(`/web3/stake/${web3Store.address}`, {
 			method: 'GET',
 		});
 		if (!error.value?.data) {
@@ -505,7 +501,7 @@
 
 	const getStakingHistory = async () => {
 		const {error, data} = await useBaseFetch(
-			`/web3/staking-history/${cryptoStore.currentAccount}`,
+			`/web3/staking-history/${web3Store.address}`,
 			{
 				method: 'GET',
 			}
@@ -519,7 +515,7 @@
 
 	const handleClaimRewards = async () => {
 		const {error, data} = await useBaseFetch(
-			`/web3/build-unstake-transaction/${cryptoStore.currentAccount}`,
+			`/web3/build-unstake-transaction/${web3Store.address}`,
 			{
 				method: 'POST',
 			}
@@ -529,7 +525,7 @@
 			const unstakeTx = data.value.data;
 
 			try {
-				const txResponse = await cryptoStore.globalProvider.getSigner().sendTransaction(unstakeTx);
+				const txResponse = await web3Store.provider.getSigner().sendTransaction(unstakeTx);
 				await txResponse.wait();
 				successToast('Claim rewards successful!');
 			} catch (error) {
@@ -561,7 +557,7 @@
 
 	const checkRewardsClaimable = async () => {
 		const {error, data} = await useBaseFetch(
-			`/web3/active-stakes/${cryptoStore.currentAccount}`,
+			`/web3/active-stakes/${web3Store.address}`,
 			{
 				method: 'GET',
 			}

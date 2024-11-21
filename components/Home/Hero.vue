@@ -20,8 +20,8 @@
 					Through a flexible DeFi billing system, BurritoAI empowers people with AI capabilities in two clics!</p>
 
 				<p class="buttons d-flex">
-					<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" class="btn btn-burrito flex-grow-1">Live</a>
-					<nuxt-link to="/chat/dashboard" class="btn btn-burrito flex-grow-1">Unbiased AI</nuxt-link>
+					<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" class="btn btn-burrito flex-grow-1">Buy $BurritoAI</a>
+					<nuxt-link to="/chat" class="btn btn-burrito flex-grow-1">Try our Unbiased AI</nuxt-link>
 				</p>
 			</div>
 		</div>
@@ -30,10 +30,6 @@
 	</div>
 
 </template>
-
-<script setup>
-</script>
-
 <style lang="sass" scoped>
 
 	.block-hero

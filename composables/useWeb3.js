@@ -9,7 +9,6 @@ export const useWeb3 = () => {
 	const tokenABI = ERC20.abi;
 	const burritoTokenAddress = config.public.burritoTokenAddress;
 	const chainId = parseInt(config.public.chainId);
-
 	const isCorrectNetwork = async () => {
 		try {
 			const providerNetwork = await cryptoStore.globalProvider.getNetwork();
@@ -23,11 +22,9 @@ export const useWeb3 = () => {
 			return false;
 		}
 	};
-
 	const getAccount = () => window.localStorage.getItem('currentAccount') || null;
 	const etherToWei = (etherUnits) => ethers.utils.parseEther(etherUnits);
 	const weiToEther = (weiUnits) => ethers.utils.formatEther(weiUnits);
-
 	const setListeners = (shouldListen) => {
 		try {
 			// Obtener el provider correcto con fallback seguro
@@ -182,46 +179,46 @@ export const useWeb3 = () => {
 	};
 
 	const connectWallet = async () => {
-  console.info('Conectando wallet...');
-  cryptoStore.initLoading = true;
-  const auth = useAuth();
-  auth.isAuthenticating.value = true;
+		console.info('Conectando wallet...');
+		cryptoStore.initLoading = true;
+		const auth = useAuth();
+		auth.isAuthenticating.value = true;
 
-  try {
-    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
+		try {
+			const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+				navigator.userAgent
+			);
 
-    if (isMobileDevice) {
-      // Forzar Trust Wallet en móvil
-      window.localStorage.setItem('providerName', 'trust');
-    }
+			if (isMobileDevice) {
+				// Forzar Trust Wallet en móvil
+				window.localStorage.setItem('providerName', 'trust');
+			}
 
-    const accounts = await cryptoStore.globalProvider.listAccounts();
+			const accounts = await cryptoStore.globalProvider.listAccounts();
 
-    if (!accounts.length) {
-      console.error('No se encontraron cuentas');
-      await disconnectWallet();
-      return;
-    }
+			if (!accounts.length) {
+				console.error('No se encontraron cuentas');
+				await disconnectWallet();
+				return;
+			}
 
-    await cryptoStore.globalProvider.send('eth_requestAccounts', []);
-    const signer = cryptoStore.globalProvider.getSigner();
-    const address = await signer.getAddress();
+			await cryptoStore.globalProvider.send('eth_requestAccounts', []);
+			const signer = cryptoStore.globalProvider.getSigner();
+			const address = await signer.getAddress();
 
-    window.localStorage.setItem('currentAccount', address);
-    cryptoStore.currentAccount = address;
+			window.localStorage.setItem('currentAccount', address);
+			cryptoStore.currentAccount = address;
 
-    // Resto de tu lógica de autenticación...
+			// Resto de tu lógica de autenticación...
 
-  } catch (error) {
-    console.error('Error conectando wallet', error);
-    await disconnectWallet();
-  } finally {
-    cryptoStore.initLoading = false;
-    auth.isAuthenticating.value = false;
-  }
-}
+		} catch (error) {
+			console.error('Error conectando wallet', error);
+			await disconnectWallet();
+		} finally {
+			cryptoStore.initLoading = false;
+			auth.isAuthenticating.value = false;
+		}
+	}
 
 	const disconnectWallet = async () => {
 		try {
