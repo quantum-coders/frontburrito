@@ -295,6 +295,10 @@
 		display: flex
 		flex-direction: column
 		flex-grow: 1
+		padding-top: 71px
+
+		@media (min-width: $sm)
+			padding-top: 0
 
 	.selection
 		height: 38px
@@ -338,6 +342,7 @@
 		flex-grow: 1
 		justify-content: center
 		align-items: center
+		padding: 5rem 0
 
 		.connect
 			text-align: center
