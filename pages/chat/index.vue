@@ -1,23 +1,30 @@
 <template>
-	<div class="chat-wrapper">
+	<div class="chat-wrapper" v-if="web3Store.isConnected">
 	</div>
+	<platform-not-auth-action v-else/>
 </template>
 
 <script setup>
-	const { me } = useAuth();
+	definePageMeta({layout: 'burrito'});
+
+	const {me} = useAuth();
 	const authToken = localStorage.getItem('authToken');
-	if(authToken) await me(authToken);
+	if (authToken) await me(authToken);
+	const web3Store = useWeb3Store();
+
 	const user = useAuthUser();
 	const router = useRouter();
 
-	if(!!user.value) {
+	if (!!user.value) {
 		const chatRes = await useBaseFetch('/users/me/chats', {
 			method: 'POST',
 		});
 
-		if(chatRes.data.value) {
-			router.push(`/chat/${ chatRes.data.value.data.uid }`);
+		if (chatRes.data.value) {
+			router.push(`/chat/${chatRes.data.value.data.uid}`);
 		}
+	} else {
+		console.log("Not authenticated....")
 	}
 </script>
 

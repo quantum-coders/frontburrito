@@ -150,12 +150,9 @@
 			</platform-dialog>
 		</template>
 
-		<div class="please-connect" v-else>
-			<div class="connect">
-				<img src="/images/pepe-burrito.png" alt="Pepe Burrito">
-				<p>Please connect your wallet fren</p>
-			</div>
-		</div>
+		<template v-else>
+			<platform-not-auth-action />
+		</template>
 	</section>
 </template>
 
