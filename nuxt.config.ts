@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     css: [
         '~/assets/styles/main.scss',
         '~/assets/fonts/style.css',
+        'highlight.js/styles/github-dark.css'
     ],
 
     icon: {

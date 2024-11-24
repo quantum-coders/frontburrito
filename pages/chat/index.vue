@@ -1,5 +1,6 @@
 <template>
 	<div class="chat-wrapper" v-if="web3Store.isConnected">
+		<nuxt-page />
 	</div>
 	<platform-not-auth-action v-else/>
 </template>
