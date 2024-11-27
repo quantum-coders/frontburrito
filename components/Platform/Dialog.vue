@@ -62,6 +62,10 @@
 
 	:deep(.modal)
 		z-index: 1501 !important
+		display: flex !important
+		align-items: center
+		justify-content: center
+		padding: 1rem
 
 	// Forzar el v-toast a estar siempre arriba
 	:deep(.v-toast)
@@ -71,13 +75,20 @@
 	.modal-dialog
 		max-width: 90%
 		width: auto
-		margin: auto
+		position: relative
+		margin: 1.75rem auto
+		display: flex
+		align-items: center
+		min-height: calc(100% - 3.5rem)
 
 	.modal-content
 		border-radius: 0.5rem
 		border: 2px solid $brand1
 		outline: 0.25rem solid white
 		overflow: hidden
+		max-width: 900px
+		width: 100%
+		margin: auto
 		position: relative
 
 	.floating-close-btn
@@ -149,6 +160,14 @@
 
 	::v-deep .btn-close
 		display: none !important
+
+	@media (max-width: 768px)
+		.modal-dialog
+			max-width: 95%
+			margin: 1rem auto
+
+		.modal
+			padding: 0.5rem
 
 </style>
 

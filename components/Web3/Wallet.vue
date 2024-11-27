@@ -263,7 +263,6 @@
 			left: -8px
 
 	.web3-wallet
-		width: 800px
 		max-width: 100%
 
 		.wallet-header

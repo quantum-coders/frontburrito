@@ -20,7 +20,7 @@
 				</div>
 
 				<div v-if="showWalletMenu" class="wallet-menu">
-					<div class="connected-account d-flex flex-column p-2">
+					<div class="connected-account p-2">
 						<div v-if="!web3Store.isCorrectNetwork && web3Store.address"
 							 class="alert alert-danger mb-2 p-1 text-center">
 							<a href="#" @click.prevent="switchToAvalanche" class="alert-link">
@@ -28,9 +28,22 @@
 							</a>
 						</div>
 
-						<small class="label">Connected Account</small>
-						<span class="text-truncate fs-5">{{ currentAccountTrimmed }}</span>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="d-flex flex-column">
+								<small class="label">Connected Account</small>
+								<span class="text-truncate fs-5">{{ currentAccountTrimmed }}</span>
+							</div>
+
+							<button
+								@click="handleConversations"
+								class="conversations-btn d-flex align-items-center gap-2"
+							>
+								<icon name="ph:chats-circle"/>
+								<span class="d-none d-sm-inline">My Chats</span>
+							</button>
+						</div>
 					</div>
+
 
 					<div class="d-flex flex-column">
 						<div class="coin d-flex align-items-center gap-2 py-1 px-2">
@@ -108,11 +121,11 @@
 	</div>
 
 	<!-- Wallet Modal -->
-	<platform-modal ref="walletModalRef">
+	<platform-dialog ref="walletModalRef">
 		<template #default="{ close }">
 			<web3-wallet @connect="close" :close="close"/>
 		</template>
-	</platform-modal>
+	</platform-dialog>
 </template>
 
 <script setup>
@@ -126,7 +139,12 @@
 	const showStakingModal = ref(false);
 	const showBillingModal = ref(false);
 	const billingModalRef = ref(null);
+	const router = useRouter(); // Add this at the top with other imports
 
+	const handleConversations = () => {
+		router.push('/chat/dashboard');
+		showWalletMenu.value = false;
+	};
 	const handleClose = (modalType, closeDialog) => {
 		if (modalType === 'staking') {
 			showStakingModal.value = false;
@@ -243,6 +261,21 @@
 			.connected-account
 				border-bottom: 1px solid $brand1
 
+				.conversations-btn
+					background: transparent
+					border: 2px solid $brand1
+					border-radius: 0.5rem
+					color: $brand1
+					padding: 0.25rem 0.75rem
+					font-size: 0.875rem
+					font-weight: 700
+					transition: all 150ms ease-in-out
+					display: flex
+					align-items: center
+					&:hover
+						background: $brand1
+						color: white
+
 			.coin
 				.coin-qty
 					line-height: 1
@@ -323,6 +356,3 @@
 
 </style>
 
-<style lang="sass" scoped>
-
-</style>

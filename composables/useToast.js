@@ -15,7 +15,7 @@ export const usePrettyToast = () => {
 	const errorToast = (message, position) => {
 
 		toast.error(message, {
-			duration: 300000,
+			duration: 3000,
 			position: position || 'bottom-right',
 		});
 	}
