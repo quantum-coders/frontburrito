@@ -87,14 +87,18 @@
 						<p class="newsletter-text">Be the first to get BurritoAI Alphas!</p>
 						<form @submit.prevent="handleSubscribe" class="newsletter-form">
 							<p v-if="error" class="error-message">{{ errorData }}</p>
-							<div class="input-group">
+							<div class="form-wrapper">
 								<input
 									type="email"
-									class="form-control"
+									class="email-input"
 									placeholder="Enter your email"
 									v-model="email"
 								>
-								<button class="btn" type="submit" :disabled="isLoading">
+								<button
+									class="submit-button"
+									type="submit"
+									:disabled="isLoading"
+								>
 									{{ isLoading ? 'Joining...' : 'Join' }}
 								</button>
 							</div>
@@ -126,6 +130,7 @@
 	const errorData = ref('');
 	const isLoading = ref(false);
 	const {successToast, errorToast} = usePrettyToast();
+
 	const handleSubscribe = async () => {
 		if (!email.value) {
 			errorData.value = 'Please enter a valid email address chump.';
@@ -143,18 +148,17 @@
 		isLoading.value = true;
 
 		try {
-			const {res, error} = await useFetch(`${ useRuntimeConfig().public.baseURL }/wait-list`, {
+			const {res, error} = await useFetch(`${useRuntimeConfig().public.baseURL}/wait-list`, {
 				method: 'POST',
-				body: JSON.stringify({ email: email.value }),
+				body: JSON.stringify({email: email.value}),
 			});
-			console.log("ERror", error)
-			if(error.value?.data){
+
+			if (error.value?.data) {
 				errorData.value = error.value;
 				errorToast(error.value.data.message);
-			}else{
+			} else {
 				successToast('You have successfully joined the waitlist!');
 			}
-
 
 		} catch (err) {
 			console.log("Catching error", err)
@@ -261,34 +265,60 @@
 		font-size: 0.9rem
 
 	.newsletter-form
-		.input-group
+		width: 100%
+
+		.form-wrapper
+			position: relative
+			width: 100%
+			display: flex
+			gap: 0.5rem
 			border: 2px solid black
 			border-radius: 0.5rem
-			overflow: hidden
+			background: white
 			box-shadow: 0 0.5em 0 0 black
+			overflow: hidden
 
-			.form-control
-				background: white
-				border: none
-				color: black
-				padding: 0.75rem 1rem
+			@media (max-width: 575.98px)
+				flex-direction: column
+				gap: 0
 
-				&::placeholder
-					color: rgba(0, 0, 0, 0.5)
+		.email-input
+			flex: 1
+			min-width: 0
+			padding: 0.75rem 1rem
+			border: none
+			background: white
+			color: black
+			font-size: 1rem
 
-			.btn
-				border: none
-				background: black
-				color: white
-				padding: 0.75rem 1.5rem
-				text-shadow: 0 0 1rem black
-				transition: all 0.2s ease
+			&:focus
+				outline: none
+				background: #f8f9fa
 
-				&:hover:not(:disabled)
-					background: lighten(black, 20%)
+			&::placeholder
+				color: rgba(0, 0, 0, 0.5)
 
-				&:disabled
-					opacity: 0.7
+		.submit-button
+			padding: 0.75rem 1.5rem
+			border: none
+			background: black
+			color: white
+			font-weight: 500
+			text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5)
+			transition: all 0.2s ease
+			white-space: nowrap
+			min-width: 80px
+
+			@media (max-width: 575.98px)
+				width: 100%
+				border-radius: 0
+
+			&:hover:not(:disabled)
+				background: #222
+
+			&:disabled
+				opacity: 0.7
+				cursor: not-allowed
 
 	.footer-bottom
 		.footer-burrito
@@ -309,9 +339,6 @@
 					color: white
 
 	@media (max-width: 768px)
-		.social-links
-			grid-template-columns: repeat(3, 1fr)
-
 		.footer-bottom
 			.footer-logo
 				flex-direction: column
@@ -320,15 +347,4 @@
 			.footer-links
 				width: 100%
 				justify-content: center
-
-		.newsletter-form
-			.input-group
-				flex-direction: column
-
-				.form-control
-					border-radius: 0.5rem 0.5rem 0 0
-
-				.btn
-					border-radius: 0 0 0.5rem 0.5rem
-					width: 100%
 </style>
