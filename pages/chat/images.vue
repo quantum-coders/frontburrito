@@ -1,7 +1,28 @@
 <template>
 	<div class="images-wrapper">
 		<chat-header class="chat-header shadow-sm" />
-		<div class="images-area">
+
+		<!-- Staking Requirement Section -->
+		<section v-if="!userStakedEnough" class="section-dashboard">
+			<div class="please-connect">
+				<div class="connect">
+					<img src="/images/imagebai.png" alt="Pepe Burrito">
+					<p class="title">Unlock Unfiltered Image Generation"</p>
+					<div class="content">
+						<p class="subtitle">Stake a minimum of <u>2,000 BurritoAI tokens </u>to unlock this feature</p>
+						<ul class="benefits-list">
+							<li class="list-group-item"><strong>Access unfiltered image generation capabilities</strong></li>
+							<li class="list-group-item"><strong>Push the limits of your creative prompts</strong></li>
+							<li class="list-group-item"><strong>Immediate, secure feature access via staking</strong></li>
+						</ul>
+						<!-- <p>You currently have: <strong>{{ userBalance }}</strong> BurritoAI tokens.</p> -->
+						<a href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f" target="_blank" class="btn btn-burrito flex-grow-1">Get $BurritoAI tokens</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div v-else class="images-area">
 			<div class="images-input">
 				<input
 					v-model="prompt"
@@ -52,7 +73,7 @@
 
 	const chatStore = useChatStore();
 	const prompt = ref('');
-
+	const userBalance = ref(0);
 	const sendPrompt = async () => {
 		if(prompt.value) {
 
@@ -201,4 +222,71 @@
 				img
 					border-radius: 0.5rem
 					width: 100%
+	.section-dashboard
+			display: flex
+			flex-direction: column
+			flex-grow: 1
+			padding-top: 13px
+
+			@media (min-width: $sm)
+				padding-top: 0
+
+			.please-connect
+				display: flex
+				flex-direction: column
+				flex-grow: 1
+				justify-content: center
+				align-items: center
+				padding: 1rem 0
+
+			.connect
+				text-align: center
+				max-width: 700px
+				padding: 1rem
+				border: 2px solid $primary
+				box-shadow: 0 1rem 0 0 $primary !important
+				border-radius: 0.5rem
+				background-color: white
+
+				img
+					margin-bottom: 1rem
+					image-rendering: pixelated
+					width: 350px
+
+				.title
+					font-size: 2rem
+					line-height: 1.1
+					font-family: Chibold, sans-serif
+					color: $brand1
+					margin-bottom: 1.5rem
+
+				.content
+					.subtitle
+						font-weight: bold
+						font-size: 1.1rem
+						color: $brand1
+						margin-bottom: 1rem
+
+					.benefits-list
+						list-style: none
+						padding: 0
+						margin-bottom: 1.5rem
+
+						li
+							padding: 0.5rem 0
+							border-bottom: 1px solid rgba($primary, 0.1)
+
+							&:last-child
+								border-bottom: none
+
+					.help-link
+						color: $primary
+						text-decoration: underline
+						background: none
+						border: none
+						padding: 0
+						cursor: pointer
+
+						&:hover
+							color: darken($primary, 10%)
 </style>
