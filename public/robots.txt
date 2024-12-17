@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /chat
+Disallow: /chat/dashboard
+Disallow: /chat/images
+Disallow: /chat/[uid]
+
+Sitemap: https://burritoai.finance/sitemap.xml
