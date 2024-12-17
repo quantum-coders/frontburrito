@@ -1,73 +1,30 @@
 <template>
 	<div class="wait-list" :class="{ 'is-invisible': !visible }">
-		<!-- close icon -->
 		<div class="close">
-			<icon @click.prevent="disableWaitList" name="bx:bx-x" />
+			<icon @click.prevent="disableWaitList" name="bx:bx-x"/>
 		</div>
-
-		<p class="error fs-7" v-if="!!error">{{ error }}</p>
 
 		<p>Join our wait list to be the first to get BurritoAI Alphas!</p>
-		<!-- input for email and button to join -->
-		<div class="input-group">
-			<input
-				type="email"
-				class="form-control"
-				placeholder="Email address"
-				v-model="email"
-			>
-			<button @click="join" class="btn" type="button" id="button-addon2">Join</button>
-		</div>
+
+		<MarketingSubscriptionForm placeholder="Email address" joinText="Join" joiningText="Joining..."/>
 	</div>
 </template>
 
 <script setup>
 
-	const visible = ref(true);
-	const email = ref('');
-	const error = ref('');
-
-	// check if the user has already joined the wait list
-	const waitList = localStorage.getItem('waitList');
-	if(waitList === '0') {
-		visible.value = false;
+	const visible = ref(true)
+	const waitList = localStorage.getItem('waitList')
+	if (waitList === '0') {
+		visible.value = false
 	}
 
 	const disableWaitList = (forever = false) => {
-		visible.value = false;
-		// save to local storage
-		if(forever) localStorage.setItem('waitList', '0');
-	};
-
-	const join = async () => {
-		// send email to the backend
-		if(!email.value) {
-			error.value = 'Please enter a valid email address chump.';
-		} else {
-
-			// validate email
-			const emailRegex = /^(?=.{1,256})(?=.{1,64}@.{1,255}$)[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-			if(!emailRegex.test(email.value)) {
-				error.value = 'Please enter a valid email address';
-				return;
-			}
-
-			error.value = '';
-
-			const res = await useFetch(`${ useRuntimeConfig().public.baseURL }/wait-list`, {
-				method: 'POST',
-				body: JSON.stringify({ email: email.value }),
-			});
-
-			disableWaitList(true);
-		}
-	};
-
+		visible.value = false
+		if (forever) localStorage.setItem('waitList', '0')
+	}
 </script>
 
-<!--suppress SassScssResolvedByNameOnly -->
 <style lang="sass" scoped>
-
 	.wait-list
 		position: fixed
 		bottom: 2rem
@@ -134,7 +91,5 @@
 				left: 5%
 				height: 1px
 				width: 90%
-
-				// from transparent to white then to transparent again
 				background: linear-gradient(90deg, transparent 0%, rgba(white, 0.5) 50%, transparent 100%)
 </style>

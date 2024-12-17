@@ -194,6 +194,7 @@
 	};
 
 	const createNewChat = () => {
+		useMarketingStore().trackEvent('click_new_chat', {});
 		router.push('/chat');
 	};
 

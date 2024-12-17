@@ -210,6 +210,12 @@
 		);
 	});
 
+
+	watch(searchQuery, (newVal) => {
+		useMarketingStore().trackEvent('search_chats', {query: newVal});
+	});
+
+
 	const accountTrimmed = (account) => {
 		return account.slice(0, 6) + '...' + account.slice(-4);
 	};
@@ -236,6 +242,7 @@
 	};
 
 	const viewChat = (chatId) => {
+		useMarketingStore().trackEvent('view_chat', {chat_id: chatId});
 		router.push(`/chat/${chatId}`);
 	};
 
@@ -282,6 +289,7 @@
 	const downloadChat = async (chat, type = 'txt') => {
 
 		if (useChatStore) {
+			useMarketingStore().trackEvent('download_chat', {chat_id: chat.id, format: type});
 			useChatStore().downloadChat(chat, type);
 		}
 	};
@@ -296,6 +304,7 @@
 	};
 
 	const createNewChat = () => {
+		useMarketingStore().trackEvent('click_new_chat', {});
 		router.push('/chat');
 	};
 
@@ -312,6 +321,8 @@
 		const authToken = localStorage.getItem('authToken');
 		if (authToken) await me(authToken);
 		await fetchChats();
+		useMarketingStore().trackEvent('view_chats_dashboard', {});
+
 	});
 </script>
 

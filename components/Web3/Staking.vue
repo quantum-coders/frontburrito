@@ -1,7 +1,9 @@
 <template>
 	<div class="staking-dashboard position-relative p-4">
 		<!-- Close Button -->
-		<a class="close position-absolute top-0 end-2 m-6" @click.prevent="close">
+		<a class="close position-absolute top-0 end-2 m-6" @click.prevent="close"
+			 v-if="showCloseButton"
+		>
 			<icon name="material-symbols:close"/>
 		</a>
 
@@ -345,6 +347,10 @@
 	const realTimeEarnings = ref(0);
 
 	const props = defineProps({
+		showCloseButton: {
+			type: Boolean,
+			default: true
+		},
 		close: {
 			type: Function,
 			default: () => {
@@ -393,6 +399,8 @@
 				console.log("Debugging Signer ", web3Store.provider);
 				const signedTx = await web3Store.provider.getSigner().sendTransaction(approveTx);
 				await signedTx.wait();
+				useMarketingStore().trackEvent('approve_stake', {amount});
+
 				successToast(`Approval of ${amount} Burrito AI Tokens successful!`);
 				isApproved.value = true;
 			} catch (error) {
@@ -452,6 +460,10 @@
 				stakingStatus.value = 'Staking tokens...';
 				const signedTx = await web3Store.provider.getSigner().sendTransaction(stakeTx);
 				await signedTx.wait();
+				useMarketingStore().trackEvent('stake_tokens', {
+					amount: amountToStake.value,
+					duration: stakeDuration.value
+				});
 				successToast(`Staking of ${amount} Burrito AI Tokens successful!`);
 			} catch (error) {
 				console.error('Error staking tokens:', error);
@@ -528,6 +540,7 @@
 				const txResponse = await web3Store.provider.getSigner().sendTransaction(unstakeTx);
 				await txResponse.wait();
 				successToast('Claim rewards successful!');
+				useMarketingStore().trackEvent('claim_rewards', {});
 			} catch (error) {
 				console.error('Error claiming rewards:', error);
 				errorToast('Error claiming rewards.');
@@ -542,6 +555,7 @@
 
 	const changeToTab = async (tab) => {
 		activeTab.value = tab;
+		useMarketingStore().trackEvent('change_staking_tab', {tab});
 		switch (tab) {
 			case 'dashboard':
 				await getStakedBalance();

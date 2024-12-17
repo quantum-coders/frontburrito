@@ -1,6 +1,6 @@
 <template>
 	<div class="dashboard-container">
-		<a class="close" @click.prevent="close">
+		<a class="close" @click.prevent="close" v-if="showCloseButton">
 			<icon name="material-symbols:close"/>
 		</a>
 
@@ -95,7 +95,7 @@
 				</div>
 				<button type="submit" class="btn btn-burrito w-100" :disabled="loadingState">
 					<icon name="mdi:cash-plus" class="me-2"
-						v-if="!loadingState"
+						  v-if="!loadingState"
 					/>
 					<span v-else class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 					Fund Account
@@ -143,6 +143,10 @@
 	const {successToast, errorToast} = usePrettyToast();
 
 	const props = defineProps({
+		showCloseButton: {
+			type: Boolean,
+			default: true,
+		},
 		close: {
 			type: Function,
 			default: () => {
@@ -212,6 +216,7 @@
 				const tx1 = await signedTx.wait(3);
 				console.log('TX1: ', tx1);
 				if (tx1.status == 1) {
+					useMarketingStore().trackEvent('fund_account', {amount: amount.value, currency: selectedCurrency.value});
 					/// obtain the amount in USD
 					const amountInUSD = selectedCurrency.value === 'USD' ? amount.value : amount.value * exchangeRate.value;
 					successToast(`Funding of ${amount.value} ${selectedCurrency.value} successful!`);
@@ -245,6 +250,7 @@
 
 			if (data.value.data) {
 				paymentHistory.value = data.value.data;
+				useMarketingStore().trackEvent('view_payment_history', {});
 			} else {
 				throw new Error('Error fetching payment history');
 			}

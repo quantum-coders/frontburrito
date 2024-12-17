@@ -1,3 +1,4 @@
+<!-- Footer.vue -->
 <template>
 	<footer class="site-footer">
 		<div class="pixel-border"></div>
@@ -85,24 +86,8 @@
 					<div class="footer-section">
 						<h3 class="footer-title">Join Our Waitlist</h3>
 						<p class="newsletter-text">Be the first to get BurritoAI Alphas!</p>
-						<form @submit.prevent="handleSubscribe" class="newsletter-form">
-							<p v-if="error" class="error-message">{{ errorData }}</p>
-							<div class="form-wrapper">
-								<input
-									type="email"
-									class="email-input"
-									placeholder="Enter your email"
-									v-model="email"
-								>
-								<button
-									class="submit-button"
-									type="submit"
-									:disabled="isLoading"
-								>
-									{{ isLoading ? 'Joining...' : 'Join' }}
-								</button>
-							</div>
-						</form>
+						<MarketingSubscriptionForm placeholder="Enter your email" joinText="Join"
+												   joiningText="Joining..."/>
 					</div>
 				</div>
 			</div>
@@ -126,48 +111,6 @@
 </template>
 
 <script setup>
-	const email = ref('');
-	const errorData = ref('');
-	const isLoading = ref(false);
-	const {successToast, errorToast} = usePrettyToast();
-
-	const handleSubscribe = async () => {
-		if (!email.value) {
-			errorData.value = 'Please enter a valid email address chump.';
-			return;
-		}
-
-		// Validate email
-		const emailRegex = /^(?=.{1,256})(?=.{1,64}@.{1,255}$)[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-		if (!emailRegex.test(email.value)) {
-			errorData.value = 'Please enter a valid email address';
-			return;
-		}
-
-		errorData.value = '';
-		isLoading.value = true;
-
-		try {
-			const {res, error} = await useFetch(`${useRuntimeConfig().public.baseURL}/wait-list`, {
-				method: 'POST',
-				body: JSON.stringify({email: email.value}),
-			});
-
-			if (error.value?.data) {
-				errorData.value = error.value;
-				errorToast(error.value.data.message);
-			} else {
-				successToast('You have successfully joined the waitlist!');
-			}
-
-		} catch (err) {
-			console.log("Catching error", err)
-			errorData.value = err.message;
-		} finally {
-			email.value = '';
-			isLoading.value = false;
-		}
-	};
 </script>
 
 <style lang="sass" scoped>
@@ -326,8 +269,8 @@
 			height: 40px
 			image-rendering: pixelated
 
-		.copyright
-			color: rgba(255, 255, 255, 0.8)
+			copyright
+				color: rgba(255, 255, 255, 0.8)
 
 		.footer-links
 			a
