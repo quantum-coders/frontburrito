@@ -16,14 +16,14 @@
 						>
 							Buy $BURRITO
 						</a>
-						<nutx-link
+						<nuxt-link
 							to="/staking-dashboard"
 							class="btn btn-lg"
 							:class="darkMode ? 'btn-outline-light' : 'btn-outline-primary'"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: `Start Staking - ${pageName}` })"
 						>
 							Start Staking
-						</nutx-link>
+						</nuxt-link>
 					</div>
 				</div>
 			</div>
