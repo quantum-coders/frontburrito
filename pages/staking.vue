@@ -167,38 +167,38 @@
 								<div class="table-responsive">
 									<table class="table table-hover">
 										<thead>
-										<tr>
-											<th>Duration</th>
-											<th>APY</th>
-											<th>Min Stake</th>
-											<th>Features</th>
-										</tr>
+											<tr>
+												<th>Duration</th>
+												<th>APY</th>
+												<th>Min Stake</th>
+												<th>Features</th>
+											</tr>
 										</thead>
 										<tbody>
-										<tr>
-											<td>30 Days</td>
-											<td>11.00%</td>
-											<td>100 $BURRITO</td>
-											<td>Basic Rewards</td>
-										</tr>
-										<tr>
-											<td>90 Days</td>
-											<td>13.50%</td>
-											<td>100 $BURRITO</td>
-											<td>Enhanced Rewards</td>
-										</tr>
-										<tr>
-											<td>180 Days</td>
-											<td>16.25%</td>
-											<td>100 $BURRITO</td>
-											<td>Premium Rewards</td>
-										</tr>
-										<tr>
-											<td>365 Days</td>
-											<td>19.72%</td>
-											<td>100 $BURRITO</td>
-											<td>Maximum Rewards</td>
-										</tr>
+											<tr>
+												<td>30 Days</td>
+												<td>11.00%</td>
+												<td>100 $BURRITO</td>
+												<td>Basic Rewards</td>
+											</tr>
+											<tr>
+												<td>90 Days</td>
+												<td>13.50%</td>
+												<td>100 $BURRITO</td>
+												<td>Enhanced Rewards</td>
+											</tr>
+											<tr>
+												<td>180 Days</td>
+												<td>16.25%</td>
+												<td>100 $BURRITO</td>
+												<td>Premium Rewards</td>
+											</tr>
+											<tr>
+												<td>365 Days</td>
+												<td>19.72%</td>
+												<td>100 $BURRITO</td>
+												<td>Maximum Rewards</td>
+											</tr>
 										</tbody>
 									</table>
 								</div>
@@ -216,24 +216,24 @@
 				<div class="table-responsive">
 					<table class="table table-dark table-hover">
 						<thead>
-						<tr>
-							<th>Address</th>
-							<th>Action</th>
-							<th>Amount</th>
-							<th>Time</th>
-						</tr>
+							<tr>
+								<th>Address</th>
+								<th>Action</th>
+								<th>Amount</th>
+								<th>Time</th>
+							</tr>
 						</thead>
 						<tbody>
-						<tr v-for="activity in recentActivity" :key="activity.id">
-							<td>{{ formatAddress(activity.address) }}</td>
-							<td>
-                                    <span :class="`badge bg-${activity.type === 'stake' ? 'success' : 'primary'}`">
-                                        {{ activity.type === 'stake' ? 'Staked' : 'Claimed' }}
-                                    </span>
-							</td>
-							<td>{{ formatNumber(activity.amount) }} $BURRITO</td>
-							<td>{{ formatTime(activity.timestamp) }}</td>
-						</tr>
+							<tr v-for="activity in recentActivity" :key="activity.id">
+								<td>{{ formatAddress(activity.address) }}</td>
+								<td>
+									<span :class="`badge bg-${activity.type === 'stake' ? 'success' : 'primary'}`">
+										{{ activity.type === 'stake' ? 'Staked' : 'Claimed' }}
+									</span>
+								</td>
+								<td>{{ formatNumber(activity.amount) }} $BURRITO</td>
+								<td>{{ formatTime(activity.timestamp) }}</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
@@ -245,7 +245,7 @@
 			<div class="container">
 				<h2 class="text-center mb-5">Security & Transparency</h2>
 				<div class="row g-4">
-					<div class="col-md-4">
+					<div class="col-md-4 d-flex">
 						<div class="security-card text-center p-4">
 							<div class="security-icon mb-3">🔒</div>
 							<h3 class="h5 mb-3">Audited Contract</h3>
@@ -259,7 +259,7 @@
 							></a>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 d-flex">
 						<div class="security-card text-center p-4">
 							<div class="security-icon mb-3">📊</div>
 							<h3 class="h5 mb-3">Transparent Rules</h3>
@@ -272,7 +272,7 @@
 							></a>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 d-flex">
 						<div class="security-card text-center p-4">
 							<div class="security-icon mb-3">⚡</div>
 							<h3 class="h5 mb-3">Instant Withdrawals</h3>
@@ -292,8 +292,10 @@
 						<div class="accordion" id="stakingFaq">
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-									<button class="accordion-button" type="button" data-bs-toggle="collapse"
-											data-bs-target="#faq1">
+									<button
+										class="accordion-button" type="button" data-bs-toggle="collapse"
+										data-bs-target="#faq1"
+									>
 										What is the minimum staking amount?
 									</button>
 								</h2>
@@ -303,24 +305,12 @@
 									</div>
 								</div>
 							</div>
-							<!-- Add more FAQ items -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- FAQ Section (Continuación) -->
-		<section class="py-5 bg-light">
-			<div class="container">
-				<h2 class="text-center mb-5">Frequently Asked Questions</h2>
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<div class="accordion" id="stakingFaq">
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#faq2">
+									<button
+										class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+										data-bs-target="#faq2"
+									>
 										How are rewards calculated?
 									</button>
 								</h2>
@@ -334,8 +324,10 @@
 							</div>
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#faq3">
+									<button
+										class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+										data-bs-target="#faq3"
+									>
 										Can I withdraw early?
 									</button>
 								</h2>
@@ -348,8 +340,10 @@
 							</div>
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#faq4">
+									<button
+										class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+										data-bs-target="#faq4"
+									>
 										Are rewards auto-compounding?
 									</button>
 								</h2>
@@ -362,8 +356,10 @@
 							</div>
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-											data-bs-target="#faq5">
+									<button
+										class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+										data-bs-target="#faq5"
+									>
 										Is there a maximum staking amount?
 									</button>
 								</h2>
@@ -414,95 +410,95 @@
 </template>
 
 <script setup>
-	const title = 'Stake $BURRITO - Earn Up to 19.72% APY with Real-time Rewards'
-	const description = 'Start earning passive rewards by staking your $BURRITO tokens. Choose flexible staking periods, track real-time earnings, and participate in our secure staking program.'
+	const title = 'Stake $BURRITO - Earn Up to 19.72% APY with Real-time Rewards';
+	const description = 'Start earning passive rewards by staking your $BURRITO tokens. Choose flexible staking periods, track real-time earnings, and participate in our secure staking program.';
 
 	// State
-	const showDashboard = ref(false)
-	const calculatorAmount = ref(1000)
-	const selectedPeriod = ref(30)
-	const tvl = ref(2500000)
-	const totalStakers = ref(1234)
+	const showDashboard = ref(false);
+	const calculatorAmount = ref(1000);
+	const selectedPeriod = ref(30);
+	const tvl = ref(2500000);
+	const totalStakers = ref(1234);
 
 	// Mock data for recent activity
 	const recentActivity = ref([
-		{id: 1, address: '0x1234...5678', type: 'stake', amount: 50000, timestamp: Date.now() - 300000},
-		{id: 2, address: '0x8765...4321', type: 'claim', amount: 2500, timestamp: Date.now() - 900000},
+		{ id: 1, address: '0x1234...5678', type: 'stake', amount: 50000, timestamp: Date.now() - 300000 },
+		{ id: 2, address: '0x8765...4321', type: 'claim', amount: 2500, timestamp: Date.now() - 900000 },
 		// Add more mock data if needed
-	])
+	]);
 
 	const recentStake = ref({
 		address: '0x1234...5678',
-		amount: 50000
-	})
+		amount: 50000,
+	});
 
 	const latestReward = ref({
 		address: '0x8765...4321',
-		amount: 2500
-	})
+		amount: 2500,
+	});
 
 	// Computed
 	const calculatedRewards = computed(() => {
-		const rate = selectedPeriod.value >= 365 ? 0.1972 : 0.11
-		return ((calculatorAmount.value * rate) / 365 * selectedPeriod.value).toFixed(2)
-	})
+		const rate = selectedPeriod.value >= 365 ? 0.1972 : 0.11;
+		return ((calculatorAmount.value * rate) / 365 * selectedPeriod.value).toFixed(2);
+	});
 
 	// Methods
 	const formatNumber = (num) => {
-		return new Intl.NumberFormat('en-US').format(num)
-	}
+		return new Intl.NumberFormat('en-US').format(num);
+	};
 
 	const formatAddress = (address) => {
-		return address // Already formatted in mock data
-	}
+		return address; // Already formatted in mock data
+	};
 
 	const formatTime = (timestamp) => {
-		return new Intl.RelativeTimeFormat('en', {numeric: 'auto'}).format(
+		return new Intl.RelativeTimeFormat('en', { numeric: 'auto' }).format(
 			-Math.round((Date.now() - timestamp) / 60000),
-			'minutes'
-		)
-	}
+			'minutes',
+		);
+	};
 
 	const openStakingDashboard = () => {
-		showDashboard.value = true
-		useMarketingStore().trackEvent('open_staking_dashboard', {})
-	}
+		showDashboard.value = true;
+		useMarketingStore().trackEvent('open_staking_dashboard', {});
+	};
 
 	const closeDashboard = () => {
-		showDashboard.value = false
-	}
+		showDashboard.value = false;
+	};
 
 	// SEO
 	useHead({
 		title,
 		meta: [
-			{name: 'description', content: description},
-			{property: 'og:title', content: title},
-			{property: 'og:description', content: description},
-			{property: 'og:image', content: 'https://burritoai.finance/images/seal.svg'},
-			{property: 'og:url', content: 'https://burritoai.finance/staking'},
-			{name: 'twitter:card', content: 'summary_large_image'},
-			{name: 'twitter:title', content: title},
-			{name: 'twitter:description', content: description},
-			{name: 'twitter:image', content: 'https://burritoai.finance/images/seal.svg'},
-			{name: 'twitter:site', content: '@burritoAIDeFi'},
+			{ name: 'description', content: description },
+			{ property: 'og:title', content: title },
+			{ property: 'og:description', content: description },
+			{ property: 'og:image', content: 'https://burritoai.finance/images/seal.svg' },
+			{ property: 'og:url', content: 'https://burritoai.finance/staking' },
+			{ name: 'twitter:card', content: 'summary_large_image' },
+			{ name: 'twitter:title', content: title },
+			{ name: 'twitter:description', content: description },
+			{ name: 'twitter:image', content: 'https://burritoai.finance/images/seal.svg' },
+			{ name: 'twitter:site', content: '@burritoAIDeFi' },
 			{
 				name: 'keywords',
-				content: 'BurritoAI staking, crypto staking, high APY staking, passive income crypto, AVAX staking, secure staking, token rewards, DeFi staking'
+				content: 'BurritoAI staking, crypto staking, high APY staking, passive income crypto, AVAX staking, secure staking, token rewards, DeFi staking',
 			},
 		],
 		link: [
-			{rel: 'canonical', href: 'https://burritoai.finance/staking'}
+			{ rel: 'canonical', href: 'https://burritoai.finance/staking' },
 		],
-	})
+	});
 
 	definePageMeta({
 		layout: 'burrito',
-	})
+	});
 
 	onMounted(() => {
 		// loadContractData() could be called here if needed
-	})
+	});
 </script>
 
 <style lang="sass" scoped>
