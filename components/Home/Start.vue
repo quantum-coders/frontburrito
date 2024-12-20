@@ -1,5 +1,5 @@
 <template>
-	<div class="block-start mb-5">
+	<div class="block-start">
 		<div class="container">
 			<h2 class="mb-5">
 				Enjoy unfiltered conversations, exclusive perks, and vibrant AI.<br>
@@ -9,24 +9,15 @@
 			<div class="text-center mb-5">
 				<nuxt-link
 					to="/chat/dashboard"
-					class="btn btn-burrito text-uppercase fw-bold text-white"
+					class="btn btn-burrito"
 					@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Start Now from Final Section' })"
 				>
 					Start Now
 				</nuxt-link>
 			</div>
 
-			<div class="position-relative d-flex justify-content-center align-items-center mb-5">
+			<div class="position-relative d-flex justify-content-center align-items-center">
 				<img src="/images/rich-burrito.png" alt="Start Now!" class="rich-burrito-final"/>
-				<div class="position-absolute burrito-sparkles">
-					<animations-emoji-rain
-						class="emoji-rain"
-						:emojis="['🌶️','🔥','💸','🎉']"
-						:speed="8"
-						:density="30"
-						:spawn="true"
-					/>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -58,7 +49,6 @@
 	.btn-burrito
 		font-size: 1.2rem
 		padding: 0.75rem 2rem
-		background-color: $brand1
 
 	.rich-burrito-final
 		image-rendering: pixelated

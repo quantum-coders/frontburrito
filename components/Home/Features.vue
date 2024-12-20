@@ -146,7 +146,9 @@
 				</div>
 			</article>
 		</div>
-		<platform-socials class="mt-5"/>
+
+
+		<platform-socials class="socials" />
 	</div>
 </template>
 
@@ -336,4 +338,10 @@
 			width: 150px
 			right: -50px
 			top: -20px
+
+	.socials
+
+		padding-top: 3rem
+		margin-bottom: 4rem
+
 </style>

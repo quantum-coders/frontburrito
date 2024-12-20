@@ -26,44 +26,43 @@
 </template>
 
 <style lang="sass" scoped>
-.socials-container
-	display: flex
-	justify-content: space-around
-	align-items: center
-	margin-top: 2rem
-	width: 100%
-
-	.social-icons
+	.socials-container
 		display: flex
-		list-style: none
-		padding: 0
-		margin: 0
-		gap: 2.5rem
+		justify-content: space-around
+		align-items: center
+		width: 100%
 
-		li
-			a
-				display: inline-block
+		.social-icons
+			display: flex
+			list-style: none
+			padding: 0
+			margin: 0
+			gap: 2.5rem
 
-				img
-					width: 30px
-					height: 30px
-					transition: transform 0.3s ease, opacity 0.3s ease
-
-					&:hover
-						transform: scale(1.1)
-						opacity: 0.8
-
-		@media (min-width: $sm)
 			li
 				a
-					img
-						width: 40px
-						height: 40px
+					display: inline-block
 
-		@media (min-width: $md)
-			li
-				a
 					img
-						width: 50px
-						height: 50px
+						width: 30px
+						height: 30px
+						transition: transform 0.3s ease, opacity 0.3s ease
+
+						&:hover
+							transform: scale(1.1)
+							opacity: 0.8
+
+			@media (min-width: $sm)
+				li
+					a
+						img
+							width: 40px
+							height: 40px
+
+			@media (min-width: $md)
+				li
+					a
+						img
+							width: 50px
+							height: 50px
 </style>

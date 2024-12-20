@@ -15,8 +15,8 @@
 		<div class="copy">
 			<img class="gif d-none d-sm-block" src="/images/burrito-idle.gif" alt="">
 			<div class="copy-wrapper">
-				<h3 class="fw-bold text-brand mb-4">BurritoAI: Unleash AI & Earn Big with DeFi</h3>
-				<p class="mb-4">
+				<h3 class="fw-bold text-brand mb-2">BurritoAI: Unleash AI & Earn Big with DeFi</h3>
+				<p class="mb-2">
 					Hold <strong>$BurritoAI</strong> and tap into uncensored AI tools, flexible DeFi billing, and up to
 					<strong>19.72% APY</strong> annually. More tokens = more power, more profit, and exclusive features.
 					Don’t hesitate—buy now and start earning.
@@ -77,8 +77,9 @@
 <style lang="sass" scoped>
 	.block-hero
 		padding-top: 5rem
+
 		@media (min-width: $sm)
-			padding: 5rem 0
+			padding: 15dvh 0
 
 	.hero-logo
 		width: 90%
@@ -161,16 +162,17 @@
 		margin: 0 auto -8px
 		width: 48px * 4
 		z-index: 10
+
 		@media (min-width: $sm)
 			position: absolute
 			right: 0
-			top: 50%
-			transform: translateY(-60%)
+			top: -100px
 			width: 48px * 5
 
 	.copy
 		width: 90%
 		margin: 0 auto
+
 		@media (min-width: $sm)
 			width: 75%
 			padding-left: 5%
@@ -181,26 +183,32 @@
 
 			h3
 				color: $brand2
-				font-size: 1rem
+				font-size: 1.5rem
 				font-weight: 900
-				@media (min-width: $sm)
-					font-size: 2rem
 
-			p
-				margin-bottom: 2rem
+				@media (min-width: $sm)
+					font-size: 1.6rem
 
 			.buttons
-				gap: 1rem
+				flex-wrap: wrap
+				gap: 0.5rem
 				max-width: 800px
 				flex-direction: column
+
 				@media (min-width: $sm)
 					flex-direction: row
-					gap: 3rem
+					gap: 0.5rem
 
-			.btn-burrito
-				padding: 1rem 2rem
-				@media (min-width: $sm)
-					font-size: 1.5rem
+				.btn-burrito
+					flex-basis: 30%
+					display: flex
+					align-items: center
+					justify-content: center
+					line-height: 1
+					padding: 1rem 2rem
+
+					@media (min-width: $sm)
+						font-size: 1.5rem
 
 	.seal
 		margin: 10rem auto 5rem
@@ -232,13 +240,4 @@
 		&:hover
 			background: #e3592f
 			color: #fff
-
-	@media (min-width: 576px)
-		.gif
-			width: 240px
-			right: 2rem
-
-	@media (min-width: 992px)
-		h3
-			font-size: 2.5rem
 </style>
