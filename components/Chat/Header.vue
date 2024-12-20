@@ -25,7 +25,7 @@
 
 		@media (min-width: $sm)
 			position: sticky
-			padding: 1rem 0 1rem 2rem
+			padding: 0.75rem 0 0.75rem 0.75rem
 
 		&.fixed
 			background: white url("/images/background-texture.png")
