@@ -226,6 +226,9 @@
 		transition: all 250ms ease
 		background: white url("/images/background-texture.png")
 
+		&.fixed
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+
 	.navbar-toggler
 		cursor: pointer
 		transition: all 0.3s ease

@@ -34,8 +34,6 @@
 	});
 
 	const headerWaypoint = (waypointState) => {
-		console.log(waypointState);
-
 		headerFixed.value = waypointState.direction === 'UP';
 	};
 

@@ -2,7 +2,7 @@
 	<div class="loading-wrapper">
 		<div class="loading-container">
 			<div class="loading-content">
-				<img src="/images/burrito-photo.png" alt="Burrito" class="loading-burrito"/>
+				<img src="/images/burrito-photo.png" alt="Burrito" class="loading-burrito" />
 
 				<div class="loading-bar">
 					<div class="loading-progress"></div>
@@ -13,9 +13,9 @@
 				</div>
 
 				<div class="loading-dots">
-					<span></span>
-					<span></span>
-					<span></span>
+					<span />
+					<span />
+					<span />
 				</div>
 			</div>
 		</div>
@@ -24,14 +24,14 @@
 
 <script setup>
 	const messages = [
-		"🌯 Rolling up the blockchain...",
-		"🔄 Connecting to your wallet...",
-		"🎨 Loading your personalized experience...",
-		"🚀 Initializing Web3...",
-		"✨ Setting up your secure connection...",
-		"🌟 Almost ready to serve you...",
-		"🎮 Preparing your dashboard...",
-		"🔗 Syncing with the network..."
+		'🌯 Rolling up the blockchain...',
+		'🔄 Connecting to your wallet...',
+		'🎨 Loading your personalized experience...',
+		'🚀 Initializing Web3...',
+		'✨ Setting up your secure connection...',
+		'🌟 Almost ready to serve you...',
+		'🎮 Preparing your dashboard...',
+		'🔗 Syncing with the network...',
 	];
 
 	const currentMessage = ref(messages[0]);
@@ -51,11 +51,11 @@
 
 <style lang="sass" scoped>
 	.loading-wrapper
-		min-height: 100vh
+		min-height: 80vh
 		display: flex
 		align-items: center
 		justify-content: center
-		background: $complement
+		background: url("/images/background-texture.png")
 		padding: 1rem
 
 	.loading-container
@@ -77,7 +77,6 @@
 
 	.loading-burrito
 		width: 80px
-		height: 80px
 		animation: bounce 1s ease-in-out infinite alternate
 
 	.loading-bar
@@ -96,9 +95,14 @@
 			animation: loading 1.5s ease-in-out infinite
 
 	.loading-message
-		min-height: 2rem
+		height: 3rem
+		text-wrap: balance
+		display: flex
+		align-items: center
+		justify-content: center
 
 		p
+			line-height: 1.2
 			margin: 0
 			font-family: 'Chibold', sans-serif
 			color: $brand1

@@ -5,7 +5,7 @@
 		<div class="container py-5">
 			<div class="row gy-5">
 				<!-- Navigation Section -->
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-md-3">
 					<div class="footer-section">
 						<h3 class="footer-title">Navigation</h3>
 						<nav class="footer-navigation">
@@ -56,7 +56,7 @@
 				</div>
 
 				<!-- Community Section -->
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-md-5">
 					<div class="footer-section">
 						<h3 class="footer-title">Community</h3>
 						<div class="social-links">
@@ -181,7 +181,7 @@
 	.social-links
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
-		gap: 1rem
+		gap: 0.5rem
 
 		.social-link
 			display: flex
@@ -201,8 +201,8 @@
 				transform: translateY(-2px)
 
 			.social-icon
-				width: 40px
-				height: 40px
+				width: 30px
+				height: 30px
 				transition: transform 0.3s ease
 
 				&:hover
