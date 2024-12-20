@@ -86,7 +86,7 @@
 						<label class="form-label">Value in USD</label>
 						<div class="input-group">
 							<span class="input-group-text">$</span>
-							<input type="text" class="form-control" :value="usdValue.toFixed(2)" readonly/>
+							<input type="text" class="form-control" :value="(usdValue || 0).toFixed(2)" readonly/>
 						</div>
 					</div>
 					<div v-if="messageForUser" class="alert alert-info">
@@ -359,9 +359,6 @@
 			font-family: 'Chibold', sans-serif
 			font-size: 1.5rem
 			padding: 0.5rem 0
-			border: 0
-			border-top: 2px solid $brand1
-			border-radius: 0 0 0.25rem 0.25rem
 
 			&:hover
 				background: $brand2

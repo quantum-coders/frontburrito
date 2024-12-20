@@ -92,10 +92,7 @@
 
 <style lang="sass" scoped>
 	.logo
-		width: 30px
-
-		@media (min-width: $sm)
-			width: 40px
+		width: 40px
 
 		&:hover
 			.phrase
@@ -103,6 +100,7 @@
 					left: 45px
 
 		.phrase
+			display: none
 			position: absolute
 			top: 50%
 			overflow: clip
@@ -114,6 +112,7 @@
 			color: $brand1
 
 			@media (min-width: $sm)
+				display: block
 				width: 250px
 				font-size: 0.875rem
 

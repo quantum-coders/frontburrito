@@ -74,7 +74,7 @@
 							class="btn btn-burrito px-4 py-2 text-uppercase fw-bold"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Go to Chat Dashboard' })"
 						>
-							CHAT
+							CHAT RIGHT NOW!
 						</nuxt-link>
 					</p>
 				</div>
@@ -175,6 +175,7 @@
 		margin: 0 auto 5rem
 		max-width: 80%
 		gap: 1rem
+
 		@media (min-width: $sm)
 			gap: 3rem
 
@@ -265,6 +266,7 @@
 			.emoji-rain
 				overflow: hidden
 				z-index: 1
+				pointer-events: none
 
 		.rich-burrito-img
 			position: absolute
@@ -273,7 +275,8 @@
 			transform: translateX(-50%)
 			width: 206px
 			image-rendering: pixelated
-			z-index: 2
+			z-index: 40
+
 			@media (min-width: $sm)
 				left: 0
 				width: calc(206px * 2)
@@ -289,9 +292,8 @@
 		.nfts-img
 			position: absolute
 			image-rendering: pixelated
-			width: 100%
-			height: 100%
-			object-fit: contain
+			width: calc(88px * 3)
+			height: auto
 
 	.vibes
 		width: 120px

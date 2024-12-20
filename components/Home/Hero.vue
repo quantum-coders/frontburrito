@@ -208,7 +208,7 @@
 					padding: 1rem 2rem
 
 					@media (min-width: $sm)
-						font-size: 1.5rem
+						font-size: 1.2rem
 
 	.seal
 		margin: 10rem auto 5rem

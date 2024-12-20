@@ -2,7 +2,7 @@
 	<header class="site-header" :class="{ 'nav-open': navOpen }">
 		<div class="d-flex align-items-center w-100 position-relative">
 			<!-- Logo on the left -->
-			<layout-logo class="me-3"/>
+			<layout-logo class="me-3" />
 
 			<!-- Mobile toggler in the center -->
 			<div class="d-block d-sm-none flex-grow-1 d-flex justify-content-center">
@@ -13,16 +13,20 @@
 					aria-label="Toggle navigation"
 				>
 					<span v-if="!navOpen" class="menu-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-							 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						>
 							<line x1="3" y1="12" x2="21" y2="12"></line>
 							<line x1="3" y1="6" x2="21" y2="6"></line>
 							<line x1="3" y1="18" x2="21" y2="18"></line>
 						</svg>
 					</span>
 					<span v-else class="close-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-							 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<svg
+							xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+						>
 							<line x1="18" y1="6" x2="6" y2="18"></line>
 							<line x1="6" y1="6" x2="18" y2="18"></line>
 						</svg>
@@ -108,7 +112,7 @@
 			</nav>
 
 			<!-- Wallet on the right -->
-			<layout-wallet-new/>
+			<layout-wallet-new />
 		</div>
 
 		<!-- Mobile menu -->
@@ -195,21 +199,21 @@
 </template>
 
 <script setup>
-	const marketingStore = useMarketingStore()
-	const navOpen = ref(false)
+	const marketingStore = useMarketingStore();
+	const navOpen = ref(false);
 
 	const toggleNav = () => {
-		navOpen.value = !navOpen.value
-	}
+		navOpen.value = !navOpen.value;
+	};
 
 	const closeNav = () => {
-		navOpen.value = false
-	}
+		navOpen.value = false;
+	};
 
 	const linkClicked = (nav_item) => {
-		marketingStore.trackEvent('click_nav', {nav_item})
-		closeNav()
-	}
+		marketingStore.trackEvent('click_nav', { nav_item });
+		closeNav();
+	};
 </script>
 
 <style scoped lang="sass">
@@ -218,7 +222,7 @@
 		width: 100%
 		top: 0
 		z-index: 10000
-		padding: 0.75rem
+		padding: 0.75rem 0 0.75rem 0.75rem
 		transition: all 250ms ease
 		background: white url("/images/background-texture.png")
 
