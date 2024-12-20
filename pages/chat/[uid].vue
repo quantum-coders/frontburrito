@@ -298,9 +298,9 @@
 		font-size: 0.75rem
 
 		.breadcrumb-container
-		font-size: 0.875rem
-		margin: 0
-		padding: 0
+			font-size: 0.875rem
+			margin: 0
+			padding: 0
 
 		.breadcrumb
 			background: none

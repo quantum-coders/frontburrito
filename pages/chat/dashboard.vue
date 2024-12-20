@@ -328,6 +328,8 @@
 
 <style lang="sass">
 	body:has(.section-dashboard)
+		padding-top: 5rem
+
 		.primary-navigation
 			display: none !important
 

@@ -31,12 +31,12 @@
 					data-bs-toggle="dropdown"
 					aria-expanded="false"
 				>
-					<Icon name="ph:dots-three-vertical" class="opacity-75"/>
+					<Icon name="ph:dots-three-vertical" class="opacity-75" />
 				</button>
 				<ul class="dropdown-menu dropdown-menu-end">
 					<li>
 						<button class="dropdown-item d-flex align-items-center" @click="$emit('download')">
-							<Icon name="ph:download" class="me-2"/>
+							<Icon name="ph:download" class="me-2" />
 							Download
 						</button>
 					</li>
@@ -51,7 +51,7 @@
 		type: {
 			type: String,
 			required: true,
-			validator: (value) => ['user', 'ai'].includes(value),
+			validator: (value) => [ 'user', 'assistant' ].includes(value),
 		},
 		messageContent: {
 			type: String,
@@ -63,28 +63,28 @@
 		},
 	});
 
-	const emit = defineEmits(['download']);
+	const emit = defineEmits([ 'download' ]);
 	const isCopied = ref(null);
 
 	const handleCopy = async (type) => {
 		try {
 			const content = type === 'markdown' ? props.messageContent : props.renderedContent;
 			await navigator.clipboard.writeText(content);
-			isCopied.value = {type};
+			isCopied.value = { type };
 			setTimeout(() => {
 				isCopied.value = null;
 			}, 2000);
-		} catch (err) {
+		} catch(err) {
 			console.error('Error copying:', err);
 		}
 	};
 </script>
 
-<style lang="scss" scoped>
-	.btn-xs {
-		padding: 0.25rem 0.4rem;
-		font-size: 0.75rem;
-		line-height: 1.5;
-		border-radius: 0.2rem;
-	}
+<style lang="sass" scoped>
+	.btn-xs
+		padding: 0.25rem 0.4rem
+		font-size: 0.75rem
+		line-height: 1.5
+		border-radius: 0.2rem
+		background: white
 </style>

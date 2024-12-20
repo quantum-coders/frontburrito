@@ -1,6 +1,6 @@
 <template>
 	<header class="site-header" :class="{ 'nav-open': navOpen }">
-		<div class="d-flex align-items-center w-100 position-relative">
+		<div class="d-flex align-items-center justify-content-between">
 			<!-- Logo on the left -->
 			<layout-logo class="me-3" />
 
