@@ -3,7 +3,7 @@
 		<div class="container">
 			<h2 class="mb-5">
 				Enjoy unfiltered conversations, exclusive perks, and vibrant AI.<br>
-				Don't miss out – join the fun and spice up your digital life today!
+				Join the fun and spice up your digital life today!
 			</h2>
 
 			<div class="text-center mb-5">

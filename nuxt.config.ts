@@ -23,10 +23,10 @@ export default defineNuxtConfig({
             meta: [
                 {charset: 'utf-8'},
                 {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-                {hid: 'description', name: 'description', content: 'Accelerating Memetic DeFi'},
+                {hid: 'description', name: 'description', content: 'Advanced unbiased AI at a lower cost, wallet-based and no personal data needed.'},
                 {name: 'format-detection', content: 'telephone=no'},
                 {hid: 'og:title', property: 'og:title', content: 'MemeAI index'},
-                {hid: 'og:description', property: 'og:description', content: 'Accelerating Memetic DeFi'},
+                {hid: 'og:description', property: 'og:description', content: 'Advanced unbiased AI at a lower cost, wallet-based and no personal data needed.'},
                 {
                     hid: 'og:image',
                     property: 'og:image',
@@ -34,8 +34,8 @@ export default defineNuxtConfig({
                 },
                 {hid: 'og:url', property: 'og:url', content: 'https://burritoai.finance/'},
                 {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
-                {hid: 'twitter:title', name: 'twitter:title', content: 'Accelerating Memetic DeFi'},
-                {hid: 'twitter:description', name: 'twitter:description', content: 'Accelerating Memetic DeFi'},
+                {hid: 'twitter:title', name: 'twitter:title', content: 'Advanced unbiased AI at a lower cost, wallet-based and no personal data needed.'},
+                {hid: 'twitter:description', name: 'twitter:description', content: 'Advanced unbiased AI at a lower cost, wallet-based and no personal data needed.'},
                 {
                     hid: 'twitter:image',
                     name: 'twitter:image',
@@ -84,7 +84,7 @@ export default defineNuxtConfig({
         id: 'G-K21GBXQZ0E',
         enabled: process.env.NODE_ENV === 'production',
         config: {
-            page_title: 'Burrito AI',
+            page_title: 'BurritoAI',
             send_page_view: true,
             link_attribution: true
         }

@@ -5,19 +5,17 @@
 			<div class="copy mb-5">
 				<h2 class="title mb-4 text-justify">
 					Born from a collective vision and fueled by fearless innovation, BurritoAI merges cutting-edge AI
-					ingenuity with the unstoppable power of DeFi. Early holders gain privileged access, heightened
-					influence, and unparalleled earning potential—seize this moment to shape the future.
+					with DeFi. Early holders unlock exclusive access and earning potential. Shape the future now.
 				</h2>
 
 				<div
 					class="content-wrapper d-flex flex-column flex-sm-row align-items-center justify-content-between mb-5">
 					<p class="content mb-4 mb-sm-0 content-limited">
-						At BurritoAI, your freedom, anonymity, and control lie at the heart of everything we do. By
-						holding <strong>$BurritoAI</strong>, you unlock uncensored AI-driven chat with deep web search,
-						visionary image generation, and soon, seamless on-chain trading—all designed to amplify your
+						Your freedom and anonymity are at the heart of everything. By
+						holding <strong>$BurritoAI</strong>, you unlock fun, uncensored AI-driven chat with deep search,
+						visionary image generation, and soon, on-chain trading to amplify your
 						financial growth.<br><br>
-						Trust is our cornerstone: Our contracts are fully audited and publicly verifiable, ensuring an
-						unwavering commitment to integrity.
+						Trust is our foundation: Our smart contracts are fully audited and publicly verifiable.
 						<a
 							href="https://snowtrace.io/address/0xf65645a42609f6b44E2EC158A3Dc2b6CfC97093f#code"
 							target="_blank"
@@ -35,17 +33,16 @@
 							target="_blank"
 							class="text-decoration-underline"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'View DeFi Billing Contract Code' })"
-						>View DeFi Billing Contract</a>
+						>View AI-Credit Manager Contract</a>
 						<br><br>
-						Strategic vesting schedules ensure long-term stability and sustainable growth:
+						Step in early, stake confidently, and secure a spicy key role in forging an AI-DeFi ecosystem
+						that rewards bold participation and forward thinking.
 						<a
 							href="https://snowtrace.io/token/0xf65645a42609f6b44E2EC158A3Dc2b6CfC97093f/balances?chainid=43114"
 							target="_blank"
 							class="text-decoration-underline"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'View Vesting Schedule' })"
 						>Check Vesting Details</a>.
-						Step in early, stake confidently, and secure a key role in forging a seamless AI-DeFi ecosystem
-						that rewards bold participation and forward thinking.
 					</p>
 					<div class="wow-wrapper position-relative mt-4 mt-sm-0">
 						<img class="wow wow-image" src="/images/wow.png" alt="WOW">
@@ -63,10 +60,8 @@
 				<div class="copy p-4 position-relative z-index-10">
 					<h3 class="mb-4 feature-title">Free Range Conversations</h3>
 					<p class="mb-4 text-content">
-						Break free from rigid constraints—enjoy uncensored, adaptive AI interactions that evolve with
-						your curiosity. As a $BurritoAI holder, you gain priority access to continuous innovation: from
-						limitless chat exploration to steady staking returns and lucrative APY. By joining early, you
-						earn more than just profits—you shape the very boundaries of what AI-driven DeFi can become.
+						Break free with uncensored and advanced AI.
+						As a $BurritoAI holder, enjoy priority access to innovation, limitless chat, staking rewards, and lucrative APY. Shape AI-driven DeFi.
 					</p>
 					<p class="text-end mb-0">
 						<nuxt-link
@@ -74,7 +69,7 @@
 							class="btn btn-burrito px-4 py-2 text-uppercase fw-bold"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Go to Chat Dashboard' })"
 						>
-							CHAT RIGHT NOW!
+							CHAT HERE
 						</nuxt-link>
 					</p>
 				</div>
@@ -90,10 +85,8 @@
 					<h3 class="mb-4 feature-title">A Spicy Investment</h3>
 					<p class="mb-4 text-content">
 						Your <strong>BurritoAI Token</strong> serves as a gateway to tomorrow’s AI revolution. Secure
-						elite features, premium APY, and ongoing enhancements designed for those bold enough to join
-						early. With transparent audits and meticulously structured vesting, you can trust the foundation
-						that supports your growth. Elevate your portfolio now, outpace the competition, and reap
-						expanding rewards as BurritoAI continues to deliver value at every turn.
+						elite features, premium APY, and ongoing enhancements designed for those who join
+						early. With transparent audits and meticulously structured vesting, you can trust the burritoAI ecosystem.
 					</p>
 					<p class="text-end mb-0">
 						<a
@@ -102,7 +95,7 @@
 							class="btn btn-burrito px-4 py-2 text-uppercase fw-bold"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Buy Token from Features Section' })"
 						>
-							Buy Now & Stake
+							Buy & Stake
 						</a>
 					</p>
 				</div>
@@ -125,18 +118,15 @@
 				<div class="copy p-4 position-relative z-index-10">
 					<h3 class="mb-4 feature-title">Spice Up</h3>
 					<p class="mb-4 text-content">
-						Early adoption isn’t just about profits—it’s about unlocking exclusive perks and cementing your
-						status as a true pioneer. Claim rare AI assets, enjoy priority in future drops, and access
-						features designed only for the visionary few. As vesting and airdrops roll out, your loyalty
-						multiplies in tangible ways.
+						Unlocks exclusive perks and rare AI assets. Claim priority drops, visionary features, and tangible rewards. Shape the future—don’t just watch history, own it.
 						<a
-							href="https://snowtrace.io/token/0xf65645a42609f6b44E2EC158A3Dc2b6CfC97093f/balances?chainid=43114"
+							href="https://app.unvest.io/projects/43114/0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f/locks"
 							target="_blank"
 							class="text-decoration-underline"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Check Airdrop & Vesting Info' })"
 						>
 							Check Vesting & Airdrop Details
-						</a> and secure your role in shaping the ecosystem’s trajectory. Don’t just watch history
+						</a> Secure your role in shaping the ecosystem’s trajectory. Don’t just watch history
 						unfold—own it.
 					</p>
 				</div>

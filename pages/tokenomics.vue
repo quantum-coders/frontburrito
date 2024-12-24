@@ -65,7 +65,7 @@
 											</td>
 											<td class="text-end">67,907,977</td>
 											<td class="text-end">22.64%</td>
-											<td class="text-end">$0.00</td>
+											<td class="text-end">$625,000 USD</td>
 										</tr>
 										<tr>
 											<td>
@@ -76,7 +76,139 @@
 											</td>
 											<td class="text-end">32,870,379</td>
 											<td class="text-end">10.96%</td>
-											<td class="text-end">$0.00</td>
+											<td class="text-end">$303,000 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">3</span>
+													Community Incentives Vesting
+												</div>
+											</td>
+											<td class="text-end">31,500,000</td>
+											<td class="text-end">10.50%</td>
+											<td class="text-end">$291,000 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">4</span>
+													Liquidity Vault 7-Year Vesting
+												</div>
+											</td>
+											<td class="text-end">31,312,225.56</td>
+											<td class="text-end">10.44%</td>
+											<td class="text-end">$289,000 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">5</span>
+													Founders Trust Fund 7-Year Vesting
+												</div>
+											</td>
+											<td class="text-end">30,000,000</td>
+											<td class="text-end">10%</td>
+											<td class="text-end">$277,000 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">6</span>
+													Liquidity Pools & Market Circulation Fund
+												</div>
+											</td>
+											<td class="text-end">27,073,627.446</td>
+											<td class="text-end">9.025%</td>
+											<td class="text-end">$250,131 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">7</span>
+													Staking Rewards Vesting
+												</div>
+											</td>
+											<td class="text-end">21,133,213</td>
+											<td class="text-end">7.044%</td>
+											<td class="text-end">$195,067 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">8</span>
+													Collaboration & Expantion
+												</div>
+											</td>
+											<td class="text-end">21,000,000</td>
+											<td class="text-end">7%</td>
+											<td class="text-end">$193,500 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">9</span>
+													Continuous Null Burn
+												</div>
+											</td>
+											<td class="text-end">13,200,797</td>
+											<td class="text-end">4.40%</td>
+											<td class="text-end">$122,000 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">10</span>
+													Core Development Fund
+												</div>
+											</td>
+											<td class="text-end">6,977,033</td>
+											<td class="text-end">2.326%</td>
+											<td class="text-end">$64,500 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">11</span>
+													Artificial Intelligence Advancement Fund
+												</div>
+											</td>
+											<td class="text-end">6,899,017</td>
+											<td class="text-end">2.30%</td>
+											<td class="text-end">$64,000 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">12</span>
+													High-Performance Infrastructure Reserve
+												</div>
+											</td>
+											<td class="text-end">4,799,962.956</td>
+											<td class="text-end">1.60%</td>
+											<td class="text-end">$44,500 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">13</span>
+													L1 Protocol Innovation Reserve
+												</div>
+											</td>
+											<td class="text-end">1,602,999</td>
+											<td class="text-end">0.5343%</td>
+											<td class="text-end">$14,750 USD</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<span class="badge bg-primary me-2">14</span>
+													Liquid Community Incentives
+												</div>
+											</td>
+											<td class="text-end">1,502,789.135</td>
+											<td class="text-end">0.5009%</td>
+											<td class="text-end">$14,000 USD</td>
 										</tr>
 										<!-- Add all other rows following the same pattern -->
 										</tbody>

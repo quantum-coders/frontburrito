@@ -45,14 +45,14 @@
 							>
 								Download Whitepaper
 							</a>
-							<a
+							<!-- <a
 								href="https://snowtrace.io/token/0xf65645a42609f6b44E2EC158A3Dc2b6Cfc97093f"
 								target="_blank"
 								class="btn btn-outline-light btn-lg"
 								@click="marketingStore.trackEvent('click_link', { link_name: 'Snowtrace Link - Whitepaper Section' })"
 							>
 								Verify on Snowtrace
-							</a>
+							</a> -->
 						</div>
 					</div>
 				</div>

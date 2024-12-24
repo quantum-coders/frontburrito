@@ -135,7 +135,7 @@
 									<label class="form-label text-white">Staking Period</label>
 									<div class="period-selector d-flex gap-2 flex-wrap">
 										<button
-											v-for="period in [30, 90, 180, 365]"
+											v-for="period in [365, 180, 90, 30]"
 											:key="period"
 											class="btn"
 											:class="selectedPeriod === period ? 'btn-primary' : 'btn-outline-light'"

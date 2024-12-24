@@ -21,7 +21,7 @@
 			lang: 'en',
 		},
 		titleTemplate: '%s',
-		title: 'Burrito AI',
+		title: 'BurritoAI',
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },

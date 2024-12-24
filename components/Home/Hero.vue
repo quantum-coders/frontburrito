@@ -19,12 +19,12 @@
 				<p class="mb-2">
 					Hold <strong>$BurritoAI</strong> and tap into uncensored AI tools, flexible DeFi billing, and up to
 					<strong>19.72% APY</strong> annually. More tokens = more power, more profit, and exclusive features.
-					Don’t hesitate—buy now and start earning.
+					Buy now and start earning.
 				</p>
 
 				<p class="buttons d-flex">
 					<a
-						href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f"
+						href="https://lfj.gg/avalanche/trade?inputCurrency=0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e&outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f"
 						target="_blank"
 						class="btn btn-burrito flex-grow-1"
 						@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Buy BurritoAI' })"
@@ -58,7 +58,7 @@
 						<span class="fw-bold text-muted small">Listed on</span>
 						<img src="/images/lfg.png" alt="Trader Joe Logo" class="trust-logo">
 						<a
-							href="https://traderjoexyz.com/avalanche/trade?outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f"
+							href="https://lfj.gg/avalanche/trade?inputCurrency=0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e&outputCurrency=0xf65645a42609f6b44e2ec158a3dc2b6cfc97093f"
 							target="_blank"
 							class="btn btn-sm btn-outline-burrito"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Trade on Trader Joe' })"

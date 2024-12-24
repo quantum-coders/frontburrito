@@ -20,8 +20,7 @@
 				<div class="row g-4 mb-5">
 					<div class="col-12">
 						<h2 class="text-center mb-4">Privacy & Security First</h2>
-						<p class="text-center lead mb-5">No personal data required - just connect your crypto wallet and
-							start exploring</p>
+						<p class="text-center lead mb-5">No bank account data needed—just connect your crypto wallet and dive in.</p>
 					</div>
 					<div class="col-md-4">
 						<div class="card h-100 border-0 shadow-hover">
@@ -42,7 +41,7 @@
 									<icon name="ph:lock-key-fill" class="text-primary" size="32"/>
 								</div>
 								<h3 class="h5 mb-3">Decentralized Infrastructure</h3>
-								<p class="mb-0">Built on Avalanche blockchain for maximum security and transparency in
+								<p class="mb-0">Built on Layer 1 blockchain for maximum security and transparency in
 									every interaction.</p>
 							</div>
 						</div>
@@ -64,7 +63,7 @@
 				<!-- AI Capabilities -->
 				<div class="row g-4 mb-5">
 					<div class="col-12">
-						<h2 class="text-center mb-4">Unrestricted AI Power</h2>
+						<h2 class="text-center mb-4">Unlimited AI Power</h2>
 						<p class="text-center lead mb-5">Experience AI without artificial limitations or biased
 							filters</p>
 					</div>
