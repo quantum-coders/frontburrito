@@ -4,5 +4,6 @@ Disallow: /chat/dashboard
 Disallow: /chat/images
 Disallow: /chat/[uid]
 Disallow: /admin
+Disallow: /d81c000117c41d9111909b47edde246e
 
 Sitemap: https://burritoai.finance/sitemap.xml
