@@ -206,9 +206,14 @@
 
 	const filteredChats = computed(() => {
 		const query = searchQuery.value.toLowerCase();
+		// Si no hay query, retorna todos los chats
+		if (!query) return chats.value;
+
+		// Asegúrate de que chat.name existe antes de usar toLowerCase
 		return chats.value.filter(chat =>
-			chat.name.toLowerCase().includes(query) ||
-			(chat.createdBy && chat.createdBy.toLowerCase().includes(query)),
+			(chat.name && chat.name.toLowerCase().includes(query)) ||
+			(chat.createdBy && chat.createdBy.toLowerCase().includes(query)) ||
+			(chat.wallet && chat.wallet.toLowerCase().includes(query))  // Agregado wallet para búsqueda
 		);
 	});
 
@@ -223,16 +228,18 @@
 			const {error, data} = await useBaseFetch('users/me/chats', {
 				method: 'GET',
 			});
+
 			if (!error.value) {
-				// if it is an object then it is a single chat if it is an array then it is multiple chats
-				if (Array.isArray(data.value.data)) {
-					chats.value = data.value.data.map(chat => ({...chat, selected: false}));
-				} else {
-					chats.value = [data.value.data];
-				}
+				const chatResults = Array.isArray(data.value.data) ? data.value.data : [data.value.data];
+				chats.value = chatResults.map(chat => ({
+					...chat,
+					selected: false,
+					wallet: chat.user?.wallet || ''
+				}));
 			}
 		} catch (error) {
 			console.error('Failed to fetch chats:', error);
+			errorToast('Error loading chats');
 		} finally {
 			loading.value = false;
 		}
@@ -309,37 +316,33 @@
 	// Agrega este watch o método en tu script setup, cerca de donde declaras searchQuery
 
 	watch(searchQuery, async (newVal) => {
-		// Envía un evento de tracking, si lo deseas
 		useMarketingStore().trackEvent('search_chats', {query: newVal});
 
-		// Si la caja de búsqueda se vacía, volvemos a cargar todos los chats "normales"
-		if (!newVal) {
-			await fetchChats();
-			return;
-		}
-
-		// Lógica de búsqueda en el servidor
 		try {
 			loading.value = true;
-			// Consumir la ruta que creaste: /me/chats/search
-			// y pasar ?q= con encodeURIComponent por seguridad
+
+			if (!newVal.trim()) {
+				await fetchChats();
+				return;
+			}
+
 			const {error, data} = await useBaseFetch(`users/me/chats/search?q=${encodeURIComponent(newVal)}`, {
 				method: 'GET'
 			});
 
 			if (!error.value) {
-				// data.value.data viene con el array de chats filtrados
-				// ajusta la lógica si necesitas transformar las propiedades
-				if (Array.isArray(data.value.data)) {
-					chats.value = data.value.data.map(chat => ({
-						...chat,
-						selected: false
-					}));
-				} else {
-					chats.value = [data.value.data];
-				}
+				// Desestructura el objeto reactivo para obtener los datos puros
+				const chatResults = Array.isArray(data.value.data) ? data.value.data : [data.value.data];
+
+				// Asigna los resultados directamente al array de chats
+				chats.value = chatResults.map(chat => ({
+					...chat,
+					selected: false,
+					wallet: chat.user?.wallet || '' // Asegúrate de que wallet esté disponible
+				}));
+
+				console.log('Chats asignados:', chats.value);
 			} else {
-				// Manejo de errores
 				errorToast(error.value?.data?.message ?? 'Error fetching chats');
 			}
 		} catch (err) {
@@ -348,7 +351,7 @@
 		} finally {
 			loading.value = false;
 		}
-	});
+	}, {debounce: 300}); // Agregado debounce para mejor rendimiento
 
 	onMounted(async () => {
 		const authToken = localStorage.getItem('authToken');
