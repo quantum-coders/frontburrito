@@ -19,6 +19,15 @@
 					Defi Billing
 				</button>
 			</li>
+			<li class="nav-item">
+				<button
+					class="nav-link"
+					:class="{ active: topTab === 'users' }"
+					@click="topTab = 'users'"
+				>
+					Users
+				</button>
+			</li>
 		</ul>
 
 		<div class="tab-content" id="mainTabsContent">
@@ -492,6 +501,14 @@
 			>
 				<h1 class="text-center mb-4">Defi Billing</h1>
 				<web3-defi-stats/>
+			</div>
+			<div
+				class="tab-pane fade"
+				:class="{ 'show active': topTab === 'users' }"
+				id="users"
+				role="tabpanel"
+			>
+				<analytics-users />
 			</div>
 		</div>
 	</div>
