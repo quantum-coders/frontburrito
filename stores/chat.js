@@ -7,6 +7,218 @@ export const useChatStore = defineStore('chatStore', () => {
 	const streamingLoading = ref(false);
 	const abortController = ref(null);
 	const currentRequestId = ref(null); // Añadido
+	// Para administradores
+	const adminModels = ref([]);
+
+	const availableModels = ref([]);
+	const loading = ref(false);
+	const error = ref(null);
+
+	const bulkAction = async (action, modelIds, payload = {}) => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch(`/admin/models/bulk-action`, {
+				method: 'PATCH',
+				body: {action, modelIds, ...payload}
+			});
+			if (response.data.value) {
+				// Actualizar los modelos en la lista
+				response.data.value.data.forEach(updatedModel => {
+					const index = adminModels.value.findIndex(m => m.id === updatedModel.id);
+					if (index !== -1) {
+						adminModels.value[index] = updatedModel;
+					}
+				});
+				return response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error performing bulk action:', e);
+			throw e;
+		} finally {
+			loading.value = false;
+		}
+	};
+
+
+	const getAvailableModels = async () => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch('/ai/models');
+			if (response.data.value) {
+				availableModels.value = response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error fetching available models:', e);
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const getAllModels = async () => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch('/admin/models');
+			if (response.data.value) {
+				adminModels.value = response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error fetching all models:', e);
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const getAllModelsActive = async () => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch('/admin/models/all');
+			if (response.data.value) {
+				adminModels.value = response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error fetching all models:', e);
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const toggleModelVisibility = async (modelId) => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch(`/admin/models/${modelId}/visibility`, {
+				method: 'PATCH'
+			});
+			if (response.data.value) {
+				// Actualizar el modelo en la lista
+				const index = adminModels.value.findIndex(m => m.id === modelId);
+				if (index !== -1) {
+					adminModels.value[index] = response.data.value.data;
+				}
+				return response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error toggling model visibility:', e);
+			throw e;
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const toggleModelFeatured = async (modelId) => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch(`/admin/models/${modelId}/featured`, {
+				method: 'PATCH'
+			});
+			if (response.data.value) {
+				const index = adminModels.value.findIndex(m => m.id === modelId);
+				if (index !== -1) {
+					adminModels.value[index] = response.data.value.data;
+				}
+				return response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error toggling model featured status:', e);
+			throw e;
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const updateModelPriority = async (modelId, priority) => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch(`/admin/models/${modelId}/priority`, {
+				method: 'PATCH',
+				body: {priority}
+			});
+			if (response.data.value) {
+				const index = adminModels.value.findIndex(m => m.id === modelId);
+				if (index !== -1) {
+					adminModels.value[index] = response.data.value.data;
+				}
+				return response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error updating model priority:', e);
+			throw e;
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const updateModel = async (modelId, updateData) => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch(`/admin/models/${modelId}`, {
+				method: 'PUT',
+				body: updateData
+			});
+			if (response.data.value) {
+				const index = adminModels.value.findIndex(m => m.id === modelId);
+				if (index !== -1) {
+					adminModels.value[index] = response.data.value.data;
+				}
+				return response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error updating model:', e);
+			throw e;
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const syncWithOpenRouter = async () => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch('/admin/models/sync', {
+				method: 'POST'
+			});
+			if (response.data.value) {
+				// Actualizar la lista completa después de la sincronización
+				await getAllModels();
+				return response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error syncing with OpenRouter:', e);
+			throw e;
+		} finally {
+			loading.value = false;
+		}
+	};
+
+	const getFeaturedModels = async () => {
+		const featured = computed(() =>
+			availableModels.value.filter(model => model.isFeatured)
+		);
+		return featured;
+	};
+
+	// Watch changes in models for real-time updates
+	watch(adminModels, (newModels) => {
+		// Actualizar también los modelos disponibles si es necesario
+		const visibleModels = newModels.filter(m => m.isVisible && m.status === 'active');
+		availableModels.value = visibleModels;
+	});
 	const getChat = async (uid) => {
 		const chatRes = await useBaseFetch(`/users/me/chats/${uid}`);
 
@@ -40,7 +252,7 @@ export const useChatStore = defineStore('chatStore', () => {
 				},
 				signal: abortController.value.signal,
 				body: JSON.stringify({
-					model: 'burrito-8x7b',
+					model: chat.value.selectedModel.openrouterId,
 					temperature: 1,
 					idRequest: idRequest,
 					idChat: chat.value.id,
@@ -183,7 +395,6 @@ export const useChatStore = defineStore('chatStore', () => {
 			});
 
 			if (updateRes.data.value) {
-				// Actualizar solo los campos modificados en el estado local
 				Object.assign(chat.value, updateRes.data.value.data);
 			}
 		} catch (error) {
@@ -191,10 +402,28 @@ export const useChatStore = defineStore('chatStore', () => {
 		}
 	};
 
-	const updateChatFrontend = async (updates) => {
+	const updateChatFrontend = (updates) => {
 		console.log('Before chat', chat.value);
 		chat.value = {...chat.value, ...updates};
 		console.log('After chat', chat.value);
+	};
+
+	const updateChatModel = async (modelId) => {
+		try {
+			console.log('Updating chat model...');
+			const updateRes = await useBaseFetch(`/users/me/chats/${chat.value.uid}/model`, {
+				method: 'PATCH',
+				body: {idModel: modelId},
+			});
+
+			if (updateRes.data.value) {
+				// Actualizar el modelo seleccionado en el estado local
+				const selectedModel = availableModels.value.find(model => model.id === modelId);
+				updateChatFrontend({selectedModel});
+			}
+		} catch (error) {
+			console.error('Error updating chat model:', error);
+		}
 	};
 
 	// increase messageStatistics.count
@@ -230,5 +459,20 @@ export const useChatStore = defineStore('chatStore', () => {
 		scrollToBottom,
 		chat,
 		downloadChat,
+		adminModels,
+		getAllModels,
+		getAvailableModels,
+		toggleModelVisibility,
+		toggleModelFeatured,
+		updateModelPriority,
+		loading,
+		error,
+		getAllModelsActive,
+		updateChatModel,
+		updateModel,
+		syncWithOpenRouter,
+		getFeaturedModels,
+		bulkAction,
+
 	};
 });

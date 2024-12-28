@@ -44,6 +44,7 @@
 							@blur="chatStore.updateChat({ system: chatStore.chat.system })"
 						></textarea>
 					</div>
+					<chat-model-selector />
 					<div class="form-check form-switch mb-2">
 						<input
 							class="form-check-input"
