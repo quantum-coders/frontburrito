@@ -109,7 +109,7 @@
 				<div class="row g-4">
 					<div class="col-12">
 						<h2 class="text-center mb-4">Rewarding Economics</h2>
-						<p class="text-center lead mb-5">Hold $BURRITO tokens for exclusive benefits and earning
+						<p class="text-center lead mb-5">Hold $BURRITOAI tokens for exclusive benefits and earning
 							potential</p>
 					</div>
 					<div class="col-md-4">

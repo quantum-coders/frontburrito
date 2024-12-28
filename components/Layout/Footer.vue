@@ -35,7 +35,7 @@
 										class="d-flex align-items-center gap-2"
 									>
 										<icon name="ph:trend-up" />
-										Buy $BURRITO
+										Buy $BURRITOAI
 									</a>
 								</li>
 								<li>
