@@ -1,7 +1,5 @@
 <template>
 	<div class="container-fluid py-4">
-
-		<!-- Encabezado -->
 		<div class="row mb-4 align-items-center">
 			<div class="col">
 				<h2 class="h3 mb-0">AI Models Management</h2>
@@ -21,7 +19,6 @@
 			</div>
 		</div>
 
-		<!-- Filtros de Búsqueda y Botones de Filtrado -->
 		<div class="row g-3 mb-4">
 			<div class="col-md-6">
 				<div class="input-group">
@@ -51,7 +48,6 @@
 			</div>
 		</div>
 
-		<!-- Acciones en Grupo -->
 		<div class="row mb-4">
 			<div class="col">
 				<div class="d-flex gap-2">
@@ -63,7 +59,6 @@
 						<option value="updateStatus">Update Status</option>
 					</select>
 
-					<!-- Solo se muestra cuando la acción elegida es 'updatePriority' -->
 					<div v-if="selectedAction === 'updatePriority'">
 						<input
 							type="number"
@@ -74,7 +69,6 @@
 						/>
 					</div>
 
-					<!-- Solo se muestra cuando la acción elegida es 'updateStatus' -->
 					<div v-if="selectedAction === 'updateStatus'">
 						<select class="form-select" v-model="statusValue" style="width: 120px;">
 							<option value="active">Active</option>
@@ -93,7 +87,6 @@
 			</div>
 		</div>
 
-		<!-- Tabla de Modelos -->
 		<div class="card">
 			<div class="table-responsive">
 				<table class="table table-hover align-middle mb-0">
@@ -104,11 +97,12 @@
 						</th>
 						<th>Model</th>
 						<th>Type</th>
-						<th>Pricing</th>
+						<th>Pricing (per 1k tokens)</th>
 						<th>Status</th>
 						<th>Priority</th>
 						<th>Visibility</th>
 						<th>Featured</th>
+						<th>Sandbox</th>
 						<th>Actions</th>
 					</tr>
 					</thead>
@@ -135,10 +129,36 @@
                 </span>
 						</td>
 						<td>
-							<div class="small">
-								<div>Input: ${{ model.inputCost }}/1k tokens</div>
-								<div>Output: ${{ model.outputCost }}/1k tokens</div>
-							</div>
+							<span class="row row-cols-2 small">
+								<div>
+									<span class="fw-bold">Input (OR):</span>
+									<div><span class="math-inline">{{ model.openrouterInputCost }}</span></div>
+								</div>
+								<div>
+									<span class="fw-bold">Output (OR):</span>
+									<div><span class="math-inline">{{ model.openrouterOutputCost }}</span></div>
+								</div>
+								<div>
+									<span class="fw-bold">Input (Final):</span>
+									<div><span class="math-inline">{{ model.inputCost }}</span></div>
+								</div>
+								<div>
+									<span class="fw-bold">Output (Final):</span>
+									<div><span class="math-inline">{{ model.outputCost }}</span></div>
+								</div>
+								<div>
+									<span class="fw-bold">Profit Input:</span>
+									<div>
+										${{ (model.inputCost - model.openrouterInputCost).toFixed(6) }}
+									</div>
+								</div>
+								<div>
+									<span class="fw-bold">Profit Output:</span>
+									<div><span class="math-inline">{{
+											(model.outputCost - model.openrouterOutputCost).toFixed(6)
+										}}</span></div>
+								</div>
+							</span>
 						</td>
 						<td>
 							<div class="form-check form-switch">
@@ -201,17 +221,22 @@
 							</div>
 						</td>
 						<td>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									:id="'sandbox-' + model.id"
+									:checked="model.sandbox"
+									disabled
+								/>
+							</div>
+						</td>
+						<td>
 							<div class="btn-group btn-group-sm">
-								<button
-									class="btn btn-outline-primary"
-									@click="openEditModal(model)"
-								>
+								<button class="btn btn-outline-primary" @click="openEditModal(model)">
 									<Icon name="material-symbols:edit"/>
 								</button>
-								<button
-									class="btn btn-outline-info"
-									@click="openDetailsModal(model)"
-								>
+								<button class="btn btn-outline-info" @click="openDetailsModal(model)">
 									<Icon name="material-symbols:info"/>
 								</button>
 							</div>
@@ -222,13 +247,10 @@
 			</div>
 		</div>
 
-		<!-- MODAL DE EDICIÓN -->
 		<PlatformModal ref="editModalRef">
-			<!-- slot default, recibimos { close } desde <slot :close="closeDialog"/> de tu platform-modal -->
 			<template #default="{ close }">
 				<div class="p-3" v-if="editingModel">
 					<h5 class="mb-4">Edit Model</h5>
-
 					<form @submit.prevent="saveModel" class="needs-validation">
 						<div class="mb-3">
 							<label class="form-label">Name</label>
@@ -242,7 +264,7 @@
 							<div class="col-md-6">
 								<label class="form-label">Input Cost</label>
 								<div class="input-group">
-									<span class="input-group-text">$</span>
+									<span class="input-group-text"></span>
 									<input
 										type="number"
 										step="0.000001"
@@ -300,19 +322,10 @@
 					</form>
 
 					<div class="d-flex justify-content-end gap-2 mt-3">
-						<button
-							type="button"
-							class="btn btn-secondary"
-							@click="close()"
-						>
+						<button type="button" class="btn btn-secondary" @click="close()">
 							Cancel
 						</button>
-						<button
-							type="button"
-							class="btn btn-primary"
-							@click="saveModel"
-							:disabled="loading"
-						>
+						<button type="button" class="btn btn-primary" @click="saveModel" :disabled="loading">
 							Save Changes
 						</button>
 					</div>
@@ -320,7 +333,6 @@
 			</template>
 		</PlatformModal>
 
-		<!-- MODAL DE DETALLES -->
 		<PlatformModal ref="detailsModalRef">
 			<template #default="{ close }">
 				<div class="p-3">
@@ -335,10 +347,34 @@
 								<dl class="row mb-0">
 									<dt class="col-sm-4">Model ID</dt>
 									<dd class="col-sm-8">{{ selectedModel.id }}</dd>
+									<dt class="col-sm-4">Name</dt>
+									<dd class="col-sm-8">{{ selectedModel.name }}</dd>
+									<dt class="col-sm-4">Description</dt>
+									<dd class="col-sm-8">{{ selectedModel.description }}</dd>
 									<dt class="col-sm-4">OpenRouter ID</dt>
 									<dd class="col-sm-8">{{ selectedModel.openrouterId }}</dd>
 									<dt class="col-sm-4">Context Length</dt>
 									<dd class="col-sm-8">{{ selectedModel.contextLength }}</dd>
+									<dt class="col-sm-4">Model Type</dt>
+									<dd class="col-sm-8">{{ selectedModel.modelType }}</dd>
+									<dt class="col-sm-4">Max Output</dt>
+									<dd class="col-sm-8">{{ selectedModel.maxOutput }}</dd>
+									<dt class="col-sm-4">Latency</dt>
+									<dd class="col-sm-8">{{ selectedModel.latency }}</dd>
+									<dt class="col-sm-4">Throughput</dt>
+									<dd class="col-sm-8">{{ selectedModel.throughput }}</dd>
+									<dt class="col-sm-4">Status</dt>
+									<dd class="col-sm-8">{{ selectedModel.status }}</dd>
+									<dt class="col-sm-4">Created</dt>
+									<dd class="col-sm-8">
+										{{ new Date(selectedModel.created).toLocaleString() }}
+									</dd>
+									<dt class="col-sm-4">Modified</dt>
+									<dd class="col-sm-8">
+										{{ new Date(selectedModel.modified).toLocaleString() }}
+									</dd>
+									<dt class="col-sm-4">Sandbox</dt>
+									<dd class="col-sm-8">{{ selectedModel.sandbox ? 'Yes' : 'No' }}</dd>
 								</dl>
 							</div>
 						</div>
@@ -365,6 +401,18 @@
 									<dd class="col-sm-8">
 										${{ selectedModel.outputCost }}/1k tokens
 									</dd>
+									<dt class="col-sm-4">Profit Input</dt>
+									<dd class="col-sm-8">
+										${
+										(selectedModel.inputCost - selectedModel.openrouterInputCost).toFixed(6)
+										}/1k tokens
+									</dd>
+									<dt class="col-sm-4">Profit Output</dt>
+									<dd class="col-sm-8">
+										${
+										(selectedModel.outputCost - selectedModel.openrouterOutputCost).toFixed(6)
+										}/1k tokens
+									</dd>
 								</dl>
 							</div>
 						</div>
@@ -389,13 +437,11 @@
 				</div>
 			</template>
 		</PlatformModal>
-
 	</div>
 </template>
 
 <script setup>
 	import {storeToRefs} from 'pinia';
-
 
 	definePageMeta({
 		layout: 'burrito',
@@ -621,7 +667,7 @@
 	const toggleSelectAll = () => {
 		// No invertimos manualmente, Vue ya hace selectAll.value = true/false
 		selectedModels.value = selectAll.value
-			? filteredModels.value.map(model => model.id)
+			? filteredModels.value.map((model) => model.id)
 			: [];
 	};
 	/*
