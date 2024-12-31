@@ -14,7 +14,7 @@
 							:class="darkMode ? 'btn-primary' : 'btn-primary'"
 							@click="useMarketingStore().trackEvent('click_cta', { cta_name: `Buy BurritoAI - ${pageName}` })"
 						>
-							Buy $BURRITO
+							Buy AI
 						</a>
 						<nuxt-link
 							to="/staking-dashboard"

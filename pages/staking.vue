@@ -14,7 +14,7 @@
 							</div>
 							<div class="d-flex justify-content-between mb-3">
 								<span class="text-white">Total Value Locked</span>
-								<span class="fs-4 fw-bold text-white">{{ formatNumber(tvl) }} $BURRITO</span>
+								<span class="fs-4 fw-bold text-white">{{ formatNumber(tvl) }} $BURRITOAI</span>
 							</div>
 							<div class="d-flex justify-content-between">
 								<span class="text-white">Total Stakers</span>
@@ -48,7 +48,7 @@
 											<h3 class="h5 mb-1">Recent Stake</h3>
 											<p class="mb-0">{{ formatAddress(recentStake.address) }} staked</p>
 											<p class="mb-0 text-success">{{ formatNumber(recentStake.amount) }}
-												$BURRITO</p>
+												$BURRITOAI</p>
 										</div>
 									</div>
 								</div>
@@ -61,7 +61,7 @@
 											<h3 class="h5 mb-1">Latest Reward</h3>
 											<p class="mb-0">{{ formatAddress(latestReward.address) }} earned</p>
 											<p class="mb-0 text-success">{{ formatNumber(latestReward.amount) }}
-												$BURRITO</p>
+												$BURRITOAI</p>
 										</div>
 									</div>
 								</div>
@@ -81,7 +81,7 @@
 						<div class="step-card bg-white p-4 rounded-3 shadow-sm h-100">
 							<div class="step-number mb-3">1</div>
 							<h3 class="h5 mb-3">Connect Wallet</h3>
-							<p class="mb-0">Connect your Web3 wallet containing $BURRITO tokens to get started.</p>
+							<p class="mb-0">Connect your Web3 wallet containing $BURRITOAI tokens to get started.</p>
 						</div>
 					</div>
 					<div class="col-md-3">
@@ -122,7 +122,7 @@
 								<div class="mb-4">
 									<label class="form-label text-white">Amount to Stake</label>
 									<div class="input-group">
-										<span class="input-group-text">$BURRITO</span>
+										<span class="input-group-text">$BURRITOAI</span>
 										<input
 											type="number"
 											class="form-control"
@@ -135,7 +135,7 @@
 									<label class="form-label text-white">Staking Period</label>
 									<div class="period-selector d-flex gap-2 flex-wrap">
 										<button
-											v-for="period in [365, 180, 90, 30]"
+											v-for="period in [365, 210]"
 											:key="period"
 											class="btn"
 											:class="selectedPeriod === period ? 'btn-primary' : 'btn-outline-light'"
@@ -148,11 +148,11 @@
 								<div class="results p-3 bg-glass rounded">
 									<div class="d-flex justify-content-between mb-2">
 										<span class="text-white">Estimated Rewards:</span>
-										<span class="text-success">{{ calculatedRewards }} $BURRITO</span>
+										<span class="text-success">{{ calculatedRewards }} $BURRITOAI</span>
 									</div>
 									<div class="d-flex justify-content-between">
 										<span class="text-white">APY Rate:</span>
-										<span class="text-success">{{ selectedPeriod >= 365 ? '19.72%' : '11%' }}</span>
+										<span class="text-success">{{ selectedPeriod >= 365 ? '19.72%' : '7.7%' }}</span>
 									</div>
 								</div>
 							</div>
@@ -176,28 +176,22 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td>30 Days</td>
-												<td>11.00%</td>
-												<td>100 $BURRITO</td>
+												<td>180 Days</td>
+												<td>6.6%</td>
+												<td>100 $BURRITOAI</td>
 												<td>Basic Rewards</td>
 											</tr>
 											<tr>
-												<td>90 Days</td>
-												<td>13.50%</td>
-												<td>100 $BURRITO</td>
-												<td>Enhanced Rewards</td>
-											</tr>
-											<tr>
-												<td>180 Days</td>
-												<td>16.25%</td>
-												<td>100 $BURRITO</td>
+												<td>210 Days</td>
+												<td>7.11%</td>
+												<td>100 $BURRITOAI</td>
 												<td>Premium Rewards</td>
 											</tr>
 											<tr>
 												<td>365 Days</td>
 												<td>19.72%</td>
-												<td>100 $BURRITO</td>
-												<td>Maximum Rewards</td>
+												<td>100 $BURRITOAI</td>
+												<td>Enhanced Rewards</td>
 											</tr>
 										</tbody>
 									</table>
@@ -231,7 +225,7 @@
 										{{ activity.type === 'stake' ? 'Staked' : 'Claimed' }}
 									</span>
 								</td>
-								<td>{{ formatNumber(activity.amount) }} $BURRITO</td>
+								<td>{{ formatNumber(activity.amount) }} $BURRITOAI</td>
 								<td>{{ formatTime(activity.timestamp) }}</td>
 							</tr>
 						</tbody>
@@ -301,7 +295,7 @@
 								</h2>
 								<div id="faq1" class="accordion-collapse collapse show">
 									<div class="accordion-body">
-										The minimum staking amount is 100 $BURRITO tokens.
+										The minimum staking amount is 100 $BURRITOAI tokens.
 									</div>
 								</div>
 							</div>
@@ -365,7 +359,7 @@
 								</h2>
 								<div id="faq5" class="accordion-collapse collapse">
 									<div class="accordion-body">
-										Yes, the maximum staking amount per wallet is 1,000,000 $BURRITO tokens to
+										Yes, the maximum staking amount per wallet is 1,000,000 $BURRITOAI tokens to
 										ensure fair distribution of rewards.
 									</div>
 								</div>
@@ -399,7 +393,7 @@
 								class="btn btn-outline-light btn-lg"
 								@click="useMarketingStore().trackEvent('click_cta', { cta_name: 'Buy BURRITO - Bottom' })"
 							>
-								Buy $BURRITO
+								Buy $BURRITOAI
 							</a>
 						</div>
 					</div>
@@ -410,13 +404,13 @@
 </template>
 
 <script setup>
-	const title = 'Stake $BURRITO - Earn Up to 19.72% APY with Real-time Rewards';
-	const description = 'Start earning passive rewards by staking your $BURRITO tokens. Choose flexible staking periods, track real-time earnings, and participate in our secure staking program.';
+	const title = 'Stake $BURRITOAI - Earn Up to 19.72% APY with Real-time Rewards';
+	const description = 'Start earning passive rewards by staking your $BURRITOAI tokens. Choose flexible staking periods, track real-time earnings, and participate in our secure staking program.';
 
 	// State
 	const showDashboard = ref(false);
 	const calculatorAmount = ref(1000);
-	const selectedPeriod = ref(30);
+	const selectedPeriod = ref(365);
 	const tvl = ref(2500000);
 	const totalStakers = ref(1234);
 
@@ -439,7 +433,7 @@
 
 	// Computed
 	const calculatedRewards = computed(() => {
-		const rate = selectedPeriod.value >= 365 ? 0.1972 : 0.11;
+		const rate = selectedPeriod.value >= 365 ? 0.1972 : 0.011;
 		return ((calculatorAmount.value * rate) / 365 * selectedPeriod.value).toFixed(2);
 	});
 

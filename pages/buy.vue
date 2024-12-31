@@ -6,10 +6,10 @@
 			<div class="container position-relative z-3 py-5">
 				<div class="row align-items-center">
 					<div class="col-lg-7">
-						<h1 class="display-3 fw-bold text-gradient mb-4">Acquire $BURRITO</h1>
+						<h1 class="display-3 fw-bold text-gradient mb-4">Acquire $BURRITOAI</h1>
 						<p class="lead mb-4">
 							Step into a world where AI innovation meets DeFi opportunity.
-							Acquire $BURRITO on Avalanche and gain entry to an AI-driven
+							Acquire $BURRITOAI on Avalanche and gain entry to an AI-driven
 							ecosystem that thrives on privacy, performance, and true decentralization.
 						</p>
 						<div class="d-flex flex-wrap gap-3">
@@ -54,7 +54,7 @@
 								</div>
 								<div class="d-flex justify-content-between mb-2">
 									<span class="text-muted">Token:</span>
-									<span>BurritoAI ($BURRITO)</span>
+									<span>BurritoAI ($BURRITOAI)</span>
 								</div>
 								<div class="d-flex justify-content-between mb-2">
 									<span class="text-muted">Network:</span>
@@ -95,7 +95,7 @@
 		<!-- Steps to Buy (Vertical Timeline) -->
 		<section class="py-5">
 			<div class="container">
-				<h2 class="text-center mb-4">How to Purchase $BURRITO</h2>
+				<h2 class="text-center mb-4">How to Purchase $BURRITOAI</h2>
 				<p class="text-center lead mb-5">
 					Follow these streamlined steps to become part of the BurritoAI ecosystem.
 				</p>
@@ -130,7 +130,7 @@
 						<div class="timeline-content ms-md-4">
 							<h3 class="h5 mb-3">3. Access Trader Joe</h3>
 							<p class="mb-0">
-								Navigate to Trader Joe, select $BURRITO as your target token,
+								Navigate to Trader Joe, select $BURRITOAI as your target token,
 								and prepare to swap AVAX or another supported asset.
 							</p>
 						</div>
@@ -141,7 +141,7 @@
 						<div class="timeline-content ms-md-4">
 							<h3 class="h5 mb-3">4. Execute the Swap</h3>
 							<p class="mb-0">
-								Enter the desired amount of $BURRITO, confirm transaction details,
+								Enter the desired amount of $BURRITOAI, confirm transaction details,
 								and finalize the swap. Welcome to the BurritoAI community!
 							</p>
 						</div>
@@ -194,7 +194,7 @@
 			<div class="container position-relative z-3">
 				<h2 class="mb-4 fw-bold">Embrace the Future of Decentralized AI</h2>
 				<p class="lead mb-4">
-					Secure your $BURRITO tokens now and join a forward-thinking
+					Secure your $BURRITOAI tokens now and join a forward-thinking
 					ecosystem that pairs AI ingenuity with blockchain security.
 				</p>
 				<a
@@ -219,8 +219,8 @@
 	}
 
 	// SEO Setup
-	const title = 'Buy $BURRITO - Step into AI-Driven DeFi on Avalanche'
-	const description = 'Learn how to buy $BURRITO, the native token fueling the BurritoAI ecosystem. Get on board with AI-powered DeFi on Avalanche and secure your place in a future without boundaries.'
+	const title = 'Buy $BURRITOAI - Step into AI-Driven DeFi on Avalanche'
+	const description = 'Learn how to buy $BURRITOAI, the native token fueling the BurritoAI ecosystem. Get on board with AI-powered DeFi on Avalanche and secure your place in a future without boundaries.'
 
 	useHead({
 		title,
