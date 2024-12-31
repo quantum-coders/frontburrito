@@ -227,7 +227,7 @@
 									type="checkbox"
 									:id="'sandbox-' + model.id"
 									:checked="model.sandbox"
-									disabled
+									@change="toggleSandbox(model)"
 								/>
 							</div>
 						</td>
@@ -546,6 +546,17 @@
 			await chatStore.getAllModels();
 		} catch (e) {
 			console.error('Error syncing models:', e);
+		}
+	};
+
+	/*
+	   Sandbox
+	*/
+	const toggleSandbox = async (model) => {
+		try {
+			await chatStore.toggleSandbox(model.id);
+		} catch (e) {
+			console.error('Error toggling sandbox:', e);
 		}
 	};
 

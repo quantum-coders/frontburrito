@@ -45,7 +45,7 @@
 						></textarea>
 					</div>
 					<chat-model-selector />
-					<div class="form-check form-switch mb-2">
+<!--					<div class="form-check form-switch mb-2">
 						<input
 							class="form-check-input"
 							type="checkbox"
@@ -54,8 +54,8 @@
 							@change="updateWebSearch"
 						>
 						<label class="form-check-label fs-7" for="web-search">Enable WebSearch</label>
-					</div>
-					<div v-if="webSearchEnabled" class="mb-3">
+					</div>-->
+<!--					<div v-if="webSearchEnabled" class="mb-3">
 						<div class="btn-group btn-group-sm w-100" role="group">
 							<input
 								type="radio"
@@ -80,7 +80,7 @@
 							>
 							<label class="btn btn-outline-primary" for="deepSearch">Deep</label>
 						</div>
-					</div>
+					</div>-->
 				</div>
 				<div class="chat-stats">
 					<h4 class="chat-stats-title">Chat Statistics</h4>

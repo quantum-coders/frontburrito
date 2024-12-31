@@ -90,6 +90,30 @@ export const useChatStore = defineStore('chatStore', () => {
 		}
 	};
 
+	const toggleSandbox = async (modelId) => {
+		loading.value = true;
+		error.value = null;
+		try {
+			const response = await useBaseFetch(`/admin/models/${modelId}/sandbox`, {
+				method: 'PATCH'
+			});
+			if (response.data.value) {
+				// Actualizarlo en adminModels
+				const index = adminModels.value.findIndex(m => m.id === modelId);
+				if (index !== -1) {
+					adminModels.value[index] = response.data.value.data;
+				}
+				return response.data.value.data;
+			}
+		} catch (e) {
+			error.value = e.message;
+			console.error('Error toggling model sandbox status:', e);
+			throw e;
+		} finally {
+			loading.value = false;
+		}
+	};
+
 	const toggleModelVisibility = async (modelId) => {
 		loading.value = true;
 		error.value = null;
@@ -468,6 +492,7 @@ export const useChatStore = defineStore('chatStore', () => {
 		loading,
 		error,
 		getAllModelsActive,
+		toggleSandbox,
 		updateChatModel,
 		updateModel,
 		syncWithOpenRouter,
