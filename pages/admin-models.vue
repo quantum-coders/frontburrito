@@ -118,9 +118,17 @@
 						<td>
 							<div>
 								<h6 class="mb-0">{{ model.name }}</h6>
-								<small class="text-muted">
-									{{ truncateText(model.description, 50) }}
-								</small>
+								<small class="text-muted d-block container-sm" style="max-width: 300px;">
+  <span v-if="!expandedDescriptions[model.id]">
+    {{ truncateText(model.description, 50) }}
+  </span>
+  <span v-else>
+    {{ model.description }}
+  </span>
+  <button class="btn btn-outline-dark btn-sm" @click="expandedDescriptions[model.id] = !expandedDescriptions[model.id]">
+    {{ expandedDescriptions[model.id] ? 'See less' : 'See more' }}
+  </button>
+</small>
 							</div>
 						</td>
 						<td>
@@ -450,7 +458,7 @@
 	// Store
 	const chatStore = useChatStore();
 	const {adminModels, loading, error} = storeToRefs(chatStore);
-
+	const expandedDescriptions = ref({});
 	// Refs para los modales
 	const editModalRef = ref(null);
 	const detailsModalRef = ref(null);
@@ -480,6 +488,10 @@
 	*/
 	const filteredModels = computed(() => {
 		let models = adminModels.value;
+
+		models.forEach(model => {
+			expandedDescriptions.value[model.id] = true;
+		});
 
 		// Filtro por búsqueda
 		if (searchTerm.value) {
