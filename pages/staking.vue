@@ -177,13 +177,13 @@
 										<tbody>
 											<tr>
 												<td>180 Days</td>
-												<td>6.6%</td>
+												<td>6.715%</td>
 												<td>100 $BURRITOAI</td>
 												<td>Basic Rewards</td>
 											</tr>
 											<tr>
 												<td>210 Days</td>
-												<td>7.11%</td>
+												<td>7.859%</td>
 												<td>100 $BURRITOAI</td>
 												<td>Premium Rewards</td>
 											</tr>
@@ -191,7 +191,7 @@
 												<td>365 Days</td>
 												<td>19.72%</td>
 												<td>100 $BURRITOAI</td>
-												<td>Enhanced Rewards</td>
+												<td>ENHANCED Rewards</td>
 											</tr>
 										</tbody>
 									</table>

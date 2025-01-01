@@ -9,7 +9,7 @@
 					<img src="/images/imagebai.png" alt="Pepe Burrito">
 					<p class="title">Unlock Unfiltered Image Generation"</p>
 					<div class="content">
-						<p class="subtitle">Stake a minimum of <u>2,000 BurritoAI tokens </u>to unlock this feature</p>
+						<p class="subtitle">Stake a minimum of <u>4,127 BurritoAI tokens </u>to unlock this feature</p>
 						<ul class="benefits-list">
 							<li class="list-group-item"><strong>Access unfiltered image generation capabilities</strong></li>
 							<li class="list-group-item"><strong>Push the limits of your creative prompts</strong></li>
@@ -21,8 +21,7 @@
 				</div>
 			</div>
 		</section>
-
-		<div v-else class="images-area">
+		<div class="images-area">
 			<div class="images-input">
 				<input
 					v-model="prompt"
@@ -30,7 +29,7 @@
 					placeholder="What will your crazy mind come up with next?"
 					@keyup.enter="sendPrompt"
 				/>
-				<chat-send-button @click="sendPrompt" />
+				<!-- <chat-send-button @click="sendPrompt" /> -->
 			</div>
 			<div class="images-gallery">
 				<div class="scroll-wrapper pretty-scrolls">
@@ -73,7 +72,7 @@
 
 	const chatStore = useChatStore();
 	const prompt = ref('');
-	const userBalance = ref(0);
+
 	const sendPrompt = async () => {
 		if(prompt.value) {
 
@@ -156,7 +155,7 @@
 		input
 			width: 100%
 			border: 0
-			font-size: 0.785rem
+			font-size: 1.5rem
 			outline: none
 			box-sizing: border-box
 			margin: 0 0 0 1rem
@@ -251,7 +250,7 @@
 				img
 					margin-bottom: 1rem
 					image-rendering: pixelated
-					width: 350px
+					width: 250px
 
 				.title
 					font-size: 2rem
