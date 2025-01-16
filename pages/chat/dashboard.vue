@@ -185,7 +185,6 @@
 <script setup>
 	definePageMeta({layout: 'burrito'});
 	const {successToast, errorToast} = usePrettyToast();
-
 	import {useTimeAgo} from '@vueuse/core';
 
 	const {$mdRenderer} = useNuxtApp();
@@ -195,52 +194,90 @@
 
 	const router = useRouter();
 	const {me} = useAuth();
-	const loading = ref(true);
+	const loading = ref(true);             // Spinner principal
+	const isLoadingMore = ref(false);      // Spinner opcional para scroll
+	const isFetchingMore = ref(false);     // Control de llamada en curso
 	const chatModalRef = ref(null);
 	const chats = ref([]);
 	const searchQuery = ref('');
 	const selectedChats = ref([]);
 	const selectAll = ref(false);
 	const isDeleting = ref(false);
-	const user = useAuthUser();
+
+	const skip = ref(0);
+	const take = ref(12);
+	const hasMore = ref(true); // <-- NUEVO: Para saber si aún hay datos disponibles
 
 	const filteredChats = computed(() => {
 		const query = searchQuery.value.toLowerCase();
-		// Si no hay query, retorna todos los chats
 		if (!query) return chats.value;
-
-		// Asegúrate de que chat.name existe antes de usar toLowerCase
 		return chats.value.filter(chat =>
 			(chat.name && chat.name.toLowerCase().includes(query)) ||
 			(chat.createdBy && chat.createdBy.toLowerCase().includes(query)) ||
-			(chat.wallet && chat.wallet.toLowerCase().includes(query))  // Agregado wallet para búsqueda
+			(chat.wallet && chat.wallet.toLowerCase().includes(query))
 		);
 	});
-
 
 	const accountTrimmed = (account) => {
 		return account.slice(0, 6) + '...' + account.slice(-4);
 	};
 
-	const fetchChats = async () => {
-		loading.value = true;
+	/**
+	 * fetchChats
+	 * @param {boolean} append - Si true, concatena los nuevos chats en la lista existente.
+	 */
+	const fetchChats = async (append = false) => {
+		// Si no concatenamos, es una “nueva carga” (paginación desde 0)
+		if (!append) {
+			skip.value = 0;
+			chats.value = [];
+			hasMore.value = true;
+			loading.value = true;     // Mostramos spinner principal
+		} else {
+			isLoadingMore.value = true; // O usamos isFetchingMore si prefieres
+		}
+
+		isFetchingMore.value = true;
+
 		try {
-			const {error, data} = await useBaseFetch('users/me/chats', {
+			const {error, data} = await useBaseFetch(`users/me/chats?skip=${skip.value}&take=${take.value}`, {
 				method: 'GET',
 			});
 
 			if (!error.value) {
 				const chatResults = Array.isArray(data.value.data) ? data.value.data : [data.value.data];
-				chats.value = chatResults.map(chat => ({
-					...chat,
-					selected: false,
-					wallet: chat.user?.wallet || ''
-				}));
+
+				if (append) {
+					chats.value.push(...chatResults.map(chat => ({
+						...chat,
+						selected: false,
+						wallet: chat.wallet || ''
+					})));
+				} else {
+					chats.value = chatResults.map(chat => ({
+						...chat,
+						selected: false,
+						wallet: chat.wallet || ''
+					}));
+				}
+
+				// Aumentamos skip para la siguiente página
+				skip.value += chatResults.length;
+				// Verificamos si recibimos menos de lo que pedimos (ya no hay más data)
+				if (chatResults.length < take.value) {
+					hasMore.value = false;
+				}
+
+			} else {
+				errorToast(error.value.data?.message || 'Error loading chats');
 			}
-		} catch (error) {
-			console.error('Failed to fetch chats:', error);
+
+		} catch (err) {
+			console.error('Failed to fetch chats:', err);
 			errorToast('Error loading chats');
 		} finally {
+			isFetchingMore.value = false;
+			isLoadingMore.value = false;
 			loading.value = false;
 		}
 	};
@@ -262,7 +299,6 @@
 	const confirmDelete = async (closeDialog) => {
 		isDeleting.value = true;
 		deletedCount.value = 0;
-
 		try {
 			for (const chat of selectedChats.value) {
 				const {data, error} = await useBaseFetch(`/users/me/chats/${chat.id}`, {
@@ -270,15 +306,12 @@
 				});
 				if (error.value?.data) {
 					errorToast(error.value.data.message);
-
 				}
-
 				if (data.value?.data?.id === chat.id) {
 					chats.value = chats.value.filter(c => c.id !== chat.id);
 					deletedCount.value++;
 				}
 			}
-
 			selectedChats.value = [];
 			selectAll.value = false;
 			closeDialog();
@@ -290,13 +323,14 @@
 			deletedCount.value = 0;
 		}
 	};
-	const downloadChat = async (chat, type = 'txt') => {
 
+	const downloadChat = async (chat, type = 'txt') => {
 		if (useChatStore) {
 			useMarketingStore().trackEvent('download_chat', {chat_id: chat.id, format: type});
 			useChatStore().downloadChat(chat, type);
 		}
 	};
+
 	const toggleSelectAll = () => {
 		chats.value.forEach(chat => chat.selected = selectAll.value);
 		updateSelectedChats();
@@ -312,55 +346,86 @@
 		router.push('/chat');
 	};
 
-	// watch currentAccount
-	// Agrega este watch o método en tu script setup, cerca de donde declaras searchQuery
-
+	/**
+	 * WATCH de búsqueda
+	 * - Limpia la lista ANTES de llamar al endpoint, no en finally.
+	 * - Si la búsqueda está vacía, vuelve a fetchChats(false).
+	 */
 	watch(searchQuery, async (newVal) => {
 		useMarketingStore().trackEvent('search_chats', {query: newVal});
 
+		// Si el usuario borra la búsqueda, recargamos los chats normales
+		if (!newVal.trim()) {
+			await fetchChats(false);
+			return;
+		}
+
+		// Búsqueda con spinner principal
+		loading.value = true;
+		skip.value = 0;
+		hasMore.value = false; // Opcional, para evitar scroll infinito en la búsqueda
+		chats.value = [];
+
 		try {
-			loading.value = true;
-
-			if (!newVal.trim()) {
-				await fetchChats();
-				return;
-			}
-
 			const {error, data} = await useBaseFetch(`users/me/chats/search?q=${encodeURIComponent(newVal)}`, {
 				method: 'GET'
 			});
 
 			if (!error.value) {
-				// Desestructura el objeto reactivo para obtener los datos puros
 				const chatResults = Array.isArray(data.value.data) ? data.value.data : [data.value.data];
-
-				// Asigna los resultados directamente al array de chats
 				chats.value = chatResults.map(chat => ({
 					...chat,
 					selected: false,
-					wallet: chat.user?.wallet || '' // Asegúrate de que wallet esté disponible
+					wallet: chat.user?.wallet || ''
 				}));
-
-				console.log('Chats asignados:', chats.value);
 			} else {
 				errorToast(error.value?.data?.message ?? 'Error fetching chats');
 			}
+
 		} catch (err) {
 			console.error('Error buscando chats:', err);
 			errorToast(err.message);
 		} finally {
 			loading.value = false;
 		}
-	}, {debounce: 300}); // Agregado debounce para mejor rendimiento
+	}, {debounce: 300});
 
 	onMounted(async () => {
 		const authToken = localStorage.getItem('authToken');
 		if (authToken) await me(authToken);
-		await fetchChats();
+
+		await fetchChats(false); // Primera carga
 		useMarketingStore().trackEvent('view_chats_dashboard', {});
 
+		window.addEventListener('scroll', handleScroll);
 	});
+
+	onUnmounted(() => {
+		window.removeEventListener('scroll', handleScroll);
+	});
+
+	/**
+	 * handleScroll
+	 * - Solo cargamos más si:
+	 *   1) No hay búsqueda activa
+	 *   2) Aún hay más datos (hasMore)
+	 *   3) No estamos ya cargando (isFetchingMore)
+	 */
+	const handleScroll = () => {
+		if (searchQuery.value.trim()) return;  // No hacer scroll infinito si se está buscando
+		if (!hasMore.value) return;            // Ya no hay más páginas
+		if (isFetchingMore.value) return;      // Ya está cargando
+
+		const scrollTop = window.scrollY || document.documentElement.scrollTop;
+		const docHeight = document.documentElement.offsetHeight;
+		const winHeight = window.innerHeight;
+
+		if (scrollTop + winHeight >= docHeight - 300) {
+			fetchChats(true);
+		}
+	};
 </script>
+
 
 <style lang="sass">
 	body:has(.section-dashboard)
