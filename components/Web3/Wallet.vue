@@ -15,7 +15,7 @@
 				<div class="row align-items-stretch" v-if="!isMobile">
 					<!-- Core Wallet -->
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
-						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif"/>
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
 						<div class="wallet">
 							<a
 								v-if="!coreInstalled"
@@ -24,20 +24,20 @@
 								class="wallet-link"
 							></a>
 							<a v-else @click.prevent="doConnect('core')" href="#" class="wallet-link"></a>
-							<img class="wallet-sprite sprite-core" src="/images/wallets/core.gif" alt="Core"/>
+							<img class="wallet-sprite sprite-core" src="/images/wallets/core.gif" alt="Core" />
 							<p class="wallet-name">Core</p>
 							<p class="wallet-status">
-                <span class="installed" v-if="coreInstalled">
-                  <span class="inst">Installed</span>
-                  <span class="conn">Connect</span>
-                </span>
+								<span class="installed" v-if="coreInstalled">
+									<span class="inst">Installed</span>
+									<span class="conn">Connect</span>
+								</span>
 								<span class="get" v-else>Get</span>
 							</p>
 						</div>
 					</div>
 					<!-- MetaMask Wallet -->
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
-						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif"/>
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
 						<div class="wallet">
 							<a
 								v-if="!metamaskInstalled"
@@ -53,17 +53,17 @@
 							/>
 							<p class="wallet-name">Metamask</p>
 							<p class="wallet-status">
-                  <span class="installed" v-if="metamaskInstalled">
-                    <span class="inst">Installed</span>
-                    <span class="conn">Connect</span>
-                  </span>
+								<span class="installed" v-if="metamaskInstalled">
+									<span class="inst">Installed</span>
+									<span class="conn">Connect</span>
+								</span>
 								<span class="get" v-else>Get</span>
 							</p>
 						</div>
 					</div>
 					<!-- Rabby Wallet -->
 					<div class="col-4 col-wallet d-flex flex-column align-items-center justify-content-end">
-						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif"/>
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
 						<div class="wallet">
 							<a
 								v-if="!rabbyInstalled"
@@ -79,10 +79,10 @@
 							/>
 							<p class="wallet-name">Rabby Wallet</p>
 							<p class="wallet-status">
-                <span class="installed" v-if="rabbyInstalled">
-                  <span class="inst">Installed</span>
-                  <span class="conn">Connect</span>
-                </span>
+								<span class="installed" v-if="rabbyInstalled">
+									<span class="inst">Installed</span>
+									<span class="conn">Connect</span>
+								</span>
 								<span class="get" v-else>Get</span>
 							</p>
 						</div>
@@ -90,7 +90,45 @@
 				</div>
 				<!-- Mobile WalletConnect -->
 				<div class="row align-items-center justify-content-center" v-else>
-					<div class="wallet">
+					<!-- Core Wallet -->
+					<div class="col-6 col-wallet d-flex flex-column align-items-center justify-content-end">
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
+						<div class="wallet">
+							<a @click.prevent="doConnect('core')" href="#" class="wallet-link" />
+							<img class="wallet-sprite sprite-core" src="/images/wallets/core.gif" alt="Core" />
+							<p class="wallet-name">Core</p>
+							<p class="wallet-status">
+								<span class="installed" v-if="coreInstalled">
+									<span class="inst">Installed</span>
+									<span class="conn">Connect</span>
+								</span>
+								<span class="get" v-else>Get</span>
+							</p>
+						</div>
+					</div>
+					<!-- MetaMask Wallet -->
+					<div class="col-6 col-wallet d-flex flex-column align-items-center justify-content-end">
+						<img alt="" class="selector" src="/images/wallets/selector-arrow.gif" />
+						<div class="wallet">
+							<a @click.prevent="doConnect('metamask')" href="#" class="wallet-link"></a>
+							<img
+								class="wallet-sprite sprite-metamask"
+								src="/images/wallets/metamask.gif"
+								alt="Metamask"
+							/>
+							<p class="wallet-name">Metamask</p>
+							<p class="wallet-status">
+								<span class="installed" v-if="metamaskInstalled">
+									<span class="inst">Installed</span>
+									<span class="conn">Connect</span>
+								</span>
+								<span class="get" v-else>Get</span>
+							</p>
+						</div>
+					</div>
+
+					<!-- TODO: Resolver este mensaje como fallback -->
+					<div class="wallet" v-if="false">
 						<a @click.prevent="doConnect('walletConnect')" href="#" class="wallet-link"></a>
 						<img
 							class="wallet-sprite wallet-connect"
@@ -99,9 +137,9 @@
 						/>
 						<p class="wallet-name">Wallet Connect</p>
 						<p class="wallet-status">
-              <span class="installed">
-                <span class="conn" @click.prevent="doConnect('walletConnect')">Connect</span>
-              </span>
+							<span class="installed">
+								<span class="conn" @click.prevent="doConnect('walletConnect')">Connect</span>
+							</span>
 						</p>
 						<p class="text-muted small">
 							Scan with your favorite wallet to connect
@@ -114,11 +152,11 @@
 </template>
 
 <script setup>
-	const {isMobile} = useDevice();
+	const { isMobile } = useDevice();
 	const loading = ref(false);
 	const web3Store = useWeb3Store();
 
-	const emit = defineEmits(['connect']);
+	const emit = defineEmits([ 'connect' ]);
 
 	const props = defineProps({
 		close: {
@@ -137,15 +175,15 @@
 		const savedWallet = localStorage.getItem('preferredWallet');
 		const currentAccount = localStorage.getItem('currentAccount');
 
-		if (savedWallet && currentAccount) {
+		if(savedWallet && currentAccount) {
 			console.log('🔄 Attempting to reconnect wallet:', savedWallet);
 			try {
 				await web3Store.connectWallet(savedWallet, isMobile.value);
-				if (web3Store.isConnected) {
+				if(web3Store.isConnected) {
 					console.log('✅ Reconnected successfully');
 					props.close();
 				}
-			} catch (error) {
+			} catch(error) {
 				console.error('❌ Reconnection failed:', error);
 				localStorage.removeItem('preferredWallet');
 				localStorage.removeItem('currentAccount');
@@ -155,7 +193,7 @@
 
 	// Observar el estado de conexión
 	watch(() => web3Store.isConnected, (newValue) => {
-		if (newValue) {
+		if(newValue) {
 			props.close();
 		}
 	});
@@ -167,15 +205,15 @@
 		const savedWallet = localStorage.getItem('preferredWallet');
 		const currentAccount = localStorage.getItem('currentAccount');
 
-		if (authToken && savedWallet && currentAccount) {
+		if(authToken && savedWallet && currentAccount) {
 			console.log('💾 Found saved wallet configuration, attempting reconnection...');
 			try {
 				const connected = await web3Store.connectWallet(savedWallet, isMobile.value);
-				if (connected) {
+				if(connected) {
 					console.log('✅ Reconnection successful');
 					props.close();
 				}
-			} catch (error) {
+			} catch(error) {
 				console.error('❌ Reconnection failed:', error);
 				localStorage.removeItem('preferredWallet');
 				localStorage.removeItem('currentAccount');
@@ -183,7 +221,7 @@
 		}
 
 		// Check installed wallets on desktop
-		if (!isMobile.value) {
+		if(!isMobile.value) {
 			console.log('🕵️‍♂️ Checking installed wallets...');
 
 			metamaskInstalled.value = !!window.ethereum?.isMetaMask;
@@ -203,7 +241,7 @@
 
 		try {
 			let walletType;
-			switch (provider) {
+			switch(provider) {
 				case 'metamask':
 					walletType = SUPPORTED_WALLETS.METAMASK;
 					break;
@@ -222,12 +260,12 @@
 
 			const connected = await web3Store.connectWallet(walletType, isMobile.value);
 
-			if (web3Store.connectionError) {
+			if(web3Store.connectionError) {
 				console.error('❌ Connection failed:', web3Store.connectionError.message);
 				throw new Error(web3Store.connectionError.message);
 			}
 
-			if (connected && web3Store.isConnected) {
+			if(connected && web3Store.isConnected) {
 				console.log('✅ Connection successful');
 				emit('connect');
 				props.close();
@@ -235,7 +273,7 @@
 			}
 
 			return false;
-		} catch (error) {
+		} catch(error) {
 			console.error('❌ Connection error:', error);
 			throw error;
 		} finally {
@@ -243,7 +281,6 @@
 		}
 	};
 </script>
-
 
 <style scoped lang="sass">
 	.wallet-connect
