@@ -446,7 +446,7 @@ export const useChatStore = defineStore('chatStore', () => {
 				console.log("updateRes22222--------------->", updateRes.data.value.data);
 				console.log("AvailableModels--------------->", adminModels.value);
 				const selectedModel = adminModels.value.find(model => model.id === modelId);
-				console.log("selectedModel--------------->", selectedModel);
+				console.log("selectedModel--------------->", selectedModel);    
 				updateChatFrontend({selectedModel});
 			}
 		} catch (error) {

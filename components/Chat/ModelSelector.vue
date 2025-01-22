@@ -19,6 +19,7 @@
 				/>
 			</div>
 
+			<!-- FEATURED MODELS -->
 			<div v-if="filteredFeaturedModels.length" class="model-section">
 				<div class="model-category-label">Featured Models</div>
 				<div class="model-options">
@@ -35,13 +36,17 @@
 						</div>
 						<div class="model-details">
 							<small class="text-muted">
-								{{ formatTokens(model.contextLength) }} • ${{ model.inputCost }}/1K tokens
+								<!-- Sin multiplicar, pues se guarda 'por 1M tokens' -->
+								{{ formatTokens(model.contextLength) }}
+								• Prompt: ${{ model.inputCost }} / token
+								• Completion: ${{ model.outputCost }}/ token
 							</small>
 						</div>
 					</div>
 				</div>
 			</div>
 
+			<!-- REGULAR MODELS -->
 			<div v-if="filteredRegularModels.length" class="model-section">
 				<div class="model-category-label">Available Models</div>
 				<div class="model-options">
@@ -57,7 +62,9 @@
 						</div>
 						<div class="model-details">
 							<small class="text-muted">
-								{{ formatTokens(model.contextLength) }} • ${{ model.inputCost }}/1K tokens
+								{{ formatTokens(model.contextLength) }}
+								• Prompt: ${{ model.inputCost }}/1M
+								• Completion: ${{ model.outputCost }}/1M
 							</small>
 						</div>
 					</div>
@@ -72,72 +79,68 @@
 </template>
 
 <script setup>
-	const chatStore = useChatStore();
-	const isOpen = ref(false);
-	const searchQuery = ref('');
+const chatStore = useChatStore();
+const isOpen = ref(false);
+const searchQuery = ref('');
 
-	// Computed property for current model name
-	const currentModelName = computed(() => {
-		console.log('4. Estado actual del chat:', chatStore.chat);
-		console.log('5. Modelo seleccionado actual:', chatStore.chat?.selectedModel);
-		return chatStore.chat?.selectedModel?.name || 'Select Model';
-	});
+// Nombre del modelo actual
+const currentModelName = computed(() => {
+  return chatStore.chat?.selectedModel?.name || 'Select Model';
+});
 
-	// Filter models based on search query
-	const filteredFeaturedModels = computed(() => {
-		const models = chatStore.adminModels?.filter(model => model.isFeatured) || [];
-		if (!searchQuery.value) return models;
-		return models.filter(model =>
-			model.name.toLowerCase().includes(searchQuery.value.toLowerCase())
-		);
-	});
+// Filtro para 'featured'
+const filteredFeaturedModels = computed(() => {
+  const models = chatStore.adminModels?.filter(m => m.isFeatured) || [];
+  if (!searchQuery.value) return models;
+  return models.filter(m =>
+    m.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+  );
+});
 
-	const filteredRegularModels = computed(() => {
-		const models = chatStore.adminModels?.filter(model => !model.isFeatured) || [];
-		if (!searchQuery.value) return models;
-		return models.filter(model =>
-			model.name.toLowerCase().includes(searchQuery.value.toLowerCase())
-		);
-	});
+// Filtro para 'regular'
+const filteredRegularModels = computed(() => {
+  const models = chatStore.adminModels?.filter(m => !m.isFeatured) || [];
+  if (!searchQuery.value) return models;
+  return models.filter(m =>
+    m.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+  );
+});
 
-	const selectModelAndClose = async (model) => {
-		console.log('1. Modelo seleccionado:', model);  // Ver qué modelo se está seleccionando
+// Acción al seleccionar un modelo
+const selectModelAndClose = async (model) => {
+  try {
+    await chatStore.updateChatModel(model.id);
+    isOpen.value = false;
+    searchQuery.value = '';
+  } catch (error) {
+    console.error('Error al actualizar modelo:', error);
+  }
+};
 
-		try {
-			console.log('2. Intentando actualizar modelo con ID:', model.id);
-			await chatStore.updateChatModel(model.id);
-			console.log('3. Modelo actualizado exitosamente');
+// Formatear el número de tokens
+const formatTokens = (tokens) => {
+  if (!tokens) return '0 tokens';
+  if (tokens >= 1000) {
+    return `${(tokens / 1000).toFixed(0)}K tokens`;
+  }
+  return `${tokens} tokens`;
+};
 
-			isOpen.value = false;
-			searchQuery.value = '';
-		} catch (error) {
-			console.error('Error al actualizar modelo:', error);
-		}
-	};
+// Cerrar dropdown al hacer click fuera
+const handleClickOutside = (event) => {
+  if (!event.target.closest('.model-selector')) {
+    isOpen.value = false;
+  }
+};
 
-	const formatTokens = (tokens) => {
-		if (!tokens) return '0 tokens';
-		if (tokens >= 1000) {
-			return `${(tokens / 1000).toFixed(0)}K tokens`;
-		}
-		return `${tokens} tokens`;
-	};
+onMounted(() => {
+  chatStore.getAllModels();
+  document.addEventListener('click', handleClickOutside);
+});
 
-	// Close dropdown when clicking outside
-	const handleClickOutside = (event) => {
-		if (!event.target.closest('.model-selector')) {
-			isOpen.value = false;
-		}
-	};
-
-	onMounted(() => {
-		chatStore.getAllModels();
-		document.addEventListener('click', handleClickOutside);
-	});
-
-	onUnmounted(() => {
-		document.removeEventListener('click', handleClickOutside);
-	});
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
 </script>
 
 <style lang="scss" scoped>

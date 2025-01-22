@@ -97,7 +97,7 @@
 						</th>
 						<th>Model</th>
 						<th>Type</th>
-						<th>Pricing (per 1k tokens)</th>
+						<th>Pricing (per 1 token)</th>
 						<th>Status</th>
 						<th>Priority</th>
 						<th>Visibility</th>
