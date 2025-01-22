@@ -77,9 +77,11 @@
 	const searchQuery = ref('');
 
 	// Computed property for current model name
-	const currentModelName = computed(() =>
-		chatStore.chat?.selectedModel?.name || 'Select Model'
-	);
+	const currentModelName = computed(() => {
+		console.log('4. Estado actual del chat:', chatStore.chat);
+		console.log('5. Modelo seleccionado actual:', chatStore.chat?.selectedModel);
+		return chatStore.chat?.selectedModel?.name || 'Select Model';
+	});
 
 	// Filter models based on search query
 	const filteredFeaturedModels = computed(() => {
@@ -99,9 +101,18 @@
 	});
 
 	const selectModelAndClose = async (model) => {
-		await chatStore.updateChatModel(model.id);
-		isOpen.value = false;
-		searchQuery.value = '';
+		console.log('1. Modelo seleccionado:', model);  // Ver qué modelo se está seleccionando
+
+		try {
+			console.log('2. Intentando actualizar modelo con ID:', model.id);
+			await chatStore.updateChatModel(model.id);
+			console.log('3. Modelo actualizado exitosamente');
+
+			isOpen.value = false;
+			searchQuery.value = '';
+		} catch (error) {
+			console.error('Error al actualizar modelo:', error);
+		}
 	};
 
 	const formatTokens = (tokens) => {

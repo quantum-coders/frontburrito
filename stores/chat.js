@@ -440,9 +440,13 @@ export const useChatStore = defineStore('chatStore', () => {
 				body: {idModel: modelId},
 			});
 
-			if (updateRes.data.value) {
+			console.log("updateRes--------------->", updateRes.data.value.data);
+			if (updateRes.data.value.data) {
 				// Actualizar el modelo seleccionado en el estado local
-				const selectedModel = availableModels.value.find(model => model.id === modelId);
+				console.log("updateRes22222--------------->", updateRes.data.value.data);
+				console.log("AvailableModels--------------->", adminModels.value);
+				const selectedModel = adminModels.value.find(model => model.id === modelId);
+				console.log("selectedModel--------------->", selectedModel);
 				updateChatFrontend({selectedModel});
 			}
 		} catch (error) {
