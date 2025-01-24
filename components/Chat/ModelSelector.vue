@@ -63,8 +63,8 @@
 						<div class="model-details">
 							<small class="text-muted">
 								{{ formatTokens(model.contextLength) }}
-								• Prompt: ${{ model.inputCost }}/1M
-								• Completion: ${{ model.outputCost }}/1M
+								• Prompt: ${{ model.inputCost }}/1 token
+								• Completion: ${{ model.outputCost }}/1 token
 							</small>
 						</div>
 					</div>
