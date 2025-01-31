@@ -2,7 +2,7 @@
 	<div class="staking-dashboard position-relative p-4">
 		<!-- Close Button -->
 		<a class="close position-absolute top-0 end-2 m-6" @click.prevent="close"
-			 v-if="showCloseButton"
+		   v-if="showCloseButton"
 		>
 			<icon name="material-symbols:close"/>
 		</a>
@@ -102,7 +102,7 @@
 								</div>
 
 								<button
-									@click="handleClaimRewards"
+									@click="goToTabStakingHistory"
 									class="btn btn-success w-100 mt-3"
 									:disabled="!isRewardsClaimable"
 								>
@@ -304,15 +304,31 @@
 										Burrito AI Tokens
 									</td>
 									<td>
-                      <span
-						  :class="{
-                          'badge bg-success': stake.status === 'Completed',
-                          'badge bg-warning': stake.status === 'Active',
-                        }"
-					  >
-                        <icon name="mdi:check-circle" class="me-1"/>
-                        <span>{{ stake.status }}</span>
-                      </span>
+                      <div class="d-flex align-items-center gap-2">
+                        <span
+                          :class="{
+                            'badge bg-success': stake.status === 'Completed',
+                            'badge bg-warning': stake.status === 'Active',
+                          }"
+                        >
+                          <icon name="mdi:check-circle" class="me-1"/>
+                          <span>{{ stake.status }}</span>
+                        </span>
+                        <button
+                          v-if="(stake.status === 'Completed' || stake.status === 'Ready to Claim') && !stake.claimed"
+                          @click="handleClaimRewards(stake.index)"
+                          class="btn btn-success btn-sm"
+                          :disabled="loadingState"
+                        >
+                          <div v-if="loadingState" class="d-flex align-items-center gap-2">
+                            <ui-spinner size="sm"/>
+                            <span>Claiming...</span>
+                          </div>
+                          <div v-else class="d-flex align-items-center gap-2">
+                            <icon name="mdi:cash-plus"/>
+                          </div>
+                        </button>
+                      </div>
 									</td>
 								</tr>
 								</tbody>
@@ -372,6 +388,10 @@
 		await runStakingChecks();
 		startEarningsTimer();
 	});
+
+	const goToTabStakingHistory = () => {
+		activeTab.value = 'history';
+	};
 
 	const runStakingChecks = async () => {
 		await web3Store.refreshBalances();
@@ -525,11 +545,13 @@
 		}
 	};
 
-	const handleClaimRewards = async () => {
+	const handleClaimRewards = async (stakeIndex) => {
+		console.log('Claiming rewards for stake:', stakeIndex);
 		const {error, data} = await useBaseFetch(
 			`/web3/build-unstake-transaction/${web3Store.address}`,
 			{
 				method: 'POST',
+				body: {stakeIndex},
 			}
 		);
 
@@ -570,39 +592,39 @@
 	};
 
 	const checkRewardsClaimable = async () => {
-		const {error, data} = await useBaseFetch(
-			`/web3/active-stakes/${web3Store.address}`,
-			{
-				method: 'GET',
-			}
-		);
+    console.log('Starting checkRewardsClaimable check...');
 
-		if (!error.value?.data) {
-			const activeStakesData = data.value.data;
-			if (activeStakesData.length > 0) {
-				const currentTimestamp = Math.floor(Date.now() / 1000);
-				const claimableStake = activeStakesData.find(
-					(stake) => new Date(stake.endDate).getTime() / 1000 <= currentTimestamp
-				);
-				isRewardsClaimable.value = !!claimableStake;
+    const {error, data} = await useBaseFetch(
+        `/web3/staking-history/${web3Store.address}`,
+        { method: 'GET' }
+    );
 
-				if (claimableStake) {
-					nextClaimableDate.value = null;
-				} else {
-					nextClaimableDate.value = new Date(
-						Math.min(...activeStakesData.map((stake) => new Date(stake.endDate).getTime()))
-					);
-				}
-			} else {
-				isRewardsClaimable.value = false;
-				nextClaimableDate.value = null;
-			}
-		} else {
-			console.error('Error checking if rewards are claimable:', error.value);
-			isRewardsClaimable.value = false;
-			nextClaimableDate.value = null;
-		}
-	};
+    if (!error?.value?.data && data.value.data) {
+        const historyData = data.value.data;
+        console.log('Staking history data:', historyData);
+
+        // Buscamos cualquier stake con status "Ready to Claim" o "Completed" que no haya sido reclamado
+        const claimableStake = historyData.find(stake =>
+            (stake.status === 'Ready to Claim' || stake.status === 'Completed') && !stake.claimed
+        );
+
+        console.log('Found claimable stake:', claimableStake);
+        isRewardsClaimable.value = !!claimableStake;
+
+        if (claimableStake) {
+            nextClaimableDate.value = null;
+            console.log('isRewardsClaimable set to:', isRewardsClaimable.value);
+        } else {
+            console.log('No claimable stakes found');
+            isRewardsClaimable.value = false;
+            nextClaimableDate.value = null;
+        }
+    } else {
+        console.error('Error checking staking history:', error?.value);
+        isRewardsClaimable.value = false;
+        nextClaimableDate.value = null;
+    }
+};
 
 	const startEarningsTimer = () => {
 		const earningsPerSecond = computed(() => {
