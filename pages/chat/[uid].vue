@@ -1,7 +1,7 @@
 <template>
 	<div class="chat-wrapper" v-if="chatStore.chat">
-		<chat-header class="chat-header shadow-sm"/>
-
+		<chat-header class="chat-header shadow-sm" v-if="!web3Store.isMobileDevice"/>
+		<chat-model-mobile-selector v-if="web3Store.isMobileDevice"/>
 		<main class="chat-content">
 
 			<div class="chat-area">
@@ -44,43 +44,7 @@
 							@blur="chatStore.updateChat({ system: chatStore.chat.system })"
 						></textarea>
 					</div>
-					<chat-model-selector />
-<!--					<div class="form-check form-switch mb-2">
-						<input
-							class="form-check-input"
-							type="checkbox"
-							id="web-search"
-							v-model="webSearchEnabled"
-							@change="updateWebSearch"
-						>
-						<label class="form-check-label fs-7" for="web-search">Enable WebSearch</label>
-					</div>-->
-<!--					<div v-if="webSearchEnabled" class="mb-3">
-						<div class="btn-group btn-group-sm w-100" role="group">
-							<input
-								type="radio"
-								class="btn-check"
-								name="searchType"
-								id="normalSearch"
-								value="normal"
-								v-model="webSearchType"
-								@change="updateSearchType"
-								autocomplete="off"
-							>
-							<label class="btn btn-outline-primary" for="normalSearch">Normal</label>
-							<input
-								type="radio"
-								class="btn-check"
-								name="searchType"
-								id="deepSearch"
-								value="deep"
-								v-model="webSearchType"
-								@change="updateSearchType"
-								autocomplete="off"
-							>
-							<label class="btn btn-outline-primary" for="deepSearch">Deep</label>
-						</div>
-					</div>-->
+					<chat-model-selector/>
 				</div>
 				<div class="chat-stats">
 					<h4 class="chat-stats-title">Chat Statistics</h4>
@@ -127,7 +91,7 @@
 	const uid = route.params.uid;
 	const chatStore = useChatStore();
 	const editChatName = ref(false);
-
+	const web3Store = useWeb3Store();
 	const webSearchEnabled = ref(false);
 	const webSearchType = ref('normal');
 
@@ -219,14 +183,13 @@
 
 		.chat-content
 			display: flex
-			top: 70px
-			height: calc(100dvh - 70px)
 			overflow: hidden
-
-			@media (min-width: $sm)
+			height: calc(100dvh - 70px)
+			top: 0
+			@media (min-width: $md)
+				height: calc(100dvh - 70px)
 				top: 0
 				flex-grow: 1
-				height: auto
 
 			.chat-area
 				display: flex

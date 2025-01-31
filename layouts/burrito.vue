@@ -1,5 +1,5 @@
 <template>
-	<layout-header :class="{ 'fixed': headerFixed }" />
+	<layout-header :class="{ 'fixed': headerFixed }"/>
 	<waypoint class="waypoint" @change="headerWaypoint" />
 
 	<section class="site-wrapper">
@@ -15,7 +15,7 @@
 	import { Waypoint } from 'vue-waypoint';
 
 	const headerFixed = ref(false);
-
+	const web3Store = useWeb3Store();
 	useHead({
 		htmlAttrs: {
 			lang: 'en',

@@ -451,10 +451,9 @@
 		display: flex
 		flex-direction: column
 		flex-grow: 1
-		padding-top: 71px
-
 		@media (min-width: $sm)
-			padding-top: 0
+			padding-top: 0px
+
 
 	.selection
 		height: 38px

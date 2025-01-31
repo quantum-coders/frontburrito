@@ -205,12 +205,16 @@
 		const savedWallet = localStorage.getItem('preferredWallet');
 		const currentAccount = localStorage.getItem('currentAccount');
 
+		console.log('🔍 authToken:', authToken);
+		console.log('🔍 savedWallet:', savedWallet);
+		console.log('🔍 currentAccount:', currentAccount);
 		if(authToken && savedWallet && currentAccount) {
 			console.log('💾 Found saved wallet configuration, attempting reconnection...');
 			try {
 				const connected = await web3Store.connectWallet(savedWallet, isMobile.value);
 				if(connected) {
 					console.log('✅ Reconnection successful');
+					/// call userMe
 					props.close();
 				}
 			} catch(error) {

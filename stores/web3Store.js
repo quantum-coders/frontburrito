@@ -1,11 +1,11 @@
-import { defineStore } from 'pinia';
-import { ref, computed, markRaw } from 'vue';
-import { ethers, Contract } from 'ethers';
-import { useToast } from 'vue-toast-notification';
-import { useRuntimeConfig } from '#app';
-import { MetaMaskWallet, CoreWallet, RabbyWallet, TrustWallet, WalletConnect } from '@thirdweb-dev/wallets';
+import {defineStore} from 'pinia';
+import {ref, computed, markRaw} from 'vue';
+import {ethers, Contract} from 'ethers';
+import {useToast} from 'vue-toast-notification';
+import {useRuntimeConfig} from '#app';
+import {MetaMaskWallet, CoreWallet, RabbyWallet, TrustWallet, WalletConnect} from '@thirdweb-dev/wallets';
 
-import { MetaMaskSDK } from '@metamask/sdk';
+import {MetaMaskSDK} from '@metamask/sdk';
 
 export const SUPPORTED_WALLETS = {
 	METAMASK: 'metamask',
@@ -21,7 +21,8 @@ export const useWeb3Store = defineStore('web3', () => {
 	const chainId = parseInt(config.public.chainId);
 	const burritoTokenAddress = config.public.burritoTokenAddress;
 	const usdtAddress = config.public.usdtAddress;
-
+	const isMobileDevice = ref(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+	const walletMobileLoading = ref(false);
 	// State
 	const walletInstance = ref(null);
 	const signer = ref(null);
@@ -43,8 +44,8 @@ export const useWeb3Store = defineStore('web3', () => {
 	const isConnected = computed(() => connectionStatus.value === 'connected');
 	const isConnecting = computed(() => connectionStatus.value === 'connecting');
 	const formattedAddress = computed(() => {
-		if(!address.value) return '';
-		return `${ address.value.slice(0, 6) }...${ address.value.slice(-4) }`;
+		if (!address.value) return '';
+		return `${address.value.slice(0, 6)}...${address.value.slice(-4)}`;
 	});
 	const isCorrectNetwork = computed(() => currentChainId.value === chainId);
 
@@ -65,6 +66,7 @@ export const useWeb3Store = defineStore('web3', () => {
 		};
 	};
 
+
 	const getThirdWebWalletProvider = async (providerName) => {
 		let wallet;
 
@@ -80,7 +82,7 @@ export const useWeb3Store = defineStore('web3', () => {
 				navigator.userAgent,
 			);
 
-			if(isMobileDevice) {
+			if (isMobileDevice) {
 				console.log('📱 Mobile device detected, provider:', providerName);
 
 				const dappMetadata = {
@@ -90,18 +92,40 @@ export const useWeb3Store = defineStore('web3', () => {
 					logoUrl: 'https://burritoai.com/favicon.ico',
 				};
 
-				const mmsdk = new MetaMaskSDK({ dappMetadata });
-				const accounts = await mmsdk.connect();
+				const mmsdk = new MetaMaskSDK({
+					dappMetadata,
+					// checkInstallationImmediately: false,
+					openDeeplink: (link) => {
+						// Aquí manejas cómo se abre el deeplink
+						window.location.href = link;
 
-				console.log('🔌 Wallet:', accounts);
+					},
+
+					/* logging: {
+						developerMode: true,
+						sdk: true
+					}**/
+				});
 				console.log('🔌 Provider:', mmsdk.getProvider());
+				const accounts = await mmsdk.connect();
+				console.log('🔌 Wallet:', accounts);
+				console.log('🔌 Wallet accounts array from provider:', mmsdk.getProvider().state.accounts);
 
-				const mmsdkProvider = mmsdk.getProvider();
+				let mmsdkProvider = mmsdk.getProvider();
+
+				if (!mmsdkProvider?.state?.accounts) {
+					/// request connection again
+					await mmsdk.getProvider().request({method: 'eth_requestAccounts'});
+					// now print again the accounts
+					console.log('🔌 Wallet accounts array from provider:', mmsdk.getProvider().state.accounts);
+				}
 				const web3Provider = new ethers.providers.Web3Provider(mmsdkProvider);
 				const signer = web3Provider.getSigner();
-
+				const walletObject = new MetaMaskWallet({
+					dappMetadata, qrcode: false,
+				});
 				return {
-					wallet: markRaw(accounts[0]),
+					wallet: markRaw(walletObject),
 					provider: markRaw(web3Provider),
 					signer,
 				};
@@ -109,7 +133,7 @@ export const useWeb3Store = defineStore('web3', () => {
 			} else {
 				console.log('🖥️ Desktop device detected, using preferred wallet:', providerName);
 
-				switch(providerName) {
+				switch (providerName) {
 					case 'metamask':
 						wallet = new MetaMaskWallet({
 							dappMetadata, qrcode: false,
@@ -149,9 +173,43 @@ export const useWeb3Store = defineStore('web3', () => {
 				};
 			}
 
-		} catch(error) {
+		} catch (error) {
 			console.error('Error en provider:', error);
 			throw error;
+		}
+	};
+
+
+	// Add this helper function to manage connection persistence
+	const getStoredConnection = () => {
+		try {
+			const storedData = localStorage.getItem('walletConnection');
+			if (!storedData) return null;
+
+			const data = JSON.parse(storedData);
+			const expiryTime = 24 * 60 * 60 * 1000; // 24 hours
+
+			if (Date.now() - data.timestamp > expiryTime) {
+				localStorage.removeItem('walletConnection');
+				return null;
+			}
+
+			return data;
+		} catch (err) {
+			console.error('Error reading stored connection:', err);
+			return null;
+		}
+	};
+
+	const storeConnection = (address, chainId) => {
+		try {
+			localStorage.setItem('walletConnection', JSON.stringify({
+				address,
+				chainId,
+				timestamp: Date.now()
+			}));
+		} catch (err) {
+			console.error('Error storing connection:', err);
 		}
 	};
 
@@ -159,31 +217,31 @@ export const useWeb3Store = defineStore('web3', () => {
 		try {
 			const currentProvider = provider.value;
 
-			if(!currentProvider) {
+			if (!currentProvider) {
 				console.warn('No provider available for setting listeners');
 				return;
 			}
 
 			// Usamos los métodos on/off directamente del provider
-			if(shouldListen) {
-				if(typeof currentProvider.on === 'function') {
+			if (shouldListen) {
+				if (typeof currentProvider.on === 'function') {
 					currentProvider.on('accountsChanged', handleAccountsChanged);
 					currentProvider.on('chainChanged', handleChainChanged);
 				}
 			} else {
-				if(typeof currentProvider.off === 'function') {
+				if (typeof currentProvider.off === 'function') {
 					currentProvider.off('accountsChanged', handleAccountsChanged);
 					currentProvider.off('chainChanged', handleChainChanged);
 				}
 				localStorage.removeItem('currentAccount');
 			}
-		} catch(error) {
+		} catch (error) {
 			console.warn('Error in setListeners:', error);
 		}
 	};
 
 	const handleAccountsChanged = async (accounts) => {
-		if(Array.isArray(accounts) && accounts.length === 0) {
+		if (Array.isArray(accounts) && accounts.length === 0) {
 			await disconnect();
 			return;
 		}
@@ -208,7 +266,7 @@ export const useWeb3Store = defineStore('web3', () => {
 	const connectWallet = async (walletType, isMobile = false) => {
 		console.log('🚀 Starting wallet connection...', walletType);
 
-		if(connectionStatus.value === 'connecting') {
+		if (connectionStatus.value === 'connecting') {
 			console.log('⚠️ Connection already in progress');
 			return false;
 		}
@@ -263,24 +321,24 @@ export const useWeb3Store = defineStore('web3', () => {
 				const authToken = localStorage.getItem('authToken');
 				let meUser = null;
 				console.log('🔑 Auth token:', authToken);
-				if(!authToken) {
-					await auth.login({ wallet: connectedAddress });
+				if (!authToken) {
+					await auth.login({wallet: connectedAddress});
 				}
 				meUser = await auth.me();
-				if(meUser?.balance) {
+				if (meUser?.balance) {
 					console.log('💰 Updating USD balance:', meUser.balance);
 					updateUsdBalance(meUser.balance);
 				}
 
-			} catch(error) {
+			} catch (error) {
 				console.error('❌ Authentication check failed:', error);
 			}
 
 			console.log('✅ Wallet connected successfully');
-			if(!isReconnection()) toast.success('Wallet connected successfully');
+			if (!isReconnection()) toast.success('Wallet connected successfully');
 			return true;
 
-		} catch(error) {
+		} catch (error) {
 			console.error('❌ Wallet connection failed:', error);
 			connectionError.value = {
 				message: error.message,
@@ -294,61 +352,82 @@ export const useWeb3Store = defineStore('web3', () => {
 		}
 	};
 	const refreshBalances = async (me = false) => {
-		if(!isConnected.value || !provider.value || !signer.value) {
-			console.warn('⚠️ Cannot refresh balances - wallet not properly connected');
-			return;
-		}
+    if (!isConnected.value || !provider.value || !signer.value) {
+        console.warn('⚠️ Cannot refresh balances - wallet not properly connected');
+        walletMobileLoading.value = false;
+        return;
+    }
 
-		try {
-			console.log('🔄 Refreshing balances...');
-			if(me) {
-				const userMe = await useAuth().me();
-				if(userMe?.balance) {
-					console.log('💰 Updating USD balance:', userMe.balance);
-					updateUsdBalance(userMe.balance);
-				}
-			}
-			const erc20Abi = [
-				'function balanceOf(address owner) view returns (uint256)',
-				'function decimals() view returns (uint8)',
-			];
+    try {
+        walletMobileLoading.value = true;
 
-			const burritoContract = new Contract(burritoTokenAddress, erc20Abi, signer.value);
-			const usdtContract = new Contract(usdtAddress, erc20Abi, signer.value);
+        console.log('🔄 Refreshing balances...');
 
-			const [ nativeBalance, burritoBalance, usdtBalance ] = await Promise.all([
-				provider.value.getBalance(address.value),
-				burritoContract.balanceOf(address.value),
-				usdtContract.balanceOf(address.value),
-			]);
+        if (me) {
+            try {
+                let userMe = await useAuth().me();
+                if (!userMe && walletInstance.value) {
+                    await useAuth().login({wallet: address.value});
+                    userMe = await useAuth().me();
+                }
+                if (userMe?.balance) {
+                    console.log('💰 Updating USD balance:', userMe.balance);
+                    updateUsdBalance(userMe.balance);
+                }
+            } catch (authError) {
+                console.error('❌ Auth error:', authError);
+            }
+        }
 
-			balances.value = {
-				...balances.value,
-				native: ethers.utils.formatEther(nativeBalance),
-				burrito: ethers.utils.formatEther(burritoBalance),
-				usdt: ethers.utils.formatUnits(usdtBalance, 6),
-			};
+        const erc20Abi = [
+            'function balanceOf(address owner) view returns (uint256)',
+            'function decimals() view returns (uint8)',
+        ];
 
-			console.log('💰 Balances updated:', balances.value);
-		} catch(error) {
-			console.error('❌ Failed to refresh balances:', error);
-			toast.error('Failed to refresh balances');
-		}
-	};
+        const burritoContract = new Contract(burritoTokenAddress, erc20Abi, signer.value);
+        const usdtContract = new Contract(usdtAddress, erc20Abi, signer.value);
+
+        // Obtener balances de forma secuencial
+        const nativeBalance = await provider.value.getBalance(address.value);
+        const burritoBalance = await burritoContract.balanceOf(address.value);
+        const usdtBalance = await usdtContract.balanceOf(address.value);
+
+        console.log("Balances =>", {
+            native: ethers.utils.formatEther(nativeBalance),
+            burrito: ethers.utils.formatEther(burritoBalance),
+            usdt: ethers.utils.formatUnits(usdtBalance, 6),
+        });
+
+        balances.value = {
+            ...balances.value,
+            native: ethers.utils.formatEther(nativeBalance),
+            burrito: ethers.utils.formatEther(burritoBalance),
+            usdt: ethers.utils.formatUnits(usdtBalance, 6),
+        };
+
+        console.log('💰 Balances updated:', balances.value);
+    } catch (error) {
+        console.error('❌ Failed to refresh balances:', error);
+        toast.error('Failed to refresh balances');
+        throw error;
+    } finally {
+        walletMobileLoading.value = false;
+    }
+};
 
 	// En useWeb3Store
 	const disconnect = async () => {
 		try {
 			console.log('🔌 Disconnecting wallet');
 			setWalletListeners(false); // Remover listeners primero
-			if(walletInstance.value?.disconnect) {
+			if (walletInstance.value?.disconnect) {
 				await walletInstance.value.disconnect();
 			}
 			resetState();
 			localStorage.removeItem('preferredWallet');
 			localStorage.removeItem('currentAccount'); // Importante!
 			toast.success('Wallet disconnected');
-		} catch(error) {
+		} catch (error) {
 			console.error('❌ Error disconnecting wallet:', error);
 			toast.error('Failed to disconnect wallet');
 			resetState();
@@ -356,7 +435,7 @@ export const useWeb3Store = defineStore('web3', () => {
 	};
 
 	const switchToAvalanche = async () => {
-		if(!walletInstance.value) {
+		if (!walletInstance.value) {
 			throw new Error('No wallet connected');
 		}
 
@@ -365,7 +444,7 @@ export const useWeb3Store = defineStore('web3', () => {
 			currentChainId.value = chainId;
 			await refreshBalances();
 			return true;
-		} catch(error) {
+		} catch (error) {
 			console.error('❌ Failed to switch network:', error);
 			toast.error('Failed to switch network');
 			throw error;
@@ -377,10 +456,10 @@ export const useWeb3Store = defineStore('web3', () => {
 		const provider = new ethers.providers.JsonRpcProvider(avaxMainnetRpc);
 		const priceFeed = new ethers.Contract(
 			'0x0A77230d17318075983913bC2145DB16C7366156',
-			[ 'function latestRoundData() view returns (uint80, int256, uint256, uint256, uint80)' ],
+			['function latestRoundData() view returns (uint80, int256, uint256, uint256, uint80)'],
 			provider,
 		);
-		const [ , price ] = await priceFeed.latestRoundData();
+		const [, price] = await priceFeed.latestRoundData();
 		return price / 1e8;
 	};
 
@@ -399,7 +478,10 @@ export const useWeb3Store = defineStore('web3', () => {
 		connectWallet,
 		signer,
 		provider,
+		isMobileDevice,
 		disconnect: resetState,
+		walletMobileLoading,
+		getThirdWebWalletProvider,
 		refreshBalances,
 		SUPPORTED_WALLETS,
 		switchToAvalanche,
