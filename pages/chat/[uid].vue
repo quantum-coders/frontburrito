@@ -32,7 +32,7 @@
 						<a href="#" class="btn btn-burrito btn-new-chat" @click.prevent="createNewChat">New Chat</a>
 					</p>
 
-					<div class="mb-3 form-group form-group-system">
+					<div class="mb-3 form-group form-group-system" v-if="!isMobile">
 						<label class="form-label" for="system-prompt">System Prompt</label>
 						<textarea
 							class="form-control"
@@ -43,9 +43,9 @@
 							@blur="chatStore.updateChat({ system: chatStore.chat.system })"
 						></textarea>
 					</div>
-					<chat-model-selector/>
+					<chat-model-selector v-if="!isMobile"/>
 				</div>
-				<div class="chat-stats">
+				<div class="chat-stats" v-if="!isMobile">
 					<h4 class="chat-stats-title">Chat Statistics</h4>
 					<div class="statistic-chunk">
 						<strong>Messages</strong>
@@ -79,6 +79,7 @@
 
 <script setup>
 	import {useTimeAgo} from '@vueuse/core';
+	const {isMobile} = useDevice();
 
 	definePageMeta({layout: 'burrito'});
 	const {$mdRenderer} = useNuxtApp();
