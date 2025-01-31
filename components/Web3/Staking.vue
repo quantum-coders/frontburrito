@@ -312,10 +312,9 @@
 												<button
 													@click="handleClaimRewards(stake.index)"
 													class="btn btn-make-small btn-golden d-flex align-items-center justify-content-center gap-2"
-
-													:disabled="loadingStateClaim"
+													:disabled="loadingStateClaimMap.get(stake.index)"
 												>
-													<template v-if="loadingStateClaim">
+													<template v-if="loadingStateClaimMap.get(stake.index)">
 														<div class="spinner-border spinner-border-sm"
 															 role="status"></div>
 														<span>Claiming...</span>
@@ -361,11 +360,12 @@
 	const web3Store = useWeb3Store();
 	const activeStakes = ref([]);
 	const stakingHistory = ref([]);
+	const loadingStateClaimMap = ref(new Map());
+
 	// Staking interface
 	const amountToStake = ref(0);
 	const activeTab = ref('dashboard');
 	const stakeDuration = ref(30);
-	const loadingStateClaim = ref(false);
 	const stakingStatus = ref(null);
 	const loadingState = ref(false);
 	const isApproved = ref(false);
@@ -551,6 +551,10 @@
 		);
 		if (!error.value?.data) {
 			stakingHistory.value = data.value.data;
+			/// here fill the loading map
+			stakingHistory.value.forEach(stake => {
+				loadingStateClaimMap.value.set(stake.index, false);
+			});
 		} else {
 			console.error('Error fetching staking history:', error.value);
 		}
@@ -559,7 +563,7 @@
 	const handleClaimRewards = async (stakeIndex) => {
 		console.log('Claiming rewards for stake:', stakeIndex);
 		try {
-			loadingStateClaim.value = true;
+			loadingStateClaimMap.value.set(stakeIndex, true)
 			const {error, data} = await useBaseFetch(
 				`/web3/build-unstake-transaction/${web3Store.address}`,
 				{
@@ -577,8 +581,11 @@
 					successToast('Claim rewards successful!');
 					useMarketingStore().trackEvent('claim_rewards', {});
 				} catch (error) {
-					console.error('Error claiming rewards:', error);
-					errorToast('Error claiming rewards.');
+					if (error?.code === 4001) {
+						errorToast('Transaction cancelled by user');
+					} else {
+						errorToast(`Error claiming rewards: ${error?.message || 'Unknown error'}`);
+					}
 				} finally {
 					await runStakingChecks();
 
@@ -590,7 +597,8 @@
 			console.error('Error claiming rewards:', error);
 			errorToast('Error claiming rewards.');
 		} finally {
-			loadingStateClaim.value = false;
+			loadingStateClaimMap.value.set(stakeIndex, false)
+
 		}
 	};
 
@@ -656,6 +664,10 @@
 			realTimeEarnings.value = parseFloat(realTimeEarnings.value.toFixed(16));
 		}, 100); // Update every 100 milliseconds
 	};
+
+	onBeforeUnmount(() => {
+		loadingStateClaimMap.value.clear();
+	});
 </script>
 
 <style scoped lang="sass">
