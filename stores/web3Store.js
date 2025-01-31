@@ -4,8 +4,8 @@ import {ethers, Contract} from 'ethers';
 import {useToast} from 'vue-toast-notification';
 import {useRuntimeConfig} from '#app';
 import {MetaMaskWallet, CoreWallet, RabbyWallet, TrustWallet, WalletConnect} from '@thirdweb-dev/wallets';
-import {createThirdwebClient} from "thirdweb";
-import {createWallet} from "thirdweb/wallets";
+
+import {MetaMaskSDK} from '@metamask/sdk';
 
 export const SUPPORTED_WALLETS = {
 	METAMASK: 'metamask',
@@ -21,7 +21,8 @@ export const useWeb3Store = defineStore('web3', () => {
 	const chainId = parseInt(config.public.chainId);
 	const burritoTokenAddress = config.public.burritoTokenAddress;
 	const usdtAddress = config.public.usdtAddress;
-
+	const isMobileDevice = ref(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+	const walletMobileLoading = ref(false);
 	// State
 	const walletInstance = ref(null);
 	const signer = ref(null);
@@ -65,68 +66,150 @@ export const useWeb3Store = defineStore('web3', () => {
 		};
 	};
 
-	const getThirdWebWalletProvider = async (providerName) => {
-		let wallet, dappMetadata;
 
-		dappMetadata = {
+	const getThirdWebWalletProvider = async (providerName) => {
+		let wallet;
+
+		const dappMetadata = {
 			name: 'BurritoAI',
 			url: 'https://burritoai.finance',
 			description: 'Simplifying crypto AI Markets',
-			logoUrl: 'https://burritoai.com/favicon.ico'
-		}
+			logoUrl: 'https://burritoai.com/favicon.ico',
+		};
 
 		try {
 			const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-				navigator.userAgent
+				navigator.userAgent,
 			);
 
 			if (isMobileDevice) {
-				wallet = new WalletConnect({
-					projectId: "c5b91a04226bedba6920e0bd5fd42710",
-					qrcode: true,
-					qrModalOptions: {
-						dappMetadata,
-						themeMode: "dark"
-					}
+				console.log('📱 Mobile device detected, provider:', providerName);
+
+				const dappMetadata = {
+					name: 'BurritoAI',
+					url: 'https://burritoai.finance',
+					description: 'Simplifying crypto AI Markets',
+					logoUrl: 'https://burritoai.com/favicon.ico',
+				};
+
+				const mmsdk = new MetaMaskSDK({
+					dappMetadata,
+					// checkInstallationImmediately: false,
+					openDeeplink: (link) => {
+						// Aquí manejas cómo se abre el deeplink
+						window.location.href = link;
+
+					},
+
+					/* logging: {
+						developerMode: true,
+						sdk: true
+					}**/
 				});
-				console.log('📱 Mobile device detected, defaulting to WalletConnect');
+				console.log('🔌 Provider:', mmsdk.getProvider());
+				const accounts = await mmsdk.connect();
+				console.log('🔌 Wallet:', accounts);
+				console.log('🔌 Wallet accounts array from provider:', mmsdk.getProvider().state.accounts);
+
+				let mmsdkProvider = mmsdk.getProvider();
+
+				if (!mmsdkProvider?.state?.accounts) {
+					/// request connection again
+					await mmsdk.getProvider().request({method: 'eth_requestAccounts'});
+					// now print again the accounts
+					console.log('🔌 Wallet accounts array from provider:', mmsdk.getProvider().state.accounts);
+				}
+				const web3Provider = new ethers.providers.Web3Provider(mmsdkProvider);
+				const signer = web3Provider.getSigner();
+				const walletObject = new MetaMaskWallet({
+					dappMetadata, qrcode: false,
+				});
+				return {
+					wallet: markRaw(walletObject),
+					provider: markRaw(web3Provider),
+					signer,
+				};
+
 			} else {
+				console.log('🖥️ Desktop device detected, using preferred wallet:', providerName);
+
 				switch (providerName) {
 					case 'metamask':
 						wallet = new MetaMaskWallet({
-							dappMetadata
+							dappMetadata, qrcode: false,
 						});
 						break;
 					case 'core':
 						wallet = new CoreWallet({
-							dappMetadata
+							dappMetadata,
 						});
 						break;
 					case 'rabby':
 						wallet = new RabbyWallet({
-							dappMetadata
+							dappMetadata,
 						});
 						break;
 					default:
 						wallet = new MetaMaskWallet({
-							dappMetadata
+							dappMetadata,
 						});
 				}
+
+				console.log('🔌 Wallet:', wallet);
+
+				await wallet.connect();
+
+				const walletSigner = await wallet.getSigner();
+
+				console.table({
+					'🔌 Wallet provider': wallet.provider,
+					'🔑 Wallet signer': walletSigner,
+				});
+
+				return {
+					wallet: markRaw(wallet),
+					provider: markRaw(walletSigner.provider),
+					signer: markRaw(walletSigner),
+				};
 			}
-			console.log("🔌 Wallet:", wallet);
-
-			await wallet.connect();
-
-			const walletSigner = await wallet.getSigner();
-			return {
-				wallet: markRaw(wallet),
-				provider: markRaw(walletSigner.provider),
-				signer: markRaw(walletSigner)
-			};
 
 		} catch (error) {
 			console.error('Error en provider:', error);
 			throw error;
+		}
+	};
+
+
+	// Add this helper function to manage connection persistence
+	const getStoredConnection = () => {
+		try {
+			const storedData = localStorage.getItem('walletConnection');
+			if (!storedData) return null;
+
+			const data = JSON.parse(storedData);
+			const expiryTime = 24 * 60 * 60 * 1000; // 24 hours
+
+			if (Date.now() - data.timestamp > expiryTime) {
+				localStorage.removeItem('walletConnection');
+				return null;
+			}
+
+			return data;
+		} catch (err) {
+			console.error('Error reading stored connection:', err);
+			return null;
+		}
+	};
+
+	const storeConnection = (address, chainId) => {
+		try {
+			localStorage.setItem('walletConnection', JSON.stringify({
+				address,
+				chainId,
+				timestamp: Date.now()
+			}));
+		} catch (err) {
+			console.error('Error storing connection:', err);
 		}
 	};
 
@@ -179,7 +262,7 @@ export const useWeb3Store = defineStore('web3', () => {
 		const savedWallet = localStorage.getItem('preferredWallet');
 		const currentAccount = localStorage.getItem('currentAccount');
 		return savedWallet && currentAccount;
-	}
+	};
 	const connectWallet = async (walletType, isMobile = false) => {
 		console.log('🚀 Starting wallet connection...', walletType);
 
@@ -193,21 +276,21 @@ export const useWeb3Store = defineStore('web3', () => {
 			initLoading.value = true;
 			connectionError.value = null;
 
-			if (isMobile) {
-				console.log('📱 Mobile device detected, defaulting to Wallet Connect');
-				walletType = 'walletconnect';
-			}
-
 			const {
 				wallet,
 				provider: walletProvider,
-				signer: walletSigner
+				signer: walletSigner,
 			} = await getThirdWebWalletProvider(walletType);
 
 			// Validate connection
 			console.log('🔍 Validating connection...');
 			const connectedAddress = await walletSigner.getAddress();
+
+			console.log('🔗 Connected address:', connectedAddress);
+
 			const network = await walletProvider.getNetwork();
+
+			console.log('🔗 Network:', network);
 
 			// Update state with raw objects
 			console.log('📝 Updating wallet state...');
@@ -252,7 +335,7 @@ export const useWeb3Store = defineStore('web3', () => {
 			}
 
 			console.log('✅ Wallet connected successfully');
-			if(!isReconnection()) toast.success('Wallet connected successfully');
+			if (!isReconnection()) toast.success('Wallet connected successfully');
 			return true;
 
 		} catch (error) {
@@ -271,47 +354,43 @@ export const useWeb3Store = defineStore('web3', () => {
 	const refreshBalances = async (me = false) => {
 		if (!isConnected.value || !provider.value || !signer.value) {
 			console.warn('⚠️ Cannot refresh balances - wallet not properly connected');
+			walletMobileLoading.value = false;
 			return;
 		}
 
 		try {
+			walletMobileLoading.value = true;
 			console.log('🔄 Refreshing balances...');
+
 			if (me) {
-				const userMe = await useAuth().me();
-				if (userMe?.balance) {
-					console.log('💰 Updating USD balance:', userMe.balance);
-					updateUsdBalance(userMe.balance);
+				try {
+					let userMe = await useAuth().me();
+					if (!userMe && walletInstance.value) {
+						await useAuth().login({wallet: address.value});
+						userMe = await useAuth().me();
+					}
+					if (userMe?.balances) {
+						// updateUsdBalance(userMe.balance);
+						balances.value = {
+							...userMe.balances
+						};
+					}
+				} catch (authError) {
+					console.error('❌ Auth error:', authError);
 				}
 			}
-			const erc20Abi = [
-				'function balanceOf(address owner) view returns (uint256)',
-				'function decimals() view returns (uint8)',
-			];
-
-			const burritoContract = new Contract(burritoTokenAddress, erc20Abi, signer.value);
-			const usdtContract = new Contract(usdtAddress, erc20Abi, signer.value);
-
-			const [nativeBalance, burritoBalance, usdtBalance] = await Promise.all([
-				provider.value.getBalance(address.value),
-				burritoContract.balanceOf(address.value),
-				usdtContract.balanceOf(address.value)
-			]);
-
-			balances.value = {
-				...balances.value,
-				native: ethers.utils.formatEther(nativeBalance),
-				burrito: ethers.utils.formatEther(burritoBalance),
-				usdt: ethers.utils.formatUnits(usdtBalance, 6)
-			};
 
 			console.log('💰 Balances updated:', balances.value);
 		} catch (error) {
 			console.error('❌ Failed to refresh balances:', error);
 			toast.error('Failed to refresh balances');
+			throw error;
+		} finally {
+			walletMobileLoading.value = false;
 		}
 	};
 
-// En useWeb3Store
+	// En useWeb3Store
 	const disconnect = async () => {
 		try {
 			console.log('🔌 Disconnecting wallet');
@@ -353,7 +432,7 @@ export const useWeb3Store = defineStore('web3', () => {
 		const priceFeed = new ethers.Contract(
 			'0x0A77230d17318075983913bC2145DB16C7366156',
 			['function latestRoundData() view returns (uint80, int256, uint256, uint256, uint80)'],
-			provider
+			provider,
 		);
 		const [, price] = await priceFeed.latestRoundData();
 		return price / 1e8;
@@ -374,7 +453,10 @@ export const useWeb3Store = defineStore('web3', () => {
 		connectWallet,
 		signer,
 		provider,
+		isMobileDevice,
 		disconnect: resetState,
+		walletMobileLoading,
+		getThirdWebWalletProvider,
 		refreshBalances,
 		SUPPORTED_WALLETS,
 		switchToAvalanche,

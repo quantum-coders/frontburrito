@@ -39,6 +39,8 @@
 							<div>
 								<small class="label">BURRITO AI Tokens</small>
 								<p class="coin-qty">{{ formatBalance(cryptoStore.burritoBalance) }}</p>
+								<span v-if="web3Store.walletMobileLoading" class="mobile-loading-indicator"></span>
+
 							</div>
 						</div>
 						<div class="coin d-flex align-items-center gap-2 py-1 px-2">
@@ -46,6 +48,8 @@
 							<div>
 								<small class="label">USDT</small>
 								<p class="coin-qty">{{ formatBalance(cryptoStore.usdtBalance) }}</p>
+								<span v-if="web3Store.walletMobileLoading" class="mobile-loading-indicator"></span>
+
 							</div>
 						</div>
 						<div class="coin d-flex align-items-center gap-2 py-1 px-2">
@@ -53,6 +57,8 @@
 							<div>
 								<small class="label">AVAX</small>
 								<p class="coin-qty">{{ formatBalance(cryptoStore.avaxBalance) }}</p>
+								<span v-if="web3Store.walletMobileLoading" class="mobile-loading-indicator"></span>
+
 							</div>
 						</div>
 						<div class="coin d-flex align-items-center gap-2 py-1 px-2">
@@ -60,6 +66,8 @@
 							<div>
 								<small class="label">Account Balance (USD)</small>
 								<p class="coin-qty">{{ formatBalance(cryptoStore?.userBalance) }}</p>
+								<span v-if="web3Store.walletMobileLoading" class="mobile-loading-indicator"></span>
+
 							</div>
 						</div>
 
@@ -125,7 +133,7 @@
 	const cryptoStore = useCryptoStore();
 	const {switchNetwork, disconnectWallet} = useWeb3();
 	const showWalletMenu = ref(false);
-
+	const web3Store = useWeb3Store();
 	const walletModalRef = ref(null);
 	const stakingModalRef = ref(null);
 	const billingModalRef = ref(null);
@@ -153,7 +161,7 @@
 		try {
 			console.log('🤝 Handling wallet connection...');
 			// Asegúrate de que cryptoStore actualice los balances después de la conexión
-			await cryptoStore.updateBalances(); // Asume que tienes este método en tu store
+			// await cryptoStore.updateBalances(); // Asume que tienes este método en tu store
 			close(); // Cierra el modal después de conectar exitosamente
 		} catch (error) {
 			console.error('❌ Error connecting wallet:', error);
@@ -343,5 +351,31 @@
 </style>
 
 <style lang="sass" scoped>
+	.mobile-loading-indicator
+		display: none
+		// Por defecto oculto
+		position: absolute
+		right: -20px
+		top: 50%
+		transform: translateY(-50%)
+		width: 12px
+		height: 12px
+		border: 2px solid $brand1
+		border-radius: 50%
+		border-top-color: transparent
+		animation: spin 1s linear infinite
 
+	@keyframes spin
+		to
+			transform: translateY(-50%) rotate(360deg)
+
+	// Solo mostrar en móvil
+	@media (max-width: $sm)
+		.mobile-loading-indicator
+			display: block
+
+	// Si prefieres usar clases de Bootstrap para el responsive:
+	@media (max-width: 576px)
+		.mobile-loading-indicator
+			display: block
 </style>

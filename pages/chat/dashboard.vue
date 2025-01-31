@@ -451,10 +451,9 @@
 		display: flex
 		flex-direction: column
 		flex-grow: 1
-		padding-top: 71px
-
 		@media (min-width: $sm)
-			padding-top: 0
+			padding-top: 0px
+
 
 	.selection
 		height: 38px
@@ -464,7 +463,7 @@
 			user-select: none
 
 	.card
-		border: 2px solid $primary
+		border: 2px solid $brand1
 		box-shadow: 0 0 0 0 $primary !important
 		transition: all 250ms ease-in-out
 		top: 0

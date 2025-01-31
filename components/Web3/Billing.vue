@@ -185,7 +185,7 @@
 		exchangeRate.value = await getExchangeRate();
 		await syncBalances();
 		await fetchPaymentHistory();
-		await web3Store.refreshBalances(true);
+		web3Store.refreshBalances(true)
 	});
 
 	const usdValue = computed(() => {
@@ -211,12 +211,16 @@
 			if (data.value.data) {
 				const recordPaymentTx = data.value.data;
 				console.log('RECORD TX_: ', recordPaymentTx);
+				console.log('web3IsMobileDevice', web3Store.isMobileDevice);
 				const signedTx = await web3Store.provider.getSigner().sendTransaction(recordPaymentTx);
 				console.log('SIGNED TX: ', signedTx);
 				const tx1 = await signedTx.wait(3);
 				console.log('TX1: ', tx1);
 				if (tx1.status == 1) {
-					useMarketingStore().trackEvent('fund_account', {amount: amount.value, currency: selectedCurrency.value});
+					useMarketingStore().trackEvent('fund_account', {
+						amount: amount.value,
+						currency: selectedCurrency.value
+					});
 					/// obtain the amount in USD
 					const amountInUSD = selectedCurrency.value === 'USD' ? amount.value : amount.value * exchangeRate.value;
 					successToast(`Funding of ${amount.value} ${selectedCurrency.value} successful!`);

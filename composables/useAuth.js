@@ -66,12 +66,15 @@ export const useAuth = () => {
 					return data.value.data;
 				} else {
 					console.error('❌ Failed to fetch profile:', error.value);
+					return false;
 				}
 			} else {
 				console.warn('⚠️ No valid token found for profile fetch');
+				return false;
 			}
 		} catch (error) {
 			console.error('❌ Error fetching profile:', error);
+			return false;
 		}
 		return authUser;
 	};
