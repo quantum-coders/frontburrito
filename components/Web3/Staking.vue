@@ -280,6 +280,9 @@
 							<icon name="mdi:history"/>
 							<span>Staking History</span>
 						</h5>
+						<div class="alert alert-info alert-sm d-md-none mb-4" role="alert">
+							<small>👉 Swipe horizontally to see all information</small>
+						</div>
 						<div class="table-responsive">
 							<table class="table table-hover mb-0">
 								<thead class="table-light">
@@ -304,31 +307,38 @@
 										Burrito AI Tokens
 									</td>
 									<td>
-                      <div class="d-flex align-items-center gap-2">
-                        <span
-                          :class="{
-                            'badge bg-success': stake.status === 'Completed',
-                            'badge bg-warning': stake.status === 'Active',
-                          }"
-                        >
-                          <icon name="mdi:check-circle" class="me-1"/>
-                          <span>{{ stake.status }}</span>
-                        </span>
-                        <button
-                          v-if="(stake.status === 'Completed' || stake.status === 'Ready to Claim') && !stake.claimed"
-                          @click="handleClaimRewards(stake.index)"
-                          class="btn btn-success btn-sm"
-                          :disabled="loadingState"
-                        >
-                          <div v-if="loadingState" class="d-flex align-items-center gap-2">
-                            <ui-spinner size="sm"/>
-                            <span>Claiming...</span>
-                          </div>
-                          <div v-else class="d-flex align-items-center gap-2">
-                            <icon name="mdi:cash-plus"/>
-                          </div>
-                        </button>
-                      </div>
+										<div class="d-flex align-items-center">
+											<template v-if="stake.status === 'Ready to Claim' && !stake.claimed">
+												<button
+													@click="handleClaimRewards(stake.index)"
+													class="btn btn-make-small btn-golden d-flex align-items-center justify-content-center gap-2"
+
+													:disabled="loadingStateClaim"
+												>
+													<template v-if="loadingStateClaim">
+														<div class="spinner-border spinner-border-sm"
+															 role="status"></div>
+														<span>Claiming...</span>
+													</template>
+													<template v-else>
+														<icon name="mdi:cash-plus" class="me-1"/>
+														<span>Ready to Claim</span>
+													</template>
+												</button>
+											</template>
+											<template v-else>
+                          <span
+							  :class="{
+                              'badge bg-success': stake.status === 'Completed',
+                              'badge bg-warning': stake.status === 'Active'
+                            }"
+							  class="d-flex align-items-center gap-1"
+						  >
+                            <icon name="mdi:check-circle"/>
+                            <span>{{ stake.status }}</span>
+                          </span>
+											</template>
+										</div>
 									</td>
 								</tr>
 								</tbody>
@@ -355,6 +365,7 @@
 	const amountToStake = ref(0);
 	const activeTab = ref('dashboard');
 	const stakeDuration = ref(30);
+	const loadingStateClaim = ref(false);
 	const stakingStatus = ref(null);
 	const loadingState = ref(false);
 	const isApproved = ref(false);
@@ -547,31 +558,39 @@
 
 	const handleClaimRewards = async (stakeIndex) => {
 		console.log('Claiming rewards for stake:', stakeIndex);
-		const {error, data} = await useBaseFetch(
-			`/web3/build-unstake-transaction/${web3Store.address}`,
-			{
-				method: 'POST',
-				body: {stakeIndex},
+		try {
+			loadingStateClaim.value = true;
+			const {error, data} = await useBaseFetch(
+				`/web3/build-unstake-transaction/${web3Store.address}`,
+				{
+					method: 'POST',
+					body: {stakeIndex},
+				}
+			);
+
+			if (!error.value?.data) {
+				const unstakeTx = data.value.data;
+
+				try {
+					const txResponse = await web3Store.provider.getSigner().sendTransaction(unstakeTx);
+					await txResponse.wait();
+					successToast('Claim rewards successful!');
+					useMarketingStore().trackEvent('claim_rewards', {});
+				} catch (error) {
+					console.error('Error claiming rewards:', error);
+					errorToast('Error claiming rewards.');
+				} finally {
+					await runStakingChecks();
+
+				}
+			} else {
+				console.error('Error building unstake transaction:', error.value);
 			}
-		);
-
-		if (!error.value?.data) {
-			const unstakeTx = data.value.data;
-
-			try {
-				const txResponse = await web3Store.provider.getSigner().sendTransaction(unstakeTx);
-				await txResponse.wait();
-				successToast('Claim rewards successful!');
-				useMarketingStore().trackEvent('claim_rewards', {});
-			} catch (error) {
-				console.error('Error claiming rewards:', error);
-				errorToast('Error claiming rewards.');
-			} finally {
-				await runStakingChecks();
-
-			}
-		} else {
-			console.error('Error building unstake transaction:', error.value);
+		} catch (error) {
+			console.error('Error claiming rewards:', error);
+			errorToast('Error claiming rewards.');
+		} finally {
+			loadingStateClaim.value = false;
 		}
 	};
 
@@ -592,39 +611,39 @@
 	};
 
 	const checkRewardsClaimable = async () => {
-    console.log('Starting checkRewardsClaimable check...');
+		console.log('Starting checkRewardsClaimable check...');
 
-    const {error, data} = await useBaseFetch(
-        `/web3/staking-history/${web3Store.address}`,
-        { method: 'GET' }
-    );
+		const {error, data} = await useBaseFetch(
+			`/web3/staking-history/${web3Store.address}`,
+			{method: 'GET'}
+		);
 
-    if (!error?.value?.data && data.value.data) {
-        const historyData = data.value.data;
-        console.log('Staking history data:', historyData);
+		if (!error?.value?.data && data.value.data) {
+			const historyData = data.value.data;
+			console.log('Staking history data:', historyData);
 
-        // Buscamos cualquier stake con status "Ready to Claim" o "Completed" que no haya sido reclamado
-        const claimableStake = historyData.find(stake =>
-            (stake.status === 'Ready to Claim' || stake.status === 'Completed') && !stake.claimed
-        );
+			// Buscamos cualquier stake con status "Ready to Claim" o "Completed" que no haya sido reclamado
+			const claimableStake = historyData.find(stake =>
+				(stake.status === 'Ready to Claim' || stake.status === 'Completed') && !stake.claimed
+			);
 
-        console.log('Found claimable stake:', claimableStake);
-        isRewardsClaimable.value = !!claimableStake;
+			console.log('Found claimable stake:', claimableStake);
+			isRewardsClaimable.value = !!claimableStake;
 
-        if (claimableStake) {
-            nextClaimableDate.value = null;
-            console.log('isRewardsClaimable set to:', isRewardsClaimable.value);
-        } else {
-            console.log('No claimable stakes found');
-            isRewardsClaimable.value = false;
-            nextClaimableDate.value = null;
-        }
-    } else {
-        console.error('Error checking staking history:', error?.value);
-        isRewardsClaimable.value = false;
-        nextClaimableDate.value = null;
-    }
-};
+			if (claimableStake) {
+				nextClaimableDate.value = null;
+				console.log('isRewardsClaimable set to:', isRewardsClaimable.value);
+			} else {
+				console.log('No claimable stakes found');
+				isRewardsClaimable.value = false;
+				nextClaimableDate.value = null;
+			}
+		} else {
+			console.error('Error checking staking history:', error?.value);
+			isRewardsClaimable.value = false;
+			nextClaimableDate.value = null;
+		}
+	};
 
 	const startEarningsTimer = () => {
 		const earningsPerSecond = computed(() => {
@@ -640,52 +659,89 @@
 </script>
 
 <style scoped lang="sass">
-	.staking-dashboard
-		width: 100%
-		padding: 1rem
+	// Añade estas clases en tu estilo
+	.btn-make-small
+		font-size: 0.8rem
+		padding: 0.5rem 1rem
+		border-radius: 0.5rem
+		min-width: 120px
+		height: auto
+		white-space: nowrap
 
-		.close
-			color: $complement
-			width: 2rem
-			aspect-ratio: 1
-			display: flex
-			justify-content: center
-			align-items: center
-			position: absolute
-			right: -0.75rem
-			top: -0.75rem
-			border-radius: 0.25rem
-			background: $brand1
-			cursor: pointer
-			z-index: 2
+		svg
+			width: 1.2em
+			height: 1.2em
+			margin-right: 0.3rem
 
-		.zoom-card
-			transition: transform 0.3s ease, box-shadow 0.3s ease
+	.btn-golden
+		background: linear-gradient(145deg, #ffd700, #ffa500)
+		border: 1px solid #ffd700
+		color: #000
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5)
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4)
+		transition: all 0.3s ease
 
-			&:hover
-				transform: scale(1.05)
-				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1)
+		&:hover
+			background: linear-gradient(145deg, #ffc800, #ff9500)
+			transform: translateY(-1px)
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)
 
-		.icon-size
-			font-size: 2rem
+		&:active
+			transform: translateY(1px)
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 1px 5px rgba(0, 0, 0, 0.1)
 
-		.real-time-earnings
-			position: relative
-			color: #28a745
-			animation: pulse 2s infinite
+		&:disabled
+			background: linear-gradient(145deg, #e0e0e0, #cccccc)
+			border-color: #cccccc
+			cursor: not-allowed
+			transform: none
 
-		@keyframes pulse
-			0%
-				transform: scale(1)
-			50%
-				transform: scale(1.05)
-			100%
-				transform: scale(1)
+		.staking-dashboard
+			width: 100%
+			padding: 1rem
 
-		.table
-			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)
+			.close
+				color: $complement
+				width: 2rem
+				aspect-ratio: 1
+				display: flex
+				justify-content: center
+				align-items: center
+				position: absolute
+				right: -0.75rem
+				top: -0.75rem
+				border-radius: 0.25rem
+				background: $brand1
+				cursor: pointer
+				z-index: 2
 
-		[data-loading="true"]
-			opacity: 0.5
-			pointer-events: none
+			.zoom-card
+				transition: transform 0.3s ease, box-shadow 0.3s ease
+
+				&:hover
+					transform: scale(1.05)
+					box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1)
+
+			.icon-size
+				font-size: 2rem
+
+			.real-time-earnings
+				position: relative
+				color: #28a745
+				animation: pulse 2s infinite
+
+			@keyframes pulse
+				0%
+					transform: scale(1)
+				50%
+					transform: scale(1.05)
+				100%
+					transform: scale(1)
+
+			.table
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05)
+
+			[data-loading="true"]
+				opacity: 0.5
+				pointer-events: none
 </style>
