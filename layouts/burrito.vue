@@ -15,12 +15,17 @@
 	import {Waypoint} from 'vue-waypoint';
 	import {useRoute} from 'vue-router';
 
+	const {isMobile} = useDevice();
 	const route = useRoute();
 	const headerFixed = ref(false);
 	const web3Store = useWeb3Store();
 
 	const isInChatRoute = computed(() => {
 		// Mostrar el header si estamos en chat/dashboard
+		if (!isMobile) {
+			console.log('isMobile', isMobile);
+			return false;
+		}
 		if (route.path.startsWith('/chat/dashboard')) {
 			return false;
 		}

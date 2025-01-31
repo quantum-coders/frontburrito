@@ -180,15 +180,15 @@
 		display: flex
 		flex-direction: column
 		flex-grow: 1
+		@media (min-width: $sm)
+			padding-top: 70px
 
 		.chat-content
 			display: flex
 			overflow: hidden
 			height: calc(100dvh - 70px)
-			top: 0
-			@media (min-width: $md)
+			@media (min-width: $sm)
 				height: calc(100dvh - 70px)
-				top: 0
 				flex-grow: 1
 
 			.chat-area
