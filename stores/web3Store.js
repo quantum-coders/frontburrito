@@ -352,68 +352,43 @@ export const useWeb3Store = defineStore('web3', () => {
 		}
 	};
 	const refreshBalances = async (me = false) => {
-    if (!isConnected.value || !provider.value || !signer.value) {
-        console.warn('⚠️ Cannot refresh balances - wallet not properly connected');
-        walletMobileLoading.value = false;
-        return;
-    }
+		if (!isConnected.value || !provider.value || !signer.value) {
+			console.warn('⚠️ Cannot refresh balances - wallet not properly connected');
+			walletMobileLoading.value = false;
+			return;
+		}
 
-    try {
-        walletMobileLoading.value = true;
+		try {
+			walletMobileLoading.value = true;
+			console.log('🔄 Refreshing balances...');
 
-        console.log('🔄 Refreshing balances...');
+			if (me) {
+				try {
+					let userMe = await useAuth().me();
+					if (!userMe && walletInstance.value) {
+						await useAuth().login({wallet: address.value});
+						userMe = await useAuth().me();
+					}
+					if (userMe?.balances) {
+						// updateUsdBalance(userMe.balance);
+						balances.value = {
+							...userMe.balances
+						};
+					}
+				} catch (authError) {
+					console.error('❌ Auth error:', authError);
+				}
+			}
 
-        if (me) {
-            try {
-                let userMe = await useAuth().me();
-                if (!userMe && walletInstance.value) {
-                    await useAuth().login({wallet: address.value});
-                    userMe = await useAuth().me();
-                }
-                if (userMe?.balance) {
-                    console.log('💰 Updating USD balance:', userMe.balance);
-                    updateUsdBalance(userMe.balance);
-                }
-            } catch (authError) {
-                console.error('❌ Auth error:', authError);
-            }
-        }
-
-        const erc20Abi = [
-            'function balanceOf(address owner) view returns (uint256)',
-            'function decimals() view returns (uint8)',
-        ];
-
-        const burritoContract = new Contract(burritoTokenAddress, erc20Abi, signer.value);
-        const usdtContract = new Contract(usdtAddress, erc20Abi, signer.value);
-
-        // Obtener balances de forma secuencial
-        const nativeBalance = await provider.value.getBalance(address.value);
-        const burritoBalance = await burritoContract.balanceOf(address.value);
-        const usdtBalance = await usdtContract.balanceOf(address.value);
-
-        console.log("Balances =>", {
-            native: ethers.utils.formatEther(nativeBalance),
-            burrito: ethers.utils.formatEther(burritoBalance),
-            usdt: ethers.utils.formatUnits(usdtBalance, 6),
-        });
-
-        balances.value = {
-            ...balances.value,
-            native: ethers.utils.formatEther(nativeBalance),
-            burrito: ethers.utils.formatEther(burritoBalance),
-            usdt: ethers.utils.formatUnits(usdtBalance, 6),
-        };
-
-        console.log('💰 Balances updated:', balances.value);
-    } catch (error) {
-        console.error('❌ Failed to refresh balances:', error);
-        toast.error('Failed to refresh balances');
-        throw error;
-    } finally {
-        walletMobileLoading.value = false;
-    }
-};
+			console.log('💰 Balances updated:', balances.value);
+		} catch (error) {
+			console.error('❌ Failed to refresh balances:', error);
+			toast.error('Failed to refresh balances');
+			throw error;
+		} finally {
+			walletMobileLoading.value = false;
+		}
+	};
 
 	// En useWeb3Store
 	const disconnect = async () => {

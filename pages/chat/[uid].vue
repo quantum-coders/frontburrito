@@ -1,6 +1,5 @@
 <template>
 	<div class="chat-wrapper" v-if="chatStore.chat">
-		<chat-header class="chat-header shadow-sm" v-if="!web3Store.isMobileDevice"/>
 		<chat-model-mobile-selector v-if="web3Store.isMobileDevice"/>
 		<main class="chat-content">
 
@@ -81,6 +80,7 @@
 <script setup>
 	import {useTimeAgo} from '@vueuse/core';
 
+	definePageMeta({layout: 'burrito'});
 	const {$mdRenderer} = useNuxtApp();
 	const {me} = useAuth();
 	const authToken = localStorage.getItem('authToken');

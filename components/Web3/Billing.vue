@@ -185,7 +185,7 @@
 		exchangeRate.value = await getExchangeRate();
 		await syncBalances();
 		await fetchPaymentHistory();
-		if (!web3Store.isMobileDevice) web3Store.refreshBalances(true)
+		web3Store.refreshBalances(true)
 	});
 
 	const usdValue = computed(() => {

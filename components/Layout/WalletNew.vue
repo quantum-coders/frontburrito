@@ -183,7 +183,7 @@
 	const toggleWalletMenu = () => {
 		if (!showWalletMenu.value) {
 			console.log('💰 Refreshed balances - opening wallet...');
-			if (!web3Store.isMobileDevice) web3Store.refreshBalances(true)
+			web3Store.refreshBalances(true)
 		}
 		showWalletMenu.value = !showWalletMenu.value;
 	};
