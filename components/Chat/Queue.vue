@@ -23,6 +23,10 @@
 									@download="downloadMessage(message)"
 								/>
 								<div class="message-content">
+									<div v-if="message.reasoning" class="reasoning-block">
+										<div class="reasoning-title">Reasoning</div>
+										<blockquote>{{ message.reasoning }}</blockquote>
+									</div>
 									<div
 										class="rendered-content"
 										v-html="renderContent(message.content)"
@@ -291,4 +295,25 @@
 			padding-right: 1.5rem
 			padding-left: 1.5rem
 			overflow-x: visible
+</style>
+<style lang="scss">
+	.reasoning-block {
+		margin-top: 0.5rem;
+		padding: 0.5rem 1rem;
+		margin-bottom: 0.5rem;
+		background-color: #f3f3f3;
+		border-radius: 0.25rem;
+		color: #333;
+
+		blockquote {
+			margin: 0; /* Para quitar márgenes extras en blockquote */
+			font-size: 0.8rem;
+			font-style: italic;
+		}
+	}
+
+	.reasoning-title{
+		font-weight: bold;
+		margin-bottom: 0.25rem;
+	}
 </style>

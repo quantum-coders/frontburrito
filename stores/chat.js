@@ -324,7 +324,22 @@ export const useChatStore = defineStore('chatStore', () => {
 									lines[i] = lines[i].replace(/“/g, '"');
 								}
 								const json = JSON.parse(lines[i]);
-
+								let reasoning;
+								if(typeof json.choices[0].delta.reasoning === 'string') {
+									reasoning = json.choices[0].delta.reasoning;
+									console.log('🧠 RAZONAMIENTO:', json.choices[0].delta.reasoning);
+									if (reasoning && reasoning.trim().length > 0) {
+										console.log('🧠 RAZONAMIENTO CHUNK:', reasoning);
+										// Guardar el reasoning en una propiedad separada
+										const lastMsg = chat.value.messages[chat.value.messages.length - 1];
+										// Creamos la propiedad reasoning si no existe
+										if (!lastMsg.reasoning) {
+											lastMsg.reasoning = '';
+										}
+										lastMsg.reasoning += reasoning;
+										scrollToBottom();
+									}
+								}
 								if (typeof json.choices[0].delta.content === 'string') {
 									chunks += json.choices[0].delta.content;
 
