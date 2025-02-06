@@ -71,7 +71,6 @@
 		flex-direction: column
 		max-width: 100vw
 		overflow: clip
-		max-height: 100dvh
 
 	.header-hidden
 		display: none
