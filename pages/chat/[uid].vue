@@ -1,11 +1,11 @@
 <template>
 	<div class="chat-wrapper" v-if="chatStore.chat">
-		<chat-model-mobile-selector v-if="web3Store.isMobileDevice"/>
+		<chat-model-mobile-selector v-if="web3Store.isMobileDevice" />
 		<main class="chat-content">
 
 			<div class="chat-area">
 				<div class="breadcrumbs-wrapper">
-					<platform-breadcumbs/>
+					<platform-breadcumbs />
 				</div>
 				<div class="chat-info d-flex align-items-center justify-content-between">
 					<div>
@@ -20,9 +20,9 @@
 					<p class="small">{{ chatStore.chat?.uid }}</p>
 				</div>
 
-				<chat-queue class="flex-grow-1"/>
+				<chat-queue class="flex-grow-1" />
 				<div class="p-2">
-					<chat-input class="mt-auto"/>
+					<chat-input class="mt-auto" />
 				</div>
 			</div>
 
@@ -43,7 +43,7 @@
 							@blur="chatStore.updateChat({ system: chatStore.chat.system })"
 						></textarea>
 					</div>
-					<chat-model-selector v-if="!isMobile"/>
+					<chat-model-selector v-if="!isMobile" />
 				</div>
 				<div class="chat-stats" v-if="!isMobile">
 					<h4 class="chat-stats-title">Chat Statistics</h4>
@@ -78,14 +78,14 @@
 </template>
 
 <script setup>
-	import {useTimeAgo} from '@vueuse/core';
-	const {isMobile} = useDevice();
+	import { useTimeAgo } from '@vueuse/core';
+	const { isMobile } = useDevice();
 
-	definePageMeta({layout: 'burrito'});
-	const {$mdRenderer} = useNuxtApp();
-	const {me} = useAuth();
+	definePageMeta({ layout: 'burrito' });
+	const { $mdRenderer } = useNuxtApp();
+	const { me } = useAuth();
 	const authToken = localStorage.getItem('authToken');
-	if (authToken) await me(authToken);
+	if(authToken) await me(authToken);
 
 	const route = useRoute();
 	const router = useRouter();
@@ -96,7 +96,7 @@
 	const webSearchEnabled = ref(false);
 	const webSearchType = ref('normal');
 
-	if (!uid) {
+	if(!uid) {
 		router.push('/');
 	} else {
 		await chatStore.getChat(uid);
@@ -107,12 +107,12 @@
 	const saveChatName = async (event) => {
 		event.target.blur();
 		chatStore.chat.name = event.target.innerText.trim();
-		await chatStore.updateChat({name: chatStore.chat.name});
+		await chatStore.updateChat({ name: chatStore.chat.name });
 	};
 
 	const updateWebSearch = async () => {
 		console.log('burrito---', webSearchEnabled.value);
-		if (chatStore.chat.metas) {
+		if(chatStore.chat.metas) {
 			await chatStore.updateChat({
 				metas: {
 					...chatStore.chat.metas,
@@ -126,8 +126,8 @@
 	};
 
 	const updateSearchType = async () => {
-		console.info("Enabled: ", webSearchEnabled.value, "Type: ", webSearchType.value);
-		if (chatStore.chat.metas) {
+		console.info('Enabled: ', webSearchEnabled.value, 'Type: ', webSearchType.value);
+		if(chatStore.chat.metas) {
 			await chatStore.updateChat({
 				metas: {
 					...chatStore.chat.metas,
@@ -141,21 +141,21 @@
 	};
 
 	watch(
-		() => [chatStore.chat?.messageStatistics.count, chatStore.chat?.name],
-		async ([messageCount, chatName]) => {
-			if (chatStore.chat && messageCount >= 4 && (chatName === '' || chatName === 'New Chat')) {
+		() => [ chatStore.chat?.messageStatistics.count, chatStore.chat?.name ],
+		async ([ messageCount, chatName ]) => {
+			if(chatStore.chat && messageCount >= 4 && (chatName === '' || chatName === 'New Chat')) {
 				await generateChatName();
 			}
 		},
 	);
 
 	const generateChatName = async () => {
-		const {data} = await useBaseFetch('/chats/generate-chat-name/' + chatStore.chat.uid, {
+		const { data } = await useBaseFetch('/chats/generate-chat-name/' + chatStore.chat.uid, {
 			method: 'POST',
 		});
 
-		if (data.value && data.value.data) {
-			await chatStore.updateChatFrontend({name: data.value.data.name});
+		if(data.value && data.value.data) {
+			await chatStore.updateChatFrontend({ name: data.value.data.name });
 		}
 	};
 
@@ -165,7 +165,7 @@
 	};
 
 	onMounted(async () => {
-		if (chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
+		if(chatStore.chat && chatStore.chat.messageStatistics.count > 2 && (chatStore.chat.name === '' || chatStore.chat.name === 'New Chat')) {
 			await generateChatName();
 		}
 		await chatStore.getTokenUsage(uid);
@@ -186,11 +186,8 @@
 
 		.chat-content
 			display: flex
+			flex-grow: 1
 			overflow: hidden
-			height: calc(100dvh - 70px)
-			@media (min-width: $sm)
-				height: calc(100dvh - 70px)
-				flex-grow: 1
 
 			.chat-area
 				display: flex

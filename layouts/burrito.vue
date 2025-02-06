@@ -1,38 +1,41 @@
 <template>
-	<layout-header :class="{ 'fixed': headerFixed, 'header-hidden': isInChatRoute }"/>
-	<waypoint class="waypoint" @change="headerWaypoint"/>
+	<layout-header :class="{ 'fixed': headerFixed, 'header-hidden': isInChatRoute }" />
+	<waypoint class="waypoint" @change="headerWaypoint" />
 
 	<section class="site-wrapper">
-		<nuxt-page/>
+		<nuxt-page />
 	</section>
 
-	<platform-wait-list/>
+	<platform-wait-list />
 
-	<layout-footer/>
+	<layout-footer :class="{ 'footer-hidden': mobileFooterHide }" />
 </template>
 
 <script setup>
-	import {Waypoint} from 'vue-waypoint';
-	import {useRoute} from 'vue-router';
+	import { Waypoint } from 'vue-waypoint';
+	import { useRoute } from 'vue-router';
 
-	const {isMobile} = useDevice();
+	const { isMobile } = useDevice();
 	const route = useRoute();
 	const headerFixed = ref(false);
 	const web3Store = useWeb3Store();
 
+	const mobileFooterHide = computed(() => {
+		return route.path.startsWith('/chat/');
+	});
+
 	const isInChatRoute = computed(() => {
 		// Mostrar el header si estamos en chat/dashboard
-		if (!isMobile) {
+		if(!isMobile) {
 			console.log('isMobile', isMobile);
 			return false;
 		}
-		if (route.path.startsWith('/chat/dashboard')) {
+		if(route.path.startsWith('/chat/dashboard')) {
 			return false;
 		}
 		// Ocultar el header en todas las demás rutas de chat
 		return route.path.startsWith('/chat/');
 	});
-
 
 	useHead({
 		htmlAttrs: {
@@ -41,8 +44,8 @@
 		titleTemplate: '%s',
 		title: 'BurritoAI',
 		meta: [
-			{charset: 'utf-8'},
-			{name: 'viewport', content: 'width=device-width, initial-scale=1'},
+			{ charset: 'utf-8' },
+			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{
 				hid: 'description',
 				name: 'description',
@@ -68,16 +71,11 @@
 		flex-direction: column
 		max-width: 100vw
 		overflow: clip
+		max-height: 100dvh
 
 	.header-hidden
-		opacity: 0
-		visibility: hidden
-		pointer-events: none
-		position: absolute
-		transform: translateY(-100%)
-		transition: all 0.3s ease
-		// Mantenemos el espacio ocupado original
-		height: 0
-		margin: 0
-		padding: 0
+		display: none
+
+	.footer-hidden
+		display: none
 </style>

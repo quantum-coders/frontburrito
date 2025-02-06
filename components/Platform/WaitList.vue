@@ -42,6 +42,7 @@
 
 		&.is-invisible
 			opacity: 0
+			pointer-events: none
 
 		.error
 			background: $secondary

@@ -149,6 +149,8 @@
 		color: white
 		position: relative
 		display: inline-block
+		width: 100%
+
 
 		&:after
 			content: ''

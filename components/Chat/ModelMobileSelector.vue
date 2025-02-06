@@ -1,11 +1,12 @@
 <template>
 	<header class="chat-header navbar navbar-expand-lg p-2">
-		<div class="logo-container navbar-brand d-flex align-items-center"
-			 @click="router.push('/')">
+		<div
+			class="logo-container navbar-brand d-flex align-items-center"
+			@click="router.push('/')"
+		>
 
-			<img src="/images/logo.svg" alt="Logo" class="logo"/>
+			<img src="/images/logo.svg" alt="Logo" class="logo" />
 		</div>
-
 
 		<div class="model-selector-container ms-auto d-flex align-items-center">
 			<div class="model-selector" :class="{ 'open': isOpen }">
@@ -91,23 +92,23 @@
 	const router = useRouter();
 	// Computed property for current model name
 	const currentModelName = computed(() =>
-		chatStore.chat?.selectedModel?.name || 'Select Model'
+		chatStore.chat?.selectedModel?.name || 'Select Model',
 	);
-	const isMenuOpen = ref(false)
+	const isMenuOpen = ref(false);
 	// Filter models based on search query
 	const filteredFeaturedModels = computed(() => {
 		const models = chatStore.adminModels?.filter(model => model.isFeatured) || [];
-		if (!searchQuery.value) return models;
+		if(!searchQuery.value) return models;
 		return models.filter(model =>
-			model.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+			model.name.toLowerCase().includes(searchQuery.value.toLowerCase()),
 		);
 	});
 
 	const filteredRegularModels = computed(() => {
 		const models = chatStore.adminModels?.filter(model => !model.isFeatured) || [];
-		if (!searchQuery.value) return models;
+		if(!searchQuery.value) return models;
 		return models.filter(model =>
-			model.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+			model.name.toLowerCase().includes(searchQuery.value.toLowerCase()),
 		);
 	});
 
@@ -118,16 +119,16 @@
 	};
 
 	const formatTokens = (tokens) => {
-		if (!tokens) return '0 tokens';
-		if (tokens >= 1000) {
-			return `${(tokens / 1000).toFixed(0)}K tokens`;
+		if(!tokens) return '0 tokens';
+		if(tokens >= 1000) {
+			return `${ (tokens / 1000).toFixed(0) }K tokens`;
 		}
-		return `${tokens} tokens`;
+		return `${ tokens } tokens`;
 	};
 
 	// Close dropdown when clicking outside
 	const handleClickOutside = (event) => {
-		if (!event.target.closest('.model-selector')) {
+		if(!event.target.closest('.model-selector')) {
 			isOpen.value = false;
 		}
 	};
@@ -150,9 +151,8 @@
 
 	/* Usamos .navbar + .chat-header para que sea un estilo de AppBar / Nav */
 	.chat-header {
-		background: url("/images/background-texture.png");
 		background-size: cover;
-		background-repeat: repeat; /* ajusta si deseas */
+		background: url("/images/background-texture.png") repeat;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
 		/*

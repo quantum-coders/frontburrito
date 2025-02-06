@@ -131,7 +131,10 @@
 	.modal-body
 		max-height: 80vh
 		overflow-y: auto
-		padding: 1.5rem
+		padding: 0
+
+		@media (min-width: $sm)
+			padding: 1.5rem
 
 	@keyframes show
 		from
@@ -158,7 +161,7 @@
 	.modal-backdrop.show
 		opacity: 0.5
 
-	::v-deep .btn-close
+	:deep(.btn-close)
 		display: none !important
 
 	@media (max-width: 768px)

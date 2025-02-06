@@ -319,9 +319,12 @@
 
 			.wallet-title
 				font-family: "Chibold", sans-serif
-				font-size: 2.5rem
+				font-size: 1.5rem
 				color: $primary
 				margin: 0
+
+				@media (min-width: $sm)
+					font-size: 2.5rem
 
 		.loading
 			position: absolute
@@ -343,9 +346,12 @@
 				pointer-events: all
 
 		.wallets
-			padding: 2rem
+			padding: 1rem
 			text-align: center
 			width: 100%
+
+			@media (min-width: $sm)
+				padding: 2rem
 
 			.col-wallet
 				border: 1px solid transparent

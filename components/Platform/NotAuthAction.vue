@@ -14,7 +14,7 @@
 						<li class="list-group-item">Receive special rewards and promotions</li>
 						<li class="list-group-item">Safe and secure connection via trusted providers</li>
 					</ul>
-					<button type="button" class="help-link" data-bs-toggle="modal" data-bs-target="#helpModal">
+					<button type="button" class="help-link" data-bs-toggle="modal" data-bs-target="#help-modal">
 						How to connect my wallet?
 					</button>
 				</div>
@@ -22,11 +22,11 @@
 		</div>
 
 		<!-- Help Modal -->
-		<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+		<div class="modal fade" id="help-modal" tabindex="-1" aria-labelledby="help-modal-label" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="helpModalLabel">How to Connect Your Wallet</h5>
+						<h5 class="modal-title" id="help-modal-label">How to Connect Your Wallet</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
@@ -48,14 +48,13 @@
 </template>
 
 <style lang="sass" scoped>
-	#helpModal
+	#help-modal
 		z-index: 10000
 
 	.section-dashboard
 		display: flex
 		flex-direction: column
 		flex-grow: 1
-		padding-top: 71px
 
 		@media (min-width: $sm)
 			padding-top: 0
@@ -66,11 +65,15 @@
 		flex-grow: 1
 		justify-content: center
 		align-items: center
-		padding: 5rem 0
+		padding: 2rem 0 4rem
+
+		@media (min-width: $sm)
+			padding: 5rem 0
 
 		.connect
 			text-align: center
 			max-width: 700px
+			margin: 0 1rem
 			padding: 1rem
 			border: 2px solid $primary
 			box-shadow: 0 1rem 0 0 $primary !important
@@ -85,18 +88,24 @@
 			// 44px * 2
 
 			.title
-				font-size: 2rem
+				font-size: 1.2rem
 				line-height: 1.1
 				font-family: Chibold, sans-serif
 				color: $brand1
 				margin-bottom: 1.5rem
 
+				@media (min-width: $sm)
+					font-size: 2rem
+
 			.content
 				.subtitle
 					font-weight: bold
-					font-size: 1.1rem
+					font-size: 1rem
 					color: $brand1
 					margin-bottom: 1rem
+
+					@media (min-width: $sm)
+						font-size: 1.1rem
 
 				.benefits-list
 					list-style: none
@@ -105,7 +114,11 @@
 
 					li
 						padding: 0.5rem 0
+						font-size: 0.8rem
 						border-bottom: 1px solid rgba($primary, 0.1)
+
+						@media (min-width: $sm)
+							font-size: 1rem
 
 						&:last-child
 							border-bottom: none
